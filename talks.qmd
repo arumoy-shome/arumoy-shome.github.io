@@ -1,0 +1,14 @@
+---
+title: "Talks"
+listing:
+  contents: talks.yaml
+  sort: "date desc"
+  type: table
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  feed: false
+page-layout: full
+title-block-banner: true
+
+---

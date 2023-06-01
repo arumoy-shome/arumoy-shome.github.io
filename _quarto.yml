@@ -1,0 +1,36 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Arumoy Shome"
+  site-url: https://arumoy.me
+  description: "Arumoy Shome's Website"
+  navbar:
+    left:
+      - blogs.qmd
+      - talks.qmd
+      - projects.qmd
+      - publications.qmd
+      - license.qmd
+    right:
+      - icon: github
+        href: https://github.com/arumoy-shome
+      - icon: twitter
+        href: https://twitter.com/arumoy_shome
+      - icon: linkedin
+        href: https://linkedin.com/in/arumoyshome
+  page-footer:
+    center:
+      - text: "All materials on this website are open sourced under
+  the CC BY-NC-SA 3.0 license."
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    mainfont: "Source Code Pro"
+bibliography: bibliography.bib
+reference-location: margin
+citation-location: margin
+resources:
+  - CNAME

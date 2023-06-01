@@ -1,0 +1,21 @@
+---
+title: "Blog"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  fields: [date, title, description, categories, file-modified]
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  feed: true
+page-layout: full
+title-block-banner: true
+
+---
+
+This page contains links to some of my writings on topics that
+interest me. Usually, they are inspired by problems that I experience
+in my day-to-day life.
+
+I like pondering over the act or the process of doing something.
