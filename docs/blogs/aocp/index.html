@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Arumoy Shome">
+<meta name="dcterms.date" content="2021-06-16">
 
-<title>Arumoy Shome - Blog</title>
+<title>Arumoy Shome - Aru’s Org Capture Template (aocp.el)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,41 +60,10 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="Arumoy Shome" href="blogs.xml"></head>
+<link rel="stylesheet" href="../../styles.css">
+</head>
 
 <body class="nav-fixed">
 
@@ -103,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Arumoy Shome</span>
     </a>
   </div>
@@ -114,23 +83,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./blogs.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../../blogs.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./talks.html" rel="" target="">
+    <a class="nav-link" href="../../talks.html" rel="" target="">
  <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html" rel="" target="">
+    <a class="nav-link" href="../../projects.html" rel="" target="">
  <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html" rel="" target="">
+    <a class="nav-link" href="../../publications.html" rel="" target="">
  <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./license.html" rel="" target="">
+    <a class="nav-link" href="../../license.html" rel="" target="">
  <span class="menu-text">License</span></a>
   </li>  
 </ul>
@@ -160,155 +129,88 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Blog</h1>
+    <div class="quarto-title column-body">
+      <h1 class="title">Aru’s Org Capture Template (aocp.el)</h1>
                       </div>
   </div>
     
   
   <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Arumoy Shome </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">June 16, 2021</p>
+      </div>
+    </div>
     
       
     </div>
     
+  <div>
+    <div class="abstract">
+      <div class="abstract-title">Abstract</div>
+      <p>An Emacs package I wrote for managing bibliographic information.</p>
+    </div>
+  </div>
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div></div></div>
-<!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
-
-
-
-
-<p>This page contains links to some of my writings on topics that interest me. Usually, they are inspired by problems that I experience in my day-to-day life.</p>
-<p>I like pondering over the act or the process of doing something.</p>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
     </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1623794400000" data-listing-file-modified-sort="1685802234411" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="body">
-<a href="./blogs/aocp/index.html">
-<h3 class="no-anchor listing-title">
-Aru’s Org Capture Template (aocp.el)
-</h3>
-<div class="listing-subtitle">
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
-</div>
-<div class="listing-description">
-<p>An Emacs package I wrote for managing bibliographic information.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./blogs/aocp/index.html">
-<div class="listing-date">
-Jun 16, 2021
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1623189600000" data-listing-file-modified-sort="1685801808228" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
-<div class="body">
-<a href="./blogs/scientific-paper-discovery/index.html">
-<h3 class="no-anchor listing-title">
-Scientific Paper Discovery
-</h3>
-<div class="listing-subtitle">
 
-</div>
-<div class="listing-description">
-<p>My process of discovering relevant and important papers in a new scientific field.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./blogs/scientific-paper-discovery/index.html">
-<div class="listing-date">
-Jun 9, 2021
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1622671200000" data-listing-file-modified-sort="1685801747456" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
-<div class="body">
-<a href="./blogs/research-workflow/index.html">
-<h3 class="no-anchor listing-title">
-Research Workflow
-</h3>
-<div class="listing-subtitle">
 
-</div>
-<div class="listing-description">
-<p>An outline of my research workflow which I have developed to handle the non-linear nature of scientific work.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./blogs/research-workflow/index.html">
-<div class="listing-date">
-Jun 3, 2021
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1622671200000" data-listing-file-modified-sort="1685801198210" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
-<div class="body">
-<a href="./blogs/productivity/index.html">
-<h3 class="no-anchor listing-title">
-Productivity
-</h3>
-<div class="listing-subtitle">
 
-</div>
-<div class="listing-description">
-<p>Productivity to me comes from proper information management. Information can come in many forms: email, thoughts/ideas, deadlines, events, project planning, online links, and many more.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./blogs/productivity/index.html">
-<div class="listing-date">
-Jun 3, 2021
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<p>After observing my workflow of managing bibliographic information in Emacs, I extracted the repeated actions into an Emacs package.</p>
+<p>To gain some perspective on my workflow, see my prior article on my <a href="../research-workflow">research workflow</a>.</p>
+<p>The package is available on <a href="https://github.com/arumoy-shome/aocp.el">github</a> with two alternative installation methods: 1. By manually downloading the <code>aocp.el</code> file and sticking it in your Emacs <code>load-path</code>, or 2. Using <a href="https://github.com/raxod502/straight.el">straight.el</a> which is what I recommend.</p>
+<p>The package works under the assumption that you manage your bibliographic information in <a href="https://orgmode.org">org-mode</a> (a major-mode for Emacs). The functions made available through this package are intended to be used in an <a href="https://orgmode.org/manual/Capture.html">org-capture</a> template, they are not meant to be called interactively (ie. by using <code>M-x</code>).</p>
+<p>Assuming that you have a bibtex entry in your <code>kill-ring</code> (either by killing text within Emacs or by coping text from an external application into your clipboard), this package will do the following:</p>
+<ul>
+<li>Extract the bibkey</li>
+<li>Extract the first author</li>
+<li>Extract the last author</li>
+<li>Extract the source of publication</li>
+</ul>
+<pre><code>* TODO %(aocp--get-bibkey nil)
+  :PROPERTIES:
+  :PDF: file:~/Documents/papers/%(aocp--get-bibkey t).pdf
+  :FIRST_AUTHOR: %(aocp--get-first-author)
+  :LAST_AUTHOR: %(aocp--get-last-author)
+  :SOURCE: %(aocp--get-source)
+  :END:
+%?
++ problem statement ::
++ solution ::
++ results ::
++ limitations ::
++ remarks ::
+
+  #+begin_src bibtex :tangle yes
+  %c
+  #+end_src</code></pre>
+<p>Assuming you have the above template in <code>paper.txt</code>, you can configure org as follows (replace <code>your-org-inbox-file</code> appropriately):</p>
+<pre class="elisp"><code>(setq org-capture-templates
+    '(("p" "Paper" entry (file+headline your-org-inbox-file "Inbox")
+    "%[~/.emacs.d/org-templates/paper.txt]")))</code></pre>
+<p>With this in place, you can quickly collect all bibliographic information within an org file. Leveraging the powerful functionality provided by <a href="https://orgmode.org/guide/Properties.html">org-properties</a>, one can quickly find relevant papers. For instance, I can look up all papers by author X or all papers by author X published at Y.</p>
+<p>A nice little tip is to download a local copy of the pdf and save them all in a folder. To make this easier, aocp.el also pushes the bibkey to the kill-ring. So all that is left to do is click the download button and paste the bibkey as the file name. This ensure 1. That you have all pdfs names consistently and 2. You have a link to the pdf from your org file (see the <code>:PDF:</code> property in the template above) which you can open by hitting <code>C-c C-o</code> over the link. You do not need to poke around in the directory containing the pdfs, all the context is available in the org file and should be the point of entry for all your bibliographic needs!</p>
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

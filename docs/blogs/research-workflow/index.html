@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Arumoy Shome">
+<meta name="dcterms.date" content="2021-06-03">
 
-<title>Arumoy Shome - Blog</title>
+<title>Arumoy Shome - Research Workflow</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,41 +60,10 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="Arumoy Shome" href="blogs.xml"></head>
+<link rel="stylesheet" href="../../styles.css">
+</head>
 
 <body class="nav-fixed">
 
@@ -103,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Arumoy Shome</span>
     </a>
   </div>
@@ -114,23 +83,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./blogs.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../../blogs.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./talks.html" rel="" target="">
+    <a class="nav-link" href="../../talks.html" rel="" target="">
  <span class="menu-text">Talks</span></a>
   </li>  
+  <li class="dropdown-header">
+ <span class="menu-text">projects.qmd</span></li>
+  <li class="dropdown-header">
+ <span class="menu-text">publications.qmd</span></li>
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html" rel="" target="">
- <span class="menu-text">Projects</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./publications.html" rel="" target="">
- <span class="menu-text">Publications</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./license.html" rel="" target="">
+    <a class="nav-link" href="../../license.html" rel="" target="">
  <span class="menu-text">License</span></a>
   </li>  
 </ul>
@@ -160,155 +125,138 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Blog</h1>
+    <div class="quarto-title column-body">
+      <h1 class="title">Research Workflow</h1>
                       </div>
   </div>
     
   
   <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Arumoy Shome </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">June 3, 2021</p>
+      </div>
+    </div>
     
       
     </div>
     
+  <div>
+    <div class="abstract">
+      <div class="abstract-title">Abstract</div>
+      <p>An outline of my research workflow which I have developed to handle the non-linear nature of scientific work.</p>
+    </div>
+  </div>
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div></div></div>
-<!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
-
-
-
-
-<p>This page contains links to some of my writings on topics that interest me. Usually, they are inspired by problems that I experience in my day-to-day life.</p>
-<p>I like pondering over the act or the process of doing something.</p>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#finding-papers" id="toc-finding-papers" class="nav-link active" data-scroll-target="#finding-papers">Finding papers</a></li>
+  <li><a href="#reading-papers" id="toc-reading-papers" class="nav-link" data-scroll-target="#reading-papers">Reading papers</a></li>
+  <li><a href="#writing-notes" id="toc-writing-notes" class="nav-link" data-scroll-target="#writing-notes">Writing notes</a></li>
+  </ul>
+</nav>
     </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1623794400000" data-listing-file-modified-sort="1685802234411" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="body">
-<a href="./blogs/aocp/index.html">
-<h3 class="no-anchor listing-title">
-Aru’s Org Capture Template (aocp.el)
-</h3>
-<div class="listing-subtitle">
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
-</div>
-<div class="listing-description">
-<p>An Emacs package I wrote for managing bibliographic information.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./blogs/aocp/index.html">
-<div class="listing-date">
-Jun 16, 2021
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1623189600000" data-listing-file-modified-sort="1685801808228" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
-<div class="body">
-<a href="./blogs/scientific-paper-discovery/index.html">
-<h3 class="no-anchor listing-title">
-Scientific Paper Discovery
-</h3>
-<div class="listing-subtitle">
 
-</div>
-<div class="listing-description">
-<p>My process of discovering relevant and important papers in a new scientific field.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./blogs/scientific-paper-discovery/index.html">
-<div class="listing-date">
-Jun 9, 2021
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1622671200000" data-listing-file-modified-sort="1685801747456" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
-<div class="body">
-<a href="./blogs/research-workflow/index.html">
-<h3 class="no-anchor listing-title">
-Research Workflow
-</h3>
-<div class="listing-subtitle">
 
-</div>
-<div class="listing-description">
-<p>An outline of my research workflow which I have developed to handle the non-linear nature of scientific work.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./blogs/research-workflow/index.html">
-<div class="listing-date">
-Jun 3, 2021
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1622671200000" data-listing-file-modified-sort="1685801198210" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
-<div class="body">
-<a href="./blogs/productivity/index.html">
-<h3 class="no-anchor listing-title">
-Productivity
-</h3>
-<div class="listing-subtitle">
 
+<p>Here I outline a workflow which I have developed to handle the non-linear nature of scientific research. There are days when one reads several papers without making much sense of them. However, a single paper the next day can result in a clear picture of the domain. The workflow acknowledges the fact that there are many more failures rather than successes in research. However, a failure is still an outcome—and this is what helps us decide what to do next—so it should still be recorded.</p>
+<p>Research workflows are highly personal. If you decide to adopt any or all ideas I present here, it may require some tweaking so that it works for you. Years of performing an extrinsic search for existing solutions was unfruitful. Instead, I simply started reading papers and let the process develop organically. Soon I noticed some common patterns and standardisation which allowed me to automate some aspects of the process.</p>
+<p>There are 3 interdependent phases to this process described below.</p>
+<section id="finding-papers" class="level1">
+<h1>Finding papers</h1>
+<p>I save the bibtex entry in a bib file (generally in the project root along with the other latex files). This is because the bibtex-mode in Emacs provides powerful search options, templates for adding entries, sorting entries, cleaning up, and much more. Besides, the bib files ultimately gets used in the report so it makes sense to group the two together and keep them in the same location.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="UPDATE 2021-06-15 Tue">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="listing-description">
-<p>Productivity to me comes from proper information management. Information can come in many forms: email, thoughts/ideas, deadlines, events, project planning, online links, and many more.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./blogs/productivity/index.html">
-<div class="listing-date">
-Jun 3, 2021
-</div>
-</a>
+<div class="callout-title-container flex-fill">
+UPDATE 2021-06-15 Tue
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>I no longer save bibtex entry in a bib file. Instead, I store them with my notes in the same org file in source code blocks. I use org-tangle to generate the bib file when needed.</p>
 </div>
-<div class="listing-no-matching d-none">
-No matching items
 </div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<p>First, I use good ol’ Google Scholar (along with a plugin to enable my institution’s proxy) to find papers. Once, I find a paper I open it and read the abstract. If the abstract appeals to my current research focus or is interesting to me in general, I download it and save it in a folder which syncs across my devices. Next, I grab the bibtex entry and create a task using org-capture where I save the bibtex entry, one liner on why I found the paper interesting. I add the location to the pdf on disk, I set the title of the task as the bibtex entry and I save it to my <em>inbox</em> (or relevant project org file).</p>
+<div class="callout callout-style-default callout-note callout-titled" title="UPDATE 2021-06-15 Tue">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+UPDATE 2021-06-15 Tue
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I have written an Elisp package that automates all of this. With the bibtex entry in my clipboard, I now issue an org-capture template which creates a new task with the bibkey as the header, adds relevant properties such as <em>first author</em> <em>last author</em> and <em>source</em> of publication, and sticks the bibtex entry in a source block (see <a href="https://github.com/arumoy-shome/aocp.el">aocp.el</a>).</p>
+</div>
+</div>
+<p>In <a href="../scientific-paper-discovery">scientific paper discovery</a> I describe my process of finding relevant papers in more detail.</p>
+</section>
+<section id="reading-papers" class="level1">
+<h1>Reading papers</h1>
+<p>I read the papers on my laptop. My screen is usually split 50-50 between Emacs (where I take notes) and a pdf viewer. I do not make any highlights because its easy to abuse and it ties the information to the pdf viewer application that I am using.</p>
+<p>Instead, I take notes in plain text (as of 2020, I have been using org-mode, an Emacs major mode to do so). There are several, rationales for doing this digitally. First, I require these notes to be searchable and link-able to other notes. Second, research projects often span for a long duration. Having digital notes ensures that I do not have notes distributed amongst several analog papers/journals. Lastly, I take notes on papers in a specific manner. These notes have a specific purpose - and thus a carefully constructed structure as described in the next section - and thus come under the category of <em>hard</em> information (I talk more about productivity and how I categorise information in <a href="../productivity">productivity</a>).</p>
+<p>I use the 3 pass technique as presented by S. Keshav in his paper titled “How to read a paper” (2007). I employ the first pass as a screening method to identify if a given paper is worth reading in full. During the first pass, I read the introduction and conclusion and briefly glance over the sections of the paper and the diagrams. The goal here is to determine the problem that the paper is trying to solve and get a preliminary idea of the proposed solution and results. Generally, I can determine all the above characteristics just by the reading the introduction and conclusion if the paper is well written.</p>
+<p>During the second pass, I read the results, discussion and limitation sections in full. During this phase I {edit, elaborate} my earlier notes made during first pass and also add my personal remarks pertaining to the paper. When reading scientific work in detail, it is often helpful to read at a macro and micro level. For instance, before reading a section from top to bottom - in a linear sense - I often find it helpful to first scan the sub-sections and draw a tree diagram of the topics. This allows me to have a visual representation of the section which often times is enough to quickly conduct a mental cost-benefit analysis of reading the section in detail.</p>
+<p>I rarely read a paper in it’s entirety. I think this is essential when you peer-review a paper (which I do not do yet as of [2021-06-30 Wed]) but unnecessary for day-to-day scientific work.</p>
+</section>
+<section id="writing-notes" class="level1">
+<h1>Writing notes</h1>
+<p>Notes on paper being read will always be in relation to the current research focus/goal. A paper may be read multiple times but will have different notes if they were made with reference to different research questions.</p>
+<p>Following this rationale, I store the notes in an org file pertaining to the project I am working on. I store the pdfs in a central location, synced with a cloud service provider so as to have offline access.</p>
+<p>And following are the aspects that I look out for when reading papers.</p>
+<pre><code>+ problem statement :: What is the problem the paper is trying to
+  solve? Why is this problem important? Why should I care? This
+  generally leads to a good material for the introduction of my
+  paper as well.
++ solution :: What is the solution the paper proposes? How is it
+  better compared to existing ones (do the authors try to show its
+  worth by comparing to existing solutions)? Why should I care about
+  it?
++ results :: What were the analytical experiments conducted and what
+  were their results? What datasets were used? What models were used
+  and how did they perform? How was their performance evaluated?
+
+  Generally, in my field these questions can be answered by reading
+  the results section, very rarely are results disclosed in the
+  conclusion section. Note that falls out of the 'first pass' content
+  so I may come back to this only if I need this information for the
+  task at hand.
++ limitations :: Does the paper identify its limitations? what
+  future work can be done?
++ remarks :: My personal remarks on the paper. Was it well written? Is
+  it scientifically sound? Does it present a good overview of the
+  problem it is trying to solve? This critical examination and
+  cross-checking is essential when conducting a literature review.</code></pre>
+<p>After writing down notes on the topics above, I try to write a one line summary of the paper along with my remarks. These are always guided by the research question or work at hand.</p>
+<p>The <em>“why should I care?”</em> flavor questions will generally be guided by the research question or personal interest that I may have at the time of reading.</p>
+<p>It’s worth elaborating on the writing process itself because this in itself is a highly non-linear and dynamic activity. With regards to my personal writing, I have noticed that the quantity and quality of notes are inversely proportional. In the early stages of a project, or when I am trying to familiarise myself with a new research topic, I tend to write more notes which are primitive (meaning they emphasise on the first principles) and are similar to the papers I am reading at that point in time. However, with exposure to more papers, the notes become more concise and opinionated (they reflect my thoughts and ideas on the matter).</p>
+<p>I also employ writing on paper and typing in an iterative, cyclic manner to formulate concise and clear text which express my discoveries, ideas and opinions.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
