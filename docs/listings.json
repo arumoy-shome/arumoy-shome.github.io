@@ -6,7 +6,18 @@
   {
     "listing": "/blogs.html",
     "items": [
-      "/posts/bridging-gap-between-visual-analytical-ml-testing/index.html"
+      "/blogs/aocp/index.html",
+      "/blogs/scientific-paper-discovery/index.html",
+      "/blogs/research-workflow/index.html",
+      "/blogs/productivity/index.html"
     ]
+  },
+  {
+    "listing": "/projects.html",
+    "items": []
+  },
+  {
+    "listing": "/publications.html",
+    "items": []
   }
 ]

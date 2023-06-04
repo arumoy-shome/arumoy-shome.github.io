@@ -1,0 +1,69 @@
+- title: "Towards Understanding Machine Learning Testing in Practice"
+  subtitle: "Proceedings of 2^nd^ International Conference on AI Engineering: Software Engineering for AI"
+  date: 2023-05-15
+  authors:
+    - Arumoy Shome
+    - Luis Cruz
+    - Arie van Deursen
+  affiliation: Delft University of Technology
+  doi: <https://arxiv.org/abs/2305.04988>
+
+- title: "Data Smells in Public Datasets"
+  subtitle: "Proceedings of 1^st^ International Conference on AI Engineering: Software Engineering for AI"
+  date: 2022-05-01
+  authors:
+    - Arumoy Shome
+    - Luis Cruz
+    - Arie van Deursen
+  affiliation: Delft University of Technology
+  doi: <https://doi.org/10.1145/3522664.3528621>
+
+- title: "KM3NeT Neutrino Detection using Deep Learning"
+  subtitle: "Msc. Thesis, unpublished"
+  date: 2020-10-29
+  authors:
+    - Arumoy Shome
+    - Adam Belloum
+    - Ben  van Werkhoven
+    - Ronald Bruijn
+  affiliation:
+    - Vrije Universiteit Amsterdam
+    - Universiteit van Amsterdam
+  doi: <https://arumoy.me/km3net/km3net.pdf>
+
+- title: "Privacy Preserving Deep Learning for Medical Imaging"
+  subtitle: "Msc. Systematic Literature Review, unpublished"
+  date: 2020-12-01
+  authors:
+    - Arumoy Shome
+    - Saba Amiri
+    - Adam Belloum
+  affiliation:
+    - Vrije Universiteit Amsterdam
+    - Universiteit van Amsterdam
+  doi: <https://arumoy.me/literature-study/ppdl.pdf>
+
+- title: "ACE: Art, Color and Emotions"
+  subtitle: "Proceedings of the 27^th^ ACM Conference on Multimedia"
+  date: 2019-10-01
+  authors:
+    - Gjorgji Strezoski
+    - Arumoy Shome
+    - Riccardo Bianchi
+    - Shruti Rao
+    - Marcel Worring
+  affiliation:
+    - Vrije Universiteit Amsterdam
+    - Universiteit van Amsterdam
+  doi: <https://dl.acm.org/doi/abs/10.1145/3343031.3350588>
+
+- title: "Improving the Cognitive Assessment of Individuals with Down
+  Syndrome"
+  subtitle: "Bsc. Capstone Project, unpublished"
+  date: 2018-01-01
+  authors:
+    - Maathusan Rajendram
+    - Arumoy Shome
+    - Mira Sleiman
+  affiliation: University of Waterloo
+  doi: <https://arumoy.me/elevate/report.pdf>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Arumoy Shome</title>
+<title>Arumoy Shome - Publications</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,9 +30,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -57,12 +60,43 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-subtitle','listing-date','listing-authors','listing-affiliation','listing-doi',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-title-sort'] },{ data: ['listing-date-sort'] }],
+      
+      searchColumns: ["listing-title","listing-subtitle","listing-date","listing-authors","listing-affiliation","listing-doi"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -92,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html" rel="" target="">
+    <a class="nav-link active" href="./publications.html" rel="" target="" aria-current="page">
  <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
@@ -124,47 +158,190 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">Publications</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-jolla">
-  <img src="profile.jpg" class="about-image
-  round " style="height: 15em; width: 15em;">
- <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Arumoy Shome</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header><main class="content" id="quarto-document-content">
-<p>I am a researcher at <a href="https://www.tudelft.nl/en/">TU Delft</a>, working towards my doctorate as part of the <a href="https://se.ewi.tudelft.nl/">Software Engineering Research Group</a>. My research interests lie at the intersection of Data Science, Software Engineering and Design. Here I am developing tools, techniques and best practises which allow us to build, test, deploy, scale and maintain modern software systems with Machine Learning (ML) components. While we must look to the micro to identify and understand a problem, I try to keep an eye towards the current era of big-data and large-scale ML as a long-term area of research. You can find a list of my publications <a href="./publications.html">here</a>.</p>
-<p>I completed my Msc. in Computer Science from the <a href="https://www.vu.nl/en">Vrije Universiteit Amsterdam</a> and <a href="https://www.uva.nl/en">Universiteit van Amsterdam</a> in the Netherlands, specializing in Big Data Engineering. As part of my thesis, I conducted interdisciplinary research with <a href="https://www.nikhef.nl/en/">Nikhef</a> and <a href="https://www.esciencecenter.nl/">The Netherlands eScience Center</a> to improve the data processing pipeline of the <a href="https://www.km3net.org/">KM3NeT Neutrino Telescope</a> using Graph Convolutional Neural Networks.</p>
-<p>I obtained my Bachelor’s in The Applied Sciences from the <a href="https://uwaterloo.ca/">University of Waterloo</a> in Canada, specializing in System Design Engineering with an option in Entrepreneurship. Here, I learned to bring creative solutions to complex problems with multiple facets such as society, economics, environment and politics. I also learned how to nurture an idea at it’s inception, develop it using systems theory and successfully bring it to the market as a finished product.</p>
-<p>My professional experience is two pronged. I have over 5 years of software development experience through professional web development positions at and small companies. I am also versed with driven, research oriented projects rooted in diverse topics such as Large Scale Data Engineering, Data Visualization and Artificial Intelligence.</p>
-<p>I enjoy sharing knowledge and having discussions and am always happy to <a href="./talks.html">engage with other publicly</a>. Sometimes, I <a href="./blogs.html">write about my day-to-day challenges</a> as a software engineering, data scientist &amp; researcher.</p>
-<p>All materials (excluding links to external websites or third party products) on this website are open sourced under the <a href="./license.html">Creative Commons BY-NC-SA 3.0 license</a>.</p>
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="https://github.com/arumoy-shome" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://twitter.com/arumoy_shome" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-  <a href="https://linkedin.com/in/arumoyshome" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
+
+
+<p>Following is a list of my scientific publications.</p>
+
+
+
+
+<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+Title
+</th>
+<th>
+Venue
+</th>
+<th>
+Date
+</th>
+<th>
+Authors
+</th>
+<th>
+affiliation
+</th>
+<th>
+doi
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-listing-date-sort="1684101600000" data-listing-title-sort="Towards Understanding Machine Learning Testing in Practice">
+<td>
+<span class="listing-title">Towards Understanding Machine Learning Testing in Practice</span>
+</td>
+<td>
+<span class="listing-subtitle">Proceedings of 2<sup>nd</sup> International Conference on AI Engineering: Software Engineering for AI</span>
+</td>
+<td>
+<span class="listing-date">May 15, 2023</span>
+</td>
+<td>
+<span class="listing-authors">Arumoy Shome,Luis Cruz,Arie van Deursen</span>
+</td>
+<td>
+<span class="listing-affiliation">Delft University of Technology</span>
+</td>
+<td>
+<span class="listing-doi"><a href="https://arxiv.org/abs/2305.04988" class="uri">https://arxiv.org/abs/2305.04988</a></span>
+</td>
+</tr>
+<tr data-index="1" data-listing-date-sort="1651356000000" data-listing-title-sort="Data Smells in Public Datasets">
+<td>
+<span class="listing-title">Data Smells in Public Datasets</span>
+</td>
+<td>
+<span class="listing-subtitle">Proceedings of 1<sup>st</sup> International Conference on AI Engineering: Software Engineering for AI</span>
+</td>
+<td>
+<span class="listing-date">May 1, 2022</span>
+</td>
+<td>
+<span class="listing-authors">Arumoy Shome,Luis Cruz,Arie van Deursen</span>
+</td>
+<td>
+<span class="listing-affiliation">Delft University of Technology</span>
+</td>
+<td>
+<span class="listing-doi"><a href="https://doi.org/10.1145/3522664.3528621" class="uri">https://doi.org/10.1145/3522664.3528621</a></span>
+</td>
+</tr>
+<tr data-index="2" data-listing-date-sort="1606777200000" data-listing-title-sort="Privacy Preserving Deep Learning for Medical Imaging">
+<td>
+<span class="listing-title">Privacy Preserving Deep Learning for Medical Imaging</span>
+</td>
+<td>
+<span class="listing-subtitle">Msc. Systematic Literature Review, unpublished</span>
+</td>
+<td>
+<span class="listing-date">Dec 1, 2020</span>
+</td>
+<td>
+<span class="listing-authors">Arumoy Shome,Saba Amiri,Adam Belloum</span>
+</td>
+<td>
+<span class="listing-affiliation">Vrije Universiteit Amsterdam,Universiteit van Amsterdam</span>
+</td>
+<td>
+<span class="listing-doi"><a href="https://arumoy.me/literature-study/ppdl.pdf" class="uri">https://arumoy.me/literature-study/ppdl.pdf</a></span>
+</td>
+</tr>
+<tr data-index="3" data-listing-date-sort="1603926000000" data-listing-title-sort="KM3NeT Neutrino Detection using Deep Learning">
+<td>
+<span class="listing-title">KM3NeT Neutrino Detection using Deep Learning</span>
+</td>
+<td>
+<span class="listing-subtitle">Msc. Thesis, unpublished</span>
+</td>
+<td>
+<span class="listing-date">Oct 29, 2020</span>
+</td>
+<td>
+<span class="listing-authors">Arumoy Shome,Adam Belloum,Ben van Werkhoven,Ronald Bruijn</span>
+</td>
+<td>
+<span class="listing-affiliation">Vrije Universiteit Amsterdam,Universiteit van Amsterdam</span>
+</td>
+<td>
+<span class="listing-doi"><a href="https://arumoy.me/km3net/km3net.pdf" class="uri">https://arumoy.me/km3net/km3net.pdf</a></span>
+</td>
+</tr>
+<tr data-index="4" data-listing-date-sort="1569880800000" data-listing-title-sort="ACE: Art, Color and Emotions">
+<td>
+<span class="listing-title">ACE: Art, Color and Emotions</span>
+</td>
+<td>
+<span class="listing-subtitle">Proceedings of the 27<sup>th</sup> ACM Conference on Multimedia</span>
+</td>
+<td>
+<span class="listing-date">Oct 1, 2019</span>
+</td>
+<td>
+<span class="listing-authors">Gjorgji Strezoski,Arumoy Shome,Riccardo Bianchi,Shruti Rao,Marcel Worring</span>
+</td>
+<td>
+<span class="listing-affiliation">Vrije Universiteit Amsterdam,Universiteit van Amsterdam</span>
+</td>
+<td>
+<span class="listing-doi"><a href="https://dl.acm.org/doi/abs/10.1145/3343031.3350588" class="uri">https://dl.acm.org/doi/abs/10.1145/3343031.3350588</a></span>
+</td>
+</tr>
+<tr data-index="5" data-listing-date-sort="1514761200000" data-listing-title-sort="Improving the Cognitive Assessment of Individuals with Down Syndrome">
+<td>
+<span class="listing-title">Improving the Cognitive Assessment of Individuals with Down Syndrome</span>
+</td>
+<td>
+<span class="listing-subtitle">Bsc. Capstone Project, unpublished</span>
+</td>
+<td>
+<span class="listing-date">Jan 1, 2018</span>
+</td>
+<td>
+<span class="listing-authors">Maathusan Rajendram,Arumoy Shome,Mira Sleiman</span>
+</td>
+<td>
+<span class="listing-affiliation">University of Waterloo</span>
+</td>
+<td>
+<span class="listing-doi"><a href="https://arumoy.me/elevate/report.pdf" class="uri">https://arumoy.me/elevate/report.pdf</a></span>
+</td>
+</tr>
+</tbody>
+
+</table>
+<div class="listing-no-matching d-none">
+No matching items
 </div>
-</div>
- <!-- /main -->
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -185,6 +362,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
