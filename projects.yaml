@@ -1,0 +1,20 @@
+- title: "Automatic Trailer Generation Using Genetic Algorithms"
+  date: 2023
+  abstract: |
+
+    In collaboration with [RTL](https://www.rtl.nl/) and [ICT with
+    Industry](https://www.lorentzcenter.nl/ictwi2023), we developed a
+    prototype to automatically generate a trailer for a given episode of
+    *Goede Tijd, Slechte Tijd*, a popular Dutch TV Show.
+
+    Unfortunately, the project is not open source.
+
+- title: "aocp.el"
+  date: 2023
+  abstract: |
+    An emacs package to manage bibliographic information in org-mode
+    (a major mode for emacs). The project is available on
+    [Github](https://github.com/arumoy-shome/aocp.el).
+
+- title: "vim-zettel"
+  date: 2020
