@@ -1,6 +1,6 @@
 ---
 title: "Arumoy Shome"
-image: profile.jpg
+image: profile.jpeg
 about:
   template: jolla
   links:
