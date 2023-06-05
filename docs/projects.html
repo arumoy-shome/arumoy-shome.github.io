@@ -70,9 +70,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-date','listing-abstract',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-title-sort'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-title','listing-date','listing-description','listing-doi',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-title-sort'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-title","listing-date","listing-abstract"],
+      searchColumns: ["listing-title","listing-date","listing-description","listing-doi"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -158,65 +158,36 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page">
+      <h1 class="title">Projects</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Projects</h1>
-</div>
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-</header>
-
-<p>Following is a list of projects I am currently working on, or have worked on in the past. Where possible, I have included links to the Github repository, published/unpublished papers and the project website.</p>
-<p>The project website can be consulted to get a broad overview of the project whilst the papers can be read if one wishes for more depth on the matter. I usually host my projects on Github, the README can be consulted to get familiar with the structure of the repository.</p>
-<section id="vim-zettel" class="level1">
-<h1>[2020] vim-zettel</h1>
-<p><em>Vimscript</em></p>
-<p>A (neo)vim plugin to manage plain text notes, inspired by Niklas Luhmann’s <a href="https://en.wikipedia.org/wiki/Zettelkasten">Zettelkasten</a> technique.</p>
-<p>[<a href="https://github.com/arumoy-shome/vim-zettel/">Github</a>]</p>
-</section>
-<section id="vim-text-lists" class="level1">
-<h1>[2020] vim-text-lists</h1>
-<p><em>Vimscript</em></p>
-<p>A (neo)vim plugin that provides utility functions for working with plain text lists.</p>
-<p>[<a href="https://github.com/arumoy-shome/vim-text-lists">Github</a>]</p>
-</section>
-<section id="d-kadaster" class="level1">
-<h1>[2018] 3D Kadaster</h1>
-<p><em>Python, Apache Spark, Three.js</em></p>
-<p>We created a 3D model of all the buildings in The Netherlands using point cloud dataset.</p>
-<p>[<a href="assets/pdf/kadaster.pdf">Paper</a>][<a href="https://arumoy.me/3d-kadaster">Demo</a>]</p>
-</section>
-<section id="knowledge-acquisition-from-commoncrawl" class="level1">
-<h1>[2018] Knowledge Acquisition from CommonCrawl</h1>
-<p><em>Python, NLTK, Stanford NLP</em></p>
-<p>We applied a complete knowledge acquisition pipeline to WARC datasets using Natural Language Processing, Part of Speech tagging, Named Entity Recognition and Entity Linking. We also proposed a novel idea to improve entity retrieval using machine learning.</p>
-<p>[<a href="assets/pdf/wdp.pdf">Paper</a>]</p>
-</section>
-<section id="elevate" class="level1">
-<h1>[2017] Elevate</h1>
-<p><em>JavaScript, Phaser.io</em></p>
-<p>Specialized educational resources for individuals with Down Syndrome are lacking. This problem space was explored in detail through surveys and interviews with both the primary and secondary users. Several problems were discovered in this space of which, the lack of an affordable, easy to use and engaging cognitive test was deemed critical. This problem was further explored and an improved form of this assessment using web based games was proposed. The design process was broken down into three iterative phases. The first was defining the problem, followed by validating the solutions and finally iterating on the final solution. Throughout the phases, five main approaches were used to help with the analysis and iterative process. The approaches included user surveys, user Interviews, Wizard of Oz testing, usability testing, and user testing. Engagement, key usability issues and scoring correlation with standard methods were the primary testing protocols used for validation of the final designed solution. The results and limitations of the designed solution are touched upon and a few reasonable next steps are laid upon for the future.</p>
-<p>[<a href="assets/pdf/elevate.pdf">Paper</a>][<a href="https://github.com/arumoy-shome/elevate">Github</a>][<a href="https://arumoy.me/elevate">Website</a>]</p>
+<p>Following is a list of projects I am currently working on, or have worked on in the past.</p>
 
 
 
-</section>
 
 <div class="quarto-listing quarto-listing-container-table" id="listing-listing">
 
@@ -230,42 +201,82 @@ Title
 Date
 </th>
 <th>
-abstract
+Description
+</th>
+<th>
+Website
 </th>
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="2023" data-listing-title-sort="Automatic Trailer Generation Using Genetic Algorithms">
+<tr data-index="0" data-listing-date-sort="1672527600000" data-listing-title-sort="Automatic Trailer Generation Using Genetic Algorithms">
 <td>
 <span class="listing-title">Automatic Trailer Generation Using Genetic Algorithms</span>
 </td>
 <td>
-<span class="listing-date">Jan 1, 1970</span>
+<span class="listing-date">Jan 1, 2023</span>
 </td>
 <td>
-<span class="listing-abstract"> In collaboration with <a href="https://www.rtl.nl/">RTL</a> and <a href="https://www.lorentzcenter.nl/ictwi2023">ICT with Industry</a>, we developed a prototype to automatically generate a trailer for a given episode of <em>Goede Tijd, Slechte Tijd</em>, a popular Dutch TV Show. Unfortunately, the project is not open source. </span>
+<span class="listing-description">In collaboration with <a href="https://www.rtl.nl/">RTL</a> and <a href="https://www.lorentzcenter.nl/ictwi2023">ICT with Industry</a>, we developed a prototype to automatically generate a trailer for a given episode of <em>Goede Tijd, Slechte Tijd</em>, a popular Dutch TV Show. Unfortunately, the project is not open source. </span>
+</td>
+<td>
+<span class="listing-doi">undefined</span>
 </td>
 </tr>
-<tr data-index="1" data-listing-date-sort="2023" data-listing-title-sort="aocp.el">
+<tr data-index="1" data-listing-date-sort="1672527600000" data-listing-title-sort="aocp.el">
 <td>
 <span class="listing-title">aocp.el</span>
 </td>
 <td>
-<span class="listing-date">Jan 1, 1970</span>
+<span class="listing-date">Jan 1, 2023</span>
 </td>
 <td>
-<span class="listing-abstract">An emacs package to manage bibliographic information in org-mode (a major mode for emacs). The project is available on <a href="https://github.com/arumoy-shome/aocp.el">Github</a>. </span>
+<span class="listing-description">An emacs package to manage bibliographic information in org-mode (a major mode for emacs). The project is available on [Github]. </span>
+</td>
+<td>
+<span class="listing-doi"><a href="https://github.com/arumoy-shome/aocp.el" class="uri">https://github.com/arumoy-shome/aocp.el</a></span>
 </td>
 </tr>
-<tr data-index="2" data-listing-date-sort="2020" data-listing-title-sort="vim-zettel">
+<tr data-index="2" data-listing-date-sort="1577833200000" data-listing-title-sort="vim-zettel">
 <td>
 <span class="listing-title">vim-zettel</span>
 </td>
 <td>
-<span class="listing-date">Jan 1, 1970</span>
+<span class="listing-date">Jan 1, 2020</span>
 </td>
 <td>
-<span class="listing-abstract">undefined</span>
+<span class="listing-description">A (neo)vim plugin to manange plaintext notes. </span>
+</td>
+<td>
+<span class="listing-doi"><a href="https://github.com/arumoy-shome/vim-zettel" class="uri">https://github.com/arumoy-shome/vim-zettel</a></span>
+</td>
+</tr>
+<tr data-index="3" data-listing-date-sort="1577833200000" data-listing-title-sort="vim-text-lists">
+<td>
+<span class="listing-title">vim-text-lists</span>
+</td>
+<td>
+<span class="listing-date">Jan 1, 2020</span>
+</td>
+<td>
+<span class="listing-description">A (neo)vim plugin that provides functions for working with plain text lists. </span>
+</td>
+<td>
+<span class="listing-doi"><a href="https://github.com/arumoy-shome/vim-text-lists" class="uri">https://github.com/arumoy-shome/vim-text-lists</a></span>
+</td>
+</tr>
+<tr data-index="4" data-listing-date-sort="1514761200000" data-listing-title-sort="3D Kadaster">
+<td>
+<span class="listing-title">3D Kadaster</span>
+</td>
+<td>
+<span class="listing-date">Jan 1, 2018</span>
+</td>
+<td>
+<span class="listing-description">A 3D model of all buildings in the Netherlands using point cloud dataset and large scale compute. </span>
+</td>
+<td>
+<span class="listing-doi"><a href="https://arumoy.me/3d-kadaster" class="uri">https://arumoy.me/3d-kadaster</a></span>
 </td>
 </tr>
 </tbody>

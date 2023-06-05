@@ -4,6 +4,14 @@
     "items": []
   },
   {
+    "listing": "/projects.html",
+    "items": []
+  },
+  {
+    "listing": "/publications.html",
+    "items": []
+  },
+  {
     "listing": "/blogs.html",
     "items": [
       "/blogs/aocp/index.html",
@@ -11,13 +19,5 @@
       "/blogs/research-workflow/index.html",
       "/blogs/productivity/index.html"
     ]
-  },
-  {
-    "listing": "/projects.html",
-    "items": []
-  },
-  {
-    "listing": "/publications.html",
-    "items": []
   }
 ]

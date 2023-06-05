@@ -1,20 +1,36 @@
 - title: "Automatic Trailer Generation Using Genetic Algorithms"
-  date: 2023
-  abstract: |
-
+  date: 2023-01-01
+  description: |
     In collaboration with [RTL](https://www.rtl.nl/) and [ICT with
     Industry](https://www.lorentzcenter.nl/ictwi2023), we developed a
-    prototype to automatically generate a trailer for a given episode of
-    *Goede Tijd, Slechte Tijd*, a popular Dutch TV Show.
-
+    prototype to automatically generate a trailer for a given episode
+    of *Goede Tijd, Slechte Tijd*, a popular Dutch TV Show.
     Unfortunately, the project is not open source.
 
 - title: "aocp.el"
-  date: 2023
-  abstract: |
+  date: 2023-01-01
+  description: |
     An emacs package to manage bibliographic information in org-mode
     (a major mode for emacs). The project is available on
-    [Github](https://github.com/arumoy-shome/aocp.el).
+    [Github].
+  doi: <https://github.com/arumoy-shome/aocp.el>
 
 - title: "vim-zettel"
-  date: 2020
+  date: 2020-01-01
+  description: |
+    A (neo)vim plugin to manange plaintext notes.
+  doi: <https://github.com/arumoy-shome/vim-zettel>
+
+- title: "vim-text-lists"
+  date: 2020-01-01
+  description: |
+    A (neo)vim plugin that provides functions for working with plain
+    text lists.
+  doi: <https://github.com/arumoy-shome/vim-text-lists>
+
+- title: "3D Kadaster"
+  date: 2018-01-01
+  description: |
+    A 3D model of all buildings in the Netherlands using point cloud
+    dataset and large scale compute.
+  doi: <https://arumoy.me/3d-kadaster>

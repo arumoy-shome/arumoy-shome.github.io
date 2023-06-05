@@ -5,8 +5,8 @@ listing:
   sort: "date desc"
   type: table
   categories: false
-  sort-ui: false
-  filter-ui: false
+  sort-ui: true
+  filter-ui: true
   feed: false
   field-display-names:
     subtitle: "Venue"

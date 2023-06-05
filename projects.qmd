@@ -7,80 +7,11 @@ listing:
   categories: false
   sort-ui: false
   filter-ui: false
+  field-display-names:
+    doi: "Website"
 page-layout: full
-title-block-banner: false
+title-block-banner: true
 ---
 
 Following is a list of projects I am currently working on, or have
-worked on in the past. Where possible, I have included links to the
-Github repository, published/unpublished papers and the project
-website.
-
-The project website can be consulted to get a broad overview of the
-project whilst the papers can be read if one wishes for more depth on
-the matter. I usually host my projects on Github, the README can be
-consulted to get familiar with the structure of the repository.
-
-# [2020] vim-zettel
-
-*Vimscript*
-
-A (neo)vim plugin to manage plain text notes, inspired by Niklas
-Luhmann's [Zettelkasten](https://en.wikipedia.org/wiki/Zettelkasten)
-technique.
-
-[[Github](https://github.com/arumoy-shome/vim-zettel/)]
-
-# [2020] vim-text-lists
-
-*Vimscript*
-
-A (neo)vim plugin that provides utility functions for working with
-plain text lists.
-
-[[Github](https://github.com/arumoy-shome/vim-text-lists)]
-
-# [2018] 3D Kadaster
-
-*Python, Apache Spark, Three.js*
-
-We created a 3D model of all the buildings in The Netherlands using
-point cloud dataset.
-
-[[Paper](assets/pdf/kadaster.pdf)][[Demo](https://arumoy.me/3d-kadaster)]
-
-# [2018] Knowledge Acquisition from CommonCrawl
-
-*Python, NLTK, Stanford NLP*
-
-We applied a complete knowledge acquisition pipeline to WARC datasets
-using Natural Language Processing, Part of Speech tagging, Named
-Entity Recognition and Entity Linking. We also proposed a novel idea
-to improve entity retrieval using machine learning.
-
-[[Paper](assets/pdf/wdp.pdf)]
-
-# [2017] Elevate
-
-*JavaScript, Phaser.io*
-
-Specialized educational resources for individuals with Down Syndrome
-are lacking. This problem space was explored in detail through surveys
-and interviews with both the primary and secondary users. Several
-problems were discovered in this space of which, the lack of an
-affordable, easy to use and engaging cognitive test was deemed
-critical. This problem was further explored and an improved form of
-this assessment using web based games was proposed. The design process
-was broken down into three iterative phases. The first was defining
-the problem, followed by validating the solutions and finally
-iterating on the final solution. Throughout the phases, five main
-approaches were used to help with the analysis and iterative process.
-The approaches included user surveys, user Interviews, Wizard of Oz
-testing, usability testing, and user testing. Engagement, key
-usability issues and scoring correlation with standard methods were
-the primary testing protocols used for validation of the final
-designed solution. The results and limitations of the designed
-solution are touched upon and a few reasonable next steps are laid
-upon for the future.
-
-[[Paper](assets/pdf/elevate.pdf)][[Github](https://github.com/arumoy-shome/elevate)][[Website](https://arumoy.me/elevate)]
+worked on in the past.
