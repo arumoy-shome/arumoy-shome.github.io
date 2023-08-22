@@ -36,9 +36,11 @@ format:
   html:
     theme: cosmo
     css: styles.css
-    mainfont: "Source Code Pro"
+    mainfont: "Iosevka Aile"
+    monofont: "Iosevka"
 bibliography: bibliography.bib
 reference-location: margin
 citation-location: margin
 resources:
   - CNAME
+  - fonts

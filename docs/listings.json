@@ -14,6 +14,9 @@
   {
     "listing": "/blogs.html",
     "items": [
+      "/blogs/focus/index.html",
+      "/blogs/project-management/index.html",
+      "/blogs/nutrition/index.html",
       "/blogs/aocp/index.html",
       "/blogs/scientific-paper-discovery/index.html",
       "/blogs/research-workflow/index.html",
