@@ -1,0 +1,32 @@
+---
+title: Packing and Unpacking `**kwargs`
+date: 2022-11-01
+abstract: |
+    Packing and unpacking keyword arguments in Python.
+categories: [python]
+---
+
+In python, we can unpack keyword arguments using the `**kwargs` in the function definition like so.
+
+```{python}
+def greet(**kwargs):
+    for _, v in kwargs.items():
+        print("Hello {}!".format(v))
+
+greet(a="Aru", b="Ura")
+```
+
+Turns out, that we can convert the unpacked dict into back into keyword arguments and pass it along to another function as well! This is done like so.
+
+```{python}
+def greet(**kwargs):
+    for _, v in kwargs.items():
+        print("Hello {}!".format(v))
+
+    meet(**kwargs)
+
+def meet(a=None, b=None):
+    print("Nice to meet you again, {} & {}".format(a, b))
+
+greet(a="Aru", b="Ura")
+```

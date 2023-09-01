@@ -1,0 +1,17 @@
+---
+title: "Codelog"
+listing:
+  contents: logs
+  sort: "date desc"
+  type: default
+  fields: [date, title, description, categories]
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  feed: true
+page-layout: full
+title-block-banner: true
+---
+
+Bits and pieces of information I frequently use. Meant for quick
+lookup and reference.
