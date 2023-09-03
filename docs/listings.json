@@ -25,13 +25,21 @@
   {
     "listing": "/blogs.html",
     "items": [
+      "/blogs/packing-unpacking-kwargs/index.html",
+      "/blogs/ripgrep-commands/index.html",
+      "/blogs/aims/index.html",
+      "/blogs/reflections-scientific-research/index.html",
       "/blogs/focus/index.html",
       "/blogs/project-management/index.html",
       "/blogs/nutrition/index.html",
       "/blogs/aocp/index.html",
       "/blogs/scientific-paper-discovery/index.html",
       "/blogs/research-workflow/index.html",
-      "/blogs/productivity/index.html"
+      "/blogs/productivity/index.html",
+      "/blogs/dired-commands/index.html",
+      "/blogs/python-context-file/index.html",
+      "/blogs/shell-path-finder/index.html",
+      "/blogs/private-link-sharing/index.html"
     ]
   }
 ]

@@ -6,6 +6,7 @@ abstract: |
   management. Information can come in many forms: email,
   thoughts/ideas, deadlines, events, project planning, online links,
   and many more.
+categories: [productivity]
 ---
 
 Productivity to me comes from proper information management.

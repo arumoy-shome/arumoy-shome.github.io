@@ -4,6 +4,7 @@ date: 2021-06-03
 abstract: |
     An outline of my research workflow which I have developed to
     handle the non-linear nature of scientific work.
+categories: [productivity, research]
 ---
 
 Here I outline a workflow which I have developed to handle the

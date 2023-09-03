@@ -4,6 +4,7 @@ date: 2021-06-09
 abstract: |
     My process of discovering relevant and important papers in a new
     scientific field.
+categories: [research]
 ---
 
 In this article I describe my process for discovering relevant and

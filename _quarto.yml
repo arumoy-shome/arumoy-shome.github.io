@@ -9,7 +9,6 @@ website:
   back-to-top-navigation: true
   navbar:
     left:
-      - logs.qmd
       - blogs.qmd
       - talks.qmd
       - projects.qmd
@@ -45,3 +44,4 @@ citation-location: margin
 resources:
   - CNAME
   - fonts
+code-annotations: hover
