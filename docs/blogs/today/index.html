@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Arumoy Shome">
-<meta name="dcterms.date" content="2021-06-16">
+<meta name="dcterms.date" content="2022-03-03">
 
-<title>Arumoy Shome - Aru’s Org Capture Template (aocp.el)</title>
+<title>Arumoy Shome - Timestamps in the Shell (today)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -130,9 +164,9 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Aru’s Org Capture Template (aocp.el)</h1>
+      <h1 class="title">Timestamps in the Shell (today)</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">emacs</div>
+                <div class="quarto-category">shell</div>
                 <div class="quarto-category">productivity</div>
               </div>
                   </div>
@@ -151,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">June 16, 2021</p>
+        <p class="date">March 3, 2022</p>
       </div>
     </div>
     
@@ -161,7 +195,7 @@ ul.task-list li input[type="checkbox"] {
   <div>
     <div class="abstract">
       <div class="abstract-title">Abstract</div>
-      <p>An Emacs package I wrote for managing bibliographic information.</p>
+      <p>Creating timestamps in the terminal.</p>
     </div>
   </div>
   
@@ -177,40 +211,104 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>After observing my workflow of managing bibliographic information in Emacs, I extracted the repeated actions into an Emacs package.</p>
-<p>To gain some perspective on my workflow, see my prior article on my <a href="../research-workflow">research workflow</a>.</p>
-<p>The package is available on <a href="https://github.com/arumoy-shome/aocp.el">github</a> with two alternative installation methods: 1. By manually downloading the <code>aocp.el</code> file and sticking it in your Emacs <code>load-path</code>, or 2. Using <a href="https://github.com/raxod502/straight.el">straight.el</a> which is what I recommend.</p>
-<p>The package works under the assumption that you manage your bibliographic information in <a href="https://orgmode.org">org-mode</a> (a major-mode for Emacs). The functions made available through this package are intended to be used in an <a href="https://orgmode.org/manual/Capture.html">org-capture</a> template, they are not meant to be called interactively (ie. by using <code>M-x</code>).</p>
-<p>Assuming that you have a bibtex entry in your <code>kill-ring</code> (either by killing text within Emacs or by coping text from an external application into your clipboard), this package will do the following:</p>
-<ul>
-<li>Extract the bibkey</li>
-<li>Extract the first author</li>
-<li>Extract the last author</li>
-<li>Extract the source of publication</li>
-</ul>
-<pre><code>* TODO %(aocp--get-bibkey nil)
-  :PROPERTIES:
-  :PDF: file:~/Documents/papers/%(aocp--get-bibkey t).pdf
-  :FIRST_AUTHOR: %(aocp--get-first-author)
-  :LAST_AUTHOR: %(aocp--get-last-author)
-  :SOURCE: %(aocp--get-source)
-  :END:
-%?
-+ problem statement ::
-+ solution ::
-+ results ::
-+ limitations ::
-+ remarks ::
-
-  #+begin_src bibtex :tangle yes
-  %c
-  #+end_src</code></pre>
-<p>Assuming you have the above template in <code>paper.txt</code>, you can configure org as follows (replace <code>your-org-inbox-file</code> appropriately):</p>
-<pre class="elisp"><code>(setq org-capture-templates
-    '(("p" "Paper" entry (file+headline your-org-inbox-file "Inbox")
-    "%[~/.emacs.d/org-templates/paper.txt]")))</code></pre>
-<p>With this in place, you can quickly collect all bibliographic information within an org file. Leveraging the powerful functionality provided by <a href="https://orgmode.org/guide/Properties.html">org-properties</a>, one can quickly find relevant papers. For instance, I can look up all papers by author X or all papers by author X published at Y.</p>
-<p>A nice little tip is to download a local copy of the pdf and save them all in a folder. To make this easier, aocp.el also pushes the bibkey to the kill-ring. So all that is left to do is click the download button and paste the bibkey as the file name. This ensure 1. That you have all pdfs names consistently and 2. You have a link to the pdf from your org file (see the <code>:PDF:</code> property in the template above) which you can open by hitting <code>C-c C-o</code> over the link. You do not need to poke around in the directory containing the pdfs, all the context is available in the org file and should be the point of entry for all your bibliographic needs!</p>
+<p>I often work with text files containing pros (such as blog posts and git commit messages) and require adding a timestamp containing the current date, day &amp; time.</p>
+<p>I wrote <code>today</code>, a shellscript which returns the current date in various formats. Here is the script as of 2022-03-09, the latest version can be found in my <a href="https://github.com/arumoy-shome/dotfiles">dotfiles</a>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>today</strong></pre>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># today: return today's date in various formats</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Usage: today [OPTS]</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Without any options, today will print today's date in %Y-%m-%d</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># format. Following are the supported options:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#    --with-day: %Y-%m-%d %a</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#    --with-time: %Y-%m-%d %H:%M</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#    -l | --long: %Y-%m-%d %a %H:%M</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#    -h | --human: %a %b %d, %Y</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#    -s | --stamp: enclose the date in square braces</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: when using both --with-day &amp; --with-time, the order in which</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># the options are passed matters. For example:</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># today --with-day --with-time will produce</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#    2022-03-03 Thu 02:20</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># But today --with-time --with-day will produce</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 2022-03-03 02:21 Thu</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: when using --human option, all other options are ignored.</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">main()</span> <span class="kw">{</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="bu">local</span> <span class="va">FMT</span><span class="op">=</span><span class="st">'%Y-%m-%d'</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="bu">local</span> <span class="va">STAMP_FLAG</span><span class="op">=</span>1 <span class="co"># false</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> <span class="kw">[[</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="ot">=~</span> <span class="pp">^</span><span class="ss">-</span> <span class="kw">&amp;&amp;</span> <span class="ot">!</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="ot">==</span> <span class="st">"--"</span> <span class="kw">]];</span> <span class="cf">do</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">in</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>      <span class="ss">--with-day</span><span class="kw">)</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="va">FMT</span><span class="op">=</span><span class="st">"</span><span class="va">$FMT</span><span class="st"> %a"</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">;;</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>      <span class="ss">--with-time</span><span class="kw">)</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        <span class="va">FMT</span><span class="op">=</span><span class="st">"</span><span class="va">$FMT</span><span class="st"> %H:%M"</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">;;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>      <span class="ss">-s</span> <span class="kw">|</span> <span class="ss">--stamp</span><span class="kw">)</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="va">STAMP_FLAG</span><span class="op">=</span>0 <span class="co"># true</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">;;</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>      <span class="ss">-l</span> <span class="kw">|</span> <span class="ss">--long</span><span class="kw">)</span> <span class="co"># short for --with-day --with-time</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>        <span class="va">FMT</span><span class="op">=</span><span class="st">"</span><span class="va">$FMT</span><span class="st"> %a %H:%M"</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">;;</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>      <span class="ss">-h</span> <span class="kw">|</span> <span class="ss">--human</span><span class="kw">)</span> <span class="co"># alternate format, ignore other flags</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>        <span class="va">FMT</span><span class="op">=</span><span class="st">"%a %b %d, %Y"</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>        <span class="cf">;;</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>      <span class="pp">*</span><span class="kw">)</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Error: unknown option </span><span class="va">$1</span><span class="st">."</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">esac</span><span class="kw">;</span> <span class="bu">shift</span> <span class="co"># only shift here since we only pass flags</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  <span class="cf">done</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  <span class="bu">local</span> <span class="va">OUT</span><span class="op">=</span><span class="va">$(</span><span class="fu">date</span> +<span class="st">"</span><span class="va">$FMT</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>  <span class="kw">[[</span> <span class="st">"</span><span class="va">$STAMP_FLAG</span><span class="st">"</span> <span class="ot">-eq</span> 0 <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="va">OUT</span><span class="op">=</span><span class="st">"[</span><span class="va">$OUT</span><span class="st">]"</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>  <span class="bu">echo</span> <span class="st">"</span><span class="va">$OUT</span><span class="st">"</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="ex">main</span> <span class="st">"</span><span class="va">$@</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Without any arguments, <code>today</code> prints the date in ‘%Y-%m-%d’ format. Using the following optional flags the output can be manipulated.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>flag</th>
+<th>output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>–with-day</td>
+<td>‘%Y-%m-%d %a’</td>
+</tr>
+<tr class="even">
+<td>–with-time</td>
+<td>‘%Y-%m-%d %H:%M’</td>
+</tr>
+<tr class="odd">
+<td>–long</td>
+<td>‘%Y-%m-%d %a %H:%M’</td>
+</tr>
+<tr class="even">
+<td>–human</td>
+<td>‘%a %b %d, %Y’</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>--stamp</code> flag can be used to optionally wrap the output in square braces.</p>
+<p>I frequently use this to add a timestamp to my git commit messages.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"feat: timestamps from the shell </span><span class="va">$(</span><span class="ex">today</span> <span class="at">-l</span> <span class="at">-s</span><span class="va">)</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Or insert a timestamp into the current buffer I am editing in vim.</p>
+<pre class="vim"><code>:r! today -l -s</code></pre>
 
 
 

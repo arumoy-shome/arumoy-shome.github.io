@@ -25,8 +25,13 @@
   {
     "listing": "/blogs.html",
     "items": [
+      "/blogs/navigating-large-markdown-files-vim/index.html",
+      "/blogs/cms-pandoc/index.html",
       "/blogs/packing-unpacking-kwargs/index.html",
       "/blogs/ripgrep-commands/index.html",
+      "/blogs/effortless-parallel-execution-xargs/index.html",
+      "/blogs/website-management-pandoc/index.html",
+      "/blogs/today/index.html",
       "/blogs/aims/index.html",
       "/blogs/reflections-scientific-research/index.html",
       "/blogs/focus/index.html",

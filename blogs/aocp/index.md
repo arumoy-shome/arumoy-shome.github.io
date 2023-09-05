@@ -3,6 +3,7 @@ title: Aru's Org Capture Template (aocp.el)
 date: 2021-06-16
 abstract: |
     An Emacs package I wrote for managing bibliographic information.
+categories: [emacs, productivity]
 ---
 
 After observing my workflow of managing bibliographic information in

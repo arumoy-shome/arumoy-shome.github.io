@@ -8,6 +8,7 @@ abstract: |
     of its functionalities which I frequently use. AIMS is completely
     tuned towards my workflow as a researcher and how I manage my
     digital notes.
+categories: [shell, productivity]
 ---
 
 AIMS or Aru's Information Management System is a collection of
@@ -112,6 +113,10 @@ echo "# [$(date +'%Y-%m-%d %a %H:%M')]" >> $1 # <2>
 It simply adds a level 1 markdown header followed by a timestamp. Here
 is another for capturing bibtex information for research papers.
 
+::: {.callout-tip}
+[I also wrote aocp.el](../aocp), an emacs package to capture bibtex
+information of research papers using org-mode.
+:::
 ```bash
 #!/usr/bin/env bash
 

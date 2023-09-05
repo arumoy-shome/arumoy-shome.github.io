@@ -2,6 +2,7 @@
 title: Nutrition
 date: 2021-06-16
 abstract: Notes on diet and nutrition.
+categories: [misc]
 ---
 
 This document provides information regarding diet and nutrition. The
