@@ -1,16 +1,5 @@
 [
   {
-    "listing": "/logs.html",
-    "items": [
-      "/logs/packing-unpacking-kwargs.html",
-      "/logs/ripgrep-commands.html",
-      "/logs/dired-commands.html",
-      "/logs/python-context-file.html",
-      "/logs/shell-path-helper.html",
-      "/logs/private-link-sharing.html"
-    ]
-  },
-  {
     "listing": "/talks.html",
     "items": []
   },
