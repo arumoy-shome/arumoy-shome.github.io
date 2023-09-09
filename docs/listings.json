@@ -19,12 +19,15 @@
       "/blogs/packing-unpacking-kwargs/index.html",
       "/blogs/ripgrep-commands/index.html",
       "/blogs/effortless-parallel-execution-xargs/index.html",
+      "/blogs/data-smells-public-datasets/index.html",
       "/blogs/website-management-pandoc/index.html",
       "/blogs/today/index.html",
       "/blogs/aims/index.html",
       "/blogs/reflections-scientific-research/index.html",
+      "/blogs/privacy-preserving-deep-learning/index.html",
       "/blogs/focus/index.html",
       "/blogs/project-management/index.html",
+      "/blogs/research-workflow-plaintext/index.html",
       "/blogs/nutrition/index.html",
       "/blogs/aocp/index.html",
       "/blogs/scientific-paper-discovery/index.html",
@@ -33,8 +36,8 @@
       "/blogs/dired-commands/index.html",
       "/blogs/python-context-file/index.html",
       "/blogs/shell-path-finder/index.html",
-      "/blogs/navigating-in-vim/index.html",
-      "/blogs/searching-in-vim/index.html",
+      "/blogs/navigating-vim/index.html",
+      "/blogs/searching-vim/index.html",
       "/blogs/private-link-sharing/index.html"
     ]
   }
