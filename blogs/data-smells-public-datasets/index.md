@@ -13,6 +13,7 @@ abstract: |
     discussion. Finally, we will conclude the talk with some high level
     takeaways from our study along with the limitations & future
     directions of work.
+categories: [talk, research]
 ---
 
 # Introduction

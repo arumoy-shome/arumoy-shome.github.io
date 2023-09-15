@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Arumoy Shome">
-<meta name="dcterms.date" content="2022-05-04">
+<meta name="dcterms.date" content="2022-05-16">
 
-<title>Arumoy Shome - Data Smells in Public Datasets</title>
+<title>Arumoy Shome - Data Validation with TFDV</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -130,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Data Smells in Public Datasets</h1>
+      <h1 class="title">Data Validation with TFDV</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">talk</div>
                 <div class="quarto-category">research</div>
@@ -151,7 +151,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">May 4, 2022</p>
+        <p class="date">May 16, 2022</p>
       </div>
     </div>
     
@@ -161,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
   <div>
     <div class="abstract">
       <div class="abstract-title">Abstract</div>
-      <p>In this talk I will present our recent paper titled <em>Data Smells in Public Datasets</em> which was published at the <em><a href="https://conf.researchr.org/home/cain-2022">1<sup>st</sup> International Conference on AI Engineering (CAIN) 2022</a></em>. I will first present the problem we are trying to solve along with the contributions that we made. I will present the methodology which was followed along with the results obtained. I will present a select few smells which I personally find interesting &amp; hope will generate some discussion. Finally, we will conclude the talk with some high level takeaways from our study along with the limitations &amp; future directions of work.</p>
+      <p>In this lecture we will go over the basics of data validation. The first half of this lecture will be a talk on the fundamentals of data validation. We will answer <em>what is data validation?</em>, <em>why should we validate our data?</em> and <em>how we can validate our data?</em>. The second half of the lecture will be a hands-on tutorial on using <a href="https://github.com/tensorflow/data-validation">Tensorflow Data Validation</a>, instructions &amp; code for which can be found on <a href="https://github.com/arumoy-shome/remla">this github repo</a>.</p>
     </div>
   </div>
   
@@ -173,28 +173,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#problem-contributions" id="toc-problem-contributions" class="nav-link" data-scroll-target="#problem-contributions">Problem &amp; Contributions</a></li>
-  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
-  <li><a href="#catalogue" id="toc-catalogue" class="nav-link" data-scroll-target="#catalogue">Catalogue</a>
-  <ul class="collapse">
-  <li><a href="#correlated-features" id="toc-correlated-features" class="nav-link" data-scroll-target="#correlated-features">Correlated Features</a></li>
-  <li><a href="#presence-of-sensitive-features" id="toc-presence-of-sensitive-features" class="nav-link" data-scroll-target="#presence-of-sensitive-features">Presence of Sensitive Features</a></li>
-  <li><a href="#hierarchy-from-label-encoding" id="toc-hierarchy-from-label-encoding" class="nav-link" data-scroll-target="#hierarchy-from-label-encoding">Hierarchy from Label Encoding</a></li>
-  <li><a href="#binary-missing-values" id="toc-binary-missing-values" class="nav-link" data-scroll-target="#binary-missing-values">Binary Missing Values</a></li>
-  <li><a href="#strings-in-human-friendly-formats" id="toc-strings-in-human-friendly-formats" class="nav-link" data-scroll-target="#strings-in-human-friendly-formats">Strings in Human-friendly Formats</a></li>
-  </ul></li>
-  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a>
-  <ul class="collapse">
-  <li><a href="#lack-of-proper-documentation" id="toc-lack-of-proper-documentation" class="nav-link" data-scroll-target="#lack-of-proper-documentation">Lack of Proper Documentation</a></li>
-  <li><a href="#lack-of-best-practices" id="toc-lack-of-best-practices" class="nav-link" data-scroll-target="#lack-of-best-practices">Lack of Best Practices</a></li>
-  </ul></li>
-  <li><a href="#limitations-future-work" id="toc-limitations-future-work" class="nav-link" data-scroll-target="#limitations-future-work">Limitations &amp; Future Work</a>
-  <ul class="collapse">
-  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
-  <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work">Future Work</a></li>
-  </ul></li>
+  <li><a href="#what-is-data-validation" id="toc-what-is-data-validation" class="nav-link active" data-scroll-target="#what-is-data-validation">What is data validation?</a></li>
+  <li><a href="#why-should-we-validate-our-data" id="toc-why-should-we-validate-our-data" class="nav-link" data-scroll-target="#why-should-we-validate-our-data">Why should we validate our data?</a></li>
+  <li><a href="#how-should-we-validate-our-data" id="toc-how-should-we-validate-our-data" class="nav-link" data-scroll-target="#how-should-we-validate-our-data">How should we validate our data?</a></li>
   </ul>
 </nav>
     </div>
@@ -204,135 +185,74 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>In this talk I will present our recent paper titled <em>Data Smells in Public Datasets</em> which was published at the <em><a href="https://conf.researchr.org/home/cain-2022">1<sup>st</sup> International Conference on AI Engineering (CAIN) 2022</a></em>. I will first present the problem we are trying to solve along with the contributions that we made. I will present the methodology which was followed along with the results obtained. I will present a select few smells which I personally find interesting &amp; hope will generate some discussion. Finally, we will conclude the talk with some high level takeaways from our study along with the limitations &amp; future directions of work.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I gave this guest lecture once again in the 2023 iteration of <a href="https://se.ewi.tudelft.nl/remla/">the REMLA course</a>.</p>
+</div>
+</div>
+<p>In this lecture we will go over the basics of data validation. The first half of this lecture will be a talk on the fundamentals of data validation. We will answer <em>what is data validation?</em>, <em>why should we validate our data?</em> and <em>how we can validate our data?</em>. The second half of the lecture will be a hands-on tutorial on using <a href="https://github.com/tensorflow/data-validation">Tensorflow Data Validation</a>, instructions &amp; code for which can be found on <a href="https://github.com/arumoy-shome/remla">this github repo</a>.</p>
+<section id="what-is-data-validation" class="level1">
+<h1>What is data validation?</h1>
+<p>I like to think of data validation in terms of <em>expectations vs. reality</em>. When working with data, we tend to have many implicit expectations from our data and data validation allows us to make such expectations explicit but defining validation rules.</p>
+<p>Another (perhaps more technical) perspective would be that data validation is equivalent to data testing. This may include testing for presence of data, the data type of the columns (<code>int</code>, <code>float</code> or <code>string</code>) and statistical tests pertaining to the distribution of the feature.</p>
 </section>
-<section id="problem-contributions" class="level1">
-<h1>Problem &amp; Contributions</h1>
-<div id="fig-ml-pillars" class="quarto-figure quarto-figure-center anchored">
+<section id="why-should-we-validate-our-data" class="level1">
+<h1>Why should we validate our data?</h1>
+<p>Lets answer this question with an example. Lets assume we are working on a project which involves working with tabular data presented in Figure&nbsp;<a href="#fig-data">Figure&nbsp;1</a>. The dataset contains several numerical features such as the <code>area</code> &amp; <code>perimeter</code> of the tumour and we want to train a model to predict whether the tumour is malignant or benign.</p>
+<div id="fig-data" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="ml-mature-pillars.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Pillars of ML</figcaption>
+<p><img src="cancer-data.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Example dataset</figcaption>
 </figure>
 </div>
-<p>Compared to traditional software systems—which typically mature by experiencing change in the <em>code</em>—machine learning systems experience change in the <em>code, model &amp; data</em> (Figure <a href="#fig-ml-pillars">Figure&nbsp;1</a>). These three pillars of change are tangled with one another, where a small change or bug in any part of the pipeline, ripples through to the downstream stages. Thus it becomes extremely important to catch such problems in the early, upstream stages of the ML lifecycle, which typically revolve around the data.</p>
-<p>ML tends to be very data-centric in nature and majority of the work involves working with the data. When we put a software engineering lens on this, <strong>data for data science is equivalent to code for software engineering</strong>. While software engineers have several tools &amp; techniques to aid them in their day-to-day lives, the same cannot be said for data scientists.</p>
-<p>With this study, we wish to aid data scientists with their day-to-day tasks. In line with this motivation, we first identify the recurrent data quality issues that occur in popular public datasets. Our contributions here was to provide a formal definition of data smells which we define as data anti-patterns in the datasets that may indicate early signs of problems or technical debt. Our second research question was to analyse the prevalence of such data smells in public datasets. Here we contributed by creating a catalogue of 14 data smells by analysing 25 popular public datasets.</p>
-</section>
-<section id="methodology" class="level1">
-<h1>Methodology</h1>
-<div id="fig-method" class="quarto-figure quarto-figure-center anchored">
+<p>And lets say—being the ML experts that we are—we do some experimentation with various models and we manage to find one that fits the data well. We evaluate the model with a test set and achieve an acceptable value for the metric we are checking (accuracy, precision, recall or something else). Everybody is happy, you give yourself a pat on the back for a job well done, and call it a day.</p>
+<p>This is a typical ML workflow which we tend to see in academia or in an educational setting. Turns out however, that the ML model related work is a single component of a much larger system as see in Figure&nbsp;<a href="#fig-ml-prod-components">Figure&nbsp;2</a>.</p>
+<div id="fig-ml-prod-components" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="data-smells-methodology.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Methodology</figcaption>
+<p><img src="ml-prod-components.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: ML Production Components</figcaption>
 </figure>
 </div>
-<p>As seen in Figure <a href="#fig-method">Figure&nbsp;2</a>, our methodology consists of 3 distinct phases.</p>
-<p>We start with the data selection phase. We used Kaggle—a popular public data repository–to identify datasets for this study. We consider structured datasets with the most number of votes which are lesser than 1GB in size for this study.</p>
-<p>Next we manually conduct a preliminary analysis of the datasets. This consists of observing the <code>head</code>, the <code>tail</code> &amp; the descriptive statistics of the dataset, reading the data documentation when available and such. Through the preliminary analysis we identify the data smells. We conduct this phase twice to ensure that the older datasets are also tagged with relevant smells which were discovered during analysis of newer datasets.</p>
-<p>Finally we conduct the catalogue creation phase. We hold all the data smells identified in the prior phase against a few exclusion criterion and create the final catalogue.</p>
-</section>
-<section id="results" class="level1">
-<h1>Results</h1>
-<div id="fig-2d-histplot" class="quarto-figure quarto-figure-center anchored">
+<p>Continuing along with the theme of data, lets dive deeper into the data collection stage. There may be several sources of data for the model. For instance, there may be a web service which is continually scrapping the internet for data, or we may have data stored in a database, a data warehouse or data lake.</p>
+<p>In addition, we may have several systems with or without ML components which our system communicates with. For instance, in Figure&nbsp;<a href="#fig-ml-spaghetti">Figure&nbsp;3</a> our system may rely on data from another service. In return, other services may depend on the predictions from our system.</p>
+<div id="fig-ml-spaghetti" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="data-smells-2d-histplot.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Overview of Results</figcaption>
+<p><img src="ml-spaghetti.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;3: ML Spaghetti</figcaption>
 </figure>
 </div>
-<p>Figure <a href="#fig-2d-histplot">Figure&nbsp;3</a> is a two dimensional histogram with an overview of the “meta” analysis of the datasets &amp; smells. The plot presents the datasets along the X axis and the smells along the Y axis which allows us to observe the most frequent smells and where they were recorded. The plot also consists of two marginal plots. The marginal plot along the Y axis presents a count of smells across all datasets while the plot along the X axis presents the count of smells in each dataset.</p>
-</section>
-<section id="catalogue" class="level1">
-<h1>Catalogue</h1>
-<p>I will present 5 smells from the catalogue which I personally find interesting and hope will spark some discussion.</p>
-<section id="correlated-features" class="level2">
-<h2 class="anchored" data-anchor-id="correlated-features">Correlated Features</h2>
-<div id="fig-red-corr" class="quarto-figure quarto-figure-center anchored">
+<p>My point here is that ML pipelines are inherently complex and tangled. They consist of several stages and the ML model work tends to be a small part of a much larger system. A small change or bug in any of the stages ripples throughout the entire pipeline. Therefore, we cannot make implicit assumptions regarding the quality of the data.</p>
+<p>Continuing with the scenario of cancer detection, lets say that we have now managed to deploy our ML model in production. After a certain period of time (days, weeks or months) we may decide to re-train the model due to degrade in performance (perhaps the accuracy is lower than it used to be). The next batch of training data is typically generated by combining the unlabelled data in production with the predictions our live model is making as seen in Figure&nbsp;<a href="#fig-ml-prod-training">Figure&nbsp;4</a>.</p>
+<div id="fig-ml-prod-training" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="data-smells-red-corr.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;4: Correlation of features in all datasets</figcaption>
+<p><img src="ml-prod-training.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;4: ML Production Training</figcaption>
 </figure>
 </div>
-<p>I will start with the presence of correlated features smell which many of us are perhaps already familiar with. I want to start with this smell as it was most frequently observed in our sample of datasets.</p>
-<p>When two features A &amp; B are correlated, inducing a positive or negative change in A does the same in B. This presents an opportunity to perform feature engineering and construct a more efficient dataset. ML is highly experimental and any optimisation—no matter how smalls—counts. Small datasets ultimately are easier to understand, faster to train a model on &amp; take up less storage.</p>
+<p>However, what happens if we no longer track the <code>area_mean</code> feature? Or what if we start tracking the numerical features in centimetres rather than millimetres? Or what if we use comma instead of periods to denote decimals?</p>
+<p>With the exception of the last example, changes are that our pipeline continues to work albeit with a degraded performance. This is because we hold several implicit expectations from our data based on the training data which was used however the data in production may tell a completely different story. Thus it is important to make such expectations explicit by validating our data and catch data quality issues from feedback loops.</p>
 </section>
-<section id="presence-of-sensitive-features" class="level2">
-<h2 class="anchored" data-anchor-id="presence-of-sensitive-features">Presence of Sensitive Features</h2>
-<div id="fig-misc-sensitive" class="quarto-figure quarto-figure-center anchored">
+<section id="how-should-we-validate-our-data" class="level1">
+<h1>How should we validate our data?</h1>
+<p>Although data validation has existing in the domain of database management systems for a very long time, its application in ML is new and still evolving. In this part of the talk I will present the theoretical principles on which tfdv operates.</p>
+<p>We first generate a <em>schema</em> from the training data. A schema defines what we want our data to look like. For instance, for our cancer dataset, the schema may specify the columns we expect in the dataset, their data types and the distribution of each feature. Next, we gather statistics from the dataset we want to validate (this can be the local test set or the live data from production). Finally, we compare the statistics against the schema to make sure that they match. Figure&nbsp;<a href="#fig-data-validation-how">Figure&nbsp;5</a> puts a software engineering lens on how data validation works. The schema can be thought of as the <em>test oracle</em> and the live data is the <em>current state</em>. And we validate the two to ensure that there are no bugs in the live dataset.</p>
+<p>It is important to realise that the schema generated by tfdv is best effort and the ML practitioner is still required to tweak the schema based on their understanding of the data &amp; domain expertise.</p>
+<div id="fig-data-validation-how" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="data-smells-misc-sensitive.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;5: Sensitive features</figcaption>
+<p><img src="data-validation-how.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;5: Data Validation How</figcaption>
 </figure>
 </div>
-<p>I want to motivate this smell with this figure. This is a probability density plot from the adult census dataset. This dataset consists information regarding individuals including their race &amp; sex. The supervised learning task is to predict the income class they belong to.</p>
-<p>Lets focus primarily on the top left plot which shows that for this dataset, a male individual of fairer skin is likely to earn more. Such a bias also exist between male &amp; female individuals of the same race. A model trained &amp; tested on this dataset will perform well however putting such a model in production will result in devastating consequences since the model was trained using biased historical data which does not reflect the real world.</p>
-<p>And we see examples of this in the real world, when financial institutes use ML to predict if an individual is entitled to a loan, or when the criminal justice system want to predict the severity of sentencing and when police try to identify if an individual is a threat using video surveillance.</p>
-</section>
-<section id="hierarchy-from-label-encoding" class="level2">
-<h2 class="anchored" data-anchor-id="hierarchy-from-label-encoding">Hierarchy from Label Encoding</h2>
-<div id="fig-cat-hierarchy" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="data-smells-cat-hierarchy.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;6: Hierarchy from label encoding</figcaption>
-</figure>
-</div>
-<p>Figure <a href="#fig-cat-hierarchy">Figure&nbsp;6</a> presents a probability density plot from the adult census dataset. Here we compare the income class of individuals to their level of education. We can see that for this dataset, an individual with a higher level of education is likely to earn more.</p>
-<p>Such a hierarchy in categorical features is useful information which can be utilised by the model. A common practise is to encode categorical features using numbers. As an example we can encode the education levels using numbers between 0 and 4, where higher education gets a larger number. Such an encoding scheme can be beneficial to the model as it exposes the hierarchy amongst the values of a categorical feature. However applying the same encoding scheme for the <em>race</em> or <em>sex</em> feature can introduce an unwanted hierarchy amongst the values where non should exist.</p>
-</section>
-<section id="binary-missing-values" class="level2">
-<h2 class="anchored" data-anchor-id="binary-missing-values">Binary Missing Values</h2>
-<div id="fig-misc-bin" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="data-smells-miss-bin.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;7: Binary missing values</figcaption>
-</figure>
-</div>
-<p>Two features from the permit dataset contain a lot of missing values (over 90% of the data in these features are missing). A common technique in such cases is to drop such features since they do not impart any knowledge to the model. However, taking a closer look at the value of the non-missing data, we find that the missing values in these features carry an implicit meaning of ‘no’ or a negative response.</p>
-<p>Attention must be paid to the distribution of the missing values. If the missing values are concentrated within a specific feature (along columns) as opposed to being evenly distributed across the dataset (along columns &amp; rows), it may indicate that they carry an implicit meaning. A novice data scientist may hastily drop such features however in doing so they alter the original information portrait by dataset.</p>
-</section>
-<section id="strings-in-human-friendly-formats" class="level2">
-<h2 class="anchored" data-anchor-id="strings-in-human-friendly-formats">Strings in Human-friendly Formats</h2>
-<div id="fig-str-human" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="data-smells-str-human.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;8: Strings in human-friendly formats</figcaption>
-</figure>
-</div>
-<p>The <em>netfix</em> dataset contains information regarding content on the popular entertainment streaming service. The dataset contains information regarding movies &amp; TV shows along with their duration.</p>
-<p>Although the duration for movies can be easily converted to a numerical representation, doing the same for TV shows poses several challenges and requires further effort and domain expertise.</p>
-</section>
-</section>
-<section id="discussion" class="level1">
-<h1>Discussion</h1>
-<p>In this section I will present two high level observations from this study.</p>
-<section id="lack-of-proper-documentation" class="level2">
-<h2 class="anchored" data-anchor-id="lack-of-proper-documentation">Lack of Proper Documentation</h2>
-<p>We saw several instances where a lack of proper documentation was felt. The <em>heart</em> dataset contains very cryptic column names and understanding the information contained within these column require domain expertise. The <em>sex</em> feature within the same dataset is label encoded however we do not know which number represents which gender. The <em>cancer</em> dataset contains several numerical features but we do not know the unit in which the measurements were recorded.</p>
-<p>Every dataset is unique &amp; contains its own idiosyncrasies and we require proper documentation to understand them. Documentation provides useful metadata &amp; context to data scientists who are getting started with a dataset &amp; also help re-familiarise them to the dataset quickly when they come back at a later time.</p>
-</section>
-<section id="lack-of-best-practices" class="level2">
-<h2 class="anchored" data-anchor-id="lack-of-best-practices">Lack of Best Practices</h2>
-<p>We also found several instances of technical debt from lack of best practices in upstream processes. Going back to the <em>netflix</em> dataset where extracting numerical duration for TV shows was found to be challenging, or the <em>heart</em> dataset with its cryptic column names and the <em>cancer</em> dataset where the unit was not recorded. In all these instances, technical debt could have been avoided by simply using better column names or providing documentation. By following standardised procedures in the upstream data collection/creation stages, technical debt in the downstream stages can be avoided.</p>
-<p>We feel that data smells can help identify such sources of technical debt in the early stages of a ML pipeline where the complexity is relatively lower, and fixes are cheaper and easier to implement. This becomes especially important when working with external stakeholders within financial constraints.</p>
-</section>
-</section>
-<section id="limitations-future-work" class="level1">
-<h1>Limitations &amp; Future Work</h1>
-<p>Lets take a look at the limitations of our current study and directions for future work.</p>
-<section id="limitations" class="level2">
-<h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
-<p>We opted for a <em>shallow</em> as opposed to a <em>deep</em> analysis of this datasets. This means that we did not fit a model to each dataset and carry out a supervised learning task. While such a workflow may reveal more smells, we believe that the smells also become specific to the dataset, model or problem we are trying to solve. Our intention was to pick the smallest subset of analysis tasks that can be scaled across several datasets.</p>
-<p>The smells are linked to the version of the dataset analysed. Unfortunately this is true for all data-centric work. However we do our best to make our results reproducible by providing the version of the data that was analysed in our paper.</p>
-<p>We do not know the impact of the smells. For instance, if we consider the missing units smell, we do not know if and to what extent this smell affects the performance of a model. This was considered beyond the scope of this project however remains to be a viable extension to our current work.</p>
-<p>Finally, smells are subjective to the human. But this is true for code smells as well. Not all long methods are bad and god classes still exist in public software projects.</p>
-</section>
-<section id="future-work" class="level2">
-<h2 class="anchored" data-anchor-id="future-work">Future Work</h2>
-<p>Growing the catalogue using more datasets is a low-hanging fruit. It would also be interesting to explore the notion of smells for semi-structured and unstructured datasets. Finally, it would be interesting to understand the co-occurance and evolution of smells throughout the ML lifecycle.</p>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
