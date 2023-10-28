@@ -14,6 +14,7 @@
   {
     "listing": "/blogs.html",
     "items": [
+      "/blogs/aspell-commands/index.html",
       "/blogs/navigating-large-markdown-files-vim/index.html",
       "/blogs/cms-pandoc/index.html",
       "/blogs/packing-unpacking-kwargs/index.html",
