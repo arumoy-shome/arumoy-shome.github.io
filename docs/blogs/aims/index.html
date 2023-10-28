@@ -263,23 +263,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="1" data-code-lines="3,4,5,6">Store all notes in <code>$HOME/org/inbox.md</code>, creating it if necessary. Also look for template scripts in <code>~/.local/share/aims</code>.</span>
+<span data-code-lines="3,4,5,6" data-code-cell="annotated-cell-1" data-code-annotation="1">Store all notes in <code>$HOME/org/inbox.md</code>, creating it if necessary. Also look for template scripts in <code>~/.local/share/aims</code>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="2" data-code-lines="12,14,15,16,17,18,19,20,21,22,23,24,25">Parse the flags passed to AIMS. Currently it only supports the <code>--template</code>/<code>-t</code> flag which accepts the name of the template to use. Use the <code>default</code> template if none is provided. More on this later.</span>
+<span data-code-lines="12,14,15,16,17,18,19,20,21,22,23,24,25" data-code-cell="annotated-cell-1" data-code-annotation="2">Parse the flags passed to AIMS. Currently it only supports the <code>--template</code>/<code>-t</code> flag which accepts the name of the template to use. Use the <code>default</code> template if none is provided. More on this later.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="3" data-code-lines="27,28,29,30">Create a temporary file and insert the contents of the template.</span>
+<span data-code-lines="27,28,29,30" data-code-cell="annotated-cell-1" data-code-annotation="3">Create a temporary file and insert the contents of the template.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="4" data-code-lines="32,33,34,35,36">Edit the temporary file using <code>$EDITOR</code> (here I assume its vim or neovim), setting the filetype to markdown. If the first positional argument passed to AIMS is a valid file inside <code>$NOTESDIR</code> then set that to the <code>$INBOX</code> file. Finally, prepend the contents of the temporary file to <code>$INBOX</code> file, if vim does not report an error.</span>
+<span data-code-lines="32,33,34,35,36" data-code-cell="annotated-cell-1" data-code-annotation="4">Edit the temporary file using <code>$EDITOR</code> (here I assume its vim or neovim), setting the filetype to markdown. If the first positional argument passed to AIMS is a valid file inside <code>$NOTESDIR</code> then set that to the <code>$INBOX</code> file. Finally, prepend the contents of the temporary file to <code>$INBOX</code> file, if vim does not report an error.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="5" data-code-lines="38">Cleanup, remove the temporary file.</span>
+<span data-code-lines="38" data-code-cell="annotated-cell-1" data-code-annotation="5">Cleanup, remove the temporary file.</span>
 </dd>
 </dl>
 <p>For the time being, it only provides the capture functionality. A temporary file is used to compose the text first. Upon successful completion, the contents of the temporary file are appended to the default <code>$INBOX</code> file if no other files are specified.</p>
@@ -298,11 +298,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-annotation="1" data-code-lines="3">Sanity check, ensure that a positional argument was passed (that is, the temporary file path).</span>
+<span data-code-lines="3" data-code-cell="annotated-cell-2" data-code-annotation="1">Sanity check, ensure that a positional argument was passed (that is, the temporary file path).</span>
 </dd>
 <dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-annotation="2" data-code-lines="5,6">Insert an empty line and a level 1 markdown header with a time stamp.</span>
+<span data-code-lines="5,6" data-code-cell="annotated-cell-2" data-code-annotation="2">Insert an empty line and a level 1 markdown header with a time stamp.</span>
 </dd>
 </dl>
 <p>It simply adds a level 1 markdown header followed by a timestamp. Here is another for capturing bibtex information for research papers.</p>
@@ -350,15 +350,15 @@ Tip
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-annotation="1" data-code-lines="7,8,9,10,11,12">Check that the bibtex information is currently in the system clipboard by attempting to extract the key using <code>grep</code> and <code>sed</code>. If a key was succussfully extracted, then create a level 1 markdown header with a time stamp and the key. Otherwise, fall back to just a time stamp.</span>
+<span data-code-lines="7,8,9,10,11,12" data-code-cell="annotated-cell-3" data-code-annotation="1">Check that the bibtex information is currently in the system clipboard by attempting to extract the key using <code>grep</code> and <code>sed</code>. If a key was succussfully extracted, then create a level 1 markdown header with a time stamp and the key. Otherwise, fall back to just a time stamp.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-annotation="2" data-code-lines="14,15,16,17,18,19,20">Add my prompts for note-taking when reading scientific papers.</span>
+<span data-code-lines="14,15,16,17,18,19,20" data-code-cell="annotated-cell-3" data-code-annotation="2">Add my prompts for note-taking when reading scientific papers.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-annotation="3" data-code-lines="21,23,24,25,26,28">Remove empty lines and put the bibtex information in a markdown source block.</span>
+<span data-code-lines="21,23,24,25,26,28" data-code-cell="annotated-cell-3" data-code-annotation="3">Remove empty lines and put the bibtex information in a markdown source block.</span>
 </dd>
 </dl>
 <p>This one is a bit more involved but highlights the power of using shellscripts for templating. Given that a bibentry is copied in the clipboard, this template adds a level 1 markdown header with a timestamp and the bibkey. It adds my <a href="../research-workflow#writing-notes">note-taking prompts</a> and sticks the bibentry at the bottom.</p>
