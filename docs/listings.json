@@ -1,6 +1,6 @@
 [
   {
-    "listing": "/talks.html",
+    "listing": "/publications.html",
     "items": []
   },
   {
@@ -8,12 +8,13 @@
     "items": []
   },
   {
-    "listing": "/publications.html",
+    "listing": "/talks.html",
     "items": []
   },
   {
     "listing": "/blogs.html",
     "items": [
+      "/blogs/doi2bib/index.html",
       "/blogs/aspell-commands/index.html",
       "/blogs/navigating-large-markdown-files-vim/index.html",
       "/blogs/cms-pandoc/index.html",
