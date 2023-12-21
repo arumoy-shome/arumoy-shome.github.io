@@ -5,7 +5,7 @@ listing:
   sort: "date desc"
   type: default
   fields: [date, title, description, categories]
-  categories: true
+  categories: cloud
   sort-ui: true
   filter-ui: true
   feed: true
