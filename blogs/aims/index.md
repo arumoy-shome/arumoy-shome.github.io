@@ -30,42 +30,42 @@ below is the script as it stands on 2022-02-28.
 ```{.bash filename="aims"}
 #!/usr/bin/env bash
 
-NOTESDIR="$HOME/org" # <1>
-INBOX="$NOTESDIR/inbox.md" # <1>
-TEMPLATESDIR="$XDG_DATA_HOME/aims" # <1>
-[[ ! -e "$INBOX" ]] && touch "$INBOX" # <1>
+NOTESDIR="$HOME/org"                                        # <1>
+INBOX="$NOTESDIR/inbox.md"                                  # <1>
+TEMPLATESDIR="$XDG_DATA_HOME/aims"                          # <1>
+[[ ! -e "$INBOX" ]] && touch "$INBOX"                       # <1>
 
 __capture() {
   # Capture incoming info quickly. All items are appended to INBOX
   # which defaults to `inbox.md' in NOTESDIR. Optionally a template
   # can be specified using the --template| -t flag.
-  local TEMPLATE="$TEMPLATESDIR/default" # <2>
+  local TEMPLATE="$TEMPLATESDIR/default"                    # <2>
 
-  while [[ "$1" =~ ^-+.* && ! "$1" == "--" ]]; do # <2>
-    case "$1" in # <2>
-      --template | -t) # <2>
-        shift # <2>
-        TEMPLATE="$TEMPLATESDIR/$1" # <2>
-        ;; # <2>
-      *) # <2>
-        echo "Error: unknown option $1." # <2>
-        return 1 # <2>
-        ;; # <2>
-    esac; shift # <2>
-  done # <2>
+  while [[ "$1" =~ ^-+.* && ! "$1" == "--" ]]; do           # <2>
+    case "$1" in                                            # <2>
+      --template | -t)                                      # <2>
+        shift                                               # <2>
+        TEMPLATE="$TEMPLATESDIR/$1"                         # <2>
+        ;;                                                  # <2>
+      *)                                                    # <2>
+        echo "Error: unknown option $1."                    # <2>
+        return 1                                            # <2>
+        ;;                                                  # <2>
+    esac; shift                                             # <2>
+  done                                                      # <2>
 
-  local ITEM=$(mktemp) # <3>
-  if [[ -e "$TEMPLATE" && -x "$TEMPLATE" ]]; then # <3>
-    eval "$TEMPLATE $ITEM" # <3>
-  fi # <3>
+  local ITEM=$(mktemp)                                      # <3>
+  if [[ -e "$TEMPLATE" && -x "$TEMPLATE" ]]; then           # <3>
+    eval "$TEMPLATE $ITEM"                                  # <3>
+  fi                                                        # <3>
 
-  if eval "$EDITOR -c 'set ft=markdown' $ITEM"; then # <4>
+  if eval "$EDITOR -c 'set ft=markdown' $ITEM"; then        # <4>
     [[ "$1" && -e "$NOTESDIR/$1" ]] && INBOX="$NOTESDIR/$1" # <4>
-    cat "$ITEM" >> "$INBOX" # <4>
-    echo "Info: captured in $INBOX." # <4>
-  fi # <4>
+    cat "$ITEM" >> "$INBOX"                                 # <4>
+    echo "Info: captured in $INBOX."                        # <4>
+  fi                                                        # <4>
 
-  echo "Info: cleaning up $(rm -v "$ITEM")" # <5>
+  echo "Info: cleaning up $(rm -v "$ITEM")"                 # <5>
 }
 
 __capture "$@"
