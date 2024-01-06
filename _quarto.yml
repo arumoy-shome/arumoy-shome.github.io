@@ -13,6 +13,7 @@ website:
       - talks.qmd
       - projects.qmd
       - publications.qmd
+      - bib.qmd
       - license.qmd
     right:
       - icon: github

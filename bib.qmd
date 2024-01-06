@@ -1,0 +1,869 @@
+---
+title: "Annotated Bibliography"
+page-layout: full
+title-block-banner: true
+toc: true
+---
+
+Following is a list of papers that I frequently cite or found
+interesting to read during the course of my PhD.
+
+# SE4AI
+
+Foundational papers that introduce the notion of bringing Software
+Engineering best practices to AI enabled systems.
+
+## vogelsang2019requirements
+
+```bibtex
+@InProceedings{   vogelsang2019requirements,
+  doi           = {10.1109/rew.2019.00050},
+  url           = {https://doi.org/10.1109/rew.2019.00050},
+  year          = {2019},
+  month         = sep,
+  publisher     = {{IEEE}},
+  author        = {Andreas Vogelsang and Markus Borg},
+  title         = {Requirements Engineering for Machine Learning:
+                  Perspectives from Data Scientists},
+  booktitle     = {2019 {IEEE} 27th International Requirements Engineering
+                  Conference Workshops ({REW})}
+}
+```
+
+## breck2017ml
+
+```bibtex
+@InProceedings{   breck2017ml,
+  title         = {The ML test score: A rubric for ML production readiness
+                  and technical debt reduction},
+  url           = {http://dx.doi.org/10.1109/BigData.2017.8258038},
+  doi           = {10.1109/bigdata.2017.8258038},
+  booktitle     = {2017 IEEE International Conference on Big Data (Big
+                  Data)},
+  publisher     = {IEEE},
+  author        = {Breck, Eric and Cai, Shanqing and Nielsen, Eric and Salib,
+                  Michael and Sculley, D.},
+  year          = {2017},
+  month         = dec
+}
+```
+
+## sculley2015hidden
+
+```bibtex
+@InProceedings{   sculley2015hidden,
+  author        = {Sculley, D. and Holt, Gary and Golovin, Daniel and
+                  Davydov, Eugene and Phillips, Todd and Ebner, Dietmar and
+                  Chaudhary, Vinay and Young, Michael and Crespo,
+                  Jean-Fran\c{c}ois and Dennison, Dan},
+  booktitle     = {Advances in Neural Information Processing Systems},
+  editor        = {C. Cortes and N. Lawrence and D. Lee and M. Sugiyama and
+                  R. Garnett},
+  pages         = {},
+  publisher     = {Curran Associates, Inc.},
+  title         = {Hidden Technical Debt in Machine Learning Systems},
+  url           = {https://proceedings.neurips.cc/paper_files/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf},
+  volume        = {28},
+  year          = {2015}
+}
+```
+
+## sambasivan2021everyone
+
+```bibtex
+@InProceedings{   sambasivan2021everyone,
+  series        = {CHI ’21},
+  title         = {“Everyone wants to do the model work, not the data
+                  work”: Data Cascades in High-Stakes AI},
+  url           = {http://dx.doi.org/10.1145/3411764.3445518},
+  doi           = {10.1145/3411764.3445518},
+  booktitle     = {Proceedings of the 2021 CHI Conference on Human Factors in
+                  Computing Systems},
+  publisher     = {ACM},
+  author        = {Sambasivan, Nithya and Kapania, Shivani and Highfill,
+                  Hannah and Akrong, Diana and Paritosh, Praveen and Aroyo,
+                  Lora M},
+  year          = {2021},
+  month         = may,
+  collection    = {CHI ’21}
+}
+```
+
+## martinez-plumed2021crisp-dm
+
+```bibtex
+@Article{         martinez-plumed2021crisp-dm,
+  title         = {CRISP-DM Twenty Years Later: From Data Mining Processes to
+                  Data Science Trajectories},
+  volume        = {33},
+  issn          = {2326-3865},
+  url           = {http://dx.doi.org/10.1109/TKDE.2019.2962680},
+  doi           = {10.1109/tkde.2019.2962680},
+  number        = {8},
+  journal       = {IEEE Transactions on Knowledge and Data Engineering},
+  publisher     = {Institute of Electrical and Electronics Engineers (IEEE)},
+  author        = {Martinez-Plumed, Fernando and Contreras-Ochando, Lidia and
+                  Ferri, Cesar and Hernandez-Orallo, Jose and Kull, Meelis
+                  and Lachiche, Nicolas and Ramirez-Quintana, Maria Jose and
+                  Flach, Peter},
+  year          = {2021},
+  month         = aug,
+  pages         = {3048–3061}
+}
+```
+
+## hutchinson2021towards
+
+```bibtex
+@InProceedings{   hutchinson2021towards,
+  series        = {FAccT ’21},
+  title         = {Towards Accountability for Machine Learning Datasets:
+                  Practices from Software Engineering and Infrastructure},
+  url           = {http://dx.doi.org/10.1145/3442188.3445918},
+  doi           = {10.1145/3442188.3445918},
+  booktitle     = {Proceedings of the 2021 ACM Conference on Fairness,
+                  Accountability, and Transparency},
+  publisher     = {ACM},
+  author        = {Hutchinson, Ben and Smart, Andrew and Hanna, Alex and
+                  Denton, Emily and Greer, Christina and Kjartansson, Oddur
+                  and Barnes, Parker and Mitchell, Margaret},
+  year          = {2021},
+  month         = mar,
+  collection    = {FAccT ’21}
+}
+```
+
+## haakman2021ai
+
+```bibtex
+@Article{         haakman2021ai,
+  title         = {AI lifecycle models need to be revised: An exploratory
+                  study in Fintech},
+  volume        = {26},
+  issn          = {1573-7616},
+  url           = {http://dx.doi.org/10.1007/s10664-021-09993-1},
+  doi           = {10.1007/s10664-021-09993-1},
+  number        = {5},
+  journal       = {Empirical Software Engineering},
+  publisher     = {Springer Science and Business Media LLC},
+  author        = {Haakman, Mark and Cruz, Luís and Huijgens, Hennie and van
+                  Deursen, Arie},
+  year          = {2021},
+  month         = jul
+}
+```
+
+## bosch2021engineering
+
+``` bibtex
+@InBook{          bosch2021engineering,
+  title         = {Engineering AI Systems: A Research Agenda},
+  issn          = {2327-3461},
+  url           = {http://dx.doi.org/10.4018/978-1-7998-5101-1.ch001},
+  doi           = {10.4018/978-1-7998-5101-1.ch001},
+  booktitle     = {Artificial Intelligence Paradigms for Smart Cyber-Physical
+                  Systems},
+  publisher     = {IGI Global},
+  author        = {Bosch, Jan and Olsson, Helena Holmström and Crnkovic,
+                  Ivica},
+  year          = {2021},
+  pages         = {1–19}
+}
+```
+
+## arpteg2018software
+
+``` bibtex
+@InProceedings{   arpteg2018software,
+  title         = {Software Engineering Challenges of Deep Learning},
+  url           = {http://dx.doi.org/10.1109/SEAA.2018.00018},
+  doi           = {10.1109/seaa.2018.00018},
+  booktitle     = {2018 44th Euromicro Conference on Software Engineering and
+                  Advanced Applications (SEAA)},
+  publisher     = {IEEE},
+  author        = {Arpteg, Anders and Brinne, Bjorn and Crnkovic-Friis, Luka
+                  and Bosch, Jan},
+  year          = {2018},
+  month         = aug
+}
+```
+
+## amershi2019software
+
+```bibtex
+@InProceedings{   amershi2019software,
+  doi           = {10.1109/icse-seip.2019.00042},
+  url           = {https://doi.org/10.1109/icse-seip.2019.00042},
+  year          = 2019,
+  month         = may,
+  publisher     = {{IEEE}},
+  author        = {Saleema Amershi and Andrew Begel and Christian Bird and
+                  Robert DeLine and Harald Gall and Ece Kamar and Nachiappan
+                  Nagappan and Besmira Nushi and Thomas Zimmermann},
+  title         = {Software Engineering for Machine Learning: A Case Study},
+  booktitle     = {2019 {IEEE}/{ACM} 41st International Conference on
+                  Software Engineering: Software Engineering in Practice
+                  ({ICSE}-{SEIP})}
+}
+```
+
+# LLMs
+
+Papers on Large Language Models and Prompt Engineering.
+
+## liu2023pre-train
+
+```bibtex
+@Article{         liu2023pre-train,
+  doi           = {10.1145/3560815},
+  url           = {https://doi.org/10.1145/3560815},
+  year          = {2023},
+  month         = jan,
+  publisher     = {Association for Computing Machinery ({ACM})},
+  volume        = {55},
+  number        = {9},
+  pages         = {1--35},
+  author        = {Pengfei Liu and Weizhe Yuan and Jinlan Fu and Zhengbao
+                  Jiang and Hiroaki Hayashi and Graham Neubig},
+  title         = {Pre-train, Prompt, and Predict: A Systematic Survey of
+                  Prompting Methods in Natural Language Processing},
+  journal       = {{ACM} Computing Surveys}
+}
+```
+
+# Mining Software Repositories
+
+Papers on large-scale repository mining.
+
+## quaranta2021kgtorrent
+
+```bibtex
+@InProceedings{   quaranta2021kgtorrent,
+  title         = {KGTorrent: A Dataset of Python Jupyter Notebooks from
+                  Kaggle},
+  url           = {http://dx.doi.org/10.1109/MSR52588.2021.00072},
+  doi           = {10.1109/msr52588.2021.00072},
+  booktitle     = {2021 IEEE/ACM 18th International Conference on Mining
+                  Software Repositories (MSR)},
+  publisher     = {IEEE},
+  author        = {Quaranta, Luigi and Calefato, Fabio and Lanubile,
+                  Filippo},
+  year          = {2021},
+  month         = may
+}
+```
+
+## psallidas2019data
+
+```bibtex
+@Misc{            psallidas2019data,
+  title         = {Data Science through the looking glass and what we found
+                  there},
+  author        = {Fotis Psallidas and Yiwen Zhu and Bojan Karlas and Matteo
+                  Interlandi and Avrilia Floratou and Konstantinos Karanasos
+                  and Wentao Wu and Ce Zhang and Subru Krishnan and Carlo
+                  Curino and Markus Weimer},
+  year          = {2019},
+  eprint        = {1912.09536},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.LG}
+}
+```
+
+## pimentel2019large-scale
+
+```bibtex
+@InProceedings{   pimentel2019large-scale,
+  title         = {A Large-Scale Study About Quality and Reproducibility of
+                  Jupyter Notebooks},
+  url           = {http://dx.doi.org/10.1109/MSR.2019.00077},
+  doi           = {10.1109/msr.2019.00077},
+  booktitle     = {2019 IEEE/ACM 16th International Conference on Mining
+                  Software Repositories (MSR)},
+  publisher     = {IEEE},
+  author        = {Pimentel, Joao Felipe and Murta, Leonardo and Braganholo,
+                  Vanessa and Freire, Juliana},
+  year          = {2019},
+  month         = may
+}
+```
+
+## bavishi2021vizsmith
+
+```bibtex
+@InProceedings{   bavishi2021vizsmith,
+  title         = {VizSmith: Automated Visualization Synthesis by Mining
+                  Data-Science Notebooks},
+  url           = {http://dx.doi.org/10.1109/ASE51524.2021.9678696},
+  doi           = {10.1109/ase51524.2021.9678696},
+  booktitle     = {2021 36th IEEE/ACM International Conference on Automated
+                  Software Engineering (ASE)},
+  publisher     = {IEEE},
+  author        = {Bavishi, Rohan and Laddad, Shadaj and Yoshida, Hiroaki and
+                  Prasad, Mukul R. and Sen, Koushik},
+  year          = {2021},
+  month         = nov
+}
+```
+
+# Computational Notebooks
+
+Papers on the design and challenges of computational notebooks.
+
+## yang2021subtle
+
+```bibtex
+@InProceedings{   yang2021subtle,
+  title         = {Subtle Bugs Everywhere: Generating Documentation for Data
+                  Wrangling Code},
+  url           = {http://dx.doi.org/10.1109/ASE51524.2021.9678520},
+  doi           = {10.1109/ase51524.2021.9678520},
+  booktitle     = {2021 36th IEEE/ACM International Conference on Automated
+                  Software Engineering (ASE)},
+  publisher     = {IEEE},
+  author        = {Yang, Chenyang and Zhou, Shurui and Guo, Jin L.C. and
+                  Kastner, Christian},
+  year          = {2021},
+  month         = nov
+}
+```
+
+## wang2020assessing
+
+```bibtex
+@InProceedings{   wang2020assessing,
+  series        = {ASE ’20},
+  title         = {Assessing and restoring reproducibility of Jupyter
+                  notebooks},
+  url           = {http://dx.doi.org/10.1145/3324884.3416585},
+  doi           = {10.1145/3324884.3416585},
+  booktitle     = {Proceedings of the 35th IEEE/ACM International Conference
+                  on Automated Software Engineering},
+  publisher     = {ACM},
+  author        = {Wang, Jiawei and Kuo, Tzu-yang and Li, Li and Zeller,
+                  Andreas},
+  year          = {2020},
+  month         = dec,
+  collection    = {ASE ’20}
+}
+```
+
+## rule2018exploration
+
+```bibtex
+@InProceedings{   rule2018exploration,
+  series        = {CHI ’18},
+  title         = {Exploration and Explanation in Computational Notebooks},
+  url           = {http://dx.doi.org/10.1145/3173574.3173606},
+  doi           = {10.1145/3173574.3173606},
+  booktitle     = {Proceedings of the 2018 CHI Conference on Human Factors in
+                  Computing Systems},
+  publisher     = {ACM},
+  author        = {Rule, Adam and Tabard, Aurélien and Hollan, James D.},
+  year          = {2018},
+  month         = apr,
+  collection    = {CHI ’18}
+}
+```
+
+## kery2018story
+
+```bibtex
+@InProceedings{   kery2018story,
+  series        = {CHI ’18},
+  title         = {The Story in the Notebook: Exploratory Data Science using
+                  a Literate Programming Tool},
+  url           = {http://dx.doi.org/10.1145/3173574.3173748},
+  doi           = {10.1145/3173574.3173748},
+  booktitle     = {Proceedings of the 2018 CHI Conference on Human Factors in
+                  Computing Systems},
+  publisher     = {ACM},
+  author        = {Kery, Mary Beth and Radensky, Marissa and Arya, Mahima and
+                  John, Bonnie E. and Myers, Brad A.},
+  year          = {2018},
+  month         = apr,
+  collection    = {CHI ’18}
+}
+```
+
+## head2019managing
+
+```bibtex
+@InProceedings{   head2019managing,
+  series        = {CHI ’19},
+  title         = {Managing Messes in Computational Notebooks},
+  url           = {http://dx.doi.org/10.1145/3290605.3300500},
+  doi           = {10.1145/3290605.3300500},
+  booktitle     = {Proceedings of the 2019 CHI Conference on Human Factors in
+                  Computing Systems},
+  publisher     = {ACM},
+  author        = {Head, Andrew and Hohman, Fred and Barik, Titus and
+                  Drucker, Steven M. and DeLine, Robert},
+  year          = {2019},
+  month         = may,
+  collection    = {CHI ’19}
+}
+```
+
+## chattopadhyay2020what
+
+```bibtex
+@InProceedings{   chattopadhyay2020what’s,
+  series        = {CHI ’20},
+  title         = {What’s Wrong with Computational Notebooks? Pain Points,
+                  Needs, and Design Opportunities},
+  url           = {http://dx.doi.org/10.1145/3313831.3376729},
+  doi           = {10.1145/3313831.3376729},
+  booktitle     = {Proceedings of the 2020 CHI Conference on Human Factors in
+                  Computing Systems},
+  publisher     = {ACM},
+  author        = {Chattopadhyay, Souti and Prasad, Ishita and Henley, Austin
+                  Z. and Sarma, Anita and Barik, Titus},
+  year          = {2020},
+  month         = apr,
+  collection    = {CHI ’20}
+}
+```
+
+# Visual Analytics
+
+Papers on visual analytics tools for ML.
+
+## wexler2019what-if
+
+```bibtex
+@Article{         wexler2019what-if,
+  title         = {The What-If Tool: Interactive Probing of Machine Learning
+                  Models},
+  issn          = {2160-9306},
+  url           = {http://dx.doi.org/10.1109/TVCG.2019.2934619},
+  doi           = {10.1109/tvcg.2019.2934619},
+  journal       = {IEEE Transactions on Visualization and Computer Graphics},
+  publisher     = {Institute of Electrical and Electronics Engineers (IEEE)},
+  author        = {Wexler, James and Pushkarna, Mahima and Bolukbasi, Tolga
+                  and Wattenberg, Martin and Viegas, Fernanda and Wilson,
+                  Jimbo},
+  year          = {2019},
+  pages         = {1–1}
+}
+```
+
+## kandel2012enterprise
+
+```bibtex
+@Article{         kandel2012enterprise,
+  title         = {Enterprise Data Analysis and Visualization: An Interview
+                  Study},
+  volume        = {18},
+  issn          = {1077-2626},
+  url           = {http://dx.doi.org/10.1109/TVCG.2012.219},
+  doi           = {10.1109/tvcg.2012.219},
+  number        = {12},
+  journal       = {IEEE Transactions on Visualization and Computer Graphics},
+  publisher     = {Institute of Electrical and Electronics Engineers (IEEE)},
+  author        = {Kandel, Sean and Paepcke, Andreas and Hellerstein, Joseph
+                  M. and Heer, Jeffrey},
+  year          = {2012},
+  month         = dec,
+  pages         = {2917–2926}
+}
+```
+
+## hohman2019visual
+
+```bibtex
+@Article{         hohman2019visual,
+  doi           = {10.1109/tvcg.2018.2843369},
+  url           = {https://doi.org/10.1109/tvcg.2018.2843369},
+  year          = {2019},
+  month         = aug,
+  publisher     = {Institute of Electrical and Electronics Engineers
+                  ({IEEE})},
+  volume        = {25},
+  number        = {8},
+  pages         = {2674--2693},
+  author        = {Fred Hohman and Minsuk Kahng and Robert Pienta and Duen
+                  Horng Chau },
+  title         = {Visual Analytics in Deep Learning: An Interrogative Survey
+                  for the Next Frontiers},
+  journal       = {{IEEE} Transactions on Visualization and Computer
+                  Graphics}
+}
+```
+
+## amershi2015modeltracker
+
+```bibtex
+@InProceedings{   amershi2015modeltracker,
+  series        = {CHI ’15},
+  title         = {ModelTracker: Redesigning Performance Analysis Tools for
+                  Machine Learning},
+  url           = {http://dx.doi.org/10.1145/2702123.2702509},
+  doi           = {10.1145/2702123.2702509},
+  booktitle     = {Proceedings of the 33rd Annual ACM Conference on Human
+                  Factors in Computing Systems},
+  publisher     = {ACM},
+  author        = {Amershi, Saleema and Chickering, Max and Drucker, Steven
+                  M. and Lee, Bongshin and Simard, Patrice and Suh, Jina},
+  year          = {2015},
+  month         = apr,
+  collection    = {CHI ’15}
+}
+```
+
+# Testing
+
+Papers that touch upon testing AI systems. This is a vast topic of
+research, but the major themes include **where** to test, **what** to
+test and **how** to test AI systems.
+
+## xiao2021self-checking
+
+```bibtex
+@InProceedings{   xiao2021self-checking,
+  title         = {Self-Checking Deep Neural Networks in Deployment},
+  url           = {http://dx.doi.org/10.1109/ICSE43902.2021.00044},
+  doi           = {10.1109/icse43902.2021.00044},
+  booktitle     = {2021 IEEE/ACM 43rd International Conference on Software
+                  Engineering (ICSE)},
+  publisher     = {IEEE},
+  author        = {Xiao, Yan and Beschastnikh, Ivan and Rosenblum, David S.
+                  and Sun, Changsheng and Elbaum, Sebastian and Lin, Yun and
+                  Dong, Jin Song},
+  year          = {2021},
+  month         = may
+}
+```
+
+## pei2017deepxplore
+
+```bibtex
+@InProceedings{   pei2017deepxplore,
+  series        = {SOSP ’17},
+  title         = {DeepXplore: Automated Whitebox Testing of Deep Learning
+                  Systems},
+  url           = {http://dx.doi.org/10.1145/3132747.3132785},
+  doi           = {10.1145/3132747.3132785},
+  booktitle     = {Proceedings of the 26th Symposium on Operating Systems
+                  Principles},
+  publisher     = {ACM},
+  author        = {Pei, Kexin and Cao, Yinzhi and Yang, Junfeng and Jana,
+                  Suman},
+  year          = {2017},
+  month         = oct,
+  collection    = {SOSP ’17}
+}
+```
+
+## zhang2021ignorance
+
+```bibtex
+@InProceedings{   zhang2021ignorance,
+  title         = {“Ignorance and Prejudice” in Software Fairness},
+  url           = {http://dx.doi.org/10.1109/ICSE43902.2021.00129},
+  doi           = {10.1109/icse43902.2021.00129},
+  booktitle     = {2021 IEEE/ACM 43rd International Conference on Software
+                  Engineering (ICSE)},
+  publisher     = {IEEE},
+  author        = {Zhang, Jie M. and Harman, Mark},
+  year          = {2021},
+  month         = may
+}
+```
+
+## mehrabi2021survey
+
+```bibtex
+@Article{         mehrabi2021survey,
+  title         = {A Survey on Bias and Fairness in Machine Learning},
+  volume        = {54},
+  issn          = {1557-7341},
+  url           = {http://dx.doi.org/10.1145/3457607},
+  doi           = {10.1145/3457607},
+  number        = {6},
+  journal       = {ACM Computing Surveys},
+  publisher     = {Association for Computing Machinery (ACM)},
+  author        = {Mehrabi, Ninareh and Morstatter, Fred and Saxena, Nripsuta
+                  and Lerman, Kristina and Galstyan, Aram},
+  year          = {2021},
+  month         = jul,
+  pages         = {1–35}
+}
+```
+
+## chen2023fairness
+
+```bibtex
+@Misc{            chen2023fairness,
+  title         = {Fairness Testing: A Comprehensive Survey and Analysis of
+                  Trends},
+  author        = {Zhenpeng Chen and Jie M. Zhang and Max Hort and Federica
+                  Sarro and Mark Harman},
+  year          = {2023},
+  eprint        = {2207.10223},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.SE}
+}
+```
+
+## biswas2021fair
+
+```bibtex
+@InProceedings{   biswas2021fair,
+  series        = {ESEC/FSE ’21},
+  title         = {Fair preprocessing: towards understanding compositional
+                  fairness of data transformers in machine learning
+                  pipeline},
+  url           = {http://dx.doi.org/10.1145/3468264.3468536},
+  doi           = {10.1145/3468264.3468536},
+  booktitle     = {Proceedings of the 29th ACM Joint Meeting on European
+                  Software Engineering Conference and Symposium on the
+                  Foundations of Software Engineering},
+  publisher     = {ACM},
+  author        = {Biswas, Sumon and Rajan, Hridesh},
+  year          = {2021},
+  month         = aug,
+  collection    = {ESEC/FSE ’21}
+}
+```
+
+## biswas2020do
+
+```bibtex
+@InProceedings{   biswas2020do,
+  series        = {ESEC/FSE ’20},
+  title         = {Do the machine learning models on a crowd sourced platform
+                  exhibit bias? an empirical study on model fairness},
+  url           = {http://dx.doi.org/10.1145/3368089.3409704},
+  doi           = {10.1145/3368089.3409704},
+  booktitle     = {Proceedings of the 28th ACM Joint Meeting on European
+                  Software Engineering Conference and Symposium on the
+                  Foundations of Software Engineering},
+  publisher     = {ACM},
+  author        = {Biswas, Sumon and Rajan, Hridesh},
+  year          = {2020},
+  month         = nov,
+  collection    = {ESEC/FSE ’20}
+}
+```
+
+## zhang2022machine
+
+```bibtex
+@Article{         zhang2022machine,
+  title         = {Machine Learning Testing: Survey, Landscapes and
+                  Horizons},
+  volume        = {48},
+  issn          = {2326-3881},
+  url           = {http://dx.doi.org/10.1109/TSE.2019.2962027},
+  doi           = {10.1109/tse.2019.2962027},
+  number        = {1},
+  journal       = {IEEE Transactions on Software Engineering},
+  publisher     = {Institute of Electrical and Electronics Engineers (IEEE)},
+  author        = {Zhang, Jie M. and Harman, Mark and Ma, Lei and Liu, Yang},
+  year          = {2022},
+  month         = jan,
+  pages         = {1–36}
+}
+```
+
+## schelter2018automating
+
+```bibtex
+@Article{         schelter2018automating,
+  title         = {Automating large-scale data quality verification},
+  volume        = {11},
+  issn          = {2150-8097},
+  url           = {http://dx.doi.org/10.14778/3229863.3229867},
+  doi           = {10.14778/3229863.3229867},
+  number        = {12},
+  journal       = {Proceedings of the VLDB Endowment},
+  publisher     = {Association for Computing Machinery (ACM)},
+  author        = {Schelter, Sebastian and Lange, Dustin and Schmidt, Philipp
+                  and Celikel, Meltem and Biessmann, Felix and Grafberger,
+                  Andreas},
+  year          = {2018},
+  month         = aug,
+  pages         = {1781–1794}
+}
+```
+
+## lwakatare2021on
+
+```bibtex
+@InProceedings{   lwakatare2021on,
+  title         = {On the Experiences of Adopting Automated Data Validation
+                  in an Industrial Machine Learning Project},
+  url           = {http://dx.doi.org/10.1109/ICSE-SEIP52600.2021.00034},
+  doi           = {10.1109/icse-seip52600.2021.00034},
+  booktitle     = {2021 IEEE/ACM 43rd International Conference on Software
+                  Engineering: Software Engineering in Practice (ICSE-SEIP)},
+  publisher     = {IEEE},
+  author        = {Lwakatare, Lucy Ellen and Rånge, Ellinor and Crnkovic,
+                  Ivica and Bosch, Jan},
+  year          = {2021},
+  month         = may
+}
+```
+
+## biessmann2021automated
+
+``` bibtex
+@Article{         biessmann2021automated,
+  author        = {Felix Biessmann and Jacek Golebiowski and Tammo Rukat and
+                  Dustin Lange and Philipp Schmidt},
+  title         = {Automated data validation in machine learning systems},
+  year          = {2021},
+  url           = {https://www.amazon.science/publications/automated-data-validation-in-machine-learning-systems},
+  journal       = {IEEE Data Engineering Bulletin}
+}
+```
+
+# Meta
+
+Following are books and papers that I found helpful when...
+
+## shaw2003writing
+
+``` bibtex
+@InProceedings{   shaw2003writing,
+  title         = {Writing good software engineering research papers},
+  url           = {http://dx.doi.org/10.1109/ICSE.2003.1201262},
+  doi           = {10.1109/icse.2003.1201262},
+  booktitle     = {25th International Conference on Software Engineering,
+                  2003. Proceedings.},
+  publisher     = {IEEE},
+  author        = {Shaw, M.},
+  year          = {2003}
+}
+```
+## shaw2002what
+
+``` bibtex
+@Article{         shaw2002what,
+  title         = {What makes good research in Software Engineering?},
+  volume        = {4},
+  issn          = {1433-2779},
+  url           = {http://dx.doi.org/10.1007/s10009-002-0083-4},
+  doi           = {10.1007/s10009-002-0083-4},
+  number        = {1},
+  journal       = {International Journal on Software Tools for Technology
+                  Transfer},
+  publisher     = {Springer Science and Business Media LLC},
+  author        = {Shaw, Mary},
+  year          = {2002},
+  month         = oct,
+  pages         = {1–7}
+}
+```
+
+## wohlin2012experimentation
+
+``` bibtex
+@Book{            wohlin2012experimentation,
+  title         = {Experimentation in Software Engineering},
+  isbn          = {9783642290442},
+  url           = {http://dx.doi.org/10.1007/978-3-642-29044-2},
+  doi           = {10.1007/978-3-642-29044-2},
+  publisher     = {Springer Berlin Heidelberg},
+  author        = {Wohlin, Claes and Runeson, Per and Höst, Martin and
+                  Ohlsson, Magnus C. and Regnell, Björn and Wesslén,
+                  Anders},
+  year          = {2012}
+}
+```
+
+## rugg2004unwritten
+
+``` bibtex
+@Book{            rugg2004unwritten,
+  title         = {The Unwritten rules of phd research},
+  url           = {https://postgrado.bio.uc.cl/wp-content/uploads/2014/11/Unwritten-Rules-of-PhD-Research.pdf},
+  publisher     = {Open University Press},
+  author        = {Rugg, Gordon and Petre, Marian},
+  year          = {2004}
+}
+```
+
+# ML Software
+
+ML software libraries that I often use and cite. Mostly Python.
+
+## baylor2017tfx
+
+```bibtex
+@InProceedings{   baylor2017tfx,
+  doi           = {10.1145/3097983.3098021},
+  url           = {https://doi.org/10.1145/3097983.3098021},
+  year          = {2017},
+  month         = aug,
+  publisher     = {{ACM}},
+  author        = {Denis Baylor and Eric Breck and Heng-Tze Cheng and Noah
+                  Fiedel and Chuan Yu Foo and Zakaria Haque and Salem Haykal
+                  and Mustafa Ispir and Vihan Jain and Levent Koc and Chiu
+                  Yuen Koo and Lukasz Lew and Clemens Mewald and Akshay
+                  Naresh Modi and Neoklis Polyzotis and Sukriti Ramesh and
+                  Sudip Roy and Steven Euijong Whang and Martin Wicke and
+                  Jarek Wilkiewicz and Xin Zhang and Martin Zinkevich},
+  title         = {{TFX}},
+  booktitle     = {Proceedings of the 23rd {ACM} {SIGKDD} International
+                  Conference on Knowledge Discovery and Data Mining}
+}
+```
+
+## virtanen2020scipy
+
+```bibtex
+@Article{         virtanen2020scipy,
+  author        = {Virtanen, Pauli and Gommers, Ralf and Oliphant, Travis E.
+                  and Haberland, Matt and Reddy, Tyler and Cournapeau, David
+                  and Burovski, Evgeni and Peterson, Pearu and Weckesser,
+                  Warren and Bright, Jonathan and {van der Walt}, St{\'e}fan
+                  J. and Brett, Matthew and Wilson, Joshua and Millman, K.
+                  Jarrod and Mayorov, Nikolay and Nelson, Andrew R. J. and
+                  Jones, Eric and Kern, Robert and Larson, Eric and Carey, C
+                  J and Polat, {\.I}lhan and Feng, Yu and Moore, Eric W. and
+                  {VanderPlas}, Jake and Laxalde, Denis and Perktold, Josef
+                  and Cimrman, Robert and Henriksen, Ian and Quintero, E. A.
+                  and Harris, Charles R. and Archibald, Anne M. and Ribeiro,
+                  Ant{\^o}nio H. and Pedregosa, Fabian and {van Mulbregt},
+                  Paul and {SciPy 1.0 Contributors}},
+  title         = {{{SciPy} 1.0: Fundamental Algorithms for Scientific
+                  Computing in Python}},
+  journal       = {Nature Methods},
+  year          = {2020},
+  volume        = {17},
+  pages         = {261--272},
+  adsurl        = {https://rdcu.be/b08Wh},
+  doi           = {10.1038/s41592-019-0686-2}
+}
+```
+
+## seabold2010statsmodels
+
+```bibtex
+@InProceedings{   seabold2010statsmodels,
+  title         = {statsmodels: Econometric and statistical modeling with
+                  python},
+  author        = {Seabold, Skipper and Perktold, Josef},
+  booktitle     = {9th Python in Science Conference},
+  year          = {2010}
+}
+```
+
+## pedregosa2011scikit
+
+```bibtex
+@Article{         pedregosa2011scikit,
+  title         = {Scikit-learn: Machine Learning in {P}ython},
+  author        = {Pedregosa, F. and Varoquaux, G. and Gramfort, A. and
+                  Michel, V. and Thirion, B. and Grisel, O. and Blondel, M.
+                  and Prettenhofer, P. and Weiss, R. and Dubourg, V. and
+                  Vanderplas, J. and Passos, A. and Cournapeau, D. and
+                  Brucher, M. and Perrot, M. and Duchesnay, E.},
+  journal       = {Journal of Machine Learning Research},
+  volume        = {12},
+  pages         = {2825--2830},
+  year          = {2011}
+}
+```
