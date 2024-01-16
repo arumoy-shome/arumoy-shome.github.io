@@ -1,3 +1,21 @@
+- title: "Data vs. Model Machine Learning Fairness Testing: An Empirical Study"
+  subtitle: "Proceedings of 5^th^ International Workshop on Deep Learning for Testing and Testing for Deep Learning"
+  date: 2024-01-12
+  authors:
+    - Arumoy Shome
+    - Luis Cruz
+    - Arie van Deursen
+  affiliation: Delft University of Technology
+  doi: TODO
+- title: "Towards Automatic Translation of Machine Learning Visual Insights to Analytical Assertions"
+  subtitle: "Proceedings of 3^nd^ International Workshop on NL-based Software Engineering"
+  date: 2024-01-12
+  authors:
+    - Arumoy Shome
+    - Luis Cruz
+    - Arie van Deursen
+  affiliation: Delft University of Technology
+  doi: TODO
 - title: "Towards Understanding Machine Learning Testing in Practice"
   subtitle: "Proceedings of 2^nd^ International Conference on AI Engineering: Software Engineering for AI"
   date: 2023-05-15

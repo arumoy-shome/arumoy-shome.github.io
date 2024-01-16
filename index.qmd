@@ -60,4 +60,4 @@ scientist & researcher.
 
 All materials (excluding links to external websites or third party
 products) on this website are open sourced under the [Creative Commons
-BY-NC-SA 3.0 license](license.qmd).
+BY 4.0 license](license.qmd).
