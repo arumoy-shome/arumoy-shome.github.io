@@ -149,7 +149,7 @@ echo '```' >> "$1" # <3>
 ```
 1. Check that the bibtex information is currently in the system
    clipboard by attempting to extract the key using `grep` and `sed`.
-   If a key was succussfully extracted, then create a level 1 markdown
+   If a key was successfully extracted, then create a level 1 markdown
    header with a time stamp and the key. Otherwise, fall back to just
    a time stamp.
 2. Add my prompts for note-taking when reading scientific papers.
