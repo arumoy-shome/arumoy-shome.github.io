@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Arumoy Shome">
-<meta name="dcterms.date" content="2023-11-26">
+<meta name="dcterms.date" content="2024-01-19">
 
-<title>Arumoy Shome - Automatically retrieving Bibtex information from DOI</title>
+<title>Arumoy Shome - Organising research projects with git</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -169,9 +169,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Automatically retrieving Bibtex information from DOI</h1>
+      <h1 class="title">Organising research projects with git</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">shell</div>
+                <div class="quarto-category">research</div>
                 <div class="quarto-category">productivity</div>
               </div>
                   </div>
@@ -190,7 +190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">November 26, 2023</p>
+        <p class="date">January 19, 2024</p>
       </div>
     </div>
     
@@ -200,7 +200,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div>
     <div class="abstract">
       <div class="abstract-title">Abstract</div>
-      <p><code>doi2bib</code> is a simple Python script I wrote that fetches bibtex information from the Crossref API using the provided DOI. It can also handle pre-prints published on Arxiv.</p>
+      <p>Some standards and conventions I follow when organising research project data using git.</p>
     </div>
   </div>
   
@@ -208,7 +208,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#project-naming-convention" id="toc-project-naming-convention" class="nav-link active" data-scroll-target="#project-naming-convention">Project naming convention</a></li>
+  <li><a href="#project-directory-structure" id="toc-project-directory-structure" class="nav-link" data-scroll-target="#project-directory-structure">Project directory structure</a></li>
+  <li><a href="#recommendations-for-.gitignore-patterns" id="toc-recommendations-for-.gitignore-patterns" class="nav-link" data-scroll-target="#recommendations-for-.gitignore-patterns">Recommendations for <code>.gitignore</code> patterns</a></li>
+  <li><a href="#recommendations-for-git-commit-messages" id="toc-recommendations-for-git-commit-messages" class="nav-link" data-scroll-target="#recommendations-for-git-commit-messages">Recommendations for git commit messages</a>
+  <ul class="collapse">
+  <li><a href="#additionally-for-the-subject-line" id="toc-additionally-for-the-subject-line" class="nav-link" data-scroll-target="#additionally-for-the-subject-line">Additionally for the subject line</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -216,106 +228,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p><code>doi2bib</code> is a simple Python script I wrote to automatically retrieve bibtex information for a given DOI. The script queries Crossref to obtain the bibtex. The script can also handle pre-prints published on Arxiv. Here is the content of <code>doi2bib</code> along with some explaination of what the script does.</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>doi2bib</strong></pre>
-</div>
-<div class="sourceCode" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env python3</span></span>
-<span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="annotated-cell-1-4"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> argparse</span>
-<span id="annotated-cell-1-5"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> urllib <span class="im">import</span> request, error</span>
-<span id="annotated-cell-1-6"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3">3</button><span id="annotated-cell-1-7" class="code-annotation-target"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_bibtex(doi,ispreprint):</span>
-<span id="annotated-cell-1-8"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> ispreprint:</span>
-<span id="annotated-cell-1-9"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a>        url <span class="op">=</span> <span class="ss">f"https://arxiv.org/bibtex/</span><span class="sc">{</span>doi<span class="sc">}</span><span class="ss">"</span></span>
-<span id="annotated-cell-1-10"><a href="#annotated-cell-1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="annotated-cell-1-11"><a href="#annotated-cell-1-11" aria-hidden="true" tabindex="-1"></a>        url <span class="op">=</span> <span class="ss">f"https://api.crossref.org/works/</span><span class="sc">{</span>doi<span class="sc">}</span><span class="ss">/transform/application/x-bibtex"</span></span>
-<span id="annotated-cell-1-12"><a href="#annotated-cell-1-12" aria-hidden="true" tabindex="-1"></a>    req <span class="op">=</span> request.Request(url)</span>
-<span id="annotated-cell-1-13"><a href="#annotated-cell-1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-1-14"><a href="#annotated-cell-1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="annotated-cell-1-15"><a href="#annotated-cell-1-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> request.urlopen(req) <span class="im">as</span> response:</span>
-<span id="annotated-cell-1-16"><a href="#annotated-cell-1-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> response.read().decode()</span>
-<span id="annotated-cell-1-17"><a href="#annotated-cell-1-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> error.HTTPError <span class="im">as</span> e:</span>
-<span id="annotated-cell-1-18"><a href="#annotated-cell-1-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"HTTP Error: </span><span class="sc">{</span>e<span class="sc">.</span>code<span class="sc">}</span><span class="ss">"</span></span>
-<span id="annotated-cell-1-19"><a href="#annotated-cell-1-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> error.URLError <span class="im">as</span> e:</span>
-<span id="annotated-cell-1-20"><a href="#annotated-cell-1-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"URL Error: </span><span class="sc">{</span>e<span class="sc">.</span>reason<span class="sc">}</span><span class="ss">"</span></span>
-<span id="annotated-cell-1-21"><a href="#annotated-cell-1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-1-22"><a href="#annotated-cell-1-22" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="annotated-cell-1-23"><a href="#annotated-cell-1-23" aria-hidden="true" tabindex="-1"></a>    parser <span class="op">=</span> argparse.ArgumentParser(</span>
-<span id="annotated-cell-1-24"><a href="#annotated-cell-1-24" aria-hidden="true" tabindex="-1"></a>            description<span class="op">=</span><span class="st">"Convert DOI or Arxiv ID to Bibtex"</span></span>
-<span id="annotated-cell-1-25"><a href="#annotated-cell-1-25" aria-hidden="true" tabindex="-1"></a>            )</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1">1</button><span id="annotated-cell-1-26" class="code-annotation-target"><a href="#annotated-cell-1-26" aria-hidden="true" tabindex="-1"></a>    parser.add_argument(</span>
-<span id="annotated-cell-1-27"><a href="#annotated-cell-1-27" aria-hidden="true" tabindex="-1"></a>            <span class="st">"doi"</span>,</span>
-<span id="annotated-cell-1-28"><a href="#annotated-cell-1-28" aria-hidden="true" tabindex="-1"></a>            <span class="bu">help</span><span class="op">=</span><span class="st">"DOI or Arxiv ID of paper"</span></span>
-<span id="annotated-cell-1-29"><a href="#annotated-cell-1-29" aria-hidden="true" tabindex="-1"></a>            )</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2">2</button><span id="annotated-cell-1-30" class="code-annotation-target"><a href="#annotated-cell-1-30" aria-hidden="true" tabindex="-1"></a>    parser.add_argument(</span>
-<span id="annotated-cell-1-31"><a href="#annotated-cell-1-31" aria-hidden="true" tabindex="-1"></a>            <span class="st">"-p"</span>,</span>
-<span id="annotated-cell-1-32"><a href="#annotated-cell-1-32" aria-hidden="true" tabindex="-1"></a>            <span class="st">"--preprint"</span>,</span>
-<span id="annotated-cell-1-33"><a href="#annotated-cell-1-33" aria-hidden="true" tabindex="-1"></a>            <span class="bu">help</span><span class="op">=</span><span class="st">"Treat provided DOI as Arxiv ID"</span>,</span>
-<span id="annotated-cell-1-34"><a href="#annotated-cell-1-34" aria-hidden="true" tabindex="-1"></a>            action<span class="op">=</span><span class="st">"store_true"</span>,</span>
-<span id="annotated-cell-1-35"><a href="#annotated-cell-1-35" aria-hidden="true" tabindex="-1"></a>            default<span class="op">=</span><span class="va">False</span>,</span>
-<span id="annotated-cell-1-36"><a href="#annotated-cell-1-36" aria-hidden="true" tabindex="-1"></a>            )</span>
-<span id="annotated-cell-1-37"><a href="#annotated-cell-1-37" aria-hidden="true" tabindex="-1"></a>    args <span class="op">=</span> parser.parse_args()</span>
-<span id="annotated-cell-1-38"><a href="#annotated-cell-1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-1-39"><a href="#annotated-cell-1-39" aria-hidden="true" tabindex="-1"></a>    bibtex <span class="op">=</span> get_bibtex(args.doi, args.preprint)</span>
-<span id="annotated-cell-1-40"><a href="#annotated-cell-1-40" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(bibtex)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<dl class="code-annotation-container-hidden code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="1" data-code-lines="26,27,28,29">The script must be provided with a DOI. This can also be an Arxiv ID.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="2" data-code-lines="30,31,32,33,34,35,36">The <code>-p</code> or <code>--preprint</code> flag can be specified to indicate that the provided DOI is an Arxiv ID.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="3" data-code-lines="7,8,9,10,11,12">The Crossref API is queried with the provided DOI to retrieve the bibtex information. With the <code>--preprint</code> flag, the Arxiv API is used.</span>
-</dd>
-</dl>
-<p>I pipe the results through the <a href="http://www.gerd-neugebauer.de/software/TeX/BibTool/en/">bib-tool CLI</a>, to format the text and generate a unique key. I specify the following key format in my <code>.bibtoolrsc</code> file.</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>.bibtoolrsc</strong></pre>
-</div>
-<pre><code>print.use.tab=off
-fmt.et.al=""
-key.format="%-1n(author)%4d(year)%-T(title)"</code></pre>
-</div>
-<p>By default, bibtool uses tabs for indentation. I turn this off. Bibtool adds “.ea” to the author name to indicate “and others”. I prefer to just have the last name of the first author in the key, so I set it to an empty string. I set the format of the key to the last name of the first author, followed by the year of publication and the first meaningful word from the title.</p>
-<p>Here is the script in action, I use one of my own publications as an example.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> doi2bib 10.1145/3522664.3528621 <span class="kw">|</span><span class="ex">bibtool</span> <span class="at">-k</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">@InProceedings{</span>   shome2022data,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">series</span>        = {CAIN ’22},</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">title</span>         = {Data smells in public datasets},</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">url</span>           = {http://dx.doi.org/10.1145/3522664.3528621},</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">doi</span>           = {10.1145/3522664.3528621},</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">booktitle</span>     = {Proceedings of the 1st International Conference on AI</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                  <span class="ex">Engineering:</span> Software Engineering for AI},</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">publisher</span>     = {ACM},</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="ex">author</span>        = {Shome, Arumoy and Cruz, Luís and van Deursen, Arie},</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="ex">year</span>          = {2022},</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="ex">month</span>         = may,</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="ex">collection</span>    = {CAIN ’22}</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>And here is another example using an Arxiv ID (again, one of my own).</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> doi2bib <span class="at">--preprint</span> 2305.04988 <span class="kw">|</span><span class="ex">bibtool</span> <span class="at">-k</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">@Misc{</span>            shome2023towards,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">title</span>         = {Towards Understanding Machine Learning Testing in</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                  <span class="ex">Practise},</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">author</span>        = {Arumoy Shome and Luis Cruz and Arie van Deursen},</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">year</span>          = {2023},</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">eprint</span>        = {2305.04988},</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">archiveprefix</span> = {arXiv},</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">primaryclass</span>  = {cs.SE}</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this post I list some of the standards and conventions I have developed over the course of my PhD to organise research project data. I use git to version control the relevant files and host them on Github.</p>
+<section id="project-naming-convention" class="level1">
+<h1>Project naming convention</h1>
+<p>I name my research projects uniformly across all applications: file system, task management, Github, etc. I use the naming convention of <code>&lt;my-last-name&gt;&lt;project-start-year&gt;&lt;keyword&gt;</code>.</p>
+</section>
+<section id="project-directory-structure" class="level1">
+<h1>Project directory structure</h1>
+<p>My research projects have the following directory structure. Here is an example from a prior project I worked on:</p>
+<pre><code>~/phd/shome2022qualitative/
+├── bin
+├── data
+├── docs
+├── report
+├── src
+└── vendor
+    ├── biswas2021fair
+    └── zhang2021ignorance
+</code></pre>
+<p>Typically, research projects have several scripts for the data collection, data pre-processing, training ML models and running experiments. Put these scripts in the <code>bin/</code> directory. If you have a more mature code base, you can organise your files in the <code>src/</code> directory. This way your scripts in <code>bin/</code> are still able to import modules or helper functions from <code>src/</code>.</p>
+<p>Put all datasets for the project in the <code>data/</code> directory. I typically put existing datasets (such as benchmarks introduced in prior papers) and the data created during the course of the project in separate folders within the <code>data/</code> directory.</p>
+<p>If you have a simple static website consisting of html and css pages, put them in the <code>docs/</code> directory. Then you can use <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site">Github Pages</a> to serve your website.</p>
+<p>Put all your latex files, images and additional resources such as <code>*.cls</code> and <code>*.bst</code> files in the <code>report/</code> directory. You may write several papers that originate from the same core project idea. Name the latex files using the <code>&lt;conference-name&gt;&lt;year&gt;.tex</code> template. This prevents the need for duplicating all the accompanying files for each submission. Use version control to track the progress of your papers. For instance, use <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">git tags</a> to mark the major drafts and final submission. This makes it easy to retrieve prior versions of the paper if required.</p>
+<p>If replication packages from prior papers are available on git, use <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">git submodules</a> and put them in the <code>vendor/</code> directory. If they are hosted on other platforms such as Zenodo or Figshare, check in the source code files you need as reference. Use folders within <code>vendor/</code> to organise replication packages from multiple papers.</p>
+</section>
+<section id="recommendations-for-.gitignore-patterns" class="level1">
+<h1>Recommendations for <code>.gitignore</code> patterns</h1>
+<p>Github has <a href="https://github.com/github/gitignore">an excellent repository</a> of <code>.gitignore</code> patterns for various filetypes. Consider importing them into your own global <code>.gitignore</code> file (for instance, Latex and Python). At the project level, do not check in the pdf version of your papers since these are typically high churn files and git cannot produce meaningful diffs for binary files. Instead use the <code>latexmk</code> command to generate the pdf. You can also consider putting the command in a <code>Makefile</code> to reduce keystrokes.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">latexmk</span> <span class="at">-pdf</span> <span class="at">-outdir</span><span class="op">=</span>report report/<span class="op">&lt;</span>your-paper<span class="op">&gt;</span>.pdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you use Overleaf, <a href="https://www.overleaf.com/learn/how-to/Git_Integration_and_GitHub_Synchronization">connect your document to the Github project</a> so that everything remains in sync.</p>
+</section>
+<section id="recommendations-for-git-commit-messages" class="level1">
+<h1>Recommendations for git commit messages</h1>
+<p>Follow the general best practices for writing good git commit messages. I use the following template which was recommended by <a href="https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">Tim Pope</a>. You can also paste the following snippet into <code>~/.config/git/message</code>. Then the text is automatically displayed in your text editor, whenever you write a commit message. See <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration">the git configuration documentation</a> for more details.</p>
+<pre><code># 50-character subject line
+#
+# 72-character wrapped longer description. This should answer:
+#
+# * Why was this change necessary?
+# * How does it address the problem?
+# * Are there any side effects?
+#
+# Include a link to the ticket, if any.</code></pre>
+<section id="additionally-for-the-subject-line" class="level2">
+<h2 class="anchored" data-anchor-id="additionally-for-the-subject-line">Additionally for the subject line</h2>
+<p>For instance, say you want to commit a first draft of your paper. Use a subject line as follows:</p>
+<pre><code>feat(report): init icse24 paper draft # &lt;1&gt;</code></pre>
+<p>Where <code>feat</code> is an abbreviation for “feature”. The braces specify the folder within which the changes were made, and the title provides a quick description of the change.</p>
+<p>In contrast, say you refactor the data processing pipeline script. The subject line could be as follows:</p>
+<pre><code>refac(bin): remove magic numbers in data-process.sh</code></pre>
+<p>This makes it very easy to track down prior commits that introduced changes in the paper versus in the code. For instance, you can target all refactoring commits within the <code>report/</code> directory using the following <code>git grep</code> command:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--grep</span> <span class="st">'refac.*report.'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
