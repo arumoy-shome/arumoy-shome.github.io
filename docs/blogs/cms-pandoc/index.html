@@ -144,6 +144,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
+    <a class="nav-link" href="../../blogs.xml" rel="" target=""><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/arumoy-shome" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
@@ -351,19 +356,19 @@ Migrated to Quarto
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="16,17,18,19" data-code-cell="annotated-cell-3" data-code-annotation="1">Accept the title of the new post as the first positional argument. This argument is mandatory.</span>
+<span data-code-cell="annotated-cell-3" data-code-lines="16,17,18,19" data-code-annotation="1">Accept the title of the new post as the first positional argument. This argument is mandatory.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="20,21,22,23,24,25,26,27,28" data-code-cell="annotated-cell-3" data-code-annotation="2">Optionally specify a type of post.</span>
+<span data-code-cell="annotated-cell-3" data-code-lines="20,21,22,23,24,25,26,27,28" data-code-annotation="2">Optionally specify a type of post.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-lines="29,30,31,32,33,34" data-code-cell="annotated-cell-3" data-code-annotation="3">If this flag is passed, don’t open the new file in <code>$EDITOR</code>.</span>
+<span data-code-cell="annotated-cell-3" data-code-lines="29,30,31,32,33,34" data-code-annotation="3">If this flag is passed, don’t open the new file in <code>$EDITOR</code>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-lines="35,36,37,38,39,40" data-code-cell="annotated-cell-3" data-code-annotation="4">If this flag is passed, don’t ask for confirmation.</span>
+<span data-code-cell="annotated-cell-3" data-code-lines="35,36,37,38,39,40" data-code-annotation="4">If this flag is passed, don’t ask for confirmation.</span>
 </dd>
 </dl>
 <div class="callout callout-style-default callout-tip callout-titled" title="Python argparse">
@@ -419,11 +424,11 @@ Python argparse
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="3,4,5,6,7,8,9,10,12,13" data-code-cell="annotated-cell-4" data-code-annotation="1">Steps to generate <code>blogs.md</code> file. First clean slate by removing the file if it already exists. Find all markdown files in the <code>_blogs</code> directory, and run them through pandoc with a custom markdown template (explained in more details below). Append the entires in <code>blogs.md</code> in chronological order. Note as extra precaution, we use a temporary file to prevent accidental data loss.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="3,4,5,6,7,8,9,10,12,13" data-code-annotation="1">Steps to generate <code>blogs.md</code> file. First clean slate by removing the file if it already exists. Find all markdown files in the <code>_blogs</code> directory, and run them through pandoc with a custom markdown template (explained in more details below). Append the entires in <code>blogs.md</code> in chronological order. Note as extra precaution, we use a temporary file to prevent accidental data loss.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="15,16,17,18,19,20,21,22,24,25" data-code-cell="annotated-cell-4" data-code-annotation="2">Same as above, but create <code>talks.md</code> now.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="15,16,17,18,19,20,21,22,24,25" data-code-annotation="2">Same as above, but create <code>talks.md</code> now.</span>
 </dd>
 </dl>
 <p>First we find all relevant markdown pages that we want to export to html using <code>find</code>. Next, we <code>sort</code> the results in chronological order such that the latest posts show up at the top of the page. The final part is the most interesting bit. We use pandoc’s templating system to extract the date, title and abstract of each file and generate an intermediate markdown file in the format that I want each post to show on the index page. Here is the template file that I use.</p>

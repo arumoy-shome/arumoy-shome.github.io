@@ -4,7 +4,7 @@ project:
 
 website:
   title: "Arumoy Shome"
-  site-url: https://arumoy.me
+  site-url: "https://arumoy.me"
   description: "Arumoy Shome's Website"
   back-to-top-navigation: true
   navbar:
@@ -16,6 +16,8 @@ website:
       - bib.qmd
       - license.qmd
     right:
+      - icon: rss
+        href: blogs.xml
       - icon: github
         href: https://github.com/arumoy-shome
       - icon: twitter
