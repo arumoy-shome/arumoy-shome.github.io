@@ -11,7 +11,6 @@ website:
     left:
       - blogs.qmd
       - talks.qmd
-      - projects.qmd
       - publications.qmd
       - bib.qmd
       - license.qmd
