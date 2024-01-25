@@ -429,6 +429,33 @@ Papers on the design and challenges of computational notebooks.
 
 Papers on visual analytics tools for ML.
 
+## zeiler2014visualizing
+
+This is a very nice paper, which I believe kicked-off the trend of
+visual analytics in Deep Learning? I have seen the visualisations shown
+in the paper before (probably during the DL course I took during Msc).
+
+The visualisation techniques shown inspect the feature maps inside the
+model. I think this helps be align my work to the visualisations used
+before and after the model is trained. This is also in-line with our
+narrative of making decisions at a more holistic level, looking at the
+entire ML pipeline.
+
+``` bibtex
+@InBook{          zeiler2014visualizing,
+  title         = {Visualizing and Understanding Convolutional Networks},
+  isbn          = {9783319105901},
+  issn          = {1611-3349},
+  url           = {http://dx.doi.org/10.1007/978-3-319-10590-1_53},
+  doi           = {10.1007/978-3-319-10590-1_53},
+  booktitle     = {Lecture Notes in Computer Science},
+  publisher     = {Springer International Publishing},
+  author        = {Zeiler, Matthew D. and Fergus, Rob},
+  year          = {2014},
+  pages         = {818–833}
+}
+```
+
 ## wexler2019what-if
 
 ```bibtex
@@ -516,6 +543,28 @@ Papers on visual analytics tools for ML.
 Papers that touch upon testing AI systems. This is a vast topic of
 research, but the major themes include **where** to test, **what** to
 test and **how** to test AI systems.
+
+## riccio2020testing
+
+``` bibtex
+@Article{         riccio2020testing,
+  title         = {Testing machine learning based systems: a systematic
+                  mapping},
+  volume        = {25},
+  issn          = {1573-7616},
+  url           = {http://dx.doi.org/10.1007/s10664-020-09881-0},
+  doi           = {10.1007/s10664-020-09881-0},
+  number        = {6},
+  journal       = {Empirical Software Engineering},
+  publisher     = {Springer Science and Business Media LLC},
+  author        = {Riccio, Vincenzo and Jahangirova, Gunel and Stocco, Andrea
+                  and Humbatova, Nargiz and Weiss, Michael and Tonella,
+                  Paolo},
+  year          = {2020},
+  month         = sep,
+  pages         = {5193–5254}
+}
+```
 
 ## xiao2021self-checking
 

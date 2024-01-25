@@ -6,7 +6,7 @@
     - Luis Cruz
     - Arie van Deursen
   affiliation: Delft University of Technology
-  doi: <TODO>
+  doi: <https://doi.org/10.1145/3639478.3643121>
 - title: "Data vs. Model Machine Learning Fairness Testing: An Empirical Study"
   subtitle: "Proceedings of 5^th^ International Workshop on Deep Learning for Testing and Testing for Deep Learning"
   date: 2024-01-12
@@ -33,7 +33,7 @@
     - Luis Cruz
     - Arie van Deursen
   affiliation: Delft University of Technology
-  doi: <https://arxiv.org/abs/2305.04988>
+  doi: <https://doi.org/10.1109/CAIN58948.2023.00028>
 
 - title: "Data Smells in Public Datasets"
   subtitle: "Proceedings of 1^st^ International Conference on AI Engineering: Software Engineering for AI"

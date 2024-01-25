@@ -224,6 +224,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#visual-analytics" id="toc-visual-analytics" class="nav-link" data-scroll-target="#visual-analytics">Visual Analytics</a>
   <ul class="collapse">
+  <li><a href="#zeiler2014visualizing" id="toc-zeiler2014visualizing" class="nav-link" data-scroll-target="#zeiler2014visualizing">zeiler2014visualizing</a></li>
   <li><a href="#wexler2019what-if" id="toc-wexler2019what-if" class="nav-link" data-scroll-target="#wexler2019what-if">wexler2019what-if</a></li>
   <li><a href="#kandel2012enterprise" id="toc-kandel2012enterprise" class="nav-link" data-scroll-target="#kandel2012enterprise">kandel2012enterprise</a></li>
   <li><a href="#hohman2019visual" id="toc-hohman2019visual" class="nav-link" data-scroll-target="#hohman2019visual">hohman2019visual</a></li>
@@ -231,6 +232,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing">Testing</a>
   <ul class="collapse">
+  <li><a href="#riccio2020testing" id="toc-riccio2020testing" class="nav-link" data-scroll-target="#riccio2020testing">riccio2020testing</a></li>
   <li><a href="#xiao2021self-checking" id="toc-xiao2021self-checking" class="nav-link" data-scroll-target="#xiao2021self-checking">xiao2021self-checking</a></li>
   <li><a href="#pei2017deepxplore" id="toc-pei2017deepxplore" class="nav-link" data-scroll-target="#pei2017deepxplore">pei2017deepxplore</a></li>
   <li><a href="#zhang2021ignorance" id="toc-zhang2021ignorance" class="nav-link" data-scroll-target="#zhang2021ignorance">zhang2021ignorance</a></li>
@@ -644,263 +646,300 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="visual-analytics" class="level1">
 <h1>Visual Analytics</h1>
 <p>Papers on visual analytics tools for ML.</p>
+<section id="zeiler2014visualizing" class="level2">
+<h2 class="anchored" data-anchor-id="zeiler2014visualizing">zeiler2014visualizing</h2>
+<p>This is a very nice paper, which I believe kicked-off the trend of visual analytics in Deep Learning? I have seen the visualisations shown in the paper before (probably during the DL course I took during Msc).</p>
+<p>The visualisation techniques shown inspect the feature maps inside the model. I think this helps be align my work to the visualisations used before and after the model is trained. This is also in-line with our narrative of making decisions at a more holistic level, looking at the entire ML pipeline.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InBook</span>{          <span class="ot">zeiler2014visualizing</span>,</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Visualizing and Understanding Convolutional Networks},</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">isbn</span>          = {9783319105901},</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">issn</span>          = {1611-3349},</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1007/978-3-319-10590-1_53},</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1007/978-3-319-10590-1_53},</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>     = {Lecture Notes in Computer Science},</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {Springer International Publishing},</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Zeiler, Matthew D. and Fergus, Rob},</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2014},</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>         = {818–833}</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="wexler2019what-if" class="level2">
 <h2 class="anchored" data-anchor-id="wexler2019what-if">wexler2019what-if</h2>
-<div class="sourceCode" id="cb22"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">wexler2019what</span>-<span class="ot">if</span>,</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {The What-If Tool: Interactive Probing of Machine Learning</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                  Models},</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">issn</span>          = {2160-9306},</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1109/TVCG.2019.2934619},</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1109/tvcg.2019.2934619},</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {IEEE Transactions on Visualization and Computer Graphics},</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {Institute of Electrical and Electronics Engineers (IEEE)},</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Wexler, James and Pushkarna, Mahima and Bolukbasi, Tolga</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>                  and Wattenberg, Martin and Viegas, Fernanda and Wilson,</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>                  Jimbo},</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2019},</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>         = {1–1}</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">wexler2019what</span>-<span class="ot">if</span>,</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {The What-If Tool: Interactive Probing of Machine Learning</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                  Models},</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">issn</span>          = {2160-9306},</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1109/TVCG.2019.2934619},</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1109/tvcg.2019.2934619},</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {IEEE Transactions on Visualization and Computer Graphics},</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {Institute of Electrical and Electronics Engineers (IEEE)},</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Wexler, James and Pushkarna, Mahima and Bolukbasi, Tolga</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>                  and Wattenberg, Martin and Viegas, Fernanda and Wilson,</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>                  Jimbo},</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2019},</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>         = {1–1}</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="kandel2012enterprise" class="level2">
 <h2 class="anchored" data-anchor-id="kandel2012enterprise">kandel2012enterprise</h2>
-<div class="sourceCode" id="cb23"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">kandel2012enterprise</span>,</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Enterprise Data Analysis and Visualization: An Interview</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                  Study},</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>        = {18},</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">issn</span>          = {1077-2626},</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1109/TVCG.2012.219},</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1109/tvcg.2012.219},</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>        = {12},</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {IEEE Transactions on Visualization and Computer Graphics},</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {Institute of Electrical and Electronics Engineers (IEEE)},</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Kandel, Sean and Paepcke, Andreas and Hellerstein, Joseph</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>                  M. and Heer, Jeffrey},</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2012},</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">dec</span>,</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>         = {2917–2926}</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">kandel2012enterprise</span>,</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Enterprise Data Analysis and Visualization: An Interview</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                  Study},</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>        = {18},</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">issn</span>          = {1077-2626},</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1109/TVCG.2012.219},</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1109/tvcg.2012.219},</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>        = {12},</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {IEEE Transactions on Visualization and Computer Graphics},</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {Institute of Electrical and Electronics Engineers (IEEE)},</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Kandel, Sean and Paepcke, Andreas and Hellerstein, Joseph</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>                  M. and Heer, Jeffrey},</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2012},</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">dec</span>,</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>         = {2917–2926}</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="hohman2019visual" class="level2">
 <h2 class="anchored" data-anchor-id="hohman2019visual">hohman2019visual</h2>
-<div class="sourceCode" id="cb24"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">hohman2019visual</span>,</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1109/tvcg.2018.2843369},</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {https://doi.org/10.1109/tvcg.2018.2843369},</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2019},</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">aug</span>,</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {Institute of Electrical and Electronics Engineers</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>                  ({IEEE})},</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>        = {25},</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>        = {8},</span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>         = {2674--2693},</span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Fred Hohman and Minsuk Kahng and Robert Pienta and Duen</span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>                  Horng Chau },</span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Visual Analytics in Deep Learning: An Interrogative Survey</span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>                  for the Next Frontiers},</span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {{IEEE} Transactions on Visualization and Computer</span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>                  Graphics}</span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">hohman2019visual</span>,</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1109/tvcg.2018.2843369},</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {https://doi.org/10.1109/tvcg.2018.2843369},</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2019},</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">aug</span>,</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {Institute of Electrical and Electronics Engineers</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>                  ({IEEE})},</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>        = {25},</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>        = {8},</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>         = {2674--2693},</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Fred Hohman and Minsuk Kahng and Robert Pienta and Duen</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>                  Horng Chau },</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Visual Analytics in Deep Learning: An Interrogative Survey</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>                  for the Next Frontiers},</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {{IEEE} Transactions on Visualization and Computer</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>                  Graphics}</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="amershi2015modeltracker" class="level2">
 <h2 class="anchored" data-anchor-id="amershi2015modeltracker">amershi2015modeltracker</h2>
-<div class="sourceCode" id="cb25"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InProceedings</span>{   <span class="ot">amershi2015modeltracker</span>,</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">series</span>        = {CHI ’15},</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {ModelTracker: Redesigning Performance Analysis Tools for</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                  Machine Learning},</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1145/2702123.2702509},</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1145/2702123.2702509},</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>     = {Proceedings of the 33rd Annual ACM Conference on Human</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>                  Factors in Computing Systems},</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {ACM},</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Amershi, Saleema and Chickering, Max and Drucker, Steven</span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>                  M. and Lee, Bongshin and Simard, Patrice and Suh, Jina},</span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2015},</span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">apr</span>,</span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">collection</span>    = {CHI ’15}</span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InProceedings</span>{   <span class="ot">amershi2015modeltracker</span>,</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">series</span>        = {CHI ’15},</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {ModelTracker: Redesigning Performance Analysis Tools for</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                  Machine Learning},</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1145/2702123.2702509},</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1145/2702123.2702509},</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>     = {Proceedings of the 33rd Annual ACM Conference on Human</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>                  Factors in Computing Systems},</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {ACM},</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Amershi, Saleema and Chickering, Max and Drucker, Steven</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>                  M. and Lee, Bongshin and Simard, Patrice and Suh, Jina},</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2015},</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">apr</span>,</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">collection</span>    = {CHI ’15}</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="testing" class="level1">
 <h1>Testing</h1>
 <p>Papers that touch upon testing AI systems. This is a vast topic of research, but the major themes include <strong>where</strong> to test, <strong>what</strong> to test and <strong>how</strong> to test AI systems.</p>
+<section id="riccio2020testing" class="level2">
+<h2 class="anchored" data-anchor-id="riccio2020testing">riccio2020testing</h2>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">riccio2020testing</span>,</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Testing machine learning based systems: a systematic</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                  mapping},</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>        = {25},</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">issn</span>          = {1573-7616},</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1007/s10664-020-09881-0},</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1007/s10664-020-09881-0},</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>        = {6},</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {Empirical Software Engineering},</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {Springer Science and Business Media LLC},</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Riccio, Vincenzo and Jahangirova, Gunel and Stocco, Andrea</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>                  and Humbatova, Nargiz and Weiss, Michael and Tonella,</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>                  Paolo},</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2020},</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">sep</span>,</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>         = {5193–5254}</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="xiao2021self-checking" class="level2">
 <h2 class="anchored" data-anchor-id="xiao2021self-checking">xiao2021self-checking</h2>
-<div class="sourceCode" id="cb26"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InProceedings</span>{   <span class="ot">xiao2021self</span>-<span class="ot">checking</span>,</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Self-Checking Deep Neural Networks in Deployment},</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1109/ICSE43902.2021.00044},</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1109/icse43902.2021.00044},</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>     = {2021 IEEE/ACM 43rd International Conference on Software</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>                  Engineering (ICSE)},</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {IEEE},</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Xiao, Yan and Beschastnikh, Ivan and Rosenblum, David S.</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>                  and Sun, Changsheng and Elbaum, Sebastian and Lin, Yun and</span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>                  Dong, Jin Song},</span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2021},</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">may</span></span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="pei2017deepxplore" class="level2">
-<h2 class="anchored" data-anchor-id="pei2017deepxplore">pei2017deepxplore</h2>
-<div class="sourceCode" id="cb27"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InProceedings</span>{   <span class="ot">pei2017deepxplore</span>,</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">series</span>        = {SOSP ’17},</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {DeepXplore: Automated Whitebox Testing of Deep Learning</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>                  Systems},</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1145/3132747.3132785},</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1145/3132747.3132785},</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>     = {Proceedings of the 26th Symposium on Operating Systems</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>                  Principles},</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {ACM},</span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Pei, Kexin and Cao, Yinzhi and Yang, Junfeng and Jana,</span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>                  Suman},</span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2017},</span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">oct</span>,</span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">collection</span>    = {SOSP ’17}</span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="zhang2021ignorance" class="level2">
-<h2 class="anchored" data-anchor-id="zhang2021ignorance">zhang2021ignorance</h2>
-<div class="sourceCode" id="cb28"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InProceedings</span>{   <span class="ot">zhang2021ignorance</span>,</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {“Ignorance and Prejudice” in Software Fairness},</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1109/ICSE43902.2021.00129},</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1109/icse43902.2021.00129},</span>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InProceedings</span>{   <span class="ot">xiao2021self</span>-<span class="ot">checking</span>,</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Self-Checking Deep Neural Networks in Deployment},</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1109/ICSE43902.2021.00044},</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1109/icse43902.2021.00044},</span>
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>     = {2021 IEEE/ACM 43rd International Conference on Software</span>
 <span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>                  Engineering (ICSE)},</span>
 <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {IEEE},</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Zhang, Jie M. and Harman, Mark},</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2021},</span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">may</span></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Xiao, Yan and Beschastnikh, Ivan and Rosenblum, David S.</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>                  and Sun, Changsheng and Elbaum, Sebastian and Lin, Yun and</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>                  Dong, Jin Song},</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2021},</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">may</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pei2017deepxplore" class="level2">
+<h2 class="anchored" data-anchor-id="pei2017deepxplore">pei2017deepxplore</h2>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InProceedings</span>{   <span class="ot">pei2017deepxplore</span>,</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">series</span>        = {SOSP ’17},</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {DeepXplore: Automated Whitebox Testing of Deep Learning</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>                  Systems},</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1145/3132747.3132785},</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1145/3132747.3132785},</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>     = {Proceedings of the 26th Symposium on Operating Systems</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>                  Principles},</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {ACM},</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Pei, Kexin and Cao, Yinzhi and Yang, Junfeng and Jana,</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>                  Suman},</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2017},</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">oct</span>,</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">collection</span>    = {SOSP ’17}</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="zhang2021ignorance" class="level2">
+<h2 class="anchored" data-anchor-id="zhang2021ignorance">zhang2021ignorance</h2>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InProceedings</span>{   <span class="ot">zhang2021ignorance</span>,</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {“Ignorance and Prejudice” in Software Fairness},</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1109/ICSE43902.2021.00129},</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1109/icse43902.2021.00129},</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>     = {2021 IEEE/ACM 43rd International Conference on Software</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>                  Engineering (ICSE)},</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {IEEE},</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Zhang, Jie M. and Harman, Mark},</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2021},</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">may</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="mehrabi2021survey" class="level2">
 <h2 class="anchored" data-anchor-id="mehrabi2021survey">mehrabi2021survey</h2>
-<div class="sourceCode" id="cb29"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">mehrabi2021survey</span>,</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {A Survey on Bias and Fairness in Machine Learning},</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>        = {54},</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">issn</span>          = {1557-7341},</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1145/3457607},</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1145/3457607},</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>        = {6},</span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {ACM Computing Surveys},</span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {Association for Computing Machinery (ACM)},</span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Mehrabi, Ninareh and Morstatter, Fred and Saxena, Nripsuta</span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>                  and Lerman, Kristina and Galstyan, Aram},</span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2021},</span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">jul</span>,</span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>         = {1–35}</span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">mehrabi2021survey</span>,</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {A Survey on Bias and Fairness in Machine Learning},</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>        = {54},</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">issn</span>          = {1557-7341},</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1145/3457607},</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1145/3457607},</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>        = {6},</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {ACM Computing Surveys},</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {Association for Computing Machinery (ACM)},</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Mehrabi, Ninareh and Morstatter, Fred and Saxena, Nripsuta</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>                  and Lerman, Kristina and Galstyan, Aram},</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2021},</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">jul</span>,</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>         = {1–35}</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="chen2023fairness" class="level2">
 <h2 class="anchored" data-anchor-id="chen2023fairness">chen2023fairness</h2>
-<div class="sourceCode" id="cb30"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Misc</span>{            <span class="ot">chen2023fairness</span>,</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Fairness Testing: A Comprehensive Survey and Analysis of</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                  Trends},</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Zhenpeng Chen and Jie M. Zhang and Max Hort and Federica</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>                  Sarro and Mark Harman},</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2023},</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">eprint</span>        = {2207.10223},</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">archiveprefix</span> = {arXiv},</span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">primaryclass</span>  = {cs.SE}</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Misc</span>{            <span class="ot">chen2023fairness</span>,</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Fairness Testing: A Comprehensive Survey and Analysis of</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>                  Trends},</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Zhenpeng Chen and Jie M. Zhang and Max Hort and Federica</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>                  Sarro and Mark Harman},</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2023},</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">eprint</span>        = {2207.10223},</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">archiveprefix</span> = {arXiv},</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">primaryclass</span>  = {cs.SE}</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="biswas2021fair" class="level2">
 <h2 class="anchored" data-anchor-id="biswas2021fair">biswas2021fair</h2>
-<div class="sourceCode" id="cb31"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InProceedings</span>{   <span class="ot">biswas2021fair</span>,</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">series</span>        = {ESEC/FSE ’21},</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Fair preprocessing: towards understanding compositional</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>                  fairness of data transformers in machine learning</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>                  pipeline},</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1145/3468264.3468536},</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1145/3468264.3468536},</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>     = {Proceedings of the 29th ACM Joint Meeting on European</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>                  Software Engineering Conference and Symposium on the</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>                  Foundations of Software Engineering},</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {ACM},</span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Biswas, Sumon and Rajan, Hridesh},</span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2021},</span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">aug</span>,</span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">collection</span>    = {ESEC/FSE ’21}</span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InProceedings</span>{   <span class="ot">biswas2021fair</span>,</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">series</span>        = {ESEC/FSE ’21},</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Fair preprocessing: towards understanding compositional</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>                  fairness of data transformers in machine learning</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>                  pipeline},</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1145/3468264.3468536},</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1145/3468264.3468536},</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>     = {Proceedings of the 29th ACM Joint Meeting on European</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>                  Software Engineering Conference and Symposium on the</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>                  Foundations of Software Engineering},</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {ACM},</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Biswas, Sumon and Rajan, Hridesh},</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2021},</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">aug</span>,</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">collection</span>    = {ESEC/FSE ’21}</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="biswas2020do" class="level2">
 <h2 class="anchored" data-anchor-id="biswas2020do">biswas2020do</h2>
-<div class="sourceCode" id="cb32"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InProceedings</span>{   <span class="ot">biswas2020do</span>,</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">series</span>        = {ESEC/FSE ’20},</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Do the machine learning models on a crowd sourced platform</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>                  exhibit bias? an empirical study on model fairness},</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1145/3368089.3409704},</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1145/3368089.3409704},</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>     = {Proceedings of the 28th ACM Joint Meeting on European</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>                  Software Engineering Conference and Symposium on the</span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>                  Foundations of Software Engineering},</span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {ACM},</span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Biswas, Sumon and Rajan, Hridesh},</span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2020},</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">nov</span>,</span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">collection</span>    = {ESEC/FSE ’20}</span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InProceedings</span>{   <span class="ot">biswas2020do</span>,</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">series</span>        = {ESEC/FSE ’20},</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Do the machine learning models on a crowd sourced platform</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>                  exhibit bias? an empirical study on model fairness},</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1145/3368089.3409704},</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1145/3368089.3409704},</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>     = {Proceedings of the 28th ACM Joint Meeting on European</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>                  Software Engineering Conference and Symposium on the</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>                  Foundations of Software Engineering},</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {ACM},</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Biswas, Sumon and Rajan, Hridesh},</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2020},</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">nov</span>,</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">collection</span>    = {ESEC/FSE ’20}</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="zhang2022machine" class="level2">
 <h2 class="anchored" data-anchor-id="zhang2022machine">zhang2022machine</h2>
-<div class="sourceCode" id="cb33"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">zhang2022machine</span>,</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Machine Learning Testing: Survey, Landscapes and</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>                  Horizons},</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>        = {48},</span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">issn</span>          = {2326-3881},</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1109/TSE.2019.2962027},</span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1109/tse.2019.2962027},</span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>        = {1},</span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {IEEE Transactions on Software Engineering},</span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {Institute of Electrical and Electronics Engineers (IEEE)},</span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Zhang, Jie M. and Harman, Mark and Ma, Lei and Liu, Yang},</span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2022},</span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">jan</span>,</span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>         = {1–36}</span>
-<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">zhang2022machine</span>,</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Machine Learning Testing: Survey, Landscapes and</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>                  Horizons},</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>        = {48},</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">issn</span>          = {2326-3881},</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1109/TSE.2019.2962027},</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1109/tse.2019.2962027},</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>        = {1},</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {IEEE Transactions on Software Engineering},</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {Institute of Electrical and Electronics Engineers (IEEE)},</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Zhang, Jie M. and Harman, Mark and Ma, Lei and Liu, Yang},</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2022},</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">jan</span>,</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>         = {1–36}</span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="schelter2018automating" class="level2">
 <h2 class="anchored" data-anchor-id="schelter2018automating">schelter2018automating</h2>
-<div class="sourceCode" id="cb34"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">schelter2018automating</span>,</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Automating large-scale data quality verification},</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>        = {11},</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">issn</span>          = {2150-8097},</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.14778/3229863.3229867},</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.14778/3229863.3229867},</span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>        = {12},</span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {Proceedings of the VLDB Endowment},</span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {Association for Computing Machinery (ACM)},</span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Schelter, Sebastian and Lange, Dustin and Schmidt, Philipp</span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>                  and Celikel, Meltem and Biessmann, Felix and Grafberger,</span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>                  Andreas},</span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2018},</span>
-<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">aug</span>,</span>
-<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>         = {1781–1794}</span>
-<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">schelter2018automating</span>,</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Automating large-scale data quality verification},</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>        = {11},</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">issn</span>          = {2150-8097},</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.14778/3229863.3229867},</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.14778/3229863.3229867},</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>        = {12},</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {Proceedings of the VLDB Endowment},</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {Association for Computing Machinery (ACM)},</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Schelter, Sebastian and Lange, Dustin and Schmidt, Philipp</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>                  and Celikel, Meltem and Biessmann, Felix and Grafberger,</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>                  Andreas},</span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2018},</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">aug</span>,</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>         = {1781–1794}</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="lwakatare2021on" class="level2">
 <h2 class="anchored" data-anchor-id="lwakatare2021on">lwakatare2021on</h2>
-<div class="sourceCode" id="cb35"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InProceedings</span>{   <span class="ot">lwakatare2021on</span>,</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {On the Experiences of Adopting Automated Data Validation</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>                  in an Industrial Machine Learning Project},</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1109/ICSE-SEIP52600.2021.00034},</span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1109/icse-seip52600.2021.00034},</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>     = {2021 IEEE/ACM 43rd International Conference on Software</span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>                  Engineering: Software Engineering in Practice (ICSE-SEIP)},</span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {IEEE},</span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Lwakatare, Lucy Ellen and Rånge, Ellinor and Crnkovic,</span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>                  Ivica and Bosch, Jan},</span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2021},</span>
-<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">may</span></span>
-<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InProceedings</span>{   <span class="ot">lwakatare2021on</span>,</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {On the Experiences of Adopting Automated Data Validation</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>                  in an Industrial Machine Learning Project},</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1109/ICSE-SEIP52600.2021.00034},</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1109/icse-seip52600.2021.00034},</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>     = {2021 IEEE/ACM 43rd International Conference on Software</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>                  Engineering: Software Engineering in Practice (ICSE-SEIP)},</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {IEEE},</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Lwakatare, Lucy Ellen and Rånge, Ellinor and Crnkovic,</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>                  Ivica and Bosch, Jan},</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2021},</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">may</span></span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="biessmann2021automated" class="level2">
 <h2 class="anchored" data-anchor-id="biessmann2021automated">biessmann2021automated</h2>
-<div class="sourceCode" id="cb36"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">biessmann2021automated</span>,</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Felix Biessmann and Jacek Golebiowski and Tammo Rukat and</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>                  Dustin Lange and Philipp Schmidt},</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Automated data validation in machine learning systems},</span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2021},</span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {https://www.amazon.science/publications/automated-data-validation-in-machine-learning-systems},</span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {IEEE Data Engineering Bulletin}</span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">biessmann2021automated</span>,</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Felix Biessmann and Jacek Golebiowski and Tammo Rukat and</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>                  Dustin Lange and Philipp Schmidt},</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Automated data validation in machine learning systems},</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2021},</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {https://www.amazon.science/publications/automated-data-validation-in-machine-learning-systems},</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {IEEE Data Engineering Bulletin}</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="meta" class="level1">
@@ -908,58 +947,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Following are books and papers that I found helpful when…</p>
 <section id="shaw2003writing" class="level2">
 <h2 class="anchored" data-anchor-id="shaw2003writing">shaw2003writing</h2>
-<div class="sourceCode" id="cb37"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InProceedings</span>{   <span class="ot">shaw2003writing</span>,</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Writing good software engineering research papers},</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1109/ICSE.2003.1201262},</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1109/icse.2003.1201262},</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>     = {25th International Conference on Software Engineering,</span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>                  2003. Proceedings.},</span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {IEEE},</span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Shaw, M.},</span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2003}</span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InProceedings</span>{   <span class="ot">shaw2003writing</span>,</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Writing good software engineering research papers},</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1109/ICSE.2003.1201262},</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1109/icse.2003.1201262},</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>     = {25th International Conference on Software Engineering,</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>                  2003. Proceedings.},</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {IEEE},</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Shaw, M.},</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2003}</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="shaw2002what" class="level2">
 <h2 class="anchored" data-anchor-id="shaw2002what">shaw2002what</h2>
-<div class="sourceCode" id="cb38"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">shaw2002what</span>,</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {What makes good research in Software Engineering?},</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>        = {4},</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">issn</span>          = {1433-2779},</span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1007/s10009-002-0083-4},</span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1007/s10009-002-0083-4},</span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>        = {1},</span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {International Journal on Software Tools for Technology</span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>                  Transfer},</span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {Springer Science and Business Media LLC},</span>
-<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Shaw, Mary},</span>
-<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2002},</span>
-<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">oct</span>,</span>
-<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>         = {1–7}</span>
-<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">shaw2002what</span>,</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {What makes good research in Software Engineering?},</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>        = {4},</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">issn</span>          = {1433-2779},</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1007/s10009-002-0083-4},</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1007/s10009-002-0083-4},</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>        = {1},</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {International Journal on Software Tools for Technology</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>                  Transfer},</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {Springer Science and Business Media LLC},</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Shaw, Mary},</span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2002},</span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">oct</span>,</span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>         = {1–7}</span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="wohlin2012experimentation" class="level2">
 <h2 class="anchored" data-anchor-id="wohlin2012experimentation">wohlin2012experimentation</h2>
-<div class="sourceCode" id="cb39"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Book</span>{            <span class="ot">wohlin2012experimentation</span>,</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Experimentation in Software Engineering},</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">isbn</span>          = {9783642290442},</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1007/978-3-642-29044-2},</span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1007/978-3-642-29044-2},</span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {Springer Berlin Heidelberg},</span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Wohlin, Claes and Runeson, Per and Höst, Martin and</span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>                  Ohlsson, Magnus C. and Regnell, Björn and Wesslén,</span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>                  Anders},</span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2012}</span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Book</span>{            <span class="ot">wohlin2012experimentation</span>,</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Experimentation in Software Engineering},</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">isbn</span>          = {9783642290442},</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {http://dx.doi.org/10.1007/978-3-642-29044-2},</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1007/978-3-642-29044-2},</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {Springer Berlin Heidelberg},</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Wohlin, Claes and Runeson, Per and Höst, Martin and</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>                  Ohlsson, Magnus C. and Regnell, Björn and Wesslén,</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>                  Anders},</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2012}</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="rugg2004unwritten" class="level2">
 <h2 class="anchored" data-anchor-id="rugg2004unwritten">rugg2004unwritten</h2>
-<div class="sourceCode" id="cb40"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Book</span>{            <span class="ot">rugg2004unwritten</span>,</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {The Unwritten rules of phd research},</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {https://postgrado.bio.uc.cl/wp-content/uploads/2014/11/Unwritten-Rules-of-PhD-Research.pdf},</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {Open University Press},</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Rugg, Gordon and Petre, Marian},</span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2004}</span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Book</span>{            <span class="ot">rugg2004unwritten</span>,</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {The Unwritten rules of phd research},</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {https://postgrado.bio.uc.cl/wp-content/uploads/2014/11/Unwritten-Rules-of-PhD-Research.pdf},</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {Open University Press},</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Rugg, Gordon and Petre, Marian},</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2004}</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="ml-software" class="level1">
@@ -967,74 +1006,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>ML software libraries that I often use and cite. Mostly Python.</p>
 <section id="baylor2017tfx" class="level2">
 <h2 class="anchored" data-anchor-id="baylor2017tfx">baylor2017tfx</h2>
-<div class="sourceCode" id="cb41"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InProceedings</span>{   <span class="ot">baylor2017tfx</span>,</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1145/3097983.3098021},</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {https://doi.org/10.1145/3097983.3098021},</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2017},</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">aug</span>,</span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {{ACM}},</span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Denis Baylor and Eric Breck and Heng-Tze Cheng and Noah</span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>                  Fiedel and Chuan Yu Foo and Zakaria Haque and Salem Haykal</span>
-<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>                  and Mustafa Ispir and Vihan Jain and Levent Koc and Chiu</span>
-<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>                  Yuen Koo and Lukasz Lew and Clemens Mewald and Akshay</span>
-<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>                  Naresh Modi and Neoklis Polyzotis and Sukriti Ramesh and</span>
-<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>                  Sudip Roy and Steven Euijong Whang and Martin Wicke and</span>
-<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>                  Jarek Wilkiewicz and Xin Zhang and Martin Zinkevich},</span>
-<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {{TFX}},</span>
-<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>     = {Proceedings of the 23rd {ACM} {SIGKDD} International</span>
-<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>                  Conference on Knowledge Discovery and Data Mining}</span>
-<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InProceedings</span>{   <span class="ot">baylor2017tfx</span>,</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1145/3097983.3098021},</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>           = {https://doi.org/10.1145/3097983.3098021},</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2017},</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>         = <span class="st">aug</span>,</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>     = {{ACM}},</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Denis Baylor and Eric Breck and Heng-Tze Cheng and Noah</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>                  Fiedel and Chuan Yu Foo and Zakaria Haque and Salem Haykal</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>                  and Mustafa Ispir and Vihan Jain and Levent Koc and Chiu</span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>                  Yuen Koo and Lukasz Lew and Clemens Mewald and Akshay</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>                  Naresh Modi and Neoklis Polyzotis and Sukriti Ramesh and</span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>                  Sudip Roy and Steven Euijong Whang and Martin Wicke and</span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>                  Jarek Wilkiewicz and Xin Zhang and Martin Zinkevich},</span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {{TFX}},</span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>     = {Proceedings of the 23rd {ACM} {SIGKDD} International</span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a>                  Conference on Knowledge Discovery and Data Mining}</span>
+<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="virtanen2020scipy" class="level2">
 <h2 class="anchored" data-anchor-id="virtanen2020scipy">virtanen2020scipy</h2>
-<div class="sourceCode" id="cb42"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">virtanen2020scipy</span>,</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Virtanen, Pauli and Gommers, Ralf and Oliphant, Travis E.</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>                  and Haberland, Matt and Reddy, Tyler and Cournapeau, David</span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>                  and Burovski, Evgeni and Peterson, Pearu and Weckesser,</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>                  Warren and Bright, Jonathan and {van der Walt}, St{<span class="ch">\'</span>e}fan</span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>                  J. and Brett, Matthew and Wilson, Joshua and Millman, K.</span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>                  Jarrod and Mayorov, Nikolay and Nelson, Andrew R. J. and</span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>                  Jones, Eric and Kern, Robert and Larson, Eric and Carey, C</span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>                  J and Polat, {<span class="ch">\.</span>I}lhan and Feng, Yu and Moore, Eric W. and</span>
-<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>                  {VanderPlas}, Jake and Laxalde, Denis and Perktold, Josef</span>
-<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>                  and Cimrman, Robert and Henriksen, Ian and Quintero, E. A.</span>
-<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>                  and Harris, Charles R. and Archibald, Anne M. and Ribeiro,</span>
-<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>                  Ant{<span class="ch">\^</span>o}nio H. and Pedregosa, Fabian and {van Mulbregt},</span>
-<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>                  Paul and {SciPy 1.0 Contributors}},</span>
-<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {{{SciPy} 1.0: Fundamental Algorithms for Scientific</span>
-<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>                  Computing in Python}},</span>
-<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {Nature Methods},</span>
-<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2020},</span>
-<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>        = {17},</span>
-<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>         = {261--272},</span>
-<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a>  <span class="dt">adsurl</span>        = {https://rdcu.be/b08Wh},</span>
-<span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1038/s41592-019-0686-2}</span>
-<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">virtanen2020scipy</span>,</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Virtanen, Pauli and Gommers, Ralf and Oliphant, Travis E.</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>                  and Haberland, Matt and Reddy, Tyler and Cournapeau, David</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>                  and Burovski, Evgeni and Peterson, Pearu and Weckesser,</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>                  Warren and Bright, Jonathan and {van der Walt}, St{<span class="ch">\'</span>e}fan</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>                  J. and Brett, Matthew and Wilson, Joshua and Millman, K.</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>                  Jarrod and Mayorov, Nikolay and Nelson, Andrew R. J. and</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>                  Jones, Eric and Kern, Robert and Larson, Eric and Carey, C</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>                  J and Polat, {<span class="ch">\.</span>I}lhan and Feng, Yu and Moore, Eric W. and</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>                  {VanderPlas}, Jake and Laxalde, Denis and Perktold, Josef</span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>                  and Cimrman, Robert and Henriksen, Ian and Quintero, E. A.</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>                  and Harris, Charles R. and Archibald, Anne M. and Ribeiro,</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>                  Ant{<span class="ch">\^</span>o}nio H. and Pedregosa, Fabian and {van Mulbregt},</span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>                  Paul and {SciPy 1.0 Contributors}},</span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {{{SciPy} 1.0: Fundamental Algorithms for Scientific</span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>                  Computing in Python}},</span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {Nature Methods},</span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2020},</span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>        = {17},</span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>         = {261--272},</span>
+<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a>  <span class="dt">adsurl</span>        = {https://rdcu.be/b08Wh},</span>
+<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>           = {10.1038/s41592-019-0686-2}</span>
+<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="seabold2010statsmodels" class="level2">
 <h2 class="anchored" data-anchor-id="seabold2010statsmodels">seabold2010statsmodels</h2>
-<div class="sourceCode" id="cb43"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InProceedings</span>{   <span class="ot">seabold2010statsmodels</span>,</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {statsmodels: Econometric and statistical modeling with</span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>                  python},</span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Seabold, Skipper and Perktold, Josef},</span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>     = {9th Python in Science Conference},</span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2010}</span>
-<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="va">@InProceedings</span>{   <span class="ot">seabold2010statsmodels</span>,</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {statsmodels: Econometric and statistical modeling with</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>                  python},</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Seabold, Skipper and Perktold, Josef},</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span>     = {9th Python in Science Conference},</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2010}</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="pedregosa2011scikit" class="level2">
 <h2 class="anchored" data-anchor-id="pedregosa2011scikit">pedregosa2011scikit</h2>
-<div class="sourceCode" id="cb44"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">pedregosa2011scikit</span>,</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Scikit-learn: Machine Learning in {P}ython},</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Pedregosa, F. and Varoquaux, G. and Gramfort, A. and</span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>                  Michel, V. and Thirion, B. and Grisel, O. and Blondel, M.</span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>                  and Prettenhofer, P. and Weiss, R. and Dubourg, V. and</span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>                  Vanderplas, J. and Passos, A. and Cournapeau, D. and</span>
-<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>                  Brucher, M. and Perrot, M. and Duchesnay, E.},</span>
-<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {Journal of Machine Learning Research},</span>
-<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>        = {12},</span>
-<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>         = {2825--2830},</span>
-<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2011}</span>
-<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Article</span>{         <span class="ot">pedregosa2011scikit</span>,</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>         = {Scikit-learn: Machine Learning in {P}ython},</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>        = {Pedregosa, F. and Varoquaux, G. and Gramfort, A. and</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>                  Michel, V. and Thirion, B. and Grisel, O. and Blondel, M.</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>                  and Prettenhofer, P. and Weiss, R. and Dubourg, V. and</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>                  Vanderplas, J. and Passos, A. and Cournapeau, D. and</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>                  Brucher, M. and Perrot, M. and Duchesnay, E.},</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>       = {Journal of Machine Learning Research},</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>        = {12},</span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>         = {2825--2830},</span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>          = {2011}</span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
