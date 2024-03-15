@@ -2,158 +2,166 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://arumoy.me/license.html</loc>
-    <lastmod>2024-01-25T10:51:03.689Z</lastmod>
+    <lastmod>2024-03-15T20:40:03.088Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/publications.html</loc>
-    <lastmod>2024-01-25T10:51:01.371Z</lastmod>
+    <lastmod>2024-03-15T20:40:00.099Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/talks/bridging-gap-between-visual-analytical-ml-testing/index.html</loc>
-    <lastmod>2024-01-25T10:51:00.506Z</lastmod>
+    <lastmod>2024-03-15T20:39:59.225Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/bib.html</loc>
-    <lastmod>2024-01-25T10:50:59.608Z</lastmod>
+    <lastmod>2024-03-15T20:39:58.298Z</lastmod>
   </url>
   <url>
-    <loc>https://arumoy.me/blogs/aocp/index.html</loc>
-    <lastmod>2024-01-25T10:50:58.648Z</lastmod>
+    <loc>https://arumoy.me/blogs/docker-commands/index.html</loc>
+    <lastmod>2024-03-15T20:39:57.328Z</lastmod>
+  </url>
+  <url>
+    <loc>https://arumoy.me/blogs/bash-commands/index.html</loc>
+    <lastmod>2024-03-15T20:39:56.118Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/remla-data-validation/index.html</loc>
-    <lastmod>2024-01-25T10:50:57.613Z</lastmod>
+    <lastmod>2024-03-15T20:39:55.350Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/cms-pandoc/index.html</loc>
-    <lastmod>2024-01-25T10:50:56.416Z</lastmod>
+    <lastmod>2024-03-15T20:39:54.186Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/website-management-pandoc/index.html</loc>
-    <lastmod>2024-01-25T10:50:54.844Z</lastmod>
+    <lastmod>2024-03-15T20:39:52.524Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/dired-commands/index.html</loc>
-    <lastmod>2024-01-25T10:50:53.751Z</lastmod>
+    <lastmod>2024-03-15T20:39:51.418Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/searching-vim/index.html</loc>
-    <lastmod>2024-01-25T10:50:53.007Z</lastmod>
+    <lastmod>2024-03-15T20:39:50.659Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/python-context-file/index.html</loc>
-    <lastmod>2024-01-25T10:50:52.005Z</lastmod>
+    <lastmod>2024-03-15T20:39:49.655Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/scientific-paper-discovery/index.html</loc>
-    <lastmod>2024-01-25T10:50:51.084Z</lastmod>
+    <lastmod>2024-03-15T20:39:48.686Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/navigating-large-markdown-files-vim/index.html</loc>
-    <lastmod>2024-01-25T10:50:50.367Z</lastmod>
+    <lastmod>2024-03-15T20:39:47.928Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/packing-unpacking-kwargs/index.html</loc>
-    <lastmod>2024-01-25T10:50:49.387Z</lastmod>
+    <lastmod>2024-03-15T20:39:46.937Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/ripgrep-commands/index.html</loc>
-    <lastmod>2024-01-25T10:50:45.663Z</lastmod>
+    <lastmod>2024-03-15T20:39:45.904Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/shell-path-finder/index.html</loc>
-    <lastmod>2024-01-25T10:50:44.371Z</lastmod>
+    <lastmod>2024-03-15T20:39:44.680Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/organise-research-project-git/index.html</loc>
-    <lastmod>2024-01-25T10:50:43.358Z</lastmod>
+    <lastmod>2024-03-15T20:39:43.678Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/research-workflow/index.html</loc>
-    <lastmod>2024-01-25T10:50:42.039Z</lastmod>
+    <lastmod>2024-03-15T20:39:42.396Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/private-link-sharing/index.html</loc>
-    <lastmod>2024-01-25T10:50:41.081Z</lastmod>
+    <lastmod>2024-03-15T20:39:41.485Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/privacy-preserving-deep-learning/index.html</loc>
-    <lastmod>2024-01-25T10:50:40.017Z</lastmod>
+    <lastmod>2024-03-15T20:39:40.440Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/data-smells-public-datasets/index.html</loc>
-    <lastmod>2024-01-25T10:50:40.728Z</lastmod>
+    <lastmod>2024-03-15T20:39:41.138Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/doi2bib/index.html</loc>
-    <lastmod>2024-01-25T10:50:41.507Z</lastmod>
+    <lastmod>2024-03-15T20:39:41.906Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/today/index.html</loc>
-    <lastmod>2024-01-25T10:50:42.685Z</lastmod>
+    <lastmod>2024-03-15T20:39:43.030Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/project-management/index.html</loc>
-    <lastmod>2024-01-25T10:50:43.808Z</lastmod>
+    <lastmod>2024-03-15T20:39:44.114Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/yob/index.html</loc>
-    <lastmod>2024-01-25T10:50:45.035Z</lastmod>
+    <lastmod>2024-03-15T20:39:45.322Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/focus/index.html</loc>
-    <lastmod>2024-01-25T10:50:46.125Z</lastmod>
+    <lastmod>2024-03-15T20:39:46.357Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/reflections-scientific-research/index.html</loc>
-    <lastmod>2024-01-25T10:50:49.766Z</lastmod>
+    <lastmod>2024-03-15T20:39:47.319Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/aspell-commands/index.html</loc>
-    <lastmod>2024-01-25T10:50:50.705Z</lastmod>
+    <lastmod>2024-03-15T20:39:48.276Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/navigating-vim/index.html</loc>
-    <lastmod>2024-01-25T10:50:51.668Z</lastmod>
+    <lastmod>2024-03-15T20:39:49.293Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/gc-matplotlib-orgmode/index.html</loc>
-    <lastmod>2024-01-25T10:50:52.409Z</lastmod>
+    <lastmod>2024-03-15T20:39:50.055Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/effortless-parallel-execution-xargs/index.html</loc>
-    <lastmod>2024-01-25T10:50:53.416Z</lastmod>
+    <lastmod>2024-03-15T20:39:51.074Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/aims/index.html</loc>
-    <lastmod>2024-01-25T10:50:54.238Z</lastmod>
+    <lastmod>2024-03-15T20:39:51.898Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/research-workflow-plaintext/index.html</loc>
-    <lastmod>2024-01-25T10:50:55.633Z</lastmod>
+    <lastmod>2024-03-15T20:39:53.358Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/bibliography-management-orgmode/index.html</loc>
-    <lastmod>2024-01-25T10:50:57.123Z</lastmod>
+    <lastmod>2024-03-15T20:39:54.869Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/nutrition/index.html</loc>
-    <lastmod>2024-01-25T10:50:57.992Z</lastmod>
+    <lastmod>2024-03-15T20:39:55.729Z</lastmod>
+  </url>
+  <url>
+    <loc>https://arumoy.me/blogs/aocp/index.html</loc>
+    <lastmod>2024-03-15T20:39:56.749Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs/productivity/index.html</loc>
-    <lastmod>2024-01-25T10:50:59.083Z</lastmod>
+    <lastmod>2024-03-15T20:39:57.754Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/talks.html</loc>
-    <lastmod>2024-01-25T10:51:00.022Z</lastmod>
+    <lastmod>2024-03-15T20:39:58.745Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/index.html</loc>
-    <lastmod>2024-01-25T10:51:00.878Z</lastmod>
+    <lastmod>2024-03-15T20:39:59.603Z</lastmod>
   </url>
   <url>
     <loc>https://arumoy.me/blogs.html</loc>
-    <lastmod>2024-01-25T10:51:03.398Z</lastmod>
+    <lastmod>2024-03-15T20:40:02.751Z</lastmod>
   </url>
 </urlset>

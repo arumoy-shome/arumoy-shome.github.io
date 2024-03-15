@@ -10,6 +10,8 @@
   {
     "listing": "/blogs.html",
     "items": [
+      "/blogs/bash-commands/index.html",
+      "/blogs/docker-commands/index.html",
       "/blogs/organise-research-project-git/index.html",
       "/blogs/yob/index.html",
       "/blogs/bibliography-management-orgmode/index.html",

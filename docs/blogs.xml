@@ -10,7 +10,112 @@
 <atom:link href="https://arumoy.me/blogs.xml" rel="self" type="application/rss+xml"/>
 <description>Arumoy Shome&#39;s Website</description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Thu, 18 Jan 2024 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 31 Jan 2024 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>Bash commands</title>
+  <dc:creator>Arumoy Shome</dc:creator>
+  <link>https://arumoy.me/blogs/bash-commands/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="best-practices" class="level1">
+<h1>Best practices</h1>
+<p>Start scripts with the following flags:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">set</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-euo</span> pipefail</span>
+<span id="cb1-2"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">set</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-x</span></span></code></pre></div>
+<ol type="1">
+<li><code>set -e</code>: immediately exit if any command has a non-zero exit code</li>
+<li><code>set -u</code>: immediately exit if any undefined variables are used</li>
+<li><code>set -o pipefail</code>: immediately exit if any command in a pipeline fails</li>
+<li><code>set -x</code>: print each command being run with its values</li>
+</ol>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>shell</category>
+  <guid>https://arumoy.me/blogs/bash-commands/index.html</guid>
+  <pubDate>Wed, 31 Jan 2024 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Docker commands</title>
+  <dc:creator>Arumoy Shome</dc:creator>
+  <link>https://arumoy.me/blogs/docker-commands/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="building-a-docker-image" class="level1">
+<h1>Building a docker image</h1>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> build <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-t</span> foobarbaz .</span></code></pre></div>
+<p>Build an image using the <code>Dockerfile</code> in the current working directory, and <em>tag</em> it as <code>foobarbaz</code>.</p>
+</section>
+<section id="running-arbitrary-commands-inside-a-container" class="level1">
+<h1>Running arbitrary commands inside a container</h1>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> run <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--rm</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-it</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-v</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">pwd</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:/app"</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--cpus</span> 8.0 <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--memory</span> 320000000000 foobarbaz ./bin/my-script.bash</span></code></pre></div>
+<ol type="1">
+<li>Run <code>bin/my-script.bash</code> inside a container created from the foobarbaz image.</li>
+<li>Remove the container automatically after the script finishes (with the <code>--rm</code> flag).</li>
+<li>Connect the current tty with the container (with the <code>-it</code> flags).</li>
+<li>And connect the current working directory with the <code>/app</code> directory inside the container (with the <code>-v</code> flag). This assumes that the <code>WORKDIR</code> has been set to <code>/app</code> in the <code>Dockerfile</code>.</li>
+<li>Restrict the number of cpus to 8 cores and and 32GB memory used by the container (using the <code>--cpus</code> and <code>--memory</code> flags respectively).</li>
+</ol>
+</section>
+<section id="cleanup" class="level1">
+<h1>Cleanup</h1>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">docker</span> system prune <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--all</span></span></code></pre></div>
+<p>Removes all: 1. stopped containers 2. networks not used by at least 1 container 3. dangling images 4. dangling build caches</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>shell</category>
+  <guid>https://arumoy.me/blogs/docker-commands/index.html</guid>
+  <pubDate>Tue, 30 Jan 2024 23:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Organising research projects with git</title>
   <dc:creator>Arumoy Shome</dc:creator>
@@ -943,15 +1048,15 @@ font-style: inherit;">print</span>(bibtex)</span><div class="code-annotation-gut
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-lines="26,27,28,29" data-code-cell="annotated-cell-1">The script must be provided with a DOI. This can also be an Arxiv ID.</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="26,27,28,29" data-code-annotation="1">The script must be provided with a DOI. This can also be an Arxiv ID.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-lines="30,31,32,33,34,35,36" data-code-cell="annotated-cell-1">The <code>-p</code> or <code>--preprint</code> flag can be specified to indicate that the provided DOI is an Arxiv ID.</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="30,31,32,33,34,35,36" data-code-annotation="2">The <code>-p</code> or <code>--preprint</code> flag can be specified to indicate that the provided DOI is an Arxiv ID.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-lines="7,8,9,10,11,12" data-code-cell="annotated-cell-1">The Crossref API is queried with the provided DOI to retrieve the bibtex information. With the <code>--preprint</code> flag, the Arxiv API is used.</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="7,8,9,10,11,12" data-code-annotation="3">The Crossref API is queried with the provided DOI to retrieve the bibtex information. With the <code>--preprint</code> flag, the Arxiv API is used.</span>
 </dd>
 </dl>
 <p>I pipe the results through the <a href="http://www.gerd-neugebauer.de/software/TeX/BibTool/en/">bib-tool CLI</a>, to format the text and generate a unique key. I specify the following key format in my <code>.bibtoolrsc</code> file.</p>
@@ -1605,19 +1710,19 @@ font-style: inherit;"> created"</span>)</span><div class="code-annotation-gutter
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="16,17,18,19" data-code-cell="annotated-cell-3" data-code-annotation="1">Accept the title of the new post as the first positional argument. This argument is mandatory.</span>
+<span data-code-cell="annotated-cell-3" data-code-annotation="1" data-code-lines="16,17,18,19">Accept the title of the new post as the first positional argument. This argument is mandatory.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="20,21,22,23,24,25,26,27,28" data-code-cell="annotated-cell-3" data-code-annotation="2">Optionally specify a type of post.</span>
+<span data-code-cell="annotated-cell-3" data-code-annotation="2" data-code-lines="20,21,22,23,24,25,26,27,28">Optionally specify a type of post.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-lines="29,30,31,32,33,34" data-code-cell="annotated-cell-3" data-code-annotation="3">If this flag is passed, don’t open the new file in <code>$EDITOR</code>.</span>
+<span data-code-cell="annotated-cell-3" data-code-annotation="3" data-code-lines="29,30,31,32,33,34">If this flag is passed, don’t open the new file in <code>$EDITOR</code>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-lines="35,36,37,38,39,40" data-code-cell="annotated-cell-3" data-code-annotation="4">If this flag is passed, don’t ask for confirmation.</span>
+<span data-code-cell="annotated-cell-3" data-code-annotation="4" data-code-lines="35,36,37,38,39,40">If this flag is passed, don’t ask for confirmation.</span>
 </dd>
 </dl>
 <div class="callout callout-style-default callout-tip callout-titled" title="Python argparse">
@@ -1859,11 +1964,11 @@ font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></di
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="3,4,5,6,7,8,9,10,12,13" data-code-cell="annotated-cell-4" data-code-annotation="1">Steps to generate <code>blogs.md</code> file. First clean slate by removing the file if it already exists. Find all markdown files in the <code>_blogs</code> directory, and run them through pandoc with a custom markdown template (explained in more details below). Append the entires in <code>blogs.md</code> in chronological order. Note as extra precaution, we use a temporary file to prevent accidental data loss.</span>
+<span data-code-cell="annotated-cell-4" data-code-annotation="1" data-code-lines="3,4,5,6,7,8,9,10,12,13">Steps to generate <code>blogs.md</code> file. First clean slate by removing the file if it already exists. Find all markdown files in the <code>_blogs</code> directory, and run them through pandoc with a custom markdown template (explained in more details below). Append the entires in <code>blogs.md</code> in chronological order. Note as extra precaution, we use a temporary file to prevent accidental data loss.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="15,16,17,18,19,20,21,22,24,25" data-code-cell="annotated-cell-4" data-code-annotation="2">Same as above, but create <code>talks.md</code> now.</span>
+<span data-code-cell="annotated-cell-4" data-code-annotation="2" data-code-lines="15,16,17,18,19,20,21,22,24,25">Same as above, but create <code>talks.md</code> now.</span>
 </dd>
 </dl>
 <p>First we find all relevant markdown pages that we want to export to html using <code>find</code>. Next, we <code>sort</code> the results in chronological order such that the latest posts show up at the top of the page. The final part is the most interesting bit. We use pandoc’s templating system to extract the date, title and abstract of each file and generate an intermediate markdown file in the format that I want each post to show on the index page. Here is the template file that I use.</p>
@@ -4308,257 +4413,6 @@ Tip
   <category>productivity</category>
   <guid>https://arumoy.me/blogs/focus/index.html</guid>
   <pubDate>Sat, 04 Sep 2021 22:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Project Management</title>
-  <dc:creator>Arumoy Shome</dc:creator>
-  <link>https://arumoy.me/blogs/project-management/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>I think every project has 3 distinct components.</p>
-<ol type="1">
-<li><strong>Knowledge</strong>. Which may include notes, wikis, task lists, meeting notes, reviews, planning, etc.</li>
-<li><strong>Product</strong>. Which for me tends to be software, data, visualizations, etc.</li>
-<li><strong>Publish</strong>. Which for research can be a paper or for product driven projects can be blog posts, company announcements, etc.</li>
-</ol>
-<p>There are several tools for project management. The one that worked best for me was <a href="https://basecamp.com">Basecamp</a> and I have stolen many of their philosophies to craft my own.</p>
-<p>The principles of managing a project is fairly simple. First, identify <em>who</em> are involved in the project, <em>what</em> you are going to do, <em>how</em> you are going to do it and by <em>when</em> you are going to do it.</p>
-<section id="the-who" class="level1">
-<h1>The Who</h1>
-<p>The who become the stakeholders or clients of the project and need to be kept up to date on the progress, potential problems, approached for input, etc. Effective and clear communication is of utmost importance here.</p>
-</section>
-<section id="the-what" class="level1">
-<h1>The What</h1>
-<p>The what is the goal of the project. Some of the questions that we may ask are: What are we trying to solve? What is our research question? What are we building? etc.</p>
-</section>
-<section id="the-how" class="level1">
-<h1>The How</h1>
-<p>The how is the task list. Try to visualise the entire lifecycle of the project (to the best of your abilities given your current knowledge and technical capabilities) and write down the distinct phases of the project. Next, for each phase write down a list of tasks (and sub tasks). Keep a fluid mindset, projects change, clients want different things, research is dynamic. The idea is to start with a set of tasks and revise as and when necessary.</p>
-</section>
-<section id="the-when" class="level1">
-<h1>The When</h1>
-<p>The when is the date of completion. Deadlines are important for proper goal and expectation setting. It’s important to have a final deadline for the entire project, but also to have intermediate deadlines for smaller batches/mini-projects. Divide and conquer is the name of the game here.</p>
-<p>Some recommend a few weeks (4-6) for these batches/mini-projects. For research, I have found that taking things at a week-by-week basis works best and is the most flexible method of working given how dynamic research can be.</p>
-<p>For each of these batches, I like to have a single focus of work. I then extract the relevant tasks that I should get done in order to accomplish the focus.</p>
-<p>Determining focus is subjective and external factors such as other engagements play a role. The goal is to always plan sufficient work so as to not under deliver. I actively try not to plan too many things so as to feel overwhelmed or anxious.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="UPDATE 2021-09-05">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-UPDATE 2021-09-05
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Some notes on attaining focus <a href="../../blogs/focus/index.html">can be found here</a>.</p>
-</div>
-</div>
-<p>At the end of each batch/cycle/week I conduct a review. I think about what went well (so things I was able to finish), what did not go well (problems, challenges, etc.) and what can be improved (mostly for personal reflection). During the review I triage the task list, revise project scope, deliverables, etc.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You can find more about my <a href="../../blogs/productivity/index.html">reviewing process here</a>.</p>
-</div>
-</div>
-
-
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>productivity</category>
-  <guid>https://arumoy.me/blogs/project-management/index.html</guid>
-  <pubDate>Thu, 26 Aug 2021 22:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Research Workflow in Plaintext</title>
-  <dc:creator>Arumoy Shome</dc:creator>
-  <link>https://arumoy.me/blogs/research-workflow-plaintext/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>In this talk I will go over how we can use Emacs and org-mode to craft a research workflow. We will look at how we can leverage the power of Emacs and org-mode to capture, store, search and retrieve research data, all in plain text! The talk will touch upon how org-mode can be used as an environment for literate programming and reproducible research. I do not assume any prior knowledge of emacs or org-mode and I want this to be more of a discussion rather than a talk. Please ask me questions as I go along and share your thoughts, tips and techniques with others!</p>
-<section id="outline" class="level2">
-<h2 class="anchored" data-anchor-id="outline">Outline</h2>
-<p>Outline of this talk is as follows:</p>
-<ol type="1">
-<li>I will start with a brief history of Emacs and org-mode.</li>
-<li>A brief background on plaintext.</li>
-<li>We will follow with some motivation for why we would want to use plaintext to manage information and some of my supporting philosophies.</li>
-<li>Next, we will jump into the building blocks of org-mode.</li>
-<li>Which we will leverage to craft research workflows and introduce some automation into menial tasks.</li>
-<li>I will highlight some additional features of org-mode that we can use for literate programming and reproducible research.</li>
-<li>I will end this talk by pointing out additional resources that you may use to get started with Emacs.</li>
-</ol>
-</section>
-<section id="a-note-for-the-audience" class="level2">
-<h2 class="anchored" data-anchor-id="a-note-for-the-audience">A Note for the Audience</h2>
-<p>When I was preparing material for this talk, I thought: what better way to talk about emacs and org-mode than to do it in emacs itself. There is a lot of text compared to a traditional presentation, and there is justification for doing so:</p>
-<ol type="1">
-<li>This talk is highly interactive and there are demos throughout. It would have been a bit annoying having to constantly switch between emacs and my slides.</li>
-<li>There is another reason however I will reveal this towards the end of the talk</li>
-</ol>
-</section>
-<section id="a-note-for-the-readers" class="level2">
-<h2 class="anchored" data-anchor-id="a-note-for-the-readers">A Note for the Readers</h2>
-<p>The original talk was giving using an org document, from within Emacs. This version that you are reading however, is the markdown version, exported from the original org document. Since the original talk was designed to be interactive and dynamic, certain parts of this post may not make sense in this static HTML format.</p>
-</section>
-</section>
-<section id="history-background" class="level1">
-<h1>History &amp; Background</h1>
-<p>When I say text editors, you are most likely are think of software such as Atom, Sublime Text and VS Code. That’s what the normal folks use to get their job done. However, you may also be aware of this group of elitists who shun such tools, have a neckbeard, dwell in dungeons…and use Vim.</p>
-<section id="emacs" class="level2">
-<h2 class="anchored" data-anchor-id="emacs">Emacs</h2>
-<p>Emacs is the <strong>other</strong> text editor that you may have heard of aside from Vim. There are several flavours of Emacs, the most popular being GNU Emacs which was created by Richard Stallman. The core, performance critical components of Emacs is written in C, however majority of it’s codebase is written in emacs-lisp (elisp) which is a variant of Lisp.</p>
-<p>The first public release of Emacs was in 1970 (it has 20 years on Vim which was released in 1991), it is fully open-source, has had 27 stable releases, has a vibrant and large community and continues to be in active development to this date.</p>
-</section>
-<section id="org-mode" class="level2">
-<h2 class="anchored" data-anchor-id="org-mode">org-mode</h2>
-<p>org-mode is an emacs package. created by Carsten Dominik (professor of Astronomy at UvA, faculty of natural sciences) in 2003. org-mode provides two core functionalities:</p>
-<ol type="1">
-<li>It provides a major-mode (Emacs lingo for syntax highlighting based on filetype) for plaintext files.</li>
-<li>And a slew of tools to organize and edit information in the form of lists (I like to think of them as trees).</li>
-</ol>
-</section>
-<section id="plaintext" class="level2">
-<h2 class="anchored" data-anchor-id="plaintext">Plaintext</h2>
-<p>We have been talking about plaintext and I think it’s important to clarify what I mean. Plaintext in this context means text files which are unencrypted and written in a format (.{txt,md,org}) that is readable through a terminal emulator.</p>
-</section>
-</section>
-<section id="motivation" class="level1">
-<h1>Motivation &amp; Philosophy</h1>
-<section id="why-use-plaintext" class="level2">
-<h2 class="anchored" data-anchor-id="why-use-plaintext">Why use Plaintext?</h2>
-<p>Why would we want to use plaintext to store information? There are several benefits, and the word “Freedom” encapsulates everything well. By freedom, I mean:</p>
-<ol type="1">
-<li>Freedom to do what we see fit with our data. Its stored as plaintext files on our system. We can choose to keep it that way, upload to our trusted cloud provider or even introduce encryption for additional security and privacy.</li>
-<li>Freedom from yet another proprietary software. There are solutions that market themselves as systems for note-taking, knowledge management or a “second brain” such as Notion and Evernote. But the problem is that they are in control of your data (stored on their servers) and they often store this information in a proprietary format resulting in a vendor lock-in.</li>
-<li>Freedom to choose (or craft) our own tools which are optimised for us and can scale with our ever-growing body of knowledge (remember, learning is a lifelong journey).</li>
-</ol>
-</section>
-<section id="plaintext-productivity" class="level2">
-<h2 class="anchored" data-anchor-id="plaintext-productivity">Plaintext &amp; Productivity</h2>
-<p>Looking at the current landscape of productivity tools, I do not see anything that aids in exercising the one true productivity system that actually matters: our brain. Ultimately, it all comes down to effort and time taken to read papers, understanding concepts, learning, and forming connections which give rise to ideas. By takes away the “fluff”, plaintext allows us to focus on the essential. The text. The ideas. The connections.</p>
-<p>There is no “one size fits all” or “cookie cutter” solution when it comes to productivity. The problem with existing productivity software is that they enforce their own structure and constraints which does more harm than good. I have given this a fair amount of thought and experimentation. In my experience, a two step process of 1. Capturing information quickly and 2. The act of reviewing captured information and deliberate summarisation works best. To this end, we will see how org-mode can help us with this.</p>
-</section>
-<section id="importance-of-structure-standardisation" class="level2">
-<h2 class="anchored" data-anchor-id="importance-of-structure-standardisation">Importance of Structure &amp; Standardisation</h2>
-<p>I made a profound observation while reflection on my current research workflow. I spent a lot of my time during my masters on finding tools and systems for managing knowledge. Extrinsic search for existing solutions/methods was not fruitful. Instead, I used whatever solution came naturally to me. Through several iterations and minor changes, I developed a set of rules to store the data in a consistent structure. From this structure, developing tools to automate the process developed organically. I think this is such a simple thing, which makes it so powerful. We see similar phenomenon in software as well. We have decades of research which boils down to doing things in a consistent and standardised manner.</p>
-</section>
-<section id="non-linear-nature-of-research" class="level2">
-<h2 class="anchored" data-anchor-id="non-linear-nature-of-research">Non-linear Nature of Research</h2>
-<p>The main take-away for me was realising that research is dynamic, non-linear and personal. Finding the right tools is a journey which we must make ourselves. Using plaintext grants us the freedom to explore and experiment different options and techniques. It allows us to craft our own set of tools, standards and techniques which are curated towards how we think and operate.</p>
-</section>
-</section>
-<section id="org-mode-first-principles" class="level1">
-<h1>org-mode: First Principles</h1>
-<p>Text in org documents are stored in an hierarchical manner, in the form of outlines.</p>
-<section id="document-structure" class="level2">
-<h2 class="anchored" data-anchor-id="document-structure">Document Structure</h2>
-<p>We can create a new header (or “tree” in org lingo) by prepending the header title with a <code>*</code>. Trees can be nested, a tree may have several other sub-trees within itself. Sub-trees are created by adding more <code>*</code>, the number indicates the depth. We can promote or demote headers quickly using the <code>M-left</code> and <code>M-right</code> keybindings.</p>
-<p>We can hide or show specific sections of a document by pressing <code>TAB</code> while positioning the cursor (or “point” in emacs lingo) on the header. We can also cycle the visibility of the entire document using <code>S-TAB</code>.</p>
-<p>Org provides a few handy keybindings to move between headers. <code>C-c n</code> (mnemonic: “next”) takes us to the next header while <code>C-c p</code> (mnemonic: “previous”) takes us to the previous header. <code>C-c u</code> (mnemonic: “up”) can be used to navigate to the parent of the current sub-tree. <code>C-c f</code> (mnemonic: “forward”) and <code>C-c b</code> (mnemonic: “back”) navigates between headers of the same level.</p>
-<p>We can edit the structure of a org document quickly by using <code>M-down</code> and <code>M-up</code> to move headers.</p>
-</section>
-<section id="todo-states" class="level2">
-<h2 class="anchored" data-anchor-id="todo-states">Todo States</h2>
-<p>Org was originally built to manage tasks in plaintext. A header can be converted to a task by prepending it with a “TODO” keyword. Org also understands the notion of various stages that a task may go through during it’s lifecycle. We can change the todo state interactively using <code>C-c C-t</code>.</p>
-<p>The todo states are customizable and we will talk more about the ones I have created and use regularly to organize scientific research.</p>
-</section>
-<section id="capturing-refiling" class="level2">
-<h2 class="anchored" data-anchor-id="capturing-refiling">Capturing &amp; Refiling</h2>
-<p><strong>NOTE</strong> this section requires some setup and plumbing before it can be replicated. Refer to the org manual on <a href="https://orgmode.org/manual/Capture.html">capture</a> to get started.</p>
-<p>Earlier I mentioned the notion of capturing information and reviewing them at a later stage as a system for productivity (see the section on Motivation &amp; Philosophy). Let’s dive deeper into the capturing segment and explore how org can help introduce some automation into this process.</p>
-<p>We can invoke org-capture using <code>C-c c</code> which prompts us for a capture template. This is customizable and the most commonly used one is to capture tasks. Once we are satisfied with our content, we can use <code>C-c C-c</code> (this is also the universal keystroke you would use to tell emacs that you are “done” with something or to “confirm” something) to confirm, save and close the capture buffer. Later, I will also talk about the custom capture template that I have written for my research workflow.</p>
-<p>By default, the captured text is saved in a predefined file, however we can also choose to save it somewhere else using org-refile (<code>C-c C-w</code> in the org-capture buffer).</p>
-</section>
-</section>
-<section id="research-workflows" class="level1">
-<h1>Research Workflows</h1>
-<p>Let’s see how we can leverage what org has to offer in order aid us in scientific work.</p>
-<section id="planning-structuring-papers" class="level2">
-<h2 class="anchored" data-anchor-id="planning-structuring-papers">Planning &amp; Structuring Papers</h2>
-<p>I find org to be particularly useful for planning and structuring scientific papers. I also use it to capture my thoughts, ideas and notes for various projects that I am working on. Once I have accumulated a large body of text, I find the the “narrow” functionality provided by emacs to help me focus on a particular section or region of text.</p>
-</section>
-<section id="bibliography-management" class="level2">
-<h2 class="anchored" data-anchor-id="bibliography-management">Bibliography Management</h2>
-<p>Besides keeping track of tasks, I use org to manage bibliographic information of scientific publications. Let’s look at an example in a project that I worked on earlier.</p>
-<p>Org allows us to assign metadata to org headers known as org-properties. For instance, I like to store the first author, last author, source of publication, year of publication and a link to the pdf file on my disk as properties. Using the <code>org-sparse-tree</code> command (bound to <code>C-c /</code> in org-mode buffers), we can quickly find what we are looking for.</p>
-</section>
-<section id="aocp.el" class="level2">
-<h2 class="anchored" data-anchor-id="aocp.el">aocp.el</h2>
-<div class="callout callout-style-default callout-tip callout-titled" title="aocp.el">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-aocp.el
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>More details regarding this package <a href="../aocp">can be found in my prior post</a>.</p>
-</div>
-</div>
-<p>As you may expect, this task is repetitive and entering these properties manually becomes cumbersome. To automate this process, I wrote an emacs package: <a href="https://github.com/arumoy-shome/aocp.el">aocp.el</a>. The package provides a few helper functions which are meant to be used in an org-capture template (refer to the project readme for more information).</p>
-</section>
-</section>
-<section id="infinity-beyond" class="level1">
-<h1>Infinity &amp; Beyond</h1>
-<p>Org let’s use schedule tasks and assign deadlines, <a href="https://orgmode.org/manual/Agenda-Views.html#Agenda-Views">org-agenda</a> acts as the front-end and more.</p>
-<p>Using <a href="https://orgmode.org/manual/Exporting.html">org-export</a>, we can export org documents to other formats for simplicity of sharing and collaboration.</p>
-<p>Using <a href="https://orgmode.org/manual/Publishing.html">org-publish</a>, we can run a website from within emacs.</p>
-<p>Org does <a href="https://orgmode.org/manual/Tables.html">tables</a> and <a href="https://orgmode.org/manual/Images.html">images</a>!</p>
-<p>We can write arbitrary pieces of code within org documents, use <a href="https://orgmode.org/worg/org-contrib/babel/">org-babel</a> to execute them and <a href="https://orgmode.org/manual/Extracting-Source-Code.html">org-tangle</a> to extract and create a source code file.</p>
-<div class="sourceCode" id="cb1" data-org-language="emacs-lisp" style="background: #f1f3f5;"><pre class="sourceCode commonlisp code-with-copy"><code class="sourceCode commonlisp"><span id="cb1-1">(message <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Hello SERG from org-mode!"</span>)</span></code></pre></div>
-<p>Since we can mix text and code in org documents, it becomes trivial to document experiments - complete with code snippets - which are reproducible. In fact, org is a popular choice within the community to document their emacs config. Yes, org-mode is basically Jupyter notebooks in plaintext!</p>
-<p>And the list goes on. Refer to the <a href="https://orgmode.org/manual/">org manual</a> for an exhaustive list of what org can do.</p>
-</section>
-<section id="closing-thoughts" class="level1">
-<h1>Closing Thoughts</h1>
-<blockquote class="blockquote">
-<p>“Premature optimisation is the root of all evil.” — Donald Knuth</p>
-</blockquote>
-<p>If you already have a system, methodology or tool that works for you, stick with it! There is no point reinventing the wheel, especially if you are content and productive with your existing system. You could also be on the other end of the spectrum, where you spend a lot of time configuring your system and tweaking your dotfiles!</p>
-<p>That being said, if you are curious about emacs and want to learn more, I would strongly suggest to first get in the right mindset and set reasonable expectations. Emacs is not just another took, it’s a way of being. Learning everything that emacs has to offer will take a long time (I have been using emacs full-time for over 3 years and I am still learning new things!). Instead, start small, learn a small part of the system which will help you get the job done. Iterate, and slowly craft an environment that works for you.</p>
-<section id="additional-resources" class="level2">
-<h2 class="anchored" data-anchor-id="additional-resources">Additional Resources</h2>
-<p>A few resources and pointers to help you get started:</p>
-<ol type="1">
-<li>Start with the tutorial: <code>C-h t</code>.</li>
-<li>Read the manual: <code>C-h r</code> or alternatively <code>C-h i</code> to open the documentation viewer (info) and select “Emacs”.</li>
-<li>Use the excellent and extensive emacs help system, some of the most frequent ones that I use are: <code>C-h f</code>, <code>C-h v</code>, <code>C-h o</code> and <code>C-h m</code>.</li>
-<li>Consult the <a href="https://www.emacswiki.org/">emacs wiki</a>. I usually use it as reference once I have read about a particular topic in the manual.</li>
-<li>Watch Harry Schwartz’s excellent talk on <a href="https://youtu.be/SzA2YODtgK4">getting started with org-mode</a>.</li>
-<li>Watch Howard Abrams’ excellent talk on <a href="https://youtu.be/B6jfrrwR10k">emacs introduction and demonstration</a>.</li>
-<li>Consult my <a href="https://github.com/arumoy-shome/emacs.d">emacs config files</a> if you prefer code.</li>
-</ol>
-
-
-</section>
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>talk</category>
-  <category>emacs</category>
-  <guid>https://arumoy.me/blogs/research-workflow-plaintext/index.html</guid>
-  <pubDate>Sun, 11 Jul 2021 22:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
