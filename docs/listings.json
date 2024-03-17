@@ -10,6 +10,7 @@
   {
     "listing": "/blogs.html",
     "items": [
+      "/blogs/visualisation-zoo/index.html",
       "/blogs/bash-commands/index.html",
       "/blogs/docker-commands/index.html",
       "/blogs/organise-research-project-git/index.html",
