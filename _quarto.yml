@@ -38,12 +38,11 @@ format:
   html:
     theme: cosmo
     css: styles.css
-    mainfont: "Iosevka Aile"
-    monofont: "Iosevka"
+    mainfont: "Arial"
+    monofont: "Source Code Pro"
 bibliography: bibliography.bib
 reference-location: margin
 citation-location: margin
 resources:
   - CNAME
-  - fonts
 code-annotations: hover
