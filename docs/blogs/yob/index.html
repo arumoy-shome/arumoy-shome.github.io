@@ -289,15 +289,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="1" data-code-lines="3,4,5,6,8,9,10,11">Some initial setup. Here we define the location of the light and dark colorscheme files for kitty (I choose to save them in the kitty config directory and check it into git so that they are available wherever I clone my dotfiles repo). We also store additional data for <code>yob</code> in <code>~/.local/share/yob/background</code> as per XDG best practices for unix systems.</span>
+<span data-code-lines="3,4,5,6,8,9,10,11" data-code-cell="annotated-cell-1" data-code-annotation="1">Some initial setup. Here we define the location of the light and dark colorscheme files for kitty (I choose to save them in the kitty config directory and check it into git so that they are available wherever I clone my dotfiles repo). We also store additional data for <code>yob</code> in <code>~/.local/share/yob/background</code> as per XDG best practices for unix systems.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="2" data-code-lines="13,14,15,16,17,18,19,20,21,22,23,25,26">Here we create a symbolic link between the colorscheme file and <code>current-theme.conf</code>. The <code>current-theme.conf</code> file is picked up by kitty next time it starts. Finally, we set the theme for the existing kitty sessions using <code>kitty @ set-colors</code>.</span>
+<span data-code-lines="13,14,15,16,17,18,19,20,21,22,23,25,26" data-code-cell="annotated-cell-1" data-code-annotation="2">Here we create a symbolic link between the colorscheme file and <code>current-theme.conf</code>. The <code>current-theme.conf</code> file is picked up by kitty next time it starts. Finally, we set the theme for the existing kitty sessions using <code>kitty @ set-colors</code>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="3" data-code-lines="28,29,30,31,32,33,34,35,36">This function toggles between the light and dark themes based on information in <code>~/.local/share/yob/background</code>.</span>
+<span data-code-lines="28,29,30,31,32,33,34,35,36" data-code-cell="annotated-cell-1" data-code-annotation="3">This function toggles between the light and dark themes based on information in <code>~/.local/share/yob/background</code>.</span>
 </dd>
 </dl>
 <section id="choosing-a-colorscheme-with-light-and-dark-variant" class="level1">

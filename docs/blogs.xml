@@ -381,6 +381,55 @@ font-style: inherit;">in</span> call_nodes:</span>
   <pubDate>Fri, 22 Mar 2024 23:00:00 GMT</pubDate>
 </item>
 <item>
+  <title>Visualisation Zoo</title>
+  <dc:creator>Arumoy Shome</dc:creator>
+  <link>https://arumoy.me/blogs/visualisation-zoo/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This is a collection of data visualisations I have created in the past from prior research publications. The title of this post is inspired by the <span class="citation" data-cites="heer2010tour">Heer, Bostock, and Ogievetsky (2010)</span> paper.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-heer2010tour" class="csl-entry">
+Heer, Jeffrey, Michael Bostock, and Vadim Ogievetsky. 2010. <span>“A Tour Through the Visualization Zoo.”</span> <em>Communications of the ACM</em> 53 (6): 59–67. <a href="https://doi.org/10.1145/1743546.1743567">https://doi.org/10.1145/1743546.1743567</a>.
+</div></div><section id="joint-distribution-of-categorical-variables" class="level1 page-columns page-full">
+<h1>Joint Distribution of Categorical Variables</h1>
+<p>The following visualisation in Figure&nbsp;1 comes from the very first Conference paper I wrote <span class="citation" data-cites="shome2022data">(Shome, Cruz, and Deursen 2022)</span>. The paper explored the presence of anti-patterns in popular ML datasets that lead to accumulation of technical debt in the downstream stages of the pipeline.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-shome2022data" class="csl-entry">
+Shome, Arumoy, Luís Cruz, and Arie van Deursen. 2022. <span>“Data Smells in Public Datasets.”</span> In <em>Proceedings of the 1st International Conference on AI Engineering: Software Engineering for AI</em>. CAIN ’22. ACM. <a href="https://doi.org/10.1145/3522664.3528621">https://doi.org/10.1145/3522664.3528621</a>.
+</div></div><p>We curated a catalogue of 14 such anti-patterns or <em>“data-smells”</em> and manually analysed their presence in 25 popular ML datasets from Kaggle.</p>
+<p>I created the visualisation using a <a href="https://seaborn.pydata.org/generated/seaborn.JointGrid.html#seaborn.JointGrid">JointGrid from the Seaborn library</a>. The visualisation in the main subplot shows the distribution of the data-smells across all datasets that were analysed using a two-dimensional histogram. The visualisations in the marginal subplots shows a histogram of the corresponding categorical variables.</p>
+<div id="fig-jointplot" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://arumoy.me/blogs/visualisation-zoo/jointplot-data-smells.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Joint distribution of two categorical variables.</figcaption>
+</figure>
+</div>
+</section>
+<section id="heatmap-of-correlation-between-numerical-variables" class="level1 page-columns page-full">
+<h1>Heatmap of Correlation Between Numerical Variables</h1>
+<p>The next visualisation comes from our <span class="citation" data-cites="shome2024data">Shome, Cruz, and Deursen (2024)</span> paper. Here we analysed the relationship between data dependent and model dependent fairness metrics. Figure&nbsp;2 shows the results obtained from the empirical study conducted using 8 datasets and 4 ML models.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-shome2024data" class="csl-entry">
+Shome, Arumoy, Luı̀s Cruz, and Arie van Deursen. 2024. <span>“Data Vs. Model Machine Learning Fairness Testing: An Empirical Study.”</span> In <em>International Workshop on Deep Learning for Testing and Testing for Deep Learning</em>. DeepTest ’24. IEEE/ACM. <a href="https://doi.org/10.1145/3643786.3648022">https://doi.org/10.1145/3643786.3648022</a>.
+</div></div><p>Each heatmap represents results obtained from a fairness metric (we used <em>Disparate Impact</em> and <em>Statistical Parity Difference</em>). The ML models are represented along the Y axis, while the datasets are along the X axis. Each block shows the correlation between the data and model variants of the correponding fairness metric. The statistically significant cases are marked with an asterisk. The strength of the correlation is denoted using color–bright hues of red indicate positive correlation while cooler hues of blue represent negative correlation.</p>
+<div id="fig-heatmap-corr" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://arumoy.me/blogs/visualisation-zoo/heatmap-corr.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Heatmap of correlation between numerical variables</figcaption>
+</figure>
+</div>
+
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>python</category>
+  <category>design</category>
+  <guid>https://arumoy.me/blogs/visualisation-zoo/index.html</guid>
+  <pubDate>Sat, 16 Mar 2024 23:00:00 GMT</pubDate>
+</item>
+<item>
   <title>Bash commands</title>
   <dc:creator>Arumoy Shome</dc:creator>
   <link>https://arumoy.me/blogs/bash-commands/index.html</link>
@@ -967,15 +1016,15 @@ font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></di
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="1" data-code-lines="3,4,5,6,8,9,10,11">Some initial setup. Here we define the location of the light and dark colorscheme files for kitty (I choose to save them in the kitty config directory and check it into git so that they are available wherever I clone my dotfiles repo). We also store additional data for <code>yob</code> in <code>~/.local/share/yob/background</code> as per XDG best practices for unix systems.</span>
+<span data-code-lines="3,4,5,6,8,9,10,11" data-code-cell="annotated-cell-1" data-code-annotation="1">Some initial setup. Here we define the location of the light and dark colorscheme files for kitty (I choose to save them in the kitty config directory and check it into git so that they are available wherever I clone my dotfiles repo). We also store additional data for <code>yob</code> in <code>~/.local/share/yob/background</code> as per XDG best practices for unix systems.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="2" data-code-lines="13,14,15,16,17,18,19,20,21,22,23,25,26">Here we create a symbolic link between the colorscheme file and <code>current-theme.conf</code>. The <code>current-theme.conf</code> file is picked up by kitty next time it starts. Finally, we set the theme for the existing kitty sessions using <code>kitty @ set-colors</code>.</span>
+<span data-code-lines="13,14,15,16,17,18,19,20,21,22,23,25,26" data-code-cell="annotated-cell-1" data-code-annotation="2">Here we create a symbolic link between the colorscheme file and <code>current-theme.conf</code>. The <code>current-theme.conf</code> file is picked up by kitty next time it starts. Finally, we set the theme for the existing kitty sessions using <code>kitty @ set-colors</code>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="3" data-code-lines="28,29,30,31,32,33,34,35,36">This function toggles between the light and dark themes based on information in <code>~/.local/share/yob/background</code>.</span>
+<span data-code-lines="28,29,30,31,32,33,34,35,36" data-code-cell="annotated-cell-1" data-code-annotation="3">This function toggles between the light and dark themes based on information in <code>~/.local/share/yob/background</code>.</span>
 </dd>
 </dl>
 <section id="choosing-a-colorscheme-with-light-and-dark-variant" class="level1">
@@ -1417,15 +1466,15 @@ font-style: inherit;">print</span>(bibtex)</span><div class="code-annotation-gut
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-lines="26,27,28,29" data-code-cell="annotated-cell-1">The script must be provided with a DOI. This can also be an Arxiv ID.</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="26,27,28,29" data-code-annotation="1">The script must be provided with a DOI. This can also be an Arxiv ID.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-lines="30,31,32,33,34,35,36" data-code-cell="annotated-cell-1">The <code>-p</code> or <code>--preprint</code> flag can be specified to indicate that the provided DOI is an Arxiv ID.</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="30,31,32,33,34,35,36" data-code-annotation="2">The <code>-p</code> or <code>--preprint</code> flag can be specified to indicate that the provided DOI is an Arxiv ID.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-lines="7,8,9,10,11,12" data-code-cell="annotated-cell-1">The Crossref API is queried with the provided DOI to retrieve the bibtex information. With the <code>--preprint</code> flag, the Arxiv API is used.</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="7,8,9,10,11,12" data-code-annotation="3">The Crossref API is queried with the provided DOI to retrieve the bibtex information. With the <code>--preprint</code> flag, the Arxiv API is used.</span>
 </dd>
 </dl>
 <p>I pipe the results through the <a href="http://www.gerd-neugebauer.de/software/TeX/BibTool/en/">bib-tool CLI</a>, to format the text and generate a unique key. I specify the following key format in my <code>.bibtoolrsc</code> file.</p>
@@ -2079,19 +2128,19 @@ font-style: inherit;"> created"</span>)</span><div class="code-annotation-gutter
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-cell="annotated-cell-3" data-code-lines="16,17,18,19">Accept the title of the new post as the first positional argument. This argument is mandatory.</span>
+<span data-code-cell="annotated-cell-3" data-code-annotation="1" data-code-lines="16,17,18,19">Accept the title of the new post as the first positional argument. This argument is mandatory.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-cell="annotated-cell-3" data-code-lines="20,21,22,23,24,25,26,27,28">Optionally specify a type of post.</span>
+<span data-code-cell="annotated-cell-3" data-code-annotation="2" data-code-lines="20,21,22,23,24,25,26,27,28">Optionally specify a type of post.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-cell="annotated-cell-3" data-code-lines="29,30,31,32,33,34">If this flag is passed, don’t open the new file in <code>$EDITOR</code>.</span>
+<span data-code-cell="annotated-cell-3" data-code-annotation="3" data-code-lines="29,30,31,32,33,34">If this flag is passed, don’t open the new file in <code>$EDITOR</code>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-annotation="4" data-code-cell="annotated-cell-3" data-code-lines="35,36,37,38,39,40">If this flag is passed, don’t ask for confirmation.</span>
+<span data-code-cell="annotated-cell-3" data-code-annotation="4" data-code-lines="35,36,37,38,39,40">If this flag is passed, don’t ask for confirmation.</span>
 </dd>
 </dl>
 <div class="callout callout-style-default callout-tip callout-titled" title="Python argparse">
@@ -2333,11 +2382,11 @@ font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></di
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-cell="annotated-cell-4" data-code-lines="3,4,5,6,7,8,9,10,12,13">Steps to generate <code>blogs.md</code> file. First clean slate by removing the file if it already exists. Find all markdown files in the <code>_blogs</code> directory, and run them through pandoc with a custom markdown template (explained in more details below). Append the entires in <code>blogs.md</code> in chronological order. Note as extra precaution, we use a temporary file to prevent accidental data loss.</span>
+<span data-code-cell="annotated-cell-4" data-code-annotation="1" data-code-lines="3,4,5,6,7,8,9,10,12,13">Steps to generate <code>blogs.md</code> file. First clean slate by removing the file if it already exists. Find all markdown files in the <code>_blogs</code> directory, and run them through pandoc with a custom markdown template (explained in more details below). Append the entires in <code>blogs.md</code> in chronological order. Note as extra precaution, we use a temporary file to prevent accidental data loss.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-cell="annotated-cell-4" data-code-lines="15,16,17,18,19,20,21,22,24,25">Same as above, but create <code>talks.md</code> now.</span>
+<span data-code-cell="annotated-cell-4" data-code-annotation="2" data-code-lines="15,16,17,18,19,20,21,22,24,25">Same as above, but create <code>talks.md</code> now.</span>
 </dd>
 </dl>
 <p>First we find all relevant markdown pages that we want to export to html using <code>find</code>. Next, we <code>sort</code> the results in chronological order such that the latest posts show up at the top of the page. The final part is the most interesting bit. We use pandoc’s templating system to extract the date, title and abstract of each file and generate an intermediate markdown file in the format that I want each post to show on the index page. Here is the template file that I use.</p>
@@ -4521,204 +4570,6 @@ font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></di
   <category>research</category>
   <guid>https://arumoy.me/blogs/reflections-scientific-research/index.html</guid>
   <pubDate>Sun, 12 Dec 2021 23:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Privacy Preserving Deep Learning</title>
-  <dc:creator>Arumoy Shome</dc:creator>
-  <link>https://arumoy.me/blogs/privacy-preserving-deep-learning/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>Good morning all, thank you for being here. Today I wanted to share my research on Privacy Preserving Deep Learning (PPDL) which I conducted during my Msc. As an example, we will be looking specifically at PPDL for Medical Image Analysis (MIA). However, I think that this field of research is highly relevant these days and the techniques can be applied to any domain working with sensitive data (such as governance, finance and others).</p>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>Medical Imaging is the process of generating an internal representation of a human body (using MRI, CT or PET scans) for further analysis in order to detect anomalies (if any exist).</p>
-<section id="challenges-of-mia" class="level2">
-<h2 class="anchored" data-anchor-id="challenges-of-mia">Challenges of MIA</h2>
-<p>MIA concerns itself with the study of medical images in order to determine Regions of Interest(ROI) and image segmentation. MIA is usually performed by radiologists and requires intensive training and practise. For each patient, a radiologist may have to inspect more than 100 images. This is a repetitive task and may pose a cognitive strain, making the process prone to human errors.</p>
-<p>MIA is limited by the skills and cognitive fitness of the human performing the analysis. While humans may not be so good in performing repetitive tasks, machine will do them tirelessly and consistently.</p>
-<p>This is where Deep Learning (DL) comes into the picture. DL gained popularity and momentum both in the industry and academia due to it’s success with image classification through the ImageNet challenge. It was soon adopted not only within MIA but also other fields of medical science. Although this is an active field of research, several challenges remain. One of the challenges is to train DL models without violating the privacy of the patients.</p>
-</section>
-<section id="challenges-of-dl-in-mia" class="level2">
-<h2 class="anchored" data-anchor-id="challenges-of-dl-in-mia">Challenges of DL in MIA</h2>
-<p>DL models require a lot of data for training, generally the more data used, better the prediction results. However, this quantity of data may not always be available at a single medical institute (for instance at small hospitals located in remote locations). Larger institutes who have sufficient data are able to train models however these models are subjected to bias. This is because the data does not accurately represent the entire population. Moreover, if the institute is specialized in a specific disease or observes a disease more frequently due to it’s unique geographic location, the data is biased.</p>
-<p>Thus DL models need to be trained using data from several institutes. The traditional server-client architecture posses several privacy and security concerns. Once the institutes upload their data to a server, they may lose their data governance and ownership rights as the server may be located in a different geographical location with a different set of jurisdictions. The data upload and storage procedure may also not be transparent thus raising concerns regarding it’s safety and security.</p>
-<p>Although efforts have been made to create centralized medical data repositories (eICU Collaborative Research Database and The Cancer Genome Atlas), data privacy laws such as GDPR in Europe and HIPAA in the State pose a large overhead. The data in such repositories are anonymised, but this does not guarantee security against privacy leaks. Datasets have a unique statistical fingerprint making them vulnerable to linkage attacks.</p>
-<p>Distributed Learning addresses the data ownership and governance problems of centralised learning. However, it still needs to utilise data privacy and security techniques to ensure privacy of patient records. In the following sections of this talk we will take a closer look at Distributed Learning and data privacy techniques for PPDL.</p>
-</section>
-</section>
-<section id="study-design" class="level1">
-<h1>Study Design</h1>
-<div id="fig-study-design" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://arumoy.me/blogs/privacy-preserving-deep-learning/study-design.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Study Design</figcaption>
-</figure>
-</div>
-<p>The goal of this research project was to conduct a systematic review of DL systems for MIA which take the privacy of the patients into account. Figure Figure&nbsp;1 presents an overview of the study design. Emphasis was also put on analysis of these privacy-preserving techniques to determine those which provide good performance, are scalable and robust, and provide maximum protection against security threats. To this end, the following research questions are formulated:</p>
-<ol type="1">
-<li>What are the existing systems, platforms or techniques that facilitate deep learning on medical images that do not invade the patient’s privacy?</li>
-<li>What are the top performing DL models being used to perform tasks in medical imaging?</li>
-<li>What are the specific attacks that can compromise the security of these systems?</li>
-<li>What is the amount of data leakage in these systems?</li>
-</ol>
-</section>
-<section id="background" class="level1">
-<h1>Background</h1>
-<section id="data-privacy-techniques" class="level2">
-<h2 class="anchored" data-anchor-id="data-privacy-techniques">Data Privacy Techniques</h2>
-<p>To date, anonymisation and de-identification remain the predominant privacy-preserving technique for sharing sensitive information. Although there are not standardised methods of doing so, we commonly see 3 techniques in the literature:</p>
-<ol type="1">
-<li>De-identification or removal of sensitive information from datasets. This is not the best solution since it results in loss of valuable information which may be useful for analysis/training.</li>
-<li>Pseudo-anonymisation which replaces sensitive information with unique pseudonyms. This is a bit better since we retain the unique linkages and correlations between data points which may be of interest to us.</li>
-<li>Anonymisation which simply put means de-identification with a cherry on top. A few additional things are done on top of de-identification to significantly reduce the probability of re-identification.</li>
-</ol>
-<p>Differential Privacy (DP) preserves the privacy of patients by injecting a certain quantity of noise into the data. This allows for statistical analysis to be conducted without compromising sensitive information. A trade-off between privacy and performance occurs here. More perturbations in the dataset give higher privacy however may negatively affect the model’s performance.</p>
-<p>The alternative is to encrypt the data or the model parameters. The state-of-the-art encryption schemes cannot be cracked using brute force techniques making them the most secure means of sharing sensitive information. The Homomorphic Encryption (HE) scheme allows certain operations (such as addition, subtraction and multiplication) to be carried out directly over the cyphertext. This is beneficial for neural networks as models can be trained directly using encrypted, unperturbed data with additional computational overhead.</p>
-</section>
-<section id="security-threats-attacks" class="level2">
-<h2 class="anchored" data-anchor-id="security-threats-attacks">Security Threats &amp; Attacks</h2>
-<p>Anonymisation techniques are built into MIA software which may explains their popularity. However, anonymised data contain unique statistical fingerprints which make them vulnerable to linkage attacks. A famous example is the Netflix Prize Dataset where researchers were able to combine Netflix’s anonymised user subscription data with the imdb public dataset to identify specific people along with their political preferences and other sensitive information. Another well known example is linkage attack on anonymised hospital records from the State of California along with public voter records to identify the complete medical history of the Governor of California.</p>
-<p>In traditional software, computers strictly follow a specific set of programmed instructions. In contrast, ML algorithms derive their own set of rules based on a substantial amount of data provided to them. This behaviour often leads to neural networks being interpreted as a black box, preventing users from understanding it’s inner workings. This black box behavior makes neural networks a potential target for exploitation. This identification of such threats and vulnerabilities must be prioritised.</p>
-<p>These threats can be classified as ones targeting the data and others targeting the model. Adversarial examples are inputs that are often indistinguishable from typical inputs, yet contain intentional feature changes that lead to incorrect classification. Adversarial attacks are of significance since they question the robustness of DL models. They can have devastating consequences for DL applications in high-stakes applications such as medical imaging, facial recognition and autonomous vehicles.</p>
-<p>Data poisoning refers to changing the training data such that the model can learn with malicious intent and manifest that as it’s predictions. Open access and public datasets are especially vulnerable to data poisoning. Such datasets are often used to validate proof-of-concept models by companies or worse, to validate bleeding edge innovations in research.</p>
-<p>In addition to attacks which target the data, the DL model itself can be exploited. By observing the gradients and parameters of a trained network, parts of the dataset can be obtained. Model inversion, membership inference and reconstruction attacks often utilise this technique to obtain the training data or infer if a public dataset was used for training. Combined with linkage attacks, the presence of an individual in a dataset and their sensitive information can be obtained.</p>
-</section>
-</section>
-<section id="results" class="level1">
-<h1>Results</h1>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-training-techniques" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://arumoy.me/blogs/privacy-preserving-deep-learning/training-techniques.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Training techniques using sensitive data</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-distributed-learning" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://arumoy.me/blogs/privacy-preserving-deep-learning/distributed-learning.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Distributed training techniques</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>The study identified 15 papers that presented techniques to train DL models using sensitive data (summarised in Figure Figure&nbsp;2). The techniques can be broadly classified as:</p>
-<ol type="1">
-<li>centralised training,</li>
-<li>synthetic data generation and</li>
-<li>distributed training.</li>
-</ol>
-<p>The majority of the solutions adopted a distributed training approach and this is what the rest of the talk will focus upon.</p>
-<p>As seen in Figure Figure&nbsp;3 Distributed training can be broadly categorised as</p>
-<ol type="1">
-<li>asynchronous and</li>
-<li>synchronous training techniques.</li>
-</ol>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-smpc-fl" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://arumoy.me/blogs/privacy-preserving-deep-learning/smpc-fl.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;4: Asynchronous techniques</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-fl-variants" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://arumoy.me/blogs/privacy-preserving-deep-learning/fl-variants.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;5: FL variants</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>Figure Figure&nbsp;4 provides a high-level overview of the asynchronous techniques. There are predominantly two popular techniques: Federated Learning (FL) and Secure Multi Party Computing (SMPC). Both techniques share the same guiding principles. Several models are training in parallel using the institute’s data. The parameters of these models are then aggregated, usually in a central server, and finally the aggregated parameters are sent back to the local models.</p>
-<p>It’s worth nothing that all asynchronous training techniques introduce additional data privacy through DP or HE to reduce data leakage.</p>
-<p>There are several flavours of FL (as seen in Figure Figure&nbsp;5), the most popular being shared gradients and shared weights. However, there is a third which shows promising results and that is the shared layers. We will talk more about FL with shared layers later in the talk.</p>
-<div id="fig-sync-training" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://arumoy.me/blogs/privacy-preserving-deep-learning/sync-training.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;6: Synchronous techniques</figcaption>
-</figure>
-</div>
-<p>Figure Figure&nbsp;6 presents the three prominent synchronous training techniques:</p>
-<ol type="1">
-<li>model ensemble (ME)</li>
-<li>single weight transfer (SWT) and</li>
-<li>cyclic weight transfer (CWT)</li>
-</ol>
-<p>In ME, models are trained individually at institutes and a final result is obtained using an ensemble technique (voting, averaging, etc.). In SWT, a single model is trained at each institute only once in a pre-determined or random order. CWT extends SWT by training the model at each institute one or more times.</p>
-<p>Empirical evidence suggests that CWT has the best performance and robust to overfitting. SWT performs second best but is prone to catastrophic forgetting and ME is least performant.</p>
-</section>
-<section id="discussion" class="level1">
-<h1>Discussion</h1>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-sync-async-learning" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://arumoy.me/blogs/privacy-preserving-deep-learning/sync-async-learning.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;7: Synchronous vs.&nbsp;asynchronous learning</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-homomorphic-differential" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://arumoy.me/blogs/privacy-preserving-deep-learning/homomorphic-differential.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;8: Homomorphic vs.&nbsp;differential privacy</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>As summarised in Figure Figure&nbsp;7 We observe a trade-off between synchronous and asynchronous learning. Occam’s Razor dictates that CWT being the simpler solution be chosen where possible. However, as we scale the number of institutes, after a certain threshold, the added complexity of asynchronous learning becomes feasible. This threshold is however unknown. Research is also lacking to determine the scalability of asynchronous learning techniques.</p>
-<p>Coming to data privacy techniques, DP and HE are observed to be the most popular techniques for data privacy. DP introduces a trade-off between the model’s performance by injecting noise into the parameters for better privacy.</p>
-<p>In contrast, HE enables model training over unperturbed and encrypted parameters. The performance-privacy trade-off is lifted in lieu of added computational costs. It is recommended to use HE when privacy is of the utmost importance and runtime is not of significant.</p>
-<div id="fig-pyramid" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://arumoy.me/blogs/privacy-preserving-deep-learning/pyramid.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;9: Pyramid of distributed learning for sensitive data</figcaption>
-</figure>
-</div>
-<p>Figure Figure&nbsp;9 presents an overview of the findings of this literature survey. Distributed Learning is able to drastically reduce the data leakage compared to centralised learning however they are still vulnerable to model inversion and inference attacks. Additional security can be provided using DP and HE for the model parameters. HE is resistant to brute force attacks. However if an attacker obtains a significant quantity of the plaintext and the corresponding cyphertext, the encryption can be cracked. Even if we secure the model parameters, the data itself is still vulnerable to adversarial attacks and data poisoning.</p>
-<p>PPDL is felt to be paradoxical in nature. Although the field aims to develop learning techniques which respect the patient’s privacy, such data is not easily available. The existing research is thus limited to experiments conducted using centralised data repositories which do not accurately represent the domain shift which is observed in a truly distributed dataset. The result is also limited primarily to MLPs and CNNs using SGD to perform classification tasks. There is need for training other network architectures (GNNs and RNNs) using modern optimization algorithms such as AdaGrad, Adam and RMSProp.</p>
-<p>If such a distributed system is built, the ownership of such a system is unclear. Who would be responsible for it’s construction and maintenance? How will the project be funded? And where will the parameter server be located? Such a project requires a joint initiative from all participating institutes but also warrants the development of legislative policies to ensure a fair and conflict free operation. Small medical institutes have the most to gain from such an infrastructure however concerns regarding their access is raised since they are unable to participate.</p>
-</section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
-<div id="fig-summary" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://arumoy.me/blogs/privacy-preserving-deep-learning/summary.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;10: Lifecycle of PPDL</figcaption>
-</figure>
-</div>
-<p>We observe the following lifecycle of PPDL, summarised in Figure Figure&nbsp;10. We start with data owners who are geographically distributed and protected by different privacy laws &amp; regulations. We can use distributed learning techniques which result in a better model performance without compromising data ownership and drastically reducing data leakage compared to centralised learning. The risks of inversion and inference attacks can be minimised with data privacy techniques however we must also safeguard the data itself as it’s vulnerable to adversarial attacks and data poisoning.</p>
-</section>
-<section id="future-work" class="level1">
-<h1>Future Work</h1>
-<p>I want to end this talk by highlighting some of the interesting opportunities of research in PPDL.</p>
-<p>FL with shared gradients or weights communicate twice: once to send the local parameters and again to download the aggregated parameters. Scaling the number of participants of increasing the depth of the networks raises several challenges. In the shared layers scheme, the local models have the input and the first hidden layer (L<sup>input</sup> &amp; L<sup>1</sup>). The remaining hidden layers are kept in the central server (L<sup>2</sup>..L<sup>n</sup>). Although the local models communicate twice as much, since they only transmit the parameters of a single layer (as opposed to the entire model), the communication overhead is significantly reduced. Since majority of the layers reside in a central server, hardware upgrades are only required in the central server for performance gains. Empirical results are however lacking to compare and contrast them with shared gradients.</p>
-<p>By and large, Medical Imaging data such as MRI and CT scans, are volumetric in nature. The state-of-the-art solutions require the three dimensional data be segmented into a two dimensional format, resulting in loss of valuable information. Geometric Deep Learning (GDL) is a new field of research, focused on developing deep learning models which are able to train using volumetric data. As such, the application of GDL to MIA remains open for further investigation.</p>
-<p>The exact inner workings of neural networks are still unclear, thereby raising serious ethical concerns regarding their application in medical science. Hybrid intelligence is a new field of research which seeks to enhance the human intellect using artificial intelligence, rather than replacing it. Additionally, Bayesian Deep Learning is another exciting field of research which is tasked with the creation of DL models that provide a measure of uncertainty to the predictions they make. Developments in these field may be beneficial to privacy-preserving deep learning since it will enable humans to view the outcomes of neural networks with a sense of trust.</p>
-
-
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>talk</category>
-  <category>research</category>
-  <guid>https://arumoy.me/blogs/privacy-preserving-deep-learning/index.html</guid>
-  <pubDate>Mon, 06 Sep 2021 22:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
