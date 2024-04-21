@@ -8,6 +8,11 @@ listing:
   sort-ui: true
   filter-ui: true
   feed: false
+  fields: 
+    - title
+    - subtitle
+    - date
+    - authors
   field-display-names:
     subtitle: "Venue"
     authors: "Authors"

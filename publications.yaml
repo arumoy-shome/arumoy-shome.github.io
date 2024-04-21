@@ -5,8 +5,6 @@
     - Arumoy Shome
     - Luis Cruz
     - Arie van Deursen
-  affiliation: Delft University of Technology
-  doi: <https://doi.org/10.1145/3639478.3643121>
 - title: "Data vs. Model Machine Learning Fairness Testing: An Empirical Study"
   subtitle: "Proceedings of 5^th^ International Workshop on Deep Learning for Testing and Testing for Deep Learning"
   date: 2024-01-12
@@ -14,8 +12,7 @@
     - Arumoy Shome
     - Luis Cruz
     - Arie van Deursen
-  affiliation: Delft University of Technology
-  doi: <https://doi.org/10.1145/3643786.3648022>
+  path: "https://arxiv.org/abs/2401.07697"
 - title: "Towards Automatic Translation of Machine Learning Visual Insights to Analytical Assertions"
   subtitle: "Proceedings of 3^nd^ International Workshop on NL-based Software Engineering"
   date: 2024-01-12
@@ -24,7 +21,7 @@
     - Luis Cruz
     - Arie van Deursen
   affiliation: Delft University of Technology
-  doi: <https://doi.org/10.1145/3643787.3648032>
+  path: "https://arxiv.org/abs/2401.07696"
 - title: "Towards Understanding Machine Learning Testing in Practice"
   subtitle: "Proceedings of 2^nd^ International Conference on AI Engineering: Software Engineering for AI"
   date: 2023-05-15
@@ -33,7 +30,7 @@
     - Luis Cruz
     - Arie van Deursen
   affiliation: Delft University of Technology
-  doi: <https://doi.org/10.1109/CAIN58948.2023.00028>
+  path: "https://arxiv.org/abs/2305.04988"
 
 - title: "Data Smells in Public Datasets"
   subtitle: "Proceedings of 1^st^ International Conference on AI Engineering: Software Engineering for AI"
@@ -43,7 +40,7 @@
     - Luis Cruz
     - Arie van Deursen
   affiliation: Delft University of Technology
-  doi: <https://doi.org/10.1145/3522664.3528621>
+  path: "https://arxiv.org/abs/2203.08007"
 
 - title: "KM3NeT Neutrino Detection using Deep Learning"
   subtitle: "Msc. Thesis, unpublished"
