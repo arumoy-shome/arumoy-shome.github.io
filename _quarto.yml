@@ -38,8 +38,6 @@ format:
   html:
     theme: cosmo
     css: styles.css
-    mainfont: "Arial"
-    monofont: "Source Code Pro"
 bibliography: bibliography.bib
 reference-location: margin
 citation-location: margin
