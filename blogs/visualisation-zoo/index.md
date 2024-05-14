@@ -21,9 +21,33 @@ I created the visualisation using a [JointGrid from the Seaborn library](https:/
 
 # Heatmap of Correlation Between Numerical Variables
 
+::: {.column-screen}
+![Heatmap of correlation between numerical variables](heatmap-corr.png){#fig-heatmap-corr}
+:::
+
 The next visualisation comes from our @shome2024data paper. Here we analysed the relationship between data dependent and model dependent fairness metrics. @fig-heatmap-corr shows the results obtained from the empirical study conducted using 8 datasets and 4 ML models.
 
-Each heatmap represents results obtained from a fairness metric (we used *Disparate Impact* and *Statistical Parity Difference*). The ML models are represented along the Y axis, while the datasets are along the X axis. Each block shows the correlation between the data and model variants of the correponding fairness metric. The statistically significant cases are marked with an asterisk. The strength of the correlation is denoted using color--bright hues of red indicate positive correlation while cooler hues of blue represent negative correlation.
+Each heatmap represents results obtained from a fairness metric (we used *Disparate Impact* and *Statistical Parity Difference*). The ML models are represented along the Y axis, while the datasets are along the X axis. Each block shows the correlation between the data and model variants of the corresponding fairness metric. The statistically significant cases are marked with an asterisk. The strength of the correlation is denoted using color--bright hues of red indicate positive correlation while cooler hues of blue represent negative correlation.
 
-![Heatmap of correlation between numerical variables](heatmap-corr.png){#fig-heatmap-corr}
+# OmniArt: Sentiments through Colours
+
+::: {.column-screen}
+![Overview of ACE: Art, Colour and Emotion browser](ace.png)
+:::
+
+This is from a project where we used the [OmniArt dataset](https://isis-data.science.uva.nl/strezoski/#2) to explore the relationship between colors and emotional tones in art through sentiment analysis. We used NLP techniques to analyze metadata from various artworks, focusing on how colors influence perceived sentiments based on painting descriptions. This work is also published as a conference paper with a video demonstration of the tool [@strezoski2019ace].
+
+We created an interactive tool to allow users from varied backgrounds to intuitively explore the complex relationship between colour usage in art and the emotional sentiments those colours may evoke. In the image, you can see a snapshot of the tool which comprises of several interconnected components designed to facilitate interactive exploration of the data.
+
+These visual components are designed to allow users from varied backgrounds to intuitively explore the complex relationship between color usage in art and the emotional sentiments those colors may evoke. This tool not only aids in art analysis but also makes the process accessible to a broader audience, enhancing understanding through interactive visual storytelling and data-driven insights.
+
+# Buildings of Amsterdam
+
+::: {.column-screen}
+![Model of buildings in the city of Amsterdam](amsterdam.jpg)
+:::
+
+This one is from a large-scale data engineering project. Using [2 terabytes of point-cloud data](http://ahn2.pointclouds.nl/), We created 3D models of all buildings in the Netherlands (well, we only managed to create a model for the city of Amsterdam). 
+
+We created an interactive web-based visualization that displays the 3D models of buildings across the Netherlands. Using a map of the Netherlands, we divided the data into tiles representing different areas. We made it into the "Hall of Fame" for the course, you can find an [interactive demo hosted on the course website](https://event.cwi.nl/lsde/2018/showcase_c1.shtml). Fair warning, the demo is pretty bad. So here is an image of the model for the beautiful city of Amsterdam.
 

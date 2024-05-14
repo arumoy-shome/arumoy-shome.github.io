@@ -10,7 +10,29 @@
 <atom:link href="https://arumoy.me/blogs.xml" rel="self" type="application/rss+xml"/>
 <description>Arumoy Shome&#39;s Website</description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Fri, 22 Mar 2024 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 01 May 2024 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>Machine Learning Fairness Testing Should be More Holistic</title>
+  <dc:creator>Arumoy Shome</dc:creator>
+  <link>https://arumoy.me/blogs/data-vs-model-fairness-testing/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>research</category>
+  <category>machine learning</category>
+  <category>fairness</category>
+  <category>testing</category>
+  <category>SE4AI</category>
+  <category>data centric</category>
+  <guid>https://arumoy.me/blogs/data-vs-model-fairness-testing/index.html</guid>
+  <pubDate>Wed, 01 May 2024 22:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Extracting the Module and Function Names from Python ASTs</title>
   <dc:creator>Arumoy Shome</dc:creator>
@@ -408,16 +430,47 @@ Shome, Arumoy, Luís Cruz, and Arie van Deursen. 2022. <span>“Data Smells in P
 </section>
 <section id="heatmap-of-correlation-between-numerical-variables" class="level1 page-columns page-full">
 <h1>Heatmap of Correlation Between Numerical Variables</h1>
-<p>The next visualisation comes from our <span class="citation" data-cites="shome2024data">Shome, Cruz, and Deursen (2024)</span> paper. Here we analysed the relationship between data dependent and model dependent fairness metrics. Figure&nbsp;2 shows the results obtained from the empirical study conducted using 8 datasets and 4 ML models.</p>
-<div class="no-row-height column-margin column-container"><div id="ref-shome2024data" class="csl-entry">
-Shome, Arumoy, Luı̀s Cruz, and Arie van Deursen. 2024. <span>“Data Vs. Model Machine Learning Fairness Testing: An Empirical Study.”</span> In <em>International Workshop on Deep Learning for Testing and Testing for Deep Learning</em>. DeepTest ’24. IEEE/ACM. <a href="https://doi.org/10.1145/3643786.3648022">https://doi.org/10.1145/3643786.3648022</a>.
-</div></div><p>Each heatmap represents results obtained from a fairness metric (we used <em>Disparate Impact</em> and <em>Statistical Parity Difference</em>). The ML models are represented along the Y axis, while the datasets are along the X axis. Each block shows the correlation between the data and model variants of the correponding fairness metric. The statistically significant cases are marked with an asterisk. The strength of the correlation is denoted using color–bright hues of red indicate positive correlation while cooler hues of blue represent negative correlation.</p>
+<div class="column-screen">
 <div id="fig-heatmap-corr" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://arumoy.me/blogs/visualisation-zoo/heatmap-corr.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;2: Heatmap of correlation between numerical variables</figcaption>
 </figure>
 </div>
+</div>
+<p>The next visualisation comes from our <span class="citation" data-cites="shome2024data">Shome, Cruz, and Deursen (2024)</span> paper. Here we analysed the relationship between data dependent and model dependent fairness metrics. Figure&nbsp;2 shows the results obtained from the empirical study conducted using 8 datasets and 4 ML models.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-shome2024data" class="csl-entry">
+Shome, Arumoy, Luı̀s Cruz, and Arie van Deursen. 2024. <span>“Data Vs. Model Machine Learning Fairness Testing: An Empirical Study.”</span> In <em>International Workshop on Deep Learning for Testing and Testing for Deep Learning</em>. DeepTest ’24. IEEE/ACM. <a href="https://doi.org/10.1145/3643786.3648022">https://doi.org/10.1145/3643786.3648022</a>.
+</div></div><p>Each heatmap represents results obtained from a fairness metric (we used <em>Disparate Impact</em> and <em>Statistical Parity Difference</em>). The ML models are represented along the Y axis, while the datasets are along the X axis. Each block shows the correlation between the data and model variants of the corresponding fairness metric. The statistically significant cases are marked with an asterisk. The strength of the correlation is denoted using color–bright hues of red indicate positive correlation while cooler hues of blue represent negative correlation.</p>
+</section>
+<section id="omniart-sentiments-through-colours" class="level1 page-columns page-full">
+<h1>OmniArt: Sentiments through Colours</h1>
+<div class="column-screen">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://arumoy.me/blogs/visualisation-zoo/ace.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Overview of ACE: Art, Colour and Emotion browser</figcaption>
+</figure>
+</div>
+</div>
+<p>This is from a project where we used the <a href="https://isis-data.science.uva.nl/strezoski/#2">OmniArt dataset</a> to explore the relationship between colors and emotional tones in art through sentiment analysis. We used NLP techniques to analyze metadata from various artworks, focusing on how colors influence perceived sentiments based on painting descriptions. This work is also published as a conference paper with a video demonstration of the tool <span class="citation" data-cites="strezoski2019ace">(Strezoski et al. 2019)</span>.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-strezoski2019ace" class="csl-entry">
+Strezoski, Gjorgji, Arumoy Shome, Riccardo Bianchi, Shruti Rao, and Marcel Worring. 2019. <span>“ACE: Art, Color and Emotion.”</span> In <em>Proceedings of the 27th ACM International Conference on Multimedia</em>. MM ’19. ACM. <a href="https://doi.org/10.1145/3343031.3350588">https://doi.org/10.1145/3343031.3350588</a>.
+</div></div><p>We created an interactive tool to allow users from varied backgrounds to intuitively explore the complex relationship between colour usage in art and the emotional sentiments those colours may evoke. In the image, you can see a snapshot of the tool which comprises of several interconnected components designed to facilitate interactive exploration of the data.</p>
+<p>These visual components are designed to allow users from varied backgrounds to intuitively explore the complex relationship between color usage in art and the emotional sentiments those colors may evoke. This tool not only aids in art analysis but also makes the process accessible to a broader audience, enhancing understanding through interactive visual storytelling and data-driven insights.</p>
+</section>
+<section id="buildings-of-amsterdam" class="level1 page-columns page-full">
+<h1>Buildings of Amsterdam</h1>
+<div class="column-screen">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://arumoy.me/blogs/visualisation-zoo/amsterdam.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Model of buildings in the city of Amsterdam</figcaption>
+</figure>
+</div>
+</div>
+<p>This one is from a large-scale data engineering project. Using <a href="http://ahn2.pointclouds.nl/">2 terabytes of point-cloud data</a>, We created 3D models of all buildings in the Netherlands (well, we only managed to create a model for the city of Amsterdam).</p>
+<p>We created an interactive web-based visualization that displays the 3D models of buildings across the Netherlands. Using a map of the Netherlands, we divided the data into tiles representing different areas. We made it into the “Hall of Fame” for the course, you can find an <a href="https://event.cwi.nl/lsde/2018/showcase_c1.shtml">interactive demo hosted on the course website</a>. Fair warning, the demo is pretty bad. So here is an image of the model for the beautiful city of Amsterdam.</p>
 
 
 
@@ -1016,15 +1069,15 @@ font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></di
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="3,4,5,6,8,9,10,11" data-code-annotation="1" data-code-cell="annotated-cell-1">Some initial setup. Here we define the location of the light and dark colorscheme files for kitty (I choose to save them in the kitty config directory and check it into git so that they are available wherever I clone my dotfiles repo). We also store additional data for <code>yob</code> in <code>~/.local/share/yob/background</code> as per XDG best practices for unix systems.</span>
+<span data-code-lines="3,4,5,6,8,9,10,11" data-code-cell="annotated-cell-1" data-code-annotation="1">Some initial setup. Here we define the location of the light and dark colorscheme files for kitty (I choose to save them in the kitty config directory and check it into git so that they are available wherever I clone my dotfiles repo). We also store additional data for <code>yob</code> in <code>~/.local/share/yob/background</code> as per XDG best practices for unix systems.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="13,14,15,16,17,18,19,20,21,22,23,25,26" data-code-annotation="2" data-code-cell="annotated-cell-1">Here we create a symbolic link between the colorscheme file and <code>current-theme.conf</code>. The <code>current-theme.conf</code> file is picked up by kitty next time it starts. Finally, we set the theme for the existing kitty sessions using <code>kitty @ set-colors</code>.</span>
+<span data-code-lines="13,14,15,16,17,18,19,20,21,22,23,25,26" data-code-cell="annotated-cell-1" data-code-annotation="2">Here we create a symbolic link between the colorscheme file and <code>current-theme.conf</code>. The <code>current-theme.conf</code> file is picked up by kitty next time it starts. Finally, we set the theme for the existing kitty sessions using <code>kitty @ set-colors</code>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-lines="28,29,30,31,32,33,34,35,36" data-code-annotation="3" data-code-cell="annotated-cell-1">This function toggles between the light and dark themes based on information in <code>~/.local/share/yob/background</code>.</span>
+<span data-code-lines="28,29,30,31,32,33,34,35,36" data-code-cell="annotated-cell-1" data-code-annotation="3">This function toggles between the light and dark themes based on information in <code>~/.local/share/yob/background</code>.</span>
 </dd>
 </dl>
 <section id="choosing-a-colorscheme-with-light-and-dark-variant" class="level1">
@@ -1466,15 +1519,15 @@ font-style: inherit;">print</span>(bibtex)</span><div class="code-annotation-gut
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-lines="26,27,28,29" data-code-cell="annotated-cell-1">The script must be provided with a DOI. This can also be an Arxiv ID.</span>
+<span data-code-cell="annotated-cell-1" data-code-annotation="1" data-code-lines="26,27,28,29">The script must be provided with a DOI. This can also be an Arxiv ID.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-lines="30,31,32,33,34,35,36" data-code-cell="annotated-cell-1">The <code>-p</code> or <code>--preprint</code> flag can be specified to indicate that the provided DOI is an Arxiv ID.</span>
+<span data-code-cell="annotated-cell-1" data-code-annotation="2" data-code-lines="30,31,32,33,34,35,36">The <code>-p</code> or <code>--preprint</code> flag can be specified to indicate that the provided DOI is an Arxiv ID.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-lines="7,8,9,10,11,12" data-code-cell="annotated-cell-1">The Crossref API is queried with the provided DOI to retrieve the bibtex information. With the <code>--preprint</code> flag, the Arxiv API is used.</span>
+<span data-code-cell="annotated-cell-1" data-code-annotation="3" data-code-lines="7,8,9,10,11,12">The Crossref API is queried with the provided DOI to retrieve the bibtex information. With the <code>--preprint</code> flag, the Arxiv API is used.</span>
 </dd>
 </dl>
 <p>I pipe the results through the <a href="http://www.gerd-neugebauer.de/software/TeX/BibTool/en/">bib-tool CLI</a>, to format the text and generate a unique key. I specify the following key format in my <code>.bibtoolrsc</code> file.</p>
@@ -2128,19 +2181,19 @@ font-style: inherit;"> created"</span>)</span><div class="code-annotation-gutter
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-annotation="1" data-code-lines="16,17,18,19">Accept the title of the new post as the first positional argument. This argument is mandatory.</span>
+<span data-code-lines="16,17,18,19" data-code-annotation="1" data-code-cell="annotated-cell-3">Accept the title of the new post as the first positional argument. This argument is mandatory.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-annotation="2" data-code-lines="20,21,22,23,24,25,26,27,28">Optionally specify a type of post.</span>
+<span data-code-lines="20,21,22,23,24,25,26,27,28" data-code-annotation="2" data-code-cell="annotated-cell-3">Optionally specify a type of post.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-annotation="3" data-code-lines="29,30,31,32,33,34">If this flag is passed, don’t open the new file in <code>$EDITOR</code>.</span>
+<span data-code-lines="29,30,31,32,33,34" data-code-annotation="3" data-code-cell="annotated-cell-3">If this flag is passed, don’t open the new file in <code>$EDITOR</code>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-annotation="4" data-code-lines="35,36,37,38,39,40">If this flag is passed, don’t ask for confirmation.</span>
+<span data-code-lines="35,36,37,38,39,40" data-code-annotation="4" data-code-cell="annotated-cell-3">If this flag is passed, don’t ask for confirmation.</span>
 </dd>
 </dl>
 <div class="callout callout-style-default callout-tip callout-titled" title="Python argparse">
@@ -2382,11 +2435,11 @@ font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></di
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-annotation="1" data-code-lines="3,4,5,6,7,8,9,10,12,13">Steps to generate <code>blogs.md</code> file. First clean slate by removing the file if it already exists. Find all markdown files in the <code>_blogs</code> directory, and run them through pandoc with a custom markdown template (explained in more details below). Append the entires in <code>blogs.md</code> in chronological order. Note as extra precaution, we use a temporary file to prevent accidental data loss.</span>
+<span data-code-lines="3,4,5,6,7,8,9,10,12,13" data-code-annotation="1" data-code-cell="annotated-cell-4">Steps to generate <code>blogs.md</code> file. First clean slate by removing the file if it already exists. Find all markdown files in the <code>_blogs</code> directory, and run them through pandoc with a custom markdown template (explained in more details below). Append the entires in <code>blogs.md</code> in chronological order. Note as extra precaution, we use a temporary file to prevent accidental data loss.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-annotation="2" data-code-lines="15,16,17,18,19,20,21,22,24,25">Same as above, but create <code>talks.md</code> now.</span>
+<span data-code-lines="15,16,17,18,19,20,21,22,24,25" data-code-annotation="2" data-code-cell="annotated-cell-4">Same as above, but create <code>talks.md</code> now.</span>
 </dd>
 </dl>
 <p>First we find all relevant markdown pages that we want to export to html using <code>find</code>. Next, we <code>sort</code> the results in chronological order such that the latest posts show up at the top of the page. The final part is the most interesting bit. We use pandoc’s templating system to extract the date, title and abstract of each file and generate an intermediate markdown file in the format that I want each post to show on the index page. Here is the template file that I use.</p>
@@ -2795,8 +2848,9 @@ Note
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>talk</category>
+  <category>data</category>
   <category>research</category>
+  <category>SE4AI</category>
   <guid>https://arumoy.me/blogs/remla-data-validation/index.html</guid>
   <pubDate>Sun, 15 May 2022 22:00:00 GMT</pubDate>
 </item>
@@ -3101,8 +3155,10 @@ font-style: inherit;">-P</span> 4 ./bin/write-schema.py</span></code></pre></div
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>talk</category>
+  <category>data</category>
   <category>research</category>
+  <category>SE4AI</category>
+  <category>technical debt</category>
   <guid>https://arumoy.me/blogs/data-smells-public-datasets/index.html</guid>
   <pubDate>Tue, 03 May 2022 22:00:00 GMT</pubDate>
 </item>
@@ -4113,23 +4169,23 @@ font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></di
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-lines="3,4,5,6" data-code-cell="annotated-cell-1">Store all notes in <code>$HOME/org/inbox.md</code>, creating it if necessary. Also look for template scripts in <code>~/.local/share/aims</code>.</span>
+<span data-code-lines="3,4,5,6" data-code-annotation="1" data-code-cell="annotated-cell-1">Store all notes in <code>$HOME/org/inbox.md</code>, creating it if necessary. Also look for template scripts in <code>~/.local/share/aims</code>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-lines="12,14,15,16,17,18,19,20,21,22,23,24,25" data-code-cell="annotated-cell-1">Parse the flags passed to AIMS. Currently it only supports the <code>--template</code>/<code>-t</code> flag which accepts the name of the template to use. Use the <code>default</code> template if none is provided. More on this later.</span>
+<span data-code-lines="12,14,15,16,17,18,19,20,21,22,23,24,25" data-code-annotation="2" data-code-cell="annotated-cell-1">Parse the flags passed to AIMS. Currently it only supports the <code>--template</code>/<code>-t</code> flag which accepts the name of the template to use. Use the <code>default</code> template if none is provided. More on this later.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-lines="27,28,29,30" data-code-cell="annotated-cell-1">Create a temporary file and insert the contents of the template.</span>
+<span data-code-lines="27,28,29,30" data-code-annotation="3" data-code-cell="annotated-cell-1">Create a temporary file and insert the contents of the template.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-annotation="4" data-code-lines="32,33,34,35,36" data-code-cell="annotated-cell-1">Edit the temporary file using <code>$EDITOR</code> (here I assume its vim or neovim), setting the filetype to markdown. If the first positional argument passed to AIMS is a valid file inside <code>$NOTESDIR</code> then set that to the <code>$INBOX</code> file. Finally, prepend the contents of the temporary file to <code>$INBOX</code> file, if vim does not report an error.</span>
+<span data-code-lines="32,33,34,35,36" data-code-annotation="4" data-code-cell="annotated-cell-1">Edit the temporary file using <code>$EDITOR</code> (here I assume its vim or neovim), setting the filetype to markdown. If the first positional argument passed to AIMS is a valid file inside <code>$NOTESDIR</code> then set that to the <code>$INBOX</code> file. Finally, prepend the contents of the temporary file to <code>$INBOX</code> file, if vim does not report an error.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-annotation="5" data-code-lines="38" data-code-cell="annotated-cell-1">Cleanup, remove the temporary file.</span>
+<span data-code-lines="38" data-code-annotation="5" data-code-cell="annotated-cell-1">Cleanup, remove the temporary file.</span>
 </dd>
 </dl>
 <p>For the time being, it only provides the capture functionality. A temporary file is used to compose the text first. Upon successful completion, the contents of the temporary file are appended to the default <code>$INBOX</code> file if no other files are specified.</p>
@@ -4196,11 +4252,11 @@ font-style: inherit;">$1</span></span><div class="code-annotation-gutter-bg"></d
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-lines="3" data-code-cell="annotated-cell-2">Sanity check, ensure that a positional argument was passed (that is, the temporary file path).</span>
+<span data-code-lines="3" data-code-annotation="1" data-code-cell="annotated-cell-2">Sanity check, ensure that a positional argument was passed (that is, the temporary file path).</span>
 </dd>
 <dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-lines="5,6" data-code-cell="annotated-cell-2">Insert an empty line and a level 1 markdown header with a time stamp.</span>
+<span data-code-lines="5,6" data-code-annotation="2" data-code-cell="annotated-cell-2">Insert an empty line and a level 1 markdown header with a time stamp.</span>
 </dd>
 </dl>
 <p>It simply adds a level 1 markdown header followed by a timestamp. Here is another for capturing bibtex information for research papers.</p>
@@ -4512,15 +4568,15 @@ font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></di
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-lines="7,8,9,10,11,12" data-code-cell="annotated-cell-3">Check that the bibtex information is currently in the system clipboard by attempting to extract the key using <code>grep</code> and <code>sed</code>. If a key was successfully extracted, then create a level 1 markdown header with a time stamp and the key. Otherwise, fall back to just a time stamp.</span>
+<span data-code-lines="7,8,9,10,11,12" data-code-annotation="1" data-code-cell="annotated-cell-3">Check that the bibtex information is currently in the system clipboard by attempting to extract the key using <code>grep</code> and <code>sed</code>. If a key was successfully extracted, then create a level 1 markdown header with a time stamp and the key. Otherwise, fall back to just a time stamp.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-lines="14,15,16,17,18,19,20" data-code-cell="annotated-cell-3">Add my prompts for note-taking when reading scientific papers.</span>
+<span data-code-lines="14,15,16,17,18,19,20" data-code-annotation="2" data-code-cell="annotated-cell-3">Add my prompts for note-taking when reading scientific papers.</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-lines="21,23,24,25,26,28" data-code-cell="annotated-cell-3">Remove empty lines and put the bibtex information in a markdown source block.</span>
+<span data-code-lines="21,23,24,25,26,28" data-code-annotation="3" data-code-cell="annotated-cell-3">Remove empty lines and put the bibtex information in a markdown source block.</span>
 </dd>
 </dl>
 <p>This one is a bit more involved but highlights the power of using shellscripts for templating. Given that a bibentry is copied in the clipboard, this template adds a level 1 markdown header with a timestamp and the bibkey. It adds my <a href="../research-workflow#writing-notes">note-taking prompts</a> and sticks the bibentry at the bottom.</p>
@@ -4532,44 +4588,6 @@ font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></di
   <category>productivity</category>
   <guid>https://arumoy.me/blogs/aims/index.html</guid>
   <pubDate>Sun, 27 Feb 2022 23:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Reflections on Scientific Research</title>
-  <dc:creator>Arumoy Shome</dc:creator>
-  <link>https://arumoy.me/blogs/reflections-scientific-research/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>I have been working as a researcher for several months now and have been working towards my first publication for the past few weeks. I have a few points of reflection on the scientific process and what constitutes as a good researcher.</p>
-<section id="reading" class="level1">
-<h1>Reading</h1>
-<p>This has been a challenge for me so far. I started my PhD with a literature review and during those initial 3 months I read a lot of papers. However once the analysis started, the reading dropped down to 0 papers per week. I am not sure if it is possible to keep a consistent reading practise, however reading at least 1 or 2 papers per week is ideal. Reading not only helps to be inspired and spark new ideas, but also makes for good content for the related work &amp; discussion section of your paper. Moving forward, I want to review recent publications from the top journals of my field, and try to reflect upon what they did well, what I will do differently and identify interesting intersections between their topic and my research interests.</p>
-</section>
-<section id="writing" class="level1">
-<h1>Writing</h1>
-<p>I started to use <a href="https://orgmode.org">org-mode</a> at the start of my PhD, capture and organize my thoughts and ideas. This worked out well because when the time came to start writing, I already had a pretty good outline for the paper ready. One thing that was still a challenge (at least for the first week of writing) is that the process itself was very slow. I don’t think this can be helped/improved. This is simply my process and all I can really do it work through it. Moving forward, I will try to plan out content for the report throughout the project.</p>
-</section>
-<section id="paper-discovery" class="level1">
-<h1>Paper Discovery</h1>
-<p>This is relevant for reading &amp; writing. I think my current system works really well (see <a href="../scientific-paper-discovery">scientific paper discovery</a>).</p>
-</section>
-<section id="experimentation-methodology" class="level1">
-<h1>Experimentation &amp; Methodology</h1>
-<p>This could have been planned better. While writing the report I realised several loops &amp; flaws in my data collection and methodology. My supervisor has recommended a book (see reference below) which I will read prior to our next project. Moving forward, I will also try to think about the dataset and its design earlier.</p>
-</section>
-<section id="general-thoughts-remarks" class="level1">
-<h1>General Thoughts &amp; Remarks</h1>
-<p>I am curious to understand how my supervisor was able to see the potential in the idea we ended up pursuing versus the ones I proposed. Is this something that comes with experience? How can I spot a good (scientific research) idea?</p>
-
-
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>research</category>
-  <guid>https://arumoy.me/blogs/reflections-scientific-research/index.html</guid>
-  <pubDate>Sun, 12 Dec 2021 23:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

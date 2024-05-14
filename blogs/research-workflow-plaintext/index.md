@@ -11,7 +11,7 @@ abstract: |
     emacs or org-mode and I want this to be more of a discussion
     rather than a talk. Please ask me questions as I go along and
     share your thoughts, tips and techniques with others!
-categories: [talk, emacs]
+categories: [productivity, emacs, research]
 ---
 
 # Introduction

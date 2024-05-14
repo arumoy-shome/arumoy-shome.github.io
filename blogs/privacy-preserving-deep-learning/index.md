@@ -5,7 +5,7 @@ abstract: |
     A talk on Privacy Preserving Deep Learning (PPDL) I gave to my
     research group. It was largly based on a literature review I did
     during my Msc.
-categories: [talk, research]
+categories: ["machine learning", research, privacy]
 ---
 
 Good morning all, thank you for being here. Today I wanted to share my

@@ -200,6 +200,8 @@ div.csl-indent {
   <ul>
   <li><a href="#joint-distribution-of-categorical-variables" id="toc-joint-distribution-of-categorical-variables" class="nav-link active" data-scroll-target="#joint-distribution-of-categorical-variables">Joint Distribution of Categorical Variables</a></li>
   <li><a href="#heatmap-of-correlation-between-numerical-variables" id="toc-heatmap-of-correlation-between-numerical-variables" class="nav-link" data-scroll-target="#heatmap-of-correlation-between-numerical-variables">Heatmap of Correlation Between Numerical Variables</a></li>
+  <li><a href="#omniart-sentiments-through-colours" id="toc-omniart-sentiments-through-colours" class="nav-link" data-scroll-target="#omniart-sentiments-through-colours">OmniArt: Sentiments through Colours</a></li>
+  <li><a href="#buildings-of-amsterdam" id="toc-buildings-of-amsterdam" class="nav-link" data-scroll-target="#buildings-of-amsterdam">Buildings of Amsterdam</a></li>
   </ul>
 </nav>
     </div>
@@ -228,16 +230,47 @@ Shome, Arumoy, Luís Cruz, and Arie van Deursen. 2022. <span>“Data Smells in P
 </section>
 <section id="heatmap-of-correlation-between-numerical-variables" class="level1 page-columns page-full">
 <h1>Heatmap of Correlation Between Numerical Variables</h1>
-<p>The next visualisation comes from our <span class="citation" data-cites="shome2024data">Shome, Cruz, and Deursen (<a href="#ref-shome2024data" role="doc-biblioref">2024</a>)</span> paper. Here we analysed the relationship between data dependent and model dependent fairness metrics. <a href="#fig-heatmap-corr">Figure&nbsp;2</a> shows the results obtained from the empirical study conducted using 8 datasets and 4 ML models.</p>
-<div class="no-row-height column-margin column-container"><div id="ref-shome2024data" class="csl-entry" role="listitem">
-Shome, Arumoy, Luı̀s Cruz, and Arie van Deursen. 2024. <span>“Data Vs. Model Machine Learning Fairness Testing: An Empirical Study.”</span> In <em>International Workshop on Deep Learning for Testing and Testing for Deep Learning</em>. DeepTest ’24. IEEE/ACM. <a href="https://doi.org/10.1145/3643786.3648022">https://doi.org/10.1145/3643786.3648022</a>.
-</div></div><p>Each heatmap represents results obtained from a fairness metric (we used <em>Disparate Impact</em> and <em>Statistical Parity Difference</em>). The ML models are represented along the Y axis, while the datasets are along the X axis. Each block shows the correlation between the data and model variants of the correponding fairness metric. The statistically significant cases are marked with an asterisk. The strength of the correlation is denoted using color–bright hues of red indicate positive correlation while cooler hues of blue represent negative correlation.</p>
+<div class="column-screen">
 <div id="fig-heatmap-corr" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="heatmap-corr.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;2: Heatmap of correlation between numerical variables</figcaption>
 </figure>
 </div>
+</div>
+<p>The next visualisation comes from our <span class="citation" data-cites="shome2024data">Shome, Cruz, and Deursen (<a href="#ref-shome2024data" role="doc-biblioref">2024</a>)</span> paper. Here we analysed the relationship between data dependent and model dependent fairness metrics. <a href="#fig-heatmap-corr">Figure&nbsp;2</a> shows the results obtained from the empirical study conducted using 8 datasets and 4 ML models.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-shome2024data" class="csl-entry" role="listitem">
+Shome, Arumoy, Luı̀s Cruz, and Arie van Deursen. 2024. <span>“Data Vs. Model Machine Learning Fairness Testing: An Empirical Study.”</span> In <em>International Workshop on Deep Learning for Testing and Testing for Deep Learning</em>. DeepTest ’24. IEEE/ACM. <a href="https://doi.org/10.1145/3643786.3648022">https://doi.org/10.1145/3643786.3648022</a>.
+</div></div><p>Each heatmap represents results obtained from a fairness metric (we used <em>Disparate Impact</em> and <em>Statistical Parity Difference</em>). The ML models are represented along the Y axis, while the datasets are along the X axis. Each block shows the correlation between the data and model variants of the corresponding fairness metric. The statistically significant cases are marked with an asterisk. The strength of the correlation is denoted using color–bright hues of red indicate positive correlation while cooler hues of blue represent negative correlation.</p>
+</section>
+<section id="omniart-sentiments-through-colours" class="level1 page-columns page-full">
+<h1>OmniArt: Sentiments through Colours</h1>
+<div class="column-screen">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ace.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Overview of ACE: Art, Colour and Emotion browser</figcaption>
+</figure>
+</div>
+</div>
+<p>This is from a project where we used the <a href="https://isis-data.science.uva.nl/strezoski/#2">OmniArt dataset</a> to explore the relationship between colors and emotional tones in art through sentiment analysis. We used NLP techniques to analyze metadata from various artworks, focusing on how colors influence perceived sentiments based on painting descriptions. This work is also published as a conference paper with a video demonstration of the tool <span class="citation" data-cites="strezoski2019ace">(<a href="#ref-strezoski2019ace" role="doc-biblioref">Strezoski et al. 2019</a>)</span>.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-strezoski2019ace" class="csl-entry" role="listitem">
+Strezoski, Gjorgji, Arumoy Shome, Riccardo Bianchi, Shruti Rao, and Marcel Worring. 2019. <span>“ACE: Art, Color and Emotion.”</span> In <em>Proceedings of the 27th ACM International Conference on Multimedia</em>. MM ’19. ACM. <a href="https://doi.org/10.1145/3343031.3350588">https://doi.org/10.1145/3343031.3350588</a>.
+</div></div><p>We created an interactive tool to allow users from varied backgrounds to intuitively explore the complex relationship between colour usage in art and the emotional sentiments those colours may evoke. In the image, you can see a snapshot of the tool which comprises of several interconnected components designed to facilitate interactive exploration of the data.</p>
+<p>These visual components are designed to allow users from varied backgrounds to intuitively explore the complex relationship between color usage in art and the emotional sentiments those colors may evoke. This tool not only aids in art analysis but also makes the process accessible to a broader audience, enhancing understanding through interactive visual storytelling and data-driven insights.</p>
+</section>
+<section id="buildings-of-amsterdam" class="level1 page-columns page-full">
+<h1>Buildings of Amsterdam</h1>
+<div class="column-screen">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="amsterdam.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Model of buildings in the city of Amsterdam</figcaption>
+</figure>
+</div>
+</div>
+<p>This one is from a large-scale data engineering project. Using <a href="http://ahn2.pointclouds.nl/">2 terabytes of point-cloud data</a>, We created 3D models of all buildings in the Netherlands (well, we only managed to create a model for the city of Amsterdam).</p>
+<p>We created an interactive web-based visualization that displays the 3D models of buildings across the Netherlands. Using a map of the Netherlands, we divided the data into tiles representing different areas. We made it into the “Hall of Fame” for the course, you can find an <a href="https://event.cwi.nl/lsde/2018/showcase_c1.shtml">interactive demo hosted on the course website</a>. Fair warning, the demo is pretty bad. So here is an image of the model for the beautiful city of Amsterdam.</p>
 
 
 

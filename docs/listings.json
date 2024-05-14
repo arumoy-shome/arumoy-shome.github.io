@@ -10,6 +10,7 @@
   {
     "listing": "/blogs.html",
     "items": [
+      "/blogs/data-vs-model-fairness-testing/index.html",
       "/blogs/python-ast-extract-module-method-names/index.html",
       "/blogs/visualisation-zoo/index.html",
       "/blogs/bash-commands/index.html",
