@@ -1,3 +1,12 @@
+- title: "Understanding Feedback Mechanisms in Machine Learning Jupyter Notebooks"
+  subtitle: "Journal of Empirical Software Engineering (EMSE)--Under Review"
+  date: 2024-08-01
+  authors:
+    - Arumoy Shome
+    - Luis Cruz
+    - Diomidis Spinellis
+    - Arie van Deursen
+  path: "https://arxiv.org/abs/2408.00153"
 - title: "Data vs. Model Machine Learning Fairness Testing: An Empirical Study (Extended Abstract)"
   subtitle: "Proceedings of 46^th^ International Conference on Software Engineering (Companion Track)"
   date: 2024-01-22

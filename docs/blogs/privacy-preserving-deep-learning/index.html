@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.53">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Arumoy Shome">
 <meta name="dcterms.date" content="2021-09-07">
 
-<title>Arumoy Shome - Privacy Preserving Deep Learning</title>
+<title>Privacy Preserving Deep Learning – Arumoy Shome</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -69,66 +76,66 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Arumoy Shome</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../blogs.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../blogs.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../talks.html" rel="" target="">
- <span class="menu-text">Talks</span></a>
+    <a class="nav-link" href="../../talks.html"> 
+<span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../publications.html" rel="" target="">
- <span class="menu-text">Publications</span></a>
+    <a class="nav-link" href="../../publications.html"> 
+<span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../bib.html" rel="" target="">
- <span class="menu-text">Annotated Bibliography</span></a>
+    <a class="nav-link" href="../../bib.html"> 
+<span class="menu-text">Annotated Bibliography</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../license.html" rel="" target="">
- <span class="menu-text">License</span></a>
+    <a class="nav-link" href="../../license.html"> 
+<span class="menu-text">License</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="../../blogs.xml" rel="" target=""><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../blogs.xml"> <i class="bi bi-rss" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/arumoy-shome" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/arumoy-shome"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/arumoy_shome" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/arumoy_shome"> <i class="bi bi-twitter" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://linkedin.com/in/arumoyshome" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://linkedin.com/in/arumoyshome"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -167,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
     
   <div>
     <div class="abstract">
-      <div class="abstract-title">Abstract</div>
+      <div class="block-title">Abstract</div>
       <p>A talk on Privacy Preserving Deep Learning (PPDL) I gave to my research group. It was largly based on a literature review I did during my Msc.</p>
     </div>
   </div>
@@ -204,6 +211,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+
 <p>Good morning all, thank you for being here. Today I wanted to share my research on Privacy Preserving Deep Learning (PPDL) which I conducted during my Msc. As an example, we will be looking specifically at PPDL for Medical Image Analysis (MIA). However, I think that this field of research is highly relevant these days and the techniques can be applied to any domain working with sensitive data (such as governance, finance and others).</p>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
@@ -224,13 +232,17 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="study-design" class="level1">
 <h1>Study Design</h1>
-<div id="fig-study-design" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="study-design.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Study Design</figcaption>
+<div id="fig-study-design" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-study-design-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="study-design.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-study-design-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Study Design
+</figcaption>
 </figure>
 </div>
-<p>The goal of this research project was to conduct a systematic review of DL systems for MIA which take the privacy of the patients into account. Figure <a href="#fig-study-design">Figure&nbsp;1</a> presents an overview of the study design. Emphasis was also put on analysis of these privacy-preserving techniques to determine those which provide good performance, are scalable and robust, and provide maximum protection against security threats. To this end, the following research questions are formulated:</p>
+<p>The goal of this research project was to conduct a systematic review of DL systems for MIA which take the privacy of the patients into account. Figure <a href="#fig-study-design" class="quarto-xref">Figure&nbsp;1</a> presents an overview of the study design. Emphasis was also put on analysis of these privacy-preserving techniques to determine those which provide good performance, are scalable and robust, and provide maximum protection against security threats. To this end, the following research questions are formulated:</p>
 <ol type="1">
 <li>What are the existing systems, platforms or techniques that facilitate deep learning on medical images that do not invade the patient’s privacy?</li>
 <li>What are the top performing DL models being used to perform tasks in medical imaging?</li>
@@ -262,68 +274,94 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="results" class="level1">
 <h1>Results</h1>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-training-techniques" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="training-techniques.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Training techniques using sensitive data</figcaption>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-training-techniques" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-training-techniques-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="training-techniques.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-training-techniques-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Training techniques using sensitive data
+</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-distributed-learning" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="distributed-learning.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Distributed training techniques</figcaption>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-distributed-learning" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-distributed-learning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="distributed-learning.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-distributed-learning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Distributed training techniques
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<p>The study identified 15 papers that presented techniques to train DL models using sensitive data (summarised in Figure <a href="#fig-training-techniques">Figure&nbsp;2</a>). The techniques can be broadly classified as:</p>
+<p>The study identified 15 papers that presented techniques to train DL models using sensitive data (summarised in Figure <a href="#fig-training-techniques" class="quarto-xref">Figure&nbsp;2</a>). The techniques can be broadly classified as:</p>
 <ol type="1">
 <li>centralised training,</li>
 <li>synthetic data generation and</li>
 <li>distributed training.</li>
 </ol>
 <p>The majority of the solutions adopted a distributed training approach and this is what the rest of the talk will focus upon.</p>
-<p>As seen in Figure <a href="#fig-distributed-learning">Figure&nbsp;3</a> Distributed training can be broadly categorised as</p>
+<p>As seen in Figure <a href="#fig-distributed-learning" class="quarto-xref">Figure&nbsp;3</a> Distributed training can be broadly categorised as</p>
 <ol type="1">
 <li>asynchronous and</li>
 <li>synchronous training techniques.</li>
 </ol>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-smpc-fl" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="smpc-fl.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;4: Asynchronous techniques</figcaption>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-smpc-fl" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-smpc-fl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="smpc-fl.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-smpc-fl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Asynchronous techniques
+</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-fl-variants" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="fl-variants.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;5: FL variants</figcaption>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-fl-variants" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fl-variants-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fl-variants.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fl-variants-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: FL variants
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<p>Figure <a href="#fig-smpc-fl">Figure&nbsp;4</a> provides a high-level overview of the asynchronous techniques. There are predominantly two popular techniques: Federated Learning (FL) and Secure Multi Party Computing (SMPC). Both techniques share the same guiding principles. Several models are training in parallel using the institute’s data. The parameters of these models are then aggregated, usually in a central server, and finally the aggregated parameters are sent back to the local models.</p>
+<p>Figure <a href="#fig-smpc-fl" class="quarto-xref">Figure&nbsp;4</a> provides a high-level overview of the asynchronous techniques. There are predominantly two popular techniques: Federated Learning (FL) and Secure Multi Party Computing (SMPC). Both techniques share the same guiding principles. Several models are training in parallel using the institute’s data. The parameters of these models are then aggregated, usually in a central server, and finally the aggregated parameters are sent back to the local models.</p>
 <p>It’s worth nothing that all asynchronous training techniques introduce additional data privacy through DP or HE to reduce data leakage.</p>
-<p>There are several flavours of FL (as seen in Figure <a href="#fig-fl-variants">Figure&nbsp;5</a>), the most popular being shared gradients and shared weights. However, there is a third which shows promising results and that is the shared layers. We will talk more about FL with shared layers later in the talk.</p>
-<div id="fig-sync-training" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="sync-training.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;6: Synchronous techniques</figcaption>
+<p>There are several flavours of FL (as seen in Figure <a href="#fig-fl-variants" class="quarto-xref">Figure&nbsp;5</a>), the most popular being shared gradients and shared weights. However, there is a third which shows promising results and that is the shared layers. We will talk more about FL with shared layers later in the talk.</p>
+<div id="fig-sync-training" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sync-training-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="sync-training.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sync-training-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Synchronous techniques
+</figcaption>
 </figure>
 </div>
-<p>Figure <a href="#fig-sync-training">Figure&nbsp;6</a> presents the three prominent synchronous training techniques:</p>
+<p>Figure <a href="#fig-sync-training" class="quarto-xref">Figure&nbsp;6</a> presents the three prominent synchronous training techniques:</p>
 <ol type="1">
 <li>model ensemble (ME)</li>
 <li>single weight transfer (SWT) and</li>
@@ -334,48 +372,67 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="discussion" class="level1">
 <h1>Discussion</h1>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-sync-async-learning" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="sync-async-learning.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;7: Synchronous vs.&nbsp;asynchronous learning</figcaption>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-sync-async-learning" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sync-async-learning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="sync-async-learning.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sync-async-learning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Synchronous vs.&nbsp;asynchronous learning
+</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-homomorphic-differential" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="homomorphic-differential.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;8: Homomorphic vs.&nbsp;differential privacy</figcaption>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-homomorphic-differential" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-homomorphic-differential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="homomorphic-differential.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-homomorphic-differential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: Homomorphic vs.&nbsp;differential privacy
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<p>As summarised in Figure <a href="#fig-sync-async-learning">Figure&nbsp;7</a> We observe a trade-off between synchronous and asynchronous learning. Occam’s Razor dictates that CWT being the simpler solution be chosen where possible. However, as we scale the number of institutes, after a certain threshold, the added complexity of asynchronous learning becomes feasible. This threshold is however unknown. Research is also lacking to determine the scalability of asynchronous learning techniques.</p>
+<p>As summarised in Figure <a href="#fig-sync-async-learning" class="quarto-xref">Figure&nbsp;7</a> We observe a trade-off between synchronous and asynchronous learning. Occam’s Razor dictates that CWT being the simpler solution be chosen where possible. However, as we scale the number of institutes, after a certain threshold, the added complexity of asynchronous learning becomes feasible. This threshold is however unknown. Research is also lacking to determine the scalability of asynchronous learning techniques.</p>
 <p>Coming to data privacy techniques, DP and HE are observed to be the most popular techniques for data privacy. DP introduces a trade-off between the model’s performance by injecting noise into the parameters for better privacy.</p>
 <p>In contrast, HE enables model training over unperturbed and encrypted parameters. The performance-privacy trade-off is lifted in lieu of added computational costs. It is recommended to use HE when privacy is of the utmost importance and runtime is not of significant.</p>
-<div id="fig-pyramid" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="pyramid.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;9: Pyramid of distributed learning for sensitive data</figcaption>
+<div id="fig-pyramid" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pyramid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pyramid.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pyramid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: Pyramid of distributed learning for sensitive data
+</figcaption>
 </figure>
 </div>
-<p>Figure <a href="#fig-pyramid">Figure&nbsp;9</a> presents an overview of the findings of this literature survey. Distributed Learning is able to drastically reduce the data leakage compared to centralised learning however they are still vulnerable to model inversion and inference attacks. Additional security can be provided using DP and HE for the model parameters. HE is resistant to brute force attacks. However if an attacker obtains a significant quantity of the plaintext and the corresponding cyphertext, the encryption can be cracked. Even if we secure the model parameters, the data itself is still vulnerable to adversarial attacks and data poisoning.</p>
+<p>Figure <a href="#fig-pyramid" class="quarto-xref">Figure&nbsp;9</a> presents an overview of the findings of this literature survey. Distributed Learning is able to drastically reduce the data leakage compared to centralised learning however they are still vulnerable to model inversion and inference attacks. Additional security can be provided using DP and HE for the model parameters. HE is resistant to brute force attacks. However if an attacker obtains a significant quantity of the plaintext and the corresponding cyphertext, the encryption can be cracked. Even if we secure the model parameters, the data itself is still vulnerable to adversarial attacks and data poisoning.</p>
 <p>PPDL is felt to be paradoxical in nature. Although the field aims to develop learning techniques which respect the patient’s privacy, such data is not easily available. The existing research is thus limited to experiments conducted using centralised data repositories which do not accurately represent the domain shift which is observed in a truly distributed dataset. The result is also limited primarily to MLPs and CNNs using SGD to perform classification tasks. There is need for training other network architectures (GNNs and RNNs) using modern optimization algorithms such as AdaGrad, Adam and RMSProp.</p>
 <p>If such a distributed system is built, the ownership of such a system is unclear. Who would be responsible for it’s construction and maintenance? How will the project be funded? And where will the parameter server be located? Such a project requires a joint initiative from all participating institutes but also warrants the development of legislative policies to ensure a fair and conflict free operation. Small medical institutes have the most to gain from such an infrastructure however concerns regarding their access is raised since they are unable to participate.</p>
 </section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
-<div id="fig-summary" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="summary.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;10: Lifecycle of PPDL</figcaption>
+<div id="fig-summary" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="summary.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: Lifecycle of PPDL
+</figcaption>
 </figure>
 </div>
-<p>We observe the following lifecycle of PPDL, summarised in Figure <a href="#fig-summary">Figure&nbsp;10</a>. We start with data owners who are geographically distributed and protected by different privacy laws &amp; regulations. We can use distributed learning techniques which result in a better model performance without compromising data ownership and drastically reducing data leakage compared to centralised learning. The risks of inversion and inference attacks can be minimised with data privacy techniques however we must also safeguard the data itself as it’s vulnerable to adversarial attacks and data poisoning.</p>
+<p>We observe the following lifecycle of PPDL, summarised in Figure <a href="#fig-summary" class="quarto-xref">Figure&nbsp;10</a>. We start with data owners who are geographically distributed and protected by different privacy laws &amp; regulations. We can use distributed learning techniques which result in a better model performance without compromising data ownership and drastically reducing data leakage compared to centralised learning. The risks of inversion and inference attacks can be minimised with data privacy techniques however we must also safeguard the data itself as it’s vulnerable to adversarial attacks and data poisoning.</p>
 </section>
 <section id="future-work" class="level1">
 <h1>Future Work</h1>
@@ -423,18 +480,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -466,11 +512,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/arumoy\.me");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -480,8 +565,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -493,7 +587,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -537,6 +754,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -562,8 +780,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-      // Handle positioning of the toggle
-      window.addEventListener(
+        // Handle positioning of the toggle
+    window.addEventListener(
       "resize",
       throttle(() => {
         elRect = undefined;
@@ -571,23 +789,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
           selectCodeLines(selectedAnnoteEl);
         }
       }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
               fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
       for (let i=0; i<annoteTargets.length; i++) {
         const annoteTarget = annoteTargets[i];
@@ -632,7 +850,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
               options: {
                 flipVariations: false, // true by default
                 allowedAutoPlacements: ['right'],
-                fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
               },
             },
             {
@@ -689,8 +907,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Copyright Arumoy Shome 2018-Present</div>   
-    <div class="nav-footer-center">All materials on this website are open sourced under the CC BY 4.0 license.</div>
+    <div class="nav-footer-left">
+<p>Copyright Arumoy Shome 2018-Present</p>
+</div>   
+    <div class="nav-footer-center">
+<p>All materials on this website are open sourced under the CC BY 4.0 license.</p>
+</div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
@@ -715,6 +937,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
 
 
 

@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.53">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Arumoy Shome">
 <meta name="dcterms.date" content="2022-05-04">
 
-<title>Arumoy Shome - Data Smells in Public Datasets</title>
+<title>Data Smells in Public Datasets – Arumoy Shome</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -69,66 +76,66 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Arumoy Shome</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../blogs.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../blogs.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../talks.html" rel="" target="">
- <span class="menu-text">Talks</span></a>
+    <a class="nav-link" href="../../talks.html"> 
+<span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../publications.html" rel="" target="">
- <span class="menu-text">Publications</span></a>
+    <a class="nav-link" href="../../publications.html"> 
+<span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../bib.html" rel="" target="">
- <span class="menu-text">Annotated Bibliography</span></a>
+    <a class="nav-link" href="../../bib.html"> 
+<span class="menu-text">Annotated Bibliography</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../license.html" rel="" target="">
- <span class="menu-text">License</span></a>
+    <a class="nav-link" href="../../license.html"> 
+<span class="menu-text">License</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="../../blogs.xml" rel="" target=""><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../blogs.xml"> <i class="bi bi-rss" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/arumoy-shome" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/arumoy-shome"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/arumoy_shome" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/arumoy_shome"> <i class="bi bi-twitter" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://linkedin.com/in/arumoyshome" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://linkedin.com/in/arumoyshome"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -168,7 +175,7 @@ ul.task-list li input[type="checkbox"] {
     
   <div>
     <div class="abstract">
-      <div class="abstract-title">Abstract</div>
+      <div class="block-title">Abstract</div>
       <p>In this talk I will present our recent paper titled <em>Data Smells in Public Datasets</em> which was published at the <em><a href="https://conf.researchr.org/home/cain-2022">1<sup>st</sup> International Conference on AI Engineering (CAIN) 2022</a></em>. I will first present the problem we are trying to solve along with the contributions that we made. I will present the methodology which was followed along with the results obtained. I will present a select few smells which I personally find interesting &amp; hope will generate some discussion. Finally, we will conclude the talk with some high level takeaways from our study along with the limitations &amp; future directions of work.</p>
     </div>
   </div>
@@ -212,54 +219,71 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>In this talk I will present our recent paper titled <em>Data Smells in Public Datasets</em> which was published at the <em><a href="https://conf.researchr.org/home/cain-2022">1<sup>st</sup> International Conference on AI Engineering (CAIN) 2022</a></em>. I will first present the problem we are trying to solve along with the contributions that we made. I will present the methodology which was followed along with the results obtained. I will present a select few smells which I personally find interesting &amp; hope will generate some discussion. Finally, we will conclude the talk with some high level takeaways from our study along with the limitations &amp; future directions of work.</p>
 </section>
 <section id="problem-contributions" class="level1">
 <h1>Problem &amp; Contributions</h1>
-<div id="fig-ml-pillars" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="ml-mature-pillars.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Pillars of ML</figcaption>
+<div id="fig-ml-pillars" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ml-pillars-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ml-mature-pillars.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ml-pillars-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Pillars of ML
+</figcaption>
 </figure>
 </div>
-<p>Compared to traditional software systems—which typically mature by experiencing change in the <em>code</em>—machine learning systems experience change in the <em>code, model &amp; data</em> (Figure <a href="#fig-ml-pillars">Figure&nbsp;1</a>). These three pillars of change are tangled with one another, where a small change or bug in any part of the pipeline, ripples through to the downstream stages. Thus it becomes extremely important to catch such problems in the early, upstream stages of the ML lifecycle, which typically revolve around the data.</p>
+<p>Compared to traditional software systems—which typically mature by experiencing change in the <em>code</em>—machine learning systems experience change in the <em>code, model &amp; data</em> (Figure <a href="#fig-ml-pillars" class="quarto-xref">Figure&nbsp;1</a>). These three pillars of change are tangled with one another, where a small change or bug in any part of the pipeline, ripples through to the downstream stages. Thus it becomes extremely important to catch such problems in the early, upstream stages of the ML lifecycle, which typically revolve around the data.</p>
 <p>ML tends to be very data-centric in nature and majority of the work involves working with the data. When we put a software engineering lens on this, <strong>data for data science is equivalent to code for software engineering</strong>. While software engineers have several tools &amp; techniques to aid them in their day-to-day lives, the same cannot be said for data scientists.</p>
 <p>With this study, we wish to aid data scientists with their day-to-day tasks. In line with this motivation, we first identify the recurrent data quality issues that occur in popular public datasets. Our contributions here was to provide a formal definition of data smells which we define as data anti-patterns in the datasets that may indicate early signs of problems or technical debt. Our second research question was to analyse the prevalence of such data smells in public datasets. Here we contributed by creating a catalogue of 14 data smells by analysing 25 popular public datasets.</p>
 </section>
 <section id="methodology" class="level1">
 <h1>Methodology</h1>
-<div id="fig-method" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="data-smells-methodology.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Methodology</figcaption>
+<div id="fig-method" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-method-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="data-smells-methodology.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-method-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Methodology
+</figcaption>
 </figure>
 </div>
-<p>As seen in Figure <a href="#fig-method">Figure&nbsp;2</a>, our methodology consists of 3 distinct phases.</p>
+<p>As seen in Figure <a href="#fig-method" class="quarto-xref">Figure&nbsp;2</a>, our methodology consists of 3 distinct phases.</p>
 <p>We start with the data selection phase. We used Kaggle—a popular public data repository–to identify datasets for this study. We consider structured datasets with the most number of votes which are lesser than 1GB in size for this study.</p>
 <p>Next we manually conduct a preliminary analysis of the datasets. This consists of observing the <code>head</code>, the <code>tail</code> &amp; the descriptive statistics of the dataset, reading the data documentation when available and such. Through the preliminary analysis we identify the data smells. We conduct this phase twice to ensure that the older datasets are also tagged with relevant smells which were discovered during analysis of newer datasets.</p>
 <p>Finally we conduct the catalogue creation phase. We hold all the data smells identified in the prior phase against a few exclusion criterion and create the final catalogue.</p>
 </section>
 <section id="results" class="level1">
 <h1>Results</h1>
-<div id="fig-2d-histplot" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="data-smells-2d-histplot.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Overview of Results</figcaption>
+<div id="fig-2d-histplot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-2d-histplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="data-smells-2d-histplot.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2d-histplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Overview of Results
+</figcaption>
 </figure>
 </div>
-<p>Figure <a href="#fig-2d-histplot">Figure&nbsp;3</a> is a two dimensional histogram with an overview of the “meta” analysis of the datasets &amp; smells. The plot presents the datasets along the X axis and the smells along the Y axis which allows us to observe the most frequent smells and where they were recorded. The plot also consists of two marginal plots. The marginal plot along the Y axis presents a count of smells across all datasets while the plot along the X axis presents the count of smells in each dataset.</p>
+<p>Figure <a href="#fig-2d-histplot" class="quarto-xref">Figure&nbsp;3</a> is a two dimensional histogram with an overview of the “meta” analysis of the datasets &amp; smells. The plot presents the datasets along the X axis and the smells along the Y axis which allows us to observe the most frequent smells and where they were recorded. The plot also consists of two marginal plots. The marginal plot along the Y axis presents a count of smells across all datasets while the plot along the X axis presents the count of smells in each dataset.</p>
 </section>
 <section id="catalogue" class="level1">
 <h1>Catalogue</h1>
 <p>I will present 5 smells from the catalogue which I personally find interesting and hope will spark some discussion.</p>
 <section id="correlated-features" class="level2">
 <h2 class="anchored" data-anchor-id="correlated-features">Correlated Features</h2>
-<div id="fig-red-corr" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="data-smells-red-corr.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;4: Correlation of features in all datasets</figcaption>
+<div id="fig-red-corr" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-red-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="data-smells-red-corr.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-red-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Correlation of features in all datasets
+</figcaption>
 </figure>
 </div>
 <p>I will start with the presence of correlated features smell which many of us are perhaps already familiar with. I want to start with this smell as it was most frequently observed in our sample of datasets.</p>
@@ -267,10 +291,14 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="presence-of-sensitive-features" class="level2">
 <h2 class="anchored" data-anchor-id="presence-of-sensitive-features">Presence of Sensitive Features</h2>
-<div id="fig-misc-sensitive" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="data-smells-misc-sensitive.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;5: Sensitive features</figcaption>
+<div id="fig-misc-sensitive" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-misc-sensitive-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="data-smells-misc-sensitive.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-misc-sensitive-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Sensitive features
+</figcaption>
 </figure>
 </div>
 <p>I want to motivate this smell with this figure. This is a probability density plot from the adult census dataset. This dataset consists information regarding individuals including their race &amp; sex. The supervised learning task is to predict the income class they belong to.</p>
@@ -279,21 +307,29 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="hierarchy-from-label-encoding" class="level2">
 <h2 class="anchored" data-anchor-id="hierarchy-from-label-encoding">Hierarchy from Label Encoding</h2>
-<div id="fig-cat-hierarchy" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="data-smells-cat-hierarchy.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;6: Hierarchy from label encoding</figcaption>
+<div id="fig-cat-hierarchy" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cat-hierarchy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="data-smells-cat-hierarchy.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cat-hierarchy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Hierarchy from label encoding
+</figcaption>
 </figure>
 </div>
-<p>Figure <a href="#fig-cat-hierarchy">Figure&nbsp;6</a> presents a probability density plot from the adult census dataset. Here we compare the income class of individuals to their level of education. We can see that for this dataset, an individual with a higher level of education is likely to earn more.</p>
+<p>Figure <a href="#fig-cat-hierarchy" class="quarto-xref">Figure&nbsp;6</a> presents a probability density plot from the adult census dataset. Here we compare the income class of individuals to their level of education. We can see that for this dataset, an individual with a higher level of education is likely to earn more.</p>
 <p>Such a hierarchy in categorical features is useful information which can be utilised by the model. A common practise is to encode categorical features using numbers. As an example we can encode the education levels using numbers between 0 and 4, where higher education gets a larger number. Such an encoding scheme can be beneficial to the model as it exposes the hierarchy amongst the values of a categorical feature. However applying the same encoding scheme for the <em>race</em> or <em>sex</em> feature can introduce an unwanted hierarchy amongst the values where non should exist.</p>
 </section>
 <section id="binary-missing-values" class="level2">
 <h2 class="anchored" data-anchor-id="binary-missing-values">Binary Missing Values</h2>
-<div id="fig-misc-bin" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="data-smells-miss-bin.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;7: Binary missing values</figcaption>
+<div id="fig-misc-bin" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-misc-bin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="data-smells-miss-bin.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-misc-bin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Binary missing values
+</figcaption>
 </figure>
 </div>
 <p>Two features from the permit dataset contain a lot of missing values (over 90% of the data in these features are missing). A common technique in such cases is to drop such features since they do not impart any knowledge to the model. However, taking a closer look at the value of the non-missing data, we find that the missing values in these features carry an implicit meaning of ‘no’ or a negative response.</p>
@@ -301,10 +337,14 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="strings-in-human-friendly-formats" class="level2">
 <h2 class="anchored" data-anchor-id="strings-in-human-friendly-formats">Strings in Human-friendly Formats</h2>
-<div id="fig-str-human" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="data-smells-str-human.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;8: Strings in human-friendly formats</figcaption>
+<div id="fig-str-human" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-str-human-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="data-smells-str-human.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-str-human-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: Strings in human-friendly formats
+</figcaption>
 </figure>
 </div>
 <p>The <em>netfix</em> dataset contains information regarding content on the popular entertainment streaming service. The dataset contains information regarding movies &amp; TV shows along with their duration.</p>
@@ -379,18 +419,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -422,11 +451,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/arumoy\.me");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -436,8 +504,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -449,7 +526,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -493,6 +693,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -518,8 +719,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-      // Handle positioning of the toggle
-      window.addEventListener(
+        // Handle positioning of the toggle
+    window.addEventListener(
       "resize",
       throttle(() => {
         elRect = undefined;
@@ -527,23 +728,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
           selectCodeLines(selectedAnnoteEl);
         }
       }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
               fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
       for (let i=0; i<annoteTargets.length; i++) {
         const annoteTarget = annoteTargets[i];
@@ -588,7 +789,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
               options: {
                 flipVariations: false, // true by default
                 allowedAutoPlacements: ['right'],
-                fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
               },
             },
             {
@@ -645,8 +846,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Copyright Arumoy Shome 2018-Present</div>   
-    <div class="nav-footer-center">All materials on this website are open sourced under the CC BY 4.0 license.</div>
+    <div class="nav-footer-left">
+<p>Copyright Arumoy Shome 2018-Present</p>
+</div>   
+    <div class="nav-footer-center">
+<p>All materials on this website are open sourced under the CC BY 4.0 license.</p>
+</div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
@@ -671,6 +876,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
 
 
 

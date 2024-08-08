@@ -1,13 +1,5 @@
 [
   {
-    "listing": "/publications.html",
-    "items": []
-  },
-  {
-    "listing": "/talks.html",
-    "items": []
-  },
-  {
     "listing": "/blogs.html",
     "items": [
       "/blogs/data-vs-model-fairness-testing/index.html",
@@ -48,5 +40,13 @@
       "/blogs/searching-vim/index.html",
       "/blogs/private-link-sharing/index.html"
     ]
+  },
+  {
+    "listing": "/talks.html",
+    "items": []
+  },
+  {
+    "listing": "/publications.html",
+    "items": []
   }
 ]

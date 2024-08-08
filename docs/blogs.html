@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.53">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Arumoy Shome - Blog</title>
+<title>Blog – Arumoy Shome</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -92,75 +99,102 @@ ul.task-list li input[type="checkbox"] {
   })
   </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="Arumoy Shome" href="blogs.xml"></head>
+<link rel="alternate" type="application/rss+xml" title="Arumoy Shome" href="blogs.xml" data-external="1"></head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Arumoy Shome</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./blogs.html" rel="" target="" aria-current="page">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link active" href="./blogs.html" aria-current="page"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./talks.html" rel="" target="">
- <span class="menu-text">Talks</span></a>
+    <a class="nav-link" href="./talks.html"> 
+<span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html" rel="" target="">
- <span class="menu-text">Publications</span></a>
+    <a class="nav-link" href="./publications.html"> 
+<span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./bib.html" rel="" target="">
- <span class="menu-text">Annotated Bibliography</span></a>
+    <a class="nav-link" href="./bib.html"> 
+<span class="menu-text">Annotated Bibliography</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./license.html" rel="" target="">
- <span class="menu-text">License</span></a>
+    <a class="nav-link" href="./license.html"> 
+<span class="menu-text">License</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="./blogs.xml" rel="" target=""><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="./blogs.xml"> <i class="bi bi-rss" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/arumoy-shome" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/arumoy-shome"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/arumoy_shome" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/arumoy_shome"> <i class="bi bi-twitter" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://linkedin.com/in/arumoyshome" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://linkedin.com/in/arumoyshome"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -173,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
     
   
-  <div class="quarto-title-meta">
+  <div class="quarto-title-meta column-page-left">
 
       
     
@@ -189,6 +223,7 @@ ul.task-list li input[type="checkbox"] {
     <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-cloud"><div class="category" data-category="SE4AI"><span class="quarto-category-count category-cloud-1">SE4AI</span></div><div class="category" data-category="data"><span class="quarto-category-count category-cloud-1">data</span></div><div class="category" data-category="data centric"><span class="quarto-category-count category-cloud-1">data centric</span></div><div class="category" data-category="design"><span class="quarto-category-count category-cloud-1">design</span></div><div class="category" data-category="emacs"><span class="quarto-category-count category-cloud-2">emacs</span></div><div class="category" data-category="fairness"><span class="quarto-category-count category-cloud-1">fairness</span></div><div class="category" data-category="machine learning"><span class="quarto-category-count category-cloud-1">machine learning</span></div><div class="category" data-category="misc"><span class="quarto-category-count category-cloud-1">misc</span></div><div class="category" data-category="privacy"><span class="quarto-category-count category-cloud-1">privacy</span></div><div class="category" data-category="productivity"><span class="quarto-category-count category-cloud-3">productivity</span></div><div class="category" data-category="python"><span class="quarto-category-count category-cloud-2">python</span></div><div class="category" data-category="research"><span class="quarto-category-count category-cloud-3">research</span></div><div class="category" data-category="shell"><span class="quarto-category-count category-cloud-4">shell</span></div><div class="category" data-category="technical debt"><span class="quarto-category-count category-cloud-1">technical debt</span></div><div class="category" data-category="testing"><span class="quarto-category-count category-cloud-1">testing</span></div><div class="category" data-category="vim"><span class="quarto-category-count category-cloud-2">vim</span></div><div class="category" data-category="web"><span class="quarto-category-count category-cloud-1">web</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
 
 
 
@@ -223,16 +258,14 @@ ul.task-list li input[type="checkbox"] {
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="research,machine learning,fairness,testing,SE4AI,data centric" data-listing-date-sort="1714600800000" data-listing-file-modified-sort="1714668940217" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="0" data-categories="research,machine learning,fairness,testing,SE4AI,data centric" data-listing-date-sort="1714600800000" data-listing-file-modified-sort="1715760169419" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="53">
 <div class="body">
-<a href="./blogs/data-vs-model-fairness-testing/index.html">
 <h3 class="no-anchor listing-title">
-Machine Learning Fairness Testing Should be More Holistic
+<a href="./blogs/data-vs-model-fairness-testing/index.html" class="no-external">Machine Learning Fairness Testing Should be More Holistic</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/data-vs-model-fairness-testing/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('research'); return false;">
 research
@@ -253,59 +286,51 @@ SE4AI
 data centric
 </div>
 </div>
-<a href="./blogs/data-vs-model-fairness-testing/index.html">
 <div class="listing-description">
-<p>TODO</p>
+<a href="./blogs/data-vs-model-fairness-testing/index.html" class="no-external">TODO</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/data-vs-model-fairness-testing/index.html">
+<a href="./blogs/data-vs-model-fairness-testing/index.html" class="no-external">
 <div class="listing-date">
 May 2, 2024
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="python" data-listing-date-sort="1711148400000" data-listing-file-modified-sort="1711307781850" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="quarto-post image-right" data-index="1" data-categories="python" data-listing-date-sort="1711148400000" data-listing-file-modified-sort="1711307781850" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="921">
 <div class="body">
-<a href="./blogs/python-ast-extract-module-method-names/index.html">
 <h3 class="no-anchor listing-title">
-Extracting the Module and Function Names from Python ASTs
+<a href="./blogs/python-ast-extract-module-method-names/index.html" class="no-external">Extracting the Module and Function Names from Python ASTs</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/python-ast-extract-module-method-names/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
 python
 </div>
 </div>
-<a href="./blogs/python-ast-extract-module-method-names/index.html">
 <div class="listing-description">
-<p>How to extract the module and function name from Python Abstract Syntax Trees.</p>
+<a href="./blogs/python-ast-extract-module-method-names/index.html" class="no-external">How to extract the module and function name from Python Abstract Syntax Trees.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/python-ast-extract-module-method-names/index.html">
+<a href="./blogs/python-ast-extract-module-method-names/index.html" class="no-external">
 <div class="listing-date">
 Mar 23, 2024
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="python,design" data-listing-date-sort="1710630000000" data-listing-file-modified-sort="1715702117330" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="2" data-categories="python,design" data-listing-date-sort="1710630000000" data-listing-file-modified-sort="1715702117330" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="575">
 <div class="body">
-<a href="./blogs/visualisation-zoo/index.html">
 <h3 class="no-anchor listing-title">
-Visualisation Zoo
+<a href="./blogs/visualisation-zoo/index.html" class="no-external">Visualisation Zoo</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/visualisation-zoo/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
 python
@@ -314,88 +339,76 @@ python
 design
 </div>
 </div>
-<a href="./blogs/visualisation-zoo/index.html">
 <div class="listing-description">
-<p>Collection of data visualisations I have created using Python.</p>
+<a href="./blogs/visualisation-zoo/index.html" class="no-external">Collection of data visualisations I have created using Python.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/visualisation-zoo/index.html">
+<a href="./blogs/visualisation-zoo/index.html" class="no-external">
 <div class="listing-date">
 Mar 17, 2024
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="shell" data-listing-date-sort="1706742000000" data-listing-file-modified-sort="1706785065342" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="3" data-categories="shell" data-listing-date-sort="1706742000000" data-listing-file-modified-sort="1706785065342" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="55">
 <div class="body">
-<a href="./blogs/bash-commands/index.html">
 <h3 class="no-anchor listing-title">
-Bash commands
+<a href="./blogs/bash-commands/index.html" class="no-external">Bash commands</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/bash-commands/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('shell'); return false;">
 shell
 </div>
 </div>
-<a href="./blogs/bash-commands/index.html">
 <div class="listing-description">
-<p>Bash (<code>bash</code>) commands I frequently use.</p>
+<a href="./blogs/bash-commands/index.html" class="no-external">Bash (<code>bash</code>) commands I frequently use.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/bash-commands/index.html">
+<a href="./blogs/bash-commands/index.html" class="no-external">
 <div class="listing-date">
 Feb 1, 2024
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="shell" data-listing-date-sort="1706655600000" data-listing-file-modified-sort="1706891278781" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="4" data-categories="shell" data-listing-date-sort="1706655600000" data-listing-file-modified-sort="1706891278781" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="154">
 <div class="body">
-<a href="./blogs/docker-commands/index.html">
 <h3 class="no-anchor listing-title">
-Docker commands
+<a href="./blogs/docker-commands/index.html" class="no-external">Docker commands</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/docker-commands/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('shell'); return false;">
 shell
 </div>
 </div>
-<a href="./blogs/docker-commands/index.html">
 <div class="listing-description">
-<p>Docker (<code>docker</code>) commands I frequently use.</p>
+<a href="./blogs/docker-commands/index.html" class="no-external">Docker (<code>docker</code>) commands I frequently use.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/docker-commands/index.html">
+<a href="./blogs/docker-commands/index.html" class="no-external">
 <div class="listing-date">
 Jan 31, 2024
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="research,productivity" data-listing-date-sort="1705618800000" data-listing-file-modified-sort="1705783929343" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="quarto-post image-right" data-index="5" data-categories="research,productivity" data-listing-date-sort="1705618800000" data-listing-file-modified-sort="1705783929343" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="618">
 <div class="body">
-<a href="./blogs/organise-research-project-git/index.html">
 <h3 class="no-anchor listing-title">
-Organising research projects with git
+<a href="./blogs/organise-research-project-git/index.html" class="no-external">Organising research projects with git</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/organise-research-project-git/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('research'); return false;">
 research
@@ -404,30 +417,26 @@ research
 productivity
 </div>
 </div>
-<a href="./blogs/organise-research-project-git/index.html">
 <div class="listing-description">
-<p>Some standards and conventions I follow when organising research project data using git.</p>
+<a href="./blogs/organise-research-project-git/index.html" class="no-external">Some standards and conventions I follow when organising research project data using git. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/organise-research-project-git/index.html">
+<a href="./blogs/organise-research-project-git/index.html" class="no-external">
 <div class="listing-date">
 Jan 19, 2024
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="shell,vim" data-listing-date-sort="1705618800000" data-listing-file-modified-sort="1705680611841" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="quarto-post image-right" data-index="6" data-categories="shell,vim" data-listing-date-sort="1705618800000" data-listing-file-modified-sort="1705680611841" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="665">
 <div class="body">
-<a href="./blogs/yob/index.html">
 <h3 class="no-anchor listing-title">
-Toggling background color in kitty and vim (yob)
+<a href="./blogs/yob/index.html" class="no-external">Toggling background color in kitty and vim (yob)</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/yob/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('shell'); return false;">
 shell
@@ -436,30 +445,26 @@ shell
 vim
 </div>
 </div>
-<a href="./blogs/yob/index.html">
 <div class="listing-description">
-<p><code>yob</code> is a tiny shell script which toggles between a light and dark colorscheme in Kitty, my terminal of choice.</p>
+<a href="./blogs/yob/index.html" class="no-external"><code>yob</code> is a tiny shell script which toggles between a light and dark colorscheme in Kitty, my terminal of choice. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/yob/index.html">
+<a href="./blogs/yob/index.html" class="no-external">
 <div class="listing-date">
 Jan 19, 2024
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="emacs,productivity" data-listing-date-sort="1701212400000" data-listing-file-modified-sort="1703158777102" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
+<div class="quarto-post image-right" data-index="7" data-categories="emacs,productivity" data-listing-date-sort="1701212400000" data-listing-file-modified-sort="1703158777102" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1107">
 <div class="body">
-<a href="./blogs/bibliography-management-orgmode/index.html">
 <h3 class="no-anchor listing-title">
-Managing Scientific Bibliography using Emacs Org-mode
+<a href="./blogs/bibliography-management-orgmode/index.html" class="no-external">Managing Scientific Bibliography using Emacs Org-mode</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/bibliography-management-orgmode/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('emacs'); return false;">
 emacs
@@ -468,30 +473,26 @@ emacs
 productivity
 </div>
 </div>
-<a href="./blogs/bibliography-management-orgmode/index.html">
 <div class="listing-description">
-<p>How I organise, search and retrieve my scientific papers using Emacs org-mode.</p>
+<a href="./blogs/bibliography-management-orgmode/index.html" class="no-external">How I organise, search and retrieve my scientific papers using Emacs org-mode.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/bibliography-management-orgmode/index.html">
+<a href="./blogs/bibliography-management-orgmode/index.html" class="no-external">
 <div class="listing-date">
 Nov 29, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="shell,productivity" data-listing-date-sort="1700953200000" data-listing-file-modified-sort="1701130650398" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
+<div class="quarto-post image-right" data-index="8" data-categories="shell,productivity" data-listing-date-sort="1700953200000" data-listing-file-modified-sort="1701130650398" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1320">
 <div class="body">
-<a href="./blogs/doi2bib/index.html">
 <h3 class="no-anchor listing-title">
-Automatically retrieving Bibtex information from DOI
+<a href="./blogs/doi2bib/index.html" class="no-external">Automatically retrieving Bibtex information from DOI</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/doi2bib/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('shell'); return false;">
 shell
@@ -500,59 +501,51 @@ shell
 productivity
 </div>
 </div>
-<a href="./blogs/doi2bib/index.html">
 <div class="listing-description">
-<p><code>doi2bib</code> is a simple Python script I wrote that fetches bibtex information from the Crossref API using the provided DOI. It can also handle pre-prints published on Arxiv.</p>
+<a href="./blogs/doi2bib/index.html" class="no-external"><code>doi2bib</code> is a simple Python script I wrote that fetches bibtex information from the Crossref API using the provided DOI. It can also handle pre-prints published on Arxiv. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/doi2bib/index.html">
+<a href="./blogs/doi2bib/index.html" class="no-external">
 <div class="listing-date">
 Nov 26, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="shell" data-listing-date-sort="1696802400000" data-listing-file-modified-sort="1698507581526" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="9" data-categories="shell" data-listing-date-sort="1696802400000" data-listing-file-modified-sort="1698507581526" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="25">
 <div class="body">
-<a href="./blogs/aspell-commands/index.html">
 <h3 class="no-anchor listing-title">
-Aspell Commands
+<a href="./blogs/aspell-commands/index.html" class="no-external">Aspell Commands</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/aspell-commands/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('shell'); return false;">
 shell
 </div>
 </div>
-<a href="./blogs/aspell-commands/index.html">
 <div class="listing-description">
-<p>Aspell (<code>aspell</code>) commands I frequently use.</p>
+<a href="./blogs/aspell-commands/index.html" class="no-external">Aspell (<code>aspell</code>) commands I frequently use.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/aspell-commands/index.html">
+<a href="./blogs/aspell-commands/index.html" class="no-external">
 <div class="listing-date">
 Oct 9, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="shell,vim" data-listing-date-sort="1682719200000" data-listing-file-modified-sort="1693929225520" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="10" data-categories="shell,vim" data-listing-date-sort="1682719200000" data-listing-file-modified-sort="1693929225520" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="211">
 <div class="body">
-<a href="./blogs/navigating-large-markdown-files-vim/index.html">
 <h3 class="no-anchor listing-title">
-Navigating large markdown files in vim
+<a href="./blogs/navigating-large-markdown-files-vim/index.html" class="no-external">Navigating large markdown files in vim</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/navigating-large-markdown-files-vim/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('shell'); return false;">
 shell
@@ -561,30 +554,26 @@ shell
 vim
 </div>
 </div>
-<a href="./blogs/navigating-large-markdown-files-vim/index.html">
 <div class="listing-description">
-<p>Strategies to navigate large plaintext (specifically markdown) files in vim.</p>
+<a href="./blogs/navigating-large-markdown-files-vim/index.html" class="no-external">Strategies to navigate large plaintext (specifically markdown) files in vim. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/navigating-large-markdown-files-vim/index.html">
+<a href="./blogs/navigating-large-markdown-files-vim/index.html" class="no-external">
 <div class="listing-date">
 Apr 29, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="shell,web" data-listing-date-sort="1675378800000" data-listing-file-modified-sort="1693928962070" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
+<div class="quarto-post image-right" data-index="11" data-categories="shell,web" data-listing-date-sort="1675378800000" data-listing-file-modified-sort="1693928962070" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1250">
 <div class="body">
-<a href="./blogs/cms-pandoc/index.html">
 <h3 class="no-anchor listing-title">
-CMS using Pandoc and Friends
+<a href="./blogs/cms-pandoc/index.html" class="no-external">CMS using Pandoc and Friends</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/cms-pandoc/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('shell'); return false;">
 shell
@@ -593,88 +582,76 @@ shell
 web
 </div>
 </div>
-<a href="./blogs/cms-pandoc/index.html">
 <div class="listing-description">
-<p>Some tools &amp; techniques I use to run a no non-sense blog using static html pages. All powered by a sane file naming convension, plaintext documents writing in markdown and exported to html using pandoc and other unix cli tools.</p>
+<a href="./blogs/cms-pandoc/index.html" class="no-external">Some tools &amp; techniques I use to run a no non-sense blog using static html pages. All powered by a sane file naming convension, plaintext documents writing in markdown and exported to html using pandoc and other unix cli tools. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/cms-pandoc/index.html">
+<a href="./blogs/cms-pandoc/index.html" class="no-external">
 <div class="listing-date">
 Feb 3, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="python" data-listing-date-sort="1667257200000" data-listing-file-modified-sort="1693508015064" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="12" data-categories="python" data-listing-date-sort="1667257200000" data-listing-file-modified-sort="1693508015064" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="99">
 <div class="body">
-<a href="./blogs/packing-unpacking-kwargs/index.html">
 <h3 class="no-anchor listing-title">
-Packing and Unpacking <code>**kwargs</code>
+<a href="./blogs/packing-unpacking-kwargs/index.html" class="no-external">Packing and Unpacking <code>**kwargs</code></a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/packing-unpacking-kwargs/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
 python
 </div>
 </div>
-<a href="./blogs/packing-unpacking-kwargs/index.html">
 <div class="listing-description">
-<p>Packing and unpacking keyword arguments in Python.</p>
+<a href="./blogs/packing-unpacking-kwargs/index.html" class="no-external">Packing and unpacking keyword arguments in Python. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/packing-unpacking-kwargs/index.html">
+<a href="./blogs/packing-unpacking-kwargs/index.html" class="no-external">
 <div class="listing-date">
 Nov 1, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="shell" data-listing-date-sort="1664575200000" data-listing-file-modified-sort="1693555959727" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="13" data-categories="shell" data-listing-date-sort="1664575200000" data-listing-file-modified-sort="1693555959727" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="217">
 <div class="body">
-<a href="./blogs/ripgrep-commands/index.html">
 <h3 class="no-anchor listing-title">
-Ripgrep commands
+<a href="./blogs/ripgrep-commands/index.html" class="no-external">Ripgrep commands</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/ripgrep-commands/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('shell'); return false;">
 shell
 </div>
 </div>
-<a href="./blogs/ripgrep-commands/index.html">
 <div class="listing-description">
-<p>Ripgrep (<code>rg</code>) commands I frequently use.</p>
+<a href="./blogs/ripgrep-commands/index.html" class="no-external">Ripgrep (<code>rg</code>) commands I frequently use.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/ripgrep-commands/index.html">
+<a href="./blogs/ripgrep-commands/index.html" class="no-external">
 <div class="listing-date">
 Oct 1, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="data,research,SE4AI" data-listing-date-sort="1652652000000" data-listing-file-modified-sort="1714667994499" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="quarto-post image-right" data-index="14" data-categories="data,research,SE4AI" data-listing-date-sort="1652652000000" data-listing-file-modified-sort="1714667994499" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="830">
 <div class="body">
-<a href="./blogs/remla-data-validation/index.html">
 <h3 class="no-anchor listing-title">
-Data Validation with TFDV
+<a href="./blogs/remla-data-validation/index.html" class="no-external">Data Validation with TFDV</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/remla-data-validation/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('data'); return false;">
 data
@@ -686,59 +663,51 @@ research
 SE4AI
 </div>
 </div>
-<a href="./blogs/remla-data-validation/index.html">
 <div class="listing-description">
-<p>In this lecture we will go over the basics of data validation. The first half of this lecture will be a talk on the fundamentals of data validation. We will answer <em>what is data validation?</em>, <em>why should we validate our data?</em> and <em>how we can validate our data?</em>. The second half of the lecture will be a hands-on tutorial on using <span>Tensorflow Data Validation</span>, instructions &amp; code for which can be found on <span>this github repo</span>.</p>
+<a href="./blogs/remla-data-validation/index.html" class="no-external">In this lecture we will go over the basics of data validation. The first half of this lecture will be a talk on the fundamentals of data validation. We will answer <em>what is data validation?</em>, <em>why should we validate our data?</em> and <em>how we can validate our data?</em>. The second half of the lecture will be a hands-on tutorial on using <span>Tensorflow Data Validation</span>, instructions &amp; code for which can be found on <span>this github repo</span>. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/remla-data-validation/index.html">
+<a href="./blogs/remla-data-validation/index.html" class="no-external">
 <div class="listing-date">
 May 16, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-categories="shell" data-listing-date-sort="1651960800000" data-listing-file-modified-sort="1693925274672" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="15" data-categories="shell" data-listing-date-sort="1651960800000" data-listing-file-modified-sort="1693925274672" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="248">
 <div class="body">
-<a href="./blogs/effortless-parallel-execution-xargs/index.html">
 <h3 class="no-anchor listing-title">
-Effortless Parallel Execution with xargs &amp; Friends
+<a href="./blogs/effortless-parallel-execution-xargs/index.html" class="no-external">Effortless Parallel Execution with xargs &amp; Friends</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/effortless-parallel-execution-xargs/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('shell'); return false;">
 shell
 </div>
 </div>
-<a href="./blogs/effortless-parallel-execution-xargs/index.html">
 <div class="listing-description">
-<p>Recently, I had to run <span>Tensorflow Data Validation</span> on over 500 public datasets from <span>Kaggle</span> to generate a baseline schema file for further analysis. I chose to do this using the xargs unix command.</p>
+<a href="./blogs/effortless-parallel-execution-xargs/index.html" class="no-external">Recently, I had to run <span>Tensorflow Data Validation</span> on over 500 public datasets from <span>Kaggle</span> to generate a baseline schema file for further analysis. I chose to do this using the xargs unix command. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/effortless-parallel-execution-xargs/index.html">
+<a href="./blogs/effortless-parallel-execution-xargs/index.html" class="no-external">
 <div class="listing-date">
 May 8, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="data,research,SE4AI,technical debt" data-listing-date-sort="1651615200000" data-listing-file-modified-sort="1714667945415" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9">
+<div class="quarto-post image-right" data-index="16" data-categories="data,research,SE4AI,technical debt" data-listing-date-sort="1651615200000" data-listing-file-modified-sort="1714667945415" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1618">
 <div class="body">
-<a href="./blogs/data-smells-public-datasets/index.html">
 <h3 class="no-anchor listing-title">
-Data Smells in Public Datasets
+<a href="./blogs/data-smells-public-datasets/index.html" class="no-external">Data Smells in Public Datasets</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/data-smells-public-datasets/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('data'); return false;">
 data
@@ -753,30 +722,26 @@ SE4AI
 technical debt
 </div>
 </div>
-<a href="./blogs/data-smells-public-datasets/index.html">
 <div class="listing-description">
-<p>In this talk I will present our recent paper titled <em>Data Smells in Public Datasets</em> which was published at the <em><span>1<sup>st</sup> International Conference on AI Engineering (CAIN) 2022</span></em>. I will first present the problem we are trying to solve along with the contributions that we made. I will present the methodology which was followed along with the results obtained. I will present a select few smells which I personally find interesting &amp; hope will generate some discussion. Finally, we will conclude the talk with some high level takeaways from our study along with the limitations &amp; future directions of work.</p>
+<a href="./blogs/data-smells-public-datasets/index.html" class="no-external">In this talk I will present our recent paper titled <em>Data Smells in Public Datasets</em> which was published at the <em><span>1<sup>st</sup> International Conference on AI Engineering (CAIN) 2022</span></em>. I will first present the problem we are trying to solve along with the contributions that we made. I will present the methodology which was followed along with the results obtained. I will present a select few smells which I personally find interesting &amp; hope will generate some discussion. Finally, we will conclude the talk with some high level takeaways from our study along with the limitations &amp; future directions of work. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/data-smells-public-datasets/index.html">
+<a href="./blogs/data-smells-public-datasets/index.html" class="no-external">
 <div class="listing-date">
 May 4, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="17" data-categories="shell,vim,web" data-listing-date-sort="1646348400000" data-listing-file-modified-sort="1693857399439" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="17" data-categories="shell,vim,web" data-listing-date-sort="1646348400000" data-listing-file-modified-sort="1693857399439" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="425">
 <div class="body">
-<a href="./blogs/website-management-pandoc/index.html">
 <h3 class="no-anchor listing-title">
-There and Back Again A Tale of Website Management
+<a href="./blogs/website-management-pandoc/index.html" class="no-external">There and Back Again A Tale of Website Management</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/website-management-pandoc/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('shell'); return false;">
 shell
@@ -788,30 +753,26 @@ vim
 web
 </div>
 </div>
-<a href="./blogs/website-management-pandoc/index.html">
 <div class="listing-description">
-<p>Managing websites using markdown, shell and vim.</p>
+<a href="./blogs/website-management-pandoc/index.html" class="no-external">Managing websites using markdown, shell and vim. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/website-management-pandoc/index.html">
+<a href="./blogs/website-management-pandoc/index.html" class="no-external">
 <div class="listing-date">
 Mar 4, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-categories="shell,productivity" data-listing-date-sort="1646262000000" data-listing-file-modified-sort="1693770492192" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="18" data-categories="shell,productivity" data-listing-date-sort="1646262000000" data-listing-file-modified-sort="1693770492192" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="489">
 <div class="body">
-<a href="./blogs/today/index.html">
 <h3 class="no-anchor listing-title">
-Timestamps in the Shell (today)
+<a href="./blogs/today/index.html" class="no-external">Timestamps in the Shell (today)</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/today/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('shell'); return false;">
 shell
@@ -820,30 +781,26 @@ shell
 productivity
 </div>
 </div>
-<a href="./blogs/today/index.html">
 <div class="listing-description">
-<p>Creating timestamps in the terminal.</p>
+<a href="./blogs/today/index.html" class="no-external">Creating timestamps in the terminal. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/today/index.html">
+<a href="./blogs/today/index.html" class="no-external">
 <div class="listing-date">
 Mar 3, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="19" data-categories="shell,productivity" data-listing-date-sort="1646002800000" data-listing-file-modified-sort="1705416583611" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10">
+<div class="quarto-post image-right" data-index="19" data-categories="shell,productivity" data-listing-date-sort="1646002800000" data-listing-file-modified-sort="1705416583611" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1847">
 <div class="body">
-<a href="./blogs/aims/index.html">
 <h3 class="no-anchor listing-title">
-Aru’s Information Management System (AIMS)
+<a href="./blogs/aims/index.html" class="no-external">Aru’s Information Management System (AIMS)</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/aims/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('shell'); return false;">
 shell
@@ -852,59 +809,51 @@ shell
 productivity
 </div>
 </div>
-<a href="./blogs/aims/index.html">
 <div class="listing-description">
-<p>AIMS or Aru’s Information Management System is a collection of shellscripts to manage information in plaintext. It is inspired by <span>org-mode</span>, and tries to replicate a subset of its functionalities which I frequently use. AIMS is completely tuned towards my workflow as a researcher and how I manage my digital notes.</p>
+<a href="./blogs/aims/index.html" class="no-external">AIMS or Aru’s Information Management System is a collection of shellscripts to manage information in plaintext. It is inspired by <span>org-mode</span>, and tries to replicate a subset of its functionalities which I frequently use. AIMS is completely tuned towards my workflow as a researcher and how I manage my digital notes. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/aims/index.html">
+<a href="./blogs/aims/index.html" class="no-external">
 <div class="listing-date">
 Feb 28, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="20" data-categories="research" data-listing-date-sort="1639350000000" data-listing-file-modified-sort="1693760176648" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="20" data-categories="research" data-listing-date-sort="1639350000000" data-listing-file-modified-sort="1693760176648" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="369">
 <div class="body">
-<a href="./blogs/reflections-scientific-research/index.html">
 <h3 class="no-anchor listing-title">
-Reflections on Scientific Research
+<a href="./blogs/reflections-scientific-research/index.html" class="no-external">Reflections on Scientific Research</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/reflections-scientific-research/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('research'); return false;">
 research
 </div>
 </div>
-<a href="./blogs/reflections-scientific-research/index.html">
 <div class="listing-description">
-<p>Reflections on the scientific process and what constitutes being a good researcher.</p>
+<a href="./blogs/reflections-scientific-research/index.html" class="no-external">Reflections on the scientific process and what constitutes being a good researcher. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/reflections-scientific-research/index.html">
+<a href="./blogs/reflections-scientific-research/index.html" class="no-external">
 <div class="listing-date">
 Dec 13, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="21" data-categories="machine learning,research,privacy" data-listing-date-sort="1630965600000" data-listing-file-modified-sort="1714667963884" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12">
+<div class="quarto-post image-right" data-index="21" data-categories="machine learning,research,privacy" data-listing-date-sort="1630965600000" data-listing-file-modified-sort="1714667963884" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2283">
 <div class="body">
-<a href="./blogs/privacy-preserving-deep-learning/index.html">
 <h3 class="no-anchor listing-title">
-Privacy Preserving Deep Learning
+<a href="./blogs/privacy-preserving-deep-learning/index.html" class="no-external">Privacy Preserving Deep Learning</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/privacy-preserving-deep-learning/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('machine learning'); return false;">
 machine learning
@@ -916,88 +865,76 @@ research
 privacy
 </div>
 </div>
-<a href="./blogs/privacy-preserving-deep-learning/index.html">
 <div class="listing-description">
-<p>A talk on Privacy Preserving Deep Learning (PPDL) I gave to my research group. It was largly based on a literature review I did during my Msc.</p>
+<a href="./blogs/privacy-preserving-deep-learning/index.html" class="no-external">A talk on Privacy Preserving Deep Learning (PPDL) I gave to my research group. It was largly based on a literature review I did during my Msc. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/privacy-preserving-deep-learning/index.html">
+<a href="./blogs/privacy-preserving-deep-learning/index.html" class="no-external">
 <div class="listing-date">
 Sep 7, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="22" data-categories="productivity" data-listing-date-sort="1630792800000" data-listing-file-modified-sort="1686081896927" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="22" data-categories="productivity" data-listing-date-sort="1630792800000" data-listing-file-modified-sort="1686081896927" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="598">
 <div class="body">
-<a href="./blogs/focus/index.html">
 <h3 class="no-anchor listing-title">
-Focus
+<a href="./blogs/focus/index.html" class="no-external">Focus</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/focus/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('productivity'); return false;">
 productivity
 </div>
 </div>
-<a href="./blogs/focus/index.html">
 <div class="listing-description">
-<p>Notes on attaining focus.</p>
+<a href="./blogs/focus/index.html" class="no-external">Notes on attaining focus. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/focus/index.html">
+<a href="./blogs/focus/index.html" class="no-external">
 <div class="listing-date">
 Sep 5, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="23" data-categories="productivity" data-listing-date-sort="1630015200000" data-listing-file-modified-sort="1686081224058" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="23" data-categories="productivity" data-listing-date-sort="1630015200000" data-listing-file-modified-sort="1686081224058" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="460">
 <div class="body">
-<a href="./blogs/project-management/index.html">
 <h3 class="no-anchor listing-title">
-Project Management
+<a href="./blogs/project-management/index.html" class="no-external">Project Management</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/project-management/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('productivity'); return false;">
 productivity
 </div>
 </div>
-<a href="./blogs/project-management/index.html">
 <div class="listing-description">
-<p>Notes on project management.</p>
+<a href="./blogs/project-management/index.html" class="no-external">Notes on project management.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/project-management/index.html">
+<a href="./blogs/project-management/index.html" class="no-external">
 <div class="listing-date">
 Aug 27, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="24" data-categories="productivity,emacs,research" data-listing-date-sort="1626040800000" data-listing-file-modified-sort="1714667540735" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11">
+<div class="quarto-post image-right" data-index="24" data-categories="productivity,emacs,research" data-listing-date-sort="1626040800000" data-listing-file-modified-sort="1714667540735" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2178">
 <div class="body">
-<a href="./blogs/research-workflow-plaintext/index.html">
 <h3 class="no-anchor listing-title">
-Research Workflow in Plaintext
+<a href="./blogs/research-workflow-plaintext/index.html" class="no-external">Research Workflow in Plaintext</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/research-workflow-plaintext/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('productivity'); return false;">
 productivity
@@ -1009,59 +946,51 @@ emacs
 research
 </div>
 </div>
-<a href="./blogs/research-workflow-plaintext/index.html">
 <div class="listing-description">
-<p>In this talk I will go over how we can use Emacs and org-mode to craft a research workflow. We will look at how we can leverage the power of Emacs and org-mode to capture, store, search and retrieve research data, all in plain text! The talk will touch upon how org-mode can be used as an environment for literate programming and reproducible research. I do not assume any prior knowledge of emacs or org-mode and I want this to be more of a discussion rather than a talk. Please ask me questions as I go along and share your thoughts, tips and techniques with others!</p>
+<a href="./blogs/research-workflow-plaintext/index.html" class="no-external">In this talk I will go over how we can use Emacs and org-mode to craft a research workflow. We will look at how we can leverage the power of Emacs and org-mode to capture, store, search and retrieve research data, all in plain text! The talk will touch upon how org-mode can be used as an environment for literate programming and reproducible research. I do not assume any prior knowledge of emacs or org-mode and I want this to be more of a discussion rather than a talk. Please ask me questions as I go along and share your thoughts, tips and techniques with others! </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/research-workflow-plaintext/index.html">
+<a href="./blogs/research-workflow-plaintext/index.html" class="no-external">
 <div class="listing-date">
 Jul 12, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="25" data-categories="misc" data-listing-date-sort="1623794400000" data-listing-file-modified-sort="1693770922153" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="25" data-categories="misc" data-listing-date-sort="1623794400000" data-listing-file-modified-sort="1693770922153" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="358">
 <div class="body">
-<a href="./blogs/nutrition/index.html">
 <h3 class="no-anchor listing-title">
-Nutrition
+<a href="./blogs/nutrition/index.html" class="no-external">Nutrition</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/nutrition/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('misc'); return false;">
 misc
 </div>
 </div>
-<a href="./blogs/nutrition/index.html">
 <div class="listing-description">
-<p>Notes on diet and nutrition.</p>
+<a href="./blogs/nutrition/index.html" class="no-external">Notes on diet and nutrition.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/nutrition/index.html">
+<a href="./blogs/nutrition/index.html" class="no-external">
 <div class="listing-date">
 Jun 16, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="26" data-categories="emacs,productivity" data-listing-date-sort="1623794400000" data-listing-file-modified-sort="1693770597874" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="26" data-categories="emacs,productivity" data-listing-date-sort="1623794400000" data-listing-file-modified-sort="1693770597874" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="373">
 <div class="body">
-<a href="./blogs/aocp/index.html">
 <h3 class="no-anchor listing-title">
-Aru’s Org Capture Template (aocp.el)
+<a href="./blogs/aocp/index.html" class="no-external">Aru’s Org Capture Template (aocp.el)</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/aocp/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('emacs'); return false;">
 emacs
@@ -1070,59 +999,51 @@ emacs
 productivity
 </div>
 </div>
-<a href="./blogs/aocp/index.html">
 <div class="listing-description">
-<p>An Emacs package I wrote for managing bibliographic information.</p>
+<a href="./blogs/aocp/index.html" class="no-external">An Emacs package I wrote for managing bibliographic information. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/aocp/index.html">
+<a href="./blogs/aocp/index.html" class="no-external">
 <div class="listing-date">
 Jun 16, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="27" data-categories="research" data-listing-date-sort="1623189600000" data-listing-file-modified-sort="1693668832603" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="27" data-categories="research" data-listing-date-sort="1623189600000" data-listing-file-modified-sort="1693668832603" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="503">
 <div class="body">
-<a href="./blogs/scientific-paper-discovery/index.html">
 <h3 class="no-anchor listing-title">
-Scientific Paper Discovery
+<a href="./blogs/scientific-paper-discovery/index.html" class="no-external">Scientific Paper Discovery</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/scientific-paper-discovery/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('research'); return false;">
 research
 </div>
 </div>
-<a href="./blogs/scientific-paper-discovery/index.html">
 <div class="listing-description">
-<p>My process of discovering relevant and important papers in a new scientific field.</p>
+<a href="./blogs/scientific-paper-discovery/index.html" class="no-external">My process of discovering relevant and important papers in a new scientific field. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/scientific-paper-discovery/index.html">
+<a href="./blogs/scientific-paper-discovery/index.html" class="no-external">
 <div class="listing-date">
 Jun 9, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="28" data-categories="productivity,research" data-listing-date-sort="1622671200000" data-listing-file-modified-sort="1693668812052" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
+<div class="quarto-post image-right" data-index="28" data-categories="productivity,research" data-listing-date-sort="1622671200000" data-listing-file-modified-sort="1693668812052" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1309">
 <div class="body">
-<a href="./blogs/research-workflow/index.html">
 <h3 class="no-anchor listing-title">
-Research Workflow
+<a href="./blogs/research-workflow/index.html" class="no-external">Research Workflow</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/research-workflow/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('productivity'); return false;">
 productivity
@@ -1131,88 +1052,76 @@ productivity
 research
 </div>
 </div>
-<a href="./blogs/research-workflow/index.html">
 <div class="listing-description">
-<p>An outline of my research workflow which I have developed to handle the non-linear nature of scientific work.</p>
+<a href="./blogs/research-workflow/index.html" class="no-external">An outline of my research workflow which I have developed to handle the non-linear nature of scientific work. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/research-workflow/index.html">
+<a href="./blogs/research-workflow/index.html" class="no-external">
 <div class="listing-date">
 Jun 3, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="29" data-categories="productivity" data-listing-date-sort="1622671200000" data-listing-file-modified-sort="1693668768069" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="quarto-post image-right" data-index="29" data-categories="productivity" data-listing-date-sort="1622671200000" data-listing-file-modified-sort="1693668768069" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="711">
 <div class="body">
-<a href="./blogs/productivity/index.html">
 <h3 class="no-anchor listing-title">
-Productivity
+<a href="./blogs/productivity/index.html" class="no-external">Productivity</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/productivity/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('productivity'); return false;">
 productivity
 </div>
 </div>
-<a href="./blogs/productivity/index.html">
 <div class="listing-description">
-<p>Productivity to me comes from proper information management. Information can come in many forms: email, thoughts/ideas, deadlines, events, project planning, online links, and many more.</p>
+<a href="./blogs/productivity/index.html" class="no-external">Productivity to me comes from proper information management. Information can come in many forms: email, thoughts/ideas, deadlines, events, project planning, online links, and many more. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/productivity/index.html">
+<a href="./blogs/productivity/index.html" class="no-external">
 <div class="listing-date">
 Jun 3, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="30" data-categories="emacs" data-listing-date-sort="1619128800000" data-listing-file-modified-sort="1693508656925" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="30" data-categories="emacs" data-listing-date-sort="1619128800000" data-listing-file-modified-sort="1693508656925" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="67">
 <div class="body">
-<a href="./blogs/dired-commands/index.html">
 <h3 class="no-anchor listing-title">
-Dired Commands
+<a href="./blogs/dired-commands/index.html" class="no-external">Dired Commands</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/dired-commands/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('emacs'); return false;">
 emacs
 </div>
 </div>
-<a href="./blogs/dired-commands/index.html">
 <div class="listing-description">
-<p>Dired commands I frequently use.</p>
+<a href="./blogs/dired-commands/index.html" class="no-external">Dired commands I frequently use.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/dired-commands/index.html">
+<a href="./blogs/dired-commands/index.html" class="no-external">
 <div class="listing-date">
 Apr 23, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="31" data-categories="python,emacs" data-listing-date-sort="1609801200000" data-listing-file-modified-sort="1698509539506" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="31" data-categories="python,emacs" data-listing-date-sort="1609801200000" data-listing-file-modified-sort="1698509539506" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="387">
 <div class="body">
-<a href="./blogs/gc-matplotlib-orgmode/index.html">
 <h3 class="no-anchor listing-title">
-Garbage Collection for Matplotlib in org-mode
+<a href="./blogs/gc-matplotlib-orgmode/index.html" class="no-external">Garbage Collection for Matplotlib in org-mode</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/gc-matplotlib-orgmode/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
 python
@@ -1221,159 +1130,137 @@ python
 emacs
 </div>
 </div>
-<a href="./blogs/gc-matplotlib-orgmode/index.html">
 <div class="listing-description">
-<p>Notes on managing memory when using org-mode and python to conduct data science analysis.</p>
+<a href="./blogs/gc-matplotlib-orgmode/index.html" class="no-external">Notes on managing memory when using org-mode and python to conduct data science analysis.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/gc-matplotlib-orgmode/index.html">
+<a href="./blogs/gc-matplotlib-orgmode/index.html" class="no-external">
 <div class="listing-date">
 Jan 5, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="32" data-categories="python" data-listing-date-sort="1593554400000" data-listing-file-modified-sort="1693510971332" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="32" data-categories="python" data-listing-date-sort="1593554400000" data-listing-file-modified-sort="1693510971332" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="92">
 <div class="body">
-<a href="./blogs/python-context-file/index.html">
 <h3 class="no-anchor listing-title">
-Python context file
+<a href="./blogs/python-context-file/index.html" class="no-external">Python context file</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/python-context-file/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
 python
 </div>
 </div>
-<a href="./blogs/python-context-file/index.html">
 <div class="listing-description">
-<p>Python context file for managing imports.</p>
+<a href="./blogs/python-context-file/index.html" class="no-external">Python context file for managing imports.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/python-context-file/index.html">
+<a href="./blogs/python-context-file/index.html" class="no-external">
 <div class="listing-date">
 Jul 1, 2020
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="33" data-categories="shell" data-listing-date-sort="1590962400000" data-listing-file-modified-sort="1693510552696" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="33" data-categories="shell" data-listing-date-sort="1590962400000" data-listing-file-modified-sort="1693510552696" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="148">
 <div class="body">
-<a href="./blogs/shell-path-finder/index.html">
 <h3 class="no-anchor listing-title">
-shell <code>path_finder</code>
+<a href="./blogs/shell-path-finder/index.html" class="no-external">shell <code>path_finder</code></a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/shell-path-finder/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('shell'); return false;">
 shell
 </div>
 </div>
-<a href="./blogs/shell-path-finder/index.html">
 <div class="listing-description">
-<p>How <code>$PATH</code> is constructed on OSX.</p>
+<a href="./blogs/shell-path-finder/index.html" class="no-external">How <code>$PATH</code> is constructed on OSX.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/shell-path-finder/index.html">
+<a href="./blogs/shell-path-finder/index.html" class="no-external">
 <div class="listing-date">
 Jun 1, 2020
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="34" data-categories="vim" data-listing-date-sort="1565042400000" data-listing-file-modified-sort="1693931982522" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="34" data-categories="vim" data-listing-date-sort="1565042400000" data-listing-file-modified-sort="1693931982522" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="349">
 <div class="body">
-<a href="./blogs/navigating-vim/index.html">
 <h3 class="no-anchor listing-title">
-Navigating in Vim
+<a href="./blogs/navigating-vim/index.html" class="no-external">Navigating in Vim</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/navigating-vim/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('vim'); return false;">
 vim
 </div>
 </div>
-<a href="./blogs/navigating-vim/index.html">
 <div class="listing-description">
-<p>Strategies to navigate files in vim.</p>
+<a href="./blogs/navigating-vim/index.html" class="no-external">Strategies to navigate files in vim.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/navigating-vim/index.html">
+<a href="./blogs/navigating-vim/index.html" class="no-external">
 <div class="listing-date">
 Aug 6, 2019
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="35" data-categories="vim" data-listing-date-sort="1557698400000" data-listing-file-modified-sort="1693931313547" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="35" data-categories="vim" data-listing-date-sort="1557698400000" data-listing-file-modified-sort="1693931313547" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="289">
 <div class="body">
-<a href="./blogs/searching-vim/index.html">
 <h3 class="no-anchor listing-title">
-Searching in Vim
+<a href="./blogs/searching-vim/index.html" class="no-external">Searching in Vim</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/searching-vim/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('vim'); return false;">
 vim
 </div>
 </div>
-<a href="./blogs/searching-vim/index.html">
 <div class="listing-description">
-<p>Various strategies for searching text within vim.</p>
+<a href="./blogs/searching-vim/index.html" class="no-external">Various strategies for searching text within vim.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/searching-vim/index.html">
+<a href="./blogs/searching-vim/index.html" class="no-external">
 <div class="listing-date">
 May 13, 2019
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="36" data-categories="web" data-listing-date-sort="1514761200000" data-listing-file-modified-sort="1693511540215" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="36" data-categories="web" data-listing-date-sort="1514761200000" data-listing-file-modified-sort="1693511540215" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="128">
 <div class="body">
-<a href="./blogs/private-link-sharing/index.html">
 <h3 class="no-anchor listing-title">
-Private Link Sharing
+<a href="./blogs/private-link-sharing/index.html" class="no-external">Private Link Sharing</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./blogs/private-link-sharing/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('web'); return false;">
 web
 </div>
 </div>
-<a href="./blogs/private-link-sharing/index.html">
 <div class="listing-description">
-<p>Poor man’s document sharing with private links, sort of what you get with Google Docs.</p>
+<a href="./blogs/private-link-sharing/index.html" class="no-external">Poor man’s document sharing with private links, sort of what you get with Google Docs. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./blogs/private-link-sharing/index.html">
+<a href="./blogs/private-link-sharing/index.html" class="no-external">
 <div class="listing-date">
 Jan 1, 2018
 </div>
@@ -1423,18 +1310,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1466,11 +1342,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/arumoy\.me");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1480,8 +1395,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1493,7 +1417,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1537,6 +1584,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1562,8 +1610,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-      // Handle positioning of the toggle
-      window.addEventListener(
+        // Handle positioning of the toggle
+    window.addEventListener(
       "resize",
       throttle(() => {
         elRect = undefined;
@@ -1571,23 +1619,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
           selectCodeLines(selectedAnnoteEl);
         }
       }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
               fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
       for (let i=0; i<annoteTargets.length; i++) {
         const annoteTarget = annoteTargets[i];
@@ -1632,7 +1680,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
               options: {
                 flipVariations: false, // true by default
                 allowedAutoPlacements: ['right'],
-                fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
               },
             },
             {
@@ -1689,8 +1737,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Copyright Arumoy Shome 2018-Present</div>   
-    <div class="nav-footer-center">All materials on this website are open sourced under the CC BY 4.0 license.</div>
+    <div class="nav-footer-left">
+<p>Copyright Arumoy Shome 2018-Present</p>
+</div>   
+    <div class="nav-footer-center">
+<p>All materials on this website are open sourced under the CC BY 4.0 license.</p>
+</div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
@@ -1715,6 +1767,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
 
 
 

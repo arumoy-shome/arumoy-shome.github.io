@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.53">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Arumoy Shome">
 <meta name="dcterms.date" content="2024-03-17">
 
-<title>Arumoy Shome - Visualisation Zoo</title>
+<title>Visualisation Zoo – Arumoy Shome</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -26,6 +26,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -66,7 +67,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -75,6 +82,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -88,66 +96,66 @@ div.csl-indent {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Arumoy Shome</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../blogs.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../blogs.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../talks.html" rel="" target="">
- <span class="menu-text">Talks</span></a>
+    <a class="nav-link" href="../../talks.html"> 
+<span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../publications.html" rel="" target="">
- <span class="menu-text">Publications</span></a>
+    <a class="nav-link" href="../../publications.html"> 
+<span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../bib.html" rel="" target="">
- <span class="menu-text">Annotated Bibliography</span></a>
+    <a class="nav-link" href="../../bib.html"> 
+<span class="menu-text">Annotated Bibliography</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../license.html" rel="" target="">
- <span class="menu-text">License</span></a>
+    <a class="nav-link" href="../../license.html"> 
+<span class="menu-text">License</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="../../blogs.xml" rel="" target=""><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../blogs.xml"> <i class="bi bi-rss" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/arumoy-shome" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/arumoy-shome"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/arumoy_shome" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/arumoy_shome"> <i class="bi bi-twitter" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://linkedin.com/in/arumoyshome" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://linkedin.com/in/arumoyshome"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -185,7 +193,7 @@ div.csl-indent {
     
   <div>
     <div class="abstract">
-      <div class="abstract-title">Abstract</div>
+      <div class="block-title">Abstract</div>
       Collection of data visualisations I have created using Python.
     </div>
   </div>
@@ -211,45 +219,54 @@ div.csl-indent {
 
 
 
+
 <p>This is a collection of data visualisations I have created in the past from prior research publications. The title of this post is inspired by the <span class="citation" data-cites="heer2010tour">Heer, Bostock, and Ogievetsky (<a href="#ref-heer2010tour" role="doc-biblioref">2010</a>)</span> paper.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-heer2010tour" class="csl-entry" role="listitem">
 Heer, Jeffrey, Michael Bostock, and Vadim Ogievetsky. 2010. <span>“A Tour Through the Visualization Zoo.”</span> <em>Communications of the ACM</em> 53 (6): 59–67. <a href="https://doi.org/10.1145/1743546.1743567">https://doi.org/10.1145/1743546.1743567</a>.
 </div></div><section id="joint-distribution-of-categorical-variables" class="level1 page-columns page-full">
 <h1>Joint Distribution of Categorical Variables</h1>
-<p>The following visualisation in <a href="#fig-jointplot">Figure&nbsp;1</a> comes from the very first Conference paper I wrote <span class="citation" data-cites="shome2022data">(<a href="#ref-shome2022data" role="doc-biblioref">Shome, Cruz, and Deursen 2022</a>)</span>. The paper explored the presence of anti-patterns in popular ML datasets that lead to accumulation of technical debt in the downstream stages of the pipeline.</p>
+<p>The following visualisation in <a href="#fig-jointplot" class="quarto-xref">Figure&nbsp;1</a> comes from the very first Conference paper I wrote <span class="citation" data-cites="shome2022data">(<a href="#ref-shome2022data" role="doc-biblioref">Shome, Cruz, and Deursen 2022</a>)</span>. The paper explored the presence of anti-patterns in popular ML datasets that lead to accumulation of technical debt in the downstream stages of the pipeline.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-shome2022data" class="csl-entry" role="listitem">
 Shome, Arumoy, Luís Cruz, and Arie van Deursen. 2022. <span>“Data Smells in Public Datasets.”</span> In <em>Proceedings of the 1st International Conference on AI Engineering: Software Engineering for AI</em>. CAIN ’22. ACM. <a href="https://doi.org/10.1145/3522664.3528621">https://doi.org/10.1145/3522664.3528621</a>.
 </div></div><p>We curated a catalogue of 14 such anti-patterns or <em>“data-smells”</em> and manually analysed their presence in 25 popular ML datasets from Kaggle.</p>
 <p>I created the visualisation using a <a href="https://seaborn.pydata.org/generated/seaborn.JointGrid.html#seaborn.JointGrid">JointGrid from the Seaborn library</a>. The visualisation in the main subplot shows the distribution of the data-smells across all datasets that were analysed using a two-dimensional histogram. The visualisations in the marginal subplots shows a histogram of the corresponding categorical variables.</p>
-<div id="fig-jointplot" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="jointplot-data-smells.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Joint distribution of two categorical variables.</figcaption>
+<div id="fig-jointplot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-jointplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="jointplot-data-smells.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-jointplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Joint distribution of two categorical variables.
+</figcaption>
 </figure>
 </div>
 </section>
 <section id="heatmap-of-correlation-between-numerical-variables" class="level1 page-columns page-full">
 <h1>Heatmap of Correlation Between Numerical Variables</h1>
-<div class="column-screen">
-<div id="fig-heatmap-corr" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="heatmap-corr.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Heatmap of correlation between numerical variables</figcaption>
+<div class="page-columns page-full">
+<div id="fig-heatmap-corr" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-heatmap-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="heatmap-corr.png" class="img-fluid figure-img column-screen">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-heatmap-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Heatmap of correlation between numerical variables
+</figcaption>
 </figure>
 </div>
 </div>
-<p>The next visualisation comes from our <span class="citation" data-cites="shome2024data">Shome, Cruz, and Deursen (<a href="#ref-shome2024data" role="doc-biblioref">2024</a>)</span> paper. Here we analysed the relationship between data dependent and model dependent fairness metrics. <a href="#fig-heatmap-corr">Figure&nbsp;2</a> shows the results obtained from the empirical study conducted using 8 datasets and 4 ML models.</p>
+<p>The next visualisation comes from our <span class="citation" data-cites="shome2024data">Shome, Cruz, and Deursen (<a href="#ref-shome2024data" role="doc-biblioref">2024</a>)</span> paper. Here we analysed the relationship between data dependent and model dependent fairness metrics. <a href="#fig-heatmap-corr" class="quarto-xref">Figure&nbsp;2</a> shows the results obtained from the empirical study conducted using 8 datasets and 4 ML models.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-shome2024data" class="csl-entry" role="listitem">
 Shome, Arumoy, Luı̀s Cruz, and Arie van Deursen. 2024. <span>“Data Vs. Model Machine Learning Fairness Testing: An Empirical Study.”</span> In <em>International Workshop on Deep Learning for Testing and Testing for Deep Learning</em>. DeepTest ’24. IEEE/ACM. <a href="https://doi.org/10.1145/3643786.3648022">https://doi.org/10.1145/3643786.3648022</a>.
 </div></div><p>Each heatmap represents results obtained from a fairness metric (we used <em>Disparate Impact</em> and <em>Statistical Parity Difference</em>). The ML models are represented along the Y axis, while the datasets are along the X axis. Each block shows the correlation between the data and model variants of the corresponding fairness metric. The statistically significant cases are marked with an asterisk. The strength of the correlation is denoted using color–bright hues of red indicate positive correlation while cooler hues of blue represent negative correlation.</p>
 </section>
 <section id="omniart-sentiments-through-colours" class="level1 page-columns page-full">
 <h1>OmniArt: Sentiments through Colours</h1>
-<div class="column-screen">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="ace.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Overview of ACE: Art, Colour and Emotion browser</figcaption>
+<div class="page-columns page-full">
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p class="page-columns page-full"><img src="ace.png" class="img-fluid figure-img column-screen"></p>
+<figcaption>Overview of ACE: Art, Colour and Emotion browser</figcaption>
 </figure>
 </div>
 </div>
@@ -261,11 +278,11 @@ Strezoski, Gjorgji, Arumoy Shome, Riccardo Bianchi, Shruti Rao, and Marcel Worri
 </section>
 <section id="buildings-of-amsterdam" class="level1 page-columns page-full">
 <h1>Buildings of Amsterdam</h1>
-<div class="column-screen">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="amsterdam.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Model of buildings in the city of Amsterdam</figcaption>
+<div class="page-columns page-full">
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p class="page-columns page-full"><img src="amsterdam.jpg" class="img-fluid figure-img column-screen"></p>
+<figcaption>Model of buildings in the city of Amsterdam</figcaption>
 </figure>
 </div>
 </div>
@@ -312,18 +329,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -355,11 +361,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/arumoy\.me");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -369,8 +414,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -382,7 +436,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -426,6 +603,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -451,8 +629,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-      // Handle positioning of the toggle
-      window.addEventListener(
+        // Handle positioning of the toggle
+    window.addEventListener(
       "resize",
       throttle(() => {
         elRect = undefined;
@@ -460,23 +638,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
           selectCodeLines(selectedAnnoteEl);
         }
       }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
               fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
       for (let i=0; i<annoteTargets.length; i++) {
         const annoteTarget = annoteTargets[i];
@@ -521,7 +699,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
               options: {
                 flipVariations: false, // true by default
                 allowedAutoPlacements: ['right'],
-                fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
               },
             },
             {
@@ -578,8 +756,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Copyright Arumoy Shome 2018-Present</div>   
-    <div class="nav-footer-center">All materials on this website are open sourced under the CC BY 4.0 license.</div>
+    <div class="nav-footer-left">
+<p>Copyright Arumoy Shome 2018-Present</p>
+</div>   
+    <div class="nav-footer-center">
+<p>All materials on this website are open sourced under the CC BY 4.0 license.</p>
+</div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
@@ -604,6 +786,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
 
 
 
