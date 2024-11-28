@@ -1,8 +1,18 @@
 [
   {
+    "listing": "/publications.html",
+    "items": []
+  },
+  {
+    "listing": "/talks.html",
+    "items": []
+  },
+  {
     "listing": "/blogs.html",
     "items": [
-      "/blogs/data-vs-model-fairness-testing/index.html",
+      "/blogs/rename/index.html",
+      "/blogs/mdtags/index.html",
+      "/blogs/mytags/index.html",
       "/blogs/python-ast-extract-module-method-names/index.html",
       "/blogs/visualisation-zoo/index.html",
       "/blogs/bash-commands/index.html",
@@ -40,13 +50,5 @@
       "/blogs/searching-vim/index.html",
       "/blogs/private-link-sharing/index.html"
     ]
-  },
-  {
-    "listing": "/talks.html",
-    "items": []
-  },
-  {
-    "listing": "/publications.html",
-    "items": []
   }
 ]

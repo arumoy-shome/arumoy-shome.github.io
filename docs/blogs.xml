@@ -9,47 +9,231 @@
 <link>https://arumoy.me/blogs.html</link>
 <atom:link href="https://arumoy.me/blogs.xml" rel="self" type="application/rss+xml"/>
 <description>Arumoy Shome&#39;s Website</description>
-<generator>quarto-1.5.53</generator>
-<lastBuildDate>Wed, 01 May 2024 22:00:00 GMT</lastBuildDate>
+<generator>quarto-1.5.57</generator>
+<lastBuildDate>Sat, 16 Nov 2024 23:00:00 GMT</lastBuildDate>
 <item>
-  <title>Machine Learning Fairness Testing Should be More Holistic</title>
+  <title>Generating tags for git repositories (mytags)</title>
   <dc:creator>Arumoy Shome</dc:creator>
-  <link>https://arumoy.me/blogs/data-vs-model-fairness-testing/</link>
+  <link>https://arumoy.me/blogs/mytags/</link>
   <description><![CDATA[ 
 
 
 
 
 
-<section id="study-design" class="level1 page-columns page-full">
-<h1>Study Design</h1>
-<div id="fig-fairness-evaluation" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fairness-evaluation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://arumoy.me/blogs/data-vs-model-fairness-testing/icse24-deeptest.012.png" class="img-fluid figure-img">
+<p>Often while working on remote servers where I don’t have permissions to install language servers, I find <a href="https://github.com/universal-ctags/ctags"><code>ctags</code></a> to be an effective tool to navigate code. <code>mytags</code> is a simple Bash script I wrote which wraps around <code>ctags</code> with some added functionality.</p>
+<p>Here is the script as of 2024-11-27, <a href="https://github.com/arumoy-shome/dotfiles/blob/master/bin/mytags">you can find the latest version in my dotfiles repo</a>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>mytags</strong></pre>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fairness-evaluation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Methodology for evaluation fairness
-</figcaption>
-</figure>
+<div class="sourceCode" id="annotated-cell-1" data-filename="mytags" style="background: #f1f3f5;"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#!/usr/bin/env bash</span></span>
+<span id="annotated-cell-1-2"></span>
+<span id="annotated-cell-1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">__is_git_repo()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="annotated-cell-1-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> rev-parse <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;&gt;</span>/dev/null</span>
+<span id="annotated-cell-1-5"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span>
+<span id="annotated-cell-1-6"></span>
+<span id="annotated-cell-1-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">__git_toplevel()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="annotated-cell-1-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> rev-parse <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--show-toplevel</span></span>
+<span id="annotated-cell-1-9"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span>
+<span id="annotated-cell-1-10"></span>
+<span id="annotated-cell-1-11"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">__ctags()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="annotated-cell-1-12">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-x</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">command</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-v</span> fd<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]]</span></span>
+<span id="annotated-cell-1-13">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="5">5</button><span id="annotated-cell-1-14" class="code-annotation-target">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">command</span> ctags <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$@</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">fd</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--type</span> f <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--hidden</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--exclude</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'.git'</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="annotated-cell-1-15">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span></span>
+<span id="annotated-cell-1-16">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">command</span> ctags <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$@</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> ls-files <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--exclude-standard</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="annotated-cell-1-17">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="annotated-cell-1-18"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span>
+<span id="annotated-cell-1-19"></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1">1</button><span id="annotated-cell-1-20" class="code-annotation-target"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">! </span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">__is_git_repo</span></span>
+<span id="annotated-cell-1-21"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span></span>
+<span id="annotated-cell-1-22">  <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"mytags: not inside git repo."</span></span>
+<span id="annotated-cell-1-23">  <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">exit</span> 1</span>
+<span id="annotated-cell-1-24"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="annotated-cell-1-25"></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2">2</button><span id="annotated-cell-1-26" class="code-annotation-target"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">(</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3">3</button><span id="annotated-cell-1-27" class="code-annotation-target">  <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">cd</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">__git_toplevel</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">&amp;&amp;</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="4">4</button><span id="annotated-cell-1-28" class="code-annotation-target">  <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">__ctags</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$@</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="annotated-cell-1-29"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div>
 </div>
-<p>First, we conduct a replication study of <span class="citation" data-cites="zhang2021ignorance">Zhang and Harman (2021)</span>. The paper conducts a large-scale empirical analysis of the impact of the size of features and training data on ML fairness. In Figure&nbsp;1 I illustrate how fairness is evaluated in a more holistic manner: both before and after training the ML model.</p>
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="20,21,22,23,24" data-code-annotation="1"><code>mytags</code> check that we are inside a git repo, if not exit gracefully.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="26,29" data-code-annotation="2">When inside a git repo, start a new subshell and…</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="27" data-code-annotation="3"><code>cd</code> to the top-level of the repo (i.e.&nbsp;where the <code>.git</code> folder is located), this allows us to run <code>mytags</code> from any subdirectory inside the git repo</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="28" data-code-annotation="4">execute ctags with relevant files, either using <code>fd</code> if it exists or <code>git ls-files</code></span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="14,15,16" data-code-annotation="5">any additional arguments are passed along to <code>ctags</code></span>
+</dd>
+</dl>
 
 
-<div class="no-row-height column-margin column-container"><div id="ref-zhang2021ignorance" class="csl-entry">
-Zhang, Jie M., and Mark Harman. 2021. <span>“<span>‘Ignorance and Prejudice’</span> in Software Fairness.”</span> In <em>2021 IEEE/ACM 43rd International Conference on Software Engineering (ICSE)</em>. IEEE. <a href="https://doi.org/10.1109/icse43902.2021.00129">https://doi.org/10.1109/icse43902.2021.00129</a>.
-</div></div>
-</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>research</category>
-  <category>machine learning</category>
-  <category>fairness</category>
-  <category>testing</category>
-  <category>SE4AI</category>
-  <category>data centric</category>
-  <guid>https://arumoy.me/blogs/data-vs-model-fairness-testing/</guid>
-  <pubDate>Wed, 01 May 2024 22:00:00 GMT</pubDate>
+  <category>shell</category>
+  <guid>https://arumoy.me/blogs/mytags/</guid>
+  <pubDate>Sat, 16 Nov 2024 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Extracting the Module and Function Names from Python ASTs</title>
@@ -65,7 +249,7 @@ Zhang, Jie M., and Mark Harman. 2021. <span>“<span>‘Ignorance and Prejudice�
 <h1>Preliminaries: Python <code>ast</code> module</h1>
 <p>Python has a built-in <code>ast</code> module which provides detailed documentation on the various nodes used to represent different elements of Python source code.</p>
 <p>We can use the <code>ast.parse</code> method to create a AST from a given Python source code. Here is an example of how a function call is represented in a AST.</p>
-<div class="cell" data-execution_count="1">
+<div id="fa4c06d1" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> ast</span>
@@ -73,21 +257,27 @@ font-style: inherit;">import</span> ast</span>
 background-color: null;
 font-style: inherit;">"foo(x, y)"</span>)</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>&lt;ast.Module at 0x10ecc9b50&gt;</code></pre>
+<pre><code>&lt;ast.Module at 0x1063c3950&gt;</code></pre>
 </div>
 </div>
 <p>The <code>ast.parse</code> method returns a <code>ast.Module</code> object which by itself is not very helpful. To view the internal structure of the tree, we can use the <code>ast.dump</code> method.</p>
-<div class="cell" data-execution_count="2">
+<div id="5f17333f" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">ast.dump(ast.parse(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"foo(x, y)"</span>))</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>"Module(body=[Expr(value=Call(func=Name(id='foo', ctx=Load()), args=[Name(id='x', ctx=Load()), Name(id='y', ctx=Load())], keywords=[]))], type_ignores=[])"</code></pre>
+<pre><code>"Module(body=[Expr(value=Call(func=Name(id='foo', ctx=Load()), args=[Name(id='x', ctx=Load()), Name(id='y', ctx=Load())]))])"</code></pre>
 </div>
 </div>
 <p>We can pass the <code>indent</code> argument to <code>ast.dump</code> along with a <code>print</code> statement to make the output more readable.</p>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="lst-base-case" data-caption="Base case" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="lst-base-case-1"><span class="bu" style="color: null;
+<div id="a553dec9" class="cell" data-execution_count="3">
+<div id="lst-base-case" class="python cell-code listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-base-case-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listing&nbsp;1: Base case
+</figcaption>
+<div aria-describedby="lst-base-case-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="sourceCode cell-code" id="lst-base-case" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="lst-base-case-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(ast.dump(ast.parse(<span class="st" style="color: #20794D;
 background-color: null;
@@ -96,6 +286,9 @@ background-color: null;
 font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">4</span>))</span></code></pre></div>
+</div>
+</figure>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Module(
     body=[
@@ -104,15 +297,19 @@ font-style: inherit;">4</span>))</span></code></pre></div>
                 func=Name(id='foo', ctx=Load()),
                 args=[
                     Name(id='x', ctx=Load()),
-                    Name(id='y', ctx=Load())],
-                keywords=[]))],
-    type_ignores=[])</code></pre>
+                    Name(id='y', ctx=Load())]))])</code></pre>
 </div>
 </div>
 <p>Note that the function call is represented by a <code>ast.Call</code> node which contains a <code>func</code> and <code>args</code> attribute. The function name (in our case, <code>foo</code>) is represented by a <code>ast.Name</code> node, with the actual name under the <code>id</code> attribute.</p>
 <p>And here is the AST when we want to use a function defined in a different module.</p>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="lst-single-nest" data-caption="Single nested function call" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="lst-single-nest-1"><span class="bu" style="color: null;
+<div id="e2e40618" class="cell" data-execution_count="4">
+<div id="lst-single-nest" class="python cell-code listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-single-nest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listing&nbsp;2: Single nested function call
+</figcaption>
+<div aria-describedby="lst-single-nest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="sourceCode cell-code" id="lst-single-nest" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="lst-single-nest-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(ast.dump(ast.parse(<span class="st" style="color: #20794D;
 background-color: null;
@@ -121,6 +318,9 @@ background-color: null;
 font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">4</span>))</span></code></pre></div>
+</div>
+</figure>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Module(
     body=[
@@ -132,14 +332,12 @@ font-style: inherit;">4</span>))</span></code></pre></div>
                     ctx=Load()),
                 args=[
                     Name(id='x', ctx=Load()),
-                    Name(id='y', ctx=Load())],
-                keywords=[]))],
-    type_ignores=[])</code></pre>
+                    Name(id='y', ctx=Load())]))])</code></pre>
 </div>
 </div>
 <p>Things are a bit different now. We see that the <code>Call.func</code> is no longer a <code>ast.Name</code> node, but instead an <code>ast.Attribute</code> node. <code>Attribute.value</code> is now a <code>ast.Name</code> node with the name of the module (in our case <code>bar</code>) on the <code>id</code> attribute and the name of the function on the <code>attr</code> attribute.</p>
 <p>Lets examine something a bit more complicated: What if the function is in a submodule?</p>
-<div class="cell" data-execution_count="5">
+<div id="3c5ce0da" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(ast.dump(ast.parse(<span class="st" style="color: #20794D;
@@ -163,13 +361,11 @@ font-style: inherit;">4</span>))</span></code></pre></div>
                     ctx=Load()),
                 args=[
                     Name(id='x', ctx=Load()),
-                    Name(id='y', ctx=Load())],
-                keywords=[]))],
-    type_ignores=[])</code></pre>
+                    Name(id='y', ctx=Load())]))])</code></pre>
 </div>
 </div>
 <p>And even more nested?</p>
-<div class="cell" data-execution_count="6">
+<div id="a666b26f" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(ast.dump(ast.parse(<span class="st" style="color: #20794D;
@@ -196,9 +392,7 @@ font-style: inherit;">4</span>))</span></code></pre></div>
                     ctx=Load()),
                 args=[
                     Name(id='x', ctx=Load()),
-                    Name(id='y', ctx=Load())],
-                keywords=[]))],
-    type_ignores=[])</code></pre>
+                    Name(id='y', ctx=Load())]))])</code></pre>
 </div>
 </div>
 <p>It seems that nested function calls are represented using nested <code>ast.Attribute</code> nodes. The top level module name is always a <code>ast.Name</code> node under the deepest <code>ast.Attribute.value</code> node. And the function name is always under the first <code>ast.Attribute.attr</code> node</p>
@@ -211,7 +405,7 @@ font-style: inherit;">4</span>))</span></code></pre></div>
 <li>If its a nested function call, then <code>Call.func</code> will contain nested <code>Attribute</code> nodes. The name of the function will be under the first <code>Attribute.attr</code>.</li>
 </ol>
 <p>We can do this using the <code>ast.NodeVisitor</code> class. Lets create a <code>FunctionNameCollector</code> class which inherits from <code>ast.NodeVisitor</code>. In the class, we define a <code>visit_Name</code> and <code>visit_Attribute</code> methods which are called every time we visit a <code>Name</code> or <code>Attribute</code> method respectively (more on this later).</p>
-<div class="cell" data-execution_count="7">
+<div id="69b93336" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
@@ -335,7 +529,7 @@ font-style: inherit;">in</span> call_nodes:</span>
 </ol></li>
 </ol>
 <p>So the <code>visit_Name</code> method remains the same however, we do need to modify the <code>visit_Attribute</code> method such that it traverses all child nodes under <code>Attribute.value</code> until we hit the base case. Here is the modified code.</p>
-<div class="cell" data-execution_count="8">
+<div id="04290394" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
@@ -2728,7 +2922,7 @@ font-style: inherit;">done</span></span></code></pre></div>
 
 
 <p>In python, we can unpack keyword arguments using the <code>**kwargs</code> in the function definition like so.</p>
-<div class="cell" data-execution_count="1">
+<div id="1df36e09" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
@@ -2769,7 +2963,7 @@ Hello Ura!</code></pre>
 </div>
 </div>
 <p>Turns out, that we can convert the unpacked dict into back into keyword arguments and pass it along to another function as well! This is done like so.</p>
-<div class="cell" data-execution_count="2">
+<div id="f2585e31" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;

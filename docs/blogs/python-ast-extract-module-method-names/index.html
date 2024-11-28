@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.53">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -236,23 +236,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Preliminaries: Python <code>ast</code> module</h1>
 <p>Python has a built-in <code>ast</code> module which provides detailed documentation on the various nodes used to represent different elements of Python source code.</p>
 <p>We can use the <code>ast.parse</code> method to create a AST from a given Python source code. Here is an example of how a function call is represented in a AST.</p>
-<div class="cell" data-execution_count="1">
+<div id="fa4c06d1" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ast</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ast.parse(<span class="st">"foo(x, y)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>&lt;ast.Module at 0x10ecc9b50&gt;</code></pre>
+<pre><code>&lt;ast.Module at 0x1063c3950&gt;</code></pre>
 </div>
 </div>
 <p>The <code>ast.parse</code> method returns a <code>ast.Module</code> object which by itself is not very helpful. To view the internal structure of the tree, we can use the <code>ast.dump</code> method.</p>
-<div class="cell" data-execution_count="2">
+<div id="5f17333f" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ast.dump(ast.parse(<span class="st">"foo(x, y)"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>"Module(body=[Expr(value=Call(func=Name(id='foo', ctx=Load()), args=[Name(id='x', ctx=Load()), Name(id='y', ctx=Load())], keywords=[]))], type_ignores=[])"</code></pre>
+<pre><code>"Module(body=[Expr(value=Call(func=Name(id='foo', ctx=Load()), args=[Name(id='x', ctx=Load()), Name(id='y', ctx=Load())]))])"</code></pre>
 </div>
 </div>
 <p>We can pass the <code>indent</code> argument to <code>ast.dump</code> along with a <code>print</code> statement to make the output more readable.</p>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="lst-base-case" data-caption="Base case"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="lst-base-case-1"><a href="#lst-base-case-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ast.dump(ast.parse(<span class="st">"foo(x, y)"</span>), indent<span class="op">=</span><span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a553dec9" class="cell" data-execution_count="3">
+<div id="lst-base-case" class="python cell-code listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-base-case-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listing&nbsp;1: Base case
+</figcaption>
+<div aria-describedby="lst-base-case-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="sourceCode cell-code" id="lst-base-case"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="lst-base-case-1"><a href="#lst-base-case-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ast.dump(ast.parse(<span class="st">"foo(x, y)"</span>), indent<span class="op">=</span><span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</figure>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Module(
     body=[
@@ -261,15 +270,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                 func=Name(id='foo', ctx=Load()),
                 args=[
                     Name(id='x', ctx=Load()),
-                    Name(id='y', ctx=Load())],
-                keywords=[]))],
-    type_ignores=[])</code></pre>
+                    Name(id='y', ctx=Load())]))])</code></pre>
 </div>
 </div>
 <p>Note that the function call is represented by a <code>ast.Call</code> node which contains a <code>func</code> and <code>args</code> attribute. The function name (in our case, <code>foo</code>) is represented by a <code>ast.Name</code> node, with the actual name under the <code>id</code> attribute.</p>
 <p>And here is the AST when we want to use a function defined in a different module.</p>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="lst-single-nest" data-caption="Single nested function call"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="lst-single-nest-1"><a href="#lst-single-nest-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ast.dump(ast.parse(<span class="st">"bar.foo(x, y)"</span>), indent<span class="op">=</span><span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e2e40618" class="cell" data-execution_count="4">
+<div id="lst-single-nest" class="python cell-code listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-single-nest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listing&nbsp;2: Single nested function call
+</figcaption>
+<div aria-describedby="lst-single-nest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="sourceCode cell-code" id="lst-single-nest"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="lst-single-nest-1"><a href="#lst-single-nest-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ast.dump(ast.parse(<span class="st">"bar.foo(x, y)"</span>), indent<span class="op">=</span><span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</figure>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Module(
     body=[
@@ -281,14 +297,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                     ctx=Load()),
                 args=[
                     Name(id='x', ctx=Load()),
-                    Name(id='y', ctx=Load())],
-                keywords=[]))],
-    type_ignores=[])</code></pre>
+                    Name(id='y', ctx=Load())]))])</code></pre>
 </div>
 </div>
 <p>Things are a bit different now. We see that the <code>Call.func</code> is no longer a <code>ast.Name</code> node, but instead an <code>ast.Attribute</code> node. <code>Attribute.value</code> is now a <code>ast.Name</code> node with the name of the module (in our case <code>bar</code>) on the <code>id</code> attribute and the name of the function on the <code>attr</code> attribute.</p>
 <p>Lets examine something a bit more complicated: What if the function is in a submodule?</p>
-<div class="cell" data-execution_count="5">
+<div id="3c5ce0da" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ast.dump(ast.parse(<span class="st">"baz.bar.foo(x, y)"</span>), indent<span class="op">=</span><span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Module(
@@ -304,13 +318,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                     ctx=Load()),
                 args=[
                     Name(id='x', ctx=Load()),
-                    Name(id='y', ctx=Load())],
-                keywords=[]))],
-    type_ignores=[])</code></pre>
+                    Name(id='y', ctx=Load())]))])</code></pre>
 </div>
 </div>
 <p>And even more nested?</p>
-<div class="cell" data-execution_count="6">
+<div id="a666b26f" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ast.dump(ast.parse(<span class="st">"quack.baz.bar.foo(x, y)"</span>), indent<span class="op">=</span><span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Module(
@@ -329,9 +341,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                     ctx=Load()),
                 args=[
                     Name(id='x', ctx=Load()),
-                    Name(id='y', ctx=Load())],
-                keywords=[]))],
-    type_ignores=[])</code></pre>
+                    Name(id='y', ctx=Load())]))])</code></pre>
 </div>
 </div>
 <p>It seems that nested function calls are represented using nested <code>ast.Attribute</code> nodes. The top level module name is always a <code>ast.Name</code> node under the deepest <code>ast.Attribute.value</code> node. And the function name is always under the first <code>ast.Attribute.attr</code> node</p>
@@ -344,7 +354,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>If its a nested function call, then <code>Call.func</code> will contain nested <code>Attribute</code> nodes. The name of the function will be under the first <code>Attribute.attr</code>.</li>
 </ol>
 <p>We can do this using the <code>ast.NodeVisitor</code> class. Lets create a <code>FunctionNameCollector</code> class which inherits from <code>ast.NodeVisitor</code>. In the class, we define a <code>visit_Name</code> and <code>visit_Attribute</code> methods which are called every time we visit a <code>Name</code> or <code>Attribute</code> method respectively (more on this later).</p>
-<div class="cell" data-execution_count="7">
+<div id="69b93336" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FunctionNameCollector(ast.NodeVisitor):</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.names <span class="op">=</span> []</span>
@@ -385,7 +395,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol></li>
 </ol>
 <p>So the <code>visit_Name</code> method remains the same however, we do need to modify the <code>visit_Attribute</code> method such that it traverses all child nodes under <code>Attribute.value</code> until we hit the base case. Here is the modified code.</p>
-<div class="cell" data-execution_count="8">
+<div id="04290394" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> NameCollector(ast.NodeVisitor):</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.names <span class="op">=</span> []</span>
