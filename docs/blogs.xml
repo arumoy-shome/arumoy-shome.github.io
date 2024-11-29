@@ -10,7 +10,395 @@
 <atom:link href="https://arumoy.me/blogs.xml" rel="self" type="application/rss+xml"/>
 <description>Arumoy Shome&#39;s Website</description>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Sat, 16 Nov 2024 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 27 Nov 2024 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>Renaming files so they make sense (rename)</title>
+  <dc:creator>Arumoy Shome</dc:creator>
+  <link>https://arumoy.me/blogs/rename/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Often I need to work with files that have really long and obscure names. <code>rename</code> is a Python script I wrote that renames a given file using a sane format. By default, it makes the following changes:</p>
+<ol type="1">
+<li>Remove all whitespace and punctuation marks</li>
+<li>Remove English stopwords</li>
+<li>Lowercase all characters and</li>
+<li>Hyphenate everything</li>
+</ol>
+<p>Here is the full script as of 2024-11-29, you can find the latest version of the script <a href="https://github.com/arumoy-shome/dotfiles/blob/master/bin/rename">in my dotfiles repository</a>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>rename</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="rename" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#!/usr/bin/env python3</span></span>
+<span id="cb1-2"></span>
+<span id="cb1-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> argparse</span>
+<span id="cb1-4"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> os</span>
+<span id="cb1-5"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> re</span>
+<span id="cb1-6"></span>
+<span id="cb1-7"></span>
+<span id="cb1-8"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">with</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">open</span>(</span>
+<span id="cb1-9">    os.path.join(os.getenv(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"HOME"</span>), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">".local/share/rename"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"stopwords-en.txt"</span>)</span>
+<span id="cb1-10">) <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> f:</span>
+<span id="cb1-11">    STOPWORDS <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> f.readlines()</span>
+<span id="cb1-12">    STOPWORDS <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [word.strip(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>) <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> word <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> STOPWORDS]</span>
+<span id="cb1-13"></span>
+<span id="cb1-14"></span>
+<span id="cb1-15"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> rename(src: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>:</span>
+<span id="cb1-16">    dst <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> src</span>
+<span id="cb1-17">    dst <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> dst.lower()</span>
+<span id="cb1-18">    dst <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> re.sub(<span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">r"\s+"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"-"</span>, dst)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># replace 1 or more whitespace with hyphen</span></span>
+<span id="cb1-19">    dst <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> re.sub(</span>
+<span id="cb1-20">        <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">r"[^a-zA-Z0-9]+"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"-"</span>, dst</span>
+<span id="cb1-21">    )  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># replace 1 or more punctuations with hyphen</span></span>
+<span id="cb1-22">    dst <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> re.sub(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"([A-Z][a-z]+)"</span>, <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">r"-\1"</span>, re.sub(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"([A-Z]+)"</span>, <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">r"-\1"</span>, dst))</span>
+<span id="cb1-23">    dst <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> dst.split(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"-"</span>)</span>
+<span id="cb1-24">    dst <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [word <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> word <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> dst <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> word]  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># remove empty words</span></span>
+<span id="cb1-25">    dst <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [word <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> word <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> dst <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> word <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> STOPWORDS]</span>
+<span id="cb1-26">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"-"</span>.join(dst)</span>
+<span id="cb1-27"></span>
+<span id="cb1-28"></span>
+<span id="cb1-29"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">__name__</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"__main__"</span>:</span>
+<span id="cb1-30">    parser <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> argparse.ArgumentParser(description<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Rename files the way I like it."</span>)</span>
+<span id="cb1-31">    parser.add_argument(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"source"</span>, <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">type</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>, <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">help</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"File or directory to rename"</span>)</span>
+<span id="cb1-32">    parser.add_argument(</span>
+<span id="cb1-33">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"-f"</span>,</span>
+<span id="cb1-34">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"--force"</span>,</span>
+<span id="cb1-35">        action<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"store_true"</span>,</span>
+<span id="cb1-36">        default<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span>,</span>
+<span id="cb1-37">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">help</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Don't ask for confirmation"</span>,</span>
+<span id="cb1-38">    )</span>
+<span id="cb1-39"></span>
+<span id="cb1-40">    args <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> parser.parse_args()</span>
+<span id="cb1-41"></span>
+<span id="cb1-42">    head, tail <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> os.path.split(args.source)</span>
+<span id="cb1-43">    src, ext <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> os.path.splitext(tail)</span>
+<span id="cb1-44"></span>
+<span id="cb1-45">    dst <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> rename(src)</span>
+<span id="cb1-46">    dst <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> os.path.join(head, dst)</span>
+<span id="cb1-47">    dst <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>dst<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}{</span>ext<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb1-48"></span>
+<span id="cb1-49">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> dst:</span>
+<span id="cb1-50">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"rename: no more words left!"</span>)</span>
+<span id="cb1-51">        exit(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb1-52"></span>
+<span id="cb1-53">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> args.force:</span>
+<span id="cb1-54">        response <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">input</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"rename: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>args<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>source<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> --&gt; </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>dst<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">? [y, n]: "</span>)</span>
+<span id="cb1-55">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">match</span> response:</span>
+<span id="cb1-56">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">case</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"n"</span>:</span>
+<span id="cb1-57">                <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"rename: aborted by user."</span>)</span>
+<span id="cb1-58">                exit(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span>
+<span id="cb1-59">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">case</span> _:</span>
+<span id="cb1-60">                <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"rename: incorrect response, please type one of [y, n]"</span>)</span>
+<span id="cb1-61">                exit(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb1-62"></span>
+<span id="cb1-63">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"rename: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>args<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>source<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> --&gt; </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>dst<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span>
+<span id="cb1-64">    os.rename(src<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>args.source, dst<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>dst)</span></code></pre></div>
+</div>
+<p>The stopwords are read from a text file so adding new stopwords (or words you never want to see in your filenames) easy. I store this file in my dotfiles repo to ensure that the <code>rename</code> script works on any machine where I clone my system configuration files.</p>
+<p>By default, the script will ask for confirmation before renaming a file. The <code>--force</code> flag can be passed to bypass this. This makes it convenient to rename files in bulk using standard unix tools such as <code>find</code> and <code>xargs</code>. For instance, below how I show how you can rename all Docx files in a directory automatically.</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">find</span> <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">*</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-name</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'*.docx'</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-print0</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span></span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xargs</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-0</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-n1</span> rename <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--force</span></span></code></pre></div>
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>shell</category>
+  <category>python</category>
+  <guid>https://arumoy.me/blogs/rename/</guid>
+  <pubDate>Wed, 27 Nov 2024 23:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Generating tags for git repositories (mytags)</title>
   <dc:creator>Arumoy Shome</dc:creator>
@@ -4213,887 +4601,6 @@ font-style: inherit;">"</span></span></code></pre></div>
   <category>productivity</category>
   <guid>https://arumoy.me/blogs/today/</guid>
   <pubDate>Wed, 02 Mar 2022 23:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Aru’s Information Management System (AIMS)</title>
-  <dc:creator>Arumoy Shome</dc:creator>
-  <link>https://arumoy.me/blogs/aims/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>AIMS or Aru’s Information Management System is a collection of shellscripts to manage information in plaintext. It is inspired by <a href="https://orgmode.org/">org-mode</a>, and tries to replicate a subset of its functionalities which I frequently use. AIMS is completely tuned towards my workflow as a researcher and how I manage my digital notes.</p>
-<p>Although org-mode is great, the primary motivation for writing AIMs is because I was feeling a lot of resistance when trying to tune it to my workflow, primarily because of Elisp. Org-mode also requires that you use Emacs as your text editor. I did not appreciate the “vendor lock-in” enforced by org-mode.</p>
-<p>You can find the latest version of the script on my <a href="https://github.com/arumoy-shome/dotfiles/blob/master/bin/aims">dotfiles repo</a>, below is the script as it stands on 2022-02-28.</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>aims</strong></pre>
-</div>
-<div class="sourceCode" id="annotated-cell-1" data-filename="aims" style="background: #f1f3f5;"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-1-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#!/usr/bin/env bash</span></span>
-<span id="annotated-cell-1-2"></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1">1</button><span id="annotated-cell-1-3" class="code-annotation-target"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">NOTESDIR</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$HOME</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">/org"</span></span>
-<span id="annotated-cell-1-4"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">INBOX</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$NOTESDIR</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">/inbox.md"</span></span>
-<span id="annotated-cell-1-5"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">TEMPLATESDIR</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$XDG_DATA_HOME</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">/aims"</span></span>
-<span id="annotated-cell-1-6"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">[[</span> <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">!</span> <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">-e</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$INBOX</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">]]</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">&amp;&amp;</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">touch</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$INBOX</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="annotated-cell-1-7"></span>
-<span id="annotated-cell-1-8"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">__capture()</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">{</span></span>
-<span id="annotated-cell-1-9">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Capture incoming info quickly. All items are appended to INBOX</span></span>
-<span id="annotated-cell-1-10">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># which defaults to `inbox.md' in NOTESDIR. Optionally a template</span></span>
-<span id="annotated-cell-1-11">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># can be specified using the --template| -t flag.</span></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2">2</button><span id="annotated-cell-1-12" class="code-annotation-target">  <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">local</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">TEMPLATE</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$TEMPLATESDIR</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">/default"</span></span>
-<span id="annotated-cell-1-13"></span>
-<span id="annotated-cell-1-14">  <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">while</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">[[</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">=~</span> <span class="pp" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">^</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">-</span><span class="pp" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">+.*</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">&amp;&amp;</span> <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">!</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">==</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"--"</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">do</span></span>
-<span id="annotated-cell-1-15">    <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">case</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">in</span></span>
-<span id="annotated-cell-1-16">      <span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">--template</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">|</span> <span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">-t</span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">)</span></span>
-<span id="annotated-cell-1-17">        <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">shift</span></span>
-<span id="annotated-cell-1-18">        <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">TEMPLATE</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$TEMPLATESDIR</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">/</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="annotated-cell-1-19">        <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">;;</span></span>
-<span id="annotated-cell-1-20">      <span class="pp" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">*</span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">)</span></span>
-<span id="annotated-cell-1-21">        <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Error: unknown option </span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">."</span></span>
-<span id="annotated-cell-1-22">        <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span></span>
-<span id="annotated-cell-1-23">        <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">;;</span></span>
-<span id="annotated-cell-1-24">    <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">esac</span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">;</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">shift</span></span>
-<span id="annotated-cell-1-25">  <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">done</span></span>
-<span id="annotated-cell-1-26"></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3">3</button><span id="annotated-cell-1-27" class="code-annotation-target">  <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">local</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">ITEM</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$(</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mktemp</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span id="annotated-cell-1-28">  <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">[[</span> <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">-e</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$TEMPLATE</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">&amp;&amp;</span> <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">-x</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$TEMPLATE</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">then</span></span>
-<span id="annotated-cell-1-29">    <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">eval</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$TEMPLATE</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> </span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$ITEM</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="annotated-cell-1-30">  <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">fi</span></span>
-<span id="annotated-cell-1-31"></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="4">4</button><span id="annotated-cell-1-32" class="code-annotation-target">  <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">if</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">eval</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$EDITOR</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> -c 'set ft=markdown' </span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$ITEM</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">then</span></span>
-<span id="annotated-cell-1-33">    <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">[[</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">&amp;&amp;</span> <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">-e</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$NOTESDIR</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">/</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">]]</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">&amp;&amp;</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">INBOX</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$NOTESDIR</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">/</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="annotated-cell-1-34">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">cat</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$ITEM</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$INBOX</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="annotated-cell-1-35">    <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Info: captured in </span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$INBOX</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">."</span></span>
-<span id="annotated-cell-1-36">  <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">fi</span></span>
-<span id="annotated-cell-1-37"></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="5">5</button><span id="annotated-cell-1-38" class="code-annotation-target">  <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Info: cleaning up </span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$(</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rm</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-v</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$ITEM</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">)</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="annotated-cell-1-39"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">}</span></span>
-<span id="annotated-cell-1-40"></span>
-<span id="annotated-cell-1-41"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">__capture</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$@</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div>
-</div>
-<dl class="code-annotation-container-hidden code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="3,4,5,6" data-code-annotation="1">Store all notes in <code>$HOME/org/inbox.md</code>, creating it if necessary. Also look for template scripts in <code>~/.local/share/aims</code>.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="12,14,15,16,17,18,19,20,21,22,23,24,25" data-code-annotation="2">Parse the flags passed to AIMS. Currently it only supports the <code>--template</code>/<code>-t</code> flag which accepts the name of the template to use. Use the <code>default</code> template if none is provided. More on this later.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="27,28,29,30" data-code-annotation="3">Create a temporary file and insert the contents of the template.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="32,33,34,35,36" data-code-annotation="4">Edit the temporary file using <code>$EDITOR</code> (here I assume its vim or neovim), setting the filetype to markdown. If the first positional argument passed to AIMS is a valid file inside <code>$NOTESDIR</code> then set that to the <code>$INBOX</code> file. Finally, prepend the contents of the temporary file to <code>$INBOX</code> file, if vim does not report an error.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="5">5</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="38" data-code-annotation="5">Cleanup, remove the temporary file.</span>
-</dd>
-</dl>
-<p>For the time being, it only provides the capture functionality. A temporary file is used to compose the text first. Upon successful completion, the contents of the temporary file are appended to the default <code>$INBOX</code> file if no other files are specified.</p>
-<p>What I find really neat is the templating system. An arbitrary name for a template can be passed to <code>aims</code> using the <code>--template</code> (or <code>-t</code> for short) flag. <code>aims</code> looks for a shellscript with the same name in the <code>~/.local/share/aims</code> directory and executes it if it exists. The beauty of this design is in its simplicity. Since templates are shellscripts, it gives us the full expressiveness of the shell. This is best demonstrated with some examples. Here is my <code>default</code> template as of 2022-02-28 which is used when no template is specified.</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>~/.local/share/aims/default</strong></pre>
-</div>
-<div class="sourceCode" id="annotated-cell-2" data-filename="~/.local/share/aims/default" style="background: #f1f3f5;"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-2-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#!/usr/bin/env bash</span></span>
-<span id="annotated-cell-2-2"></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1">1</button><span id="annotated-cell-2-3" class="code-annotation-target"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">[[</span> <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">-z</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">]]</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">&amp;&amp;</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span></span>
-<span id="annotated-cell-2-4"></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2">2</button><span id="annotated-cell-2-5" class="code-annotation-target"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="annotated-cell-2-6"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"# [</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$(</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">date</span> +<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'%Y-%m-%d %a %H:%M'</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">)</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">]"</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div>
-</div>
-<dl class="code-annotation-container-hidden code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="3" data-code-annotation="1">Sanity check, ensure that a positional argument was passed (that is, the temporary file path).</span>
-</dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="5,6" data-code-annotation="2">Insert an empty line and a level 1 markdown header with a time stamp.</span>
-</dd>
-</dl>
-<p>It simply adds a level 1 markdown header followed by a timestamp. Here is another for capturing bibtex information for research papers.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><a href="../aocp">I also wrote aocp.el</a>, an emacs package to capture bibtex information of research papers using org-mode.</p>
-</div>
-</div>
-<div class="sourceCode" id="annotated-cell-3" style="background: #f1f3f5;"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-3-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#!/usr/bin/env bash</span></span>
-<span id="annotated-cell-3-2"></span>
-<span id="annotated-cell-3-3"><span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">[[</span> <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">-z</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">]]</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">&amp;&amp;</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span></span>
-<span id="annotated-cell-3-4"></span>
-<span id="annotated-cell-3-5"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="annotated-cell-3-6"></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1">1</button><span id="annotated-cell-3-7" class="code-annotation-target"><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">BIBKEY</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$(</span><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">pbpaste</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">grep</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'^@.*'</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sed</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'s/^@.*{\(.*\),/\1/'</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span id="annotated-cell-3-8"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">[[</span> <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">-n</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$BIBKEY</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">then</span></span>
-<span id="annotated-cell-3-9">  <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"# [</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$(</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">date</span> +<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'%Y-%m-%d %a %H:%M'</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">)</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">] </span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$BIBKEY</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span></span>
-<span id="annotated-cell-3-10"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">else</span></span>
-<span id="annotated-cell-3-11">  <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"# [</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$(</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">date</span> +<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'%Y-%m-%d %a %H:%M'</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">)</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">]"</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span></span>
-<span id="annotated-cell-3-12"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">fi</span></span>
-<span id="annotated-cell-3-13"></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2">2</button><span id="annotated-cell-3-14" class="code-annotation-target"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="annotated-cell-3-15"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'+ **Problem Statement:**'</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="annotated-cell-3-16"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'+ **Solution**'</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="annotated-cell-3-17"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'+ **Results**'</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="annotated-cell-3-18"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'+ **Limitations**'</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="annotated-cell-3-19"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'+ **Remarks**'</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="annotated-cell-3-20"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="3">3</button><span id="annotated-cell-3-21" class="code-annotation-target"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'```bibtex'</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="annotated-cell-3-22"></span>
-<span id="annotated-cell-3-23"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">[[</span> <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">-n</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$BIBKEY</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">then</span></span>
-<span id="annotated-cell-3-24">  <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">pbpaste</span> <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sed</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'/^$/d'</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="annotated-cell-3-25">  <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">pbcopy</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;(</span><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$BIBKEY</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">)</span></span>
-<span id="annotated-cell-3-26"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">fi</span></span>
-<span id="annotated-cell-3-27"></span>
-<span id="annotated-cell-3-28"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'```'</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span><span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">$1</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div>
-<dl class="code-annotation-container-hidden code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="7,8,9,10,11,12" data-code-annotation="1">Check that the bibtex information is currently in the system clipboard by attempting to extract the key using <code>grep</code> and <code>sed</code>. If a key was successfully extracted, then create a level 1 markdown header with a time stamp and the key. Otherwise, fall back to just a time stamp.</span>
-</dd>
-<dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="14,15,16,17,18,19,20" data-code-annotation="2">Add my prompts for note-taking when reading scientific papers.</span>
-</dd>
-<dt data-target-cell="annotated-cell-3" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="21,23,24,25,26,28" data-code-annotation="3">Remove empty lines and put the bibtex information in a markdown source block.</span>
-</dd>
-</dl>
-<p>This one is a bit more involved but highlights the power of using shellscripts for templating. Given that a bibentry is copied in the clipboard, this template adds a level 1 markdown header with a timestamp and the bibkey. It adds my <a href="../research-workflow#writing-notes">note-taking prompts</a> and sticks the bibentry at the bottom.</p>
-
-
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>shell</category>
-  <category>productivity</category>
-  <guid>https://arumoy.me/blogs/aims/</guid>
-  <pubDate>Sun, 27 Feb 2022 23:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

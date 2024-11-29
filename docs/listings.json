@@ -10,8 +10,8 @@
   {
     "listing": "/blogs.html",
     "items": [
-      "/blogs/rename/index.html",
       "/blogs/mdtags/index.html",
+      "/blogs/rename/index.html",
       "/blogs/mytags/index.html",
       "/blogs/python-ast-extract-module-method-names/index.html",
       "/blogs/visualisation-zoo/index.html",
