@@ -1,24 +1,15 @@
 [
   {
-    "listing": "/publications.html",
-    "items": []
-  },
-  {
-    "listing": "/talks.html",
-    "items": []
-  },
-  {
     "listing": "/blogs.html",
     "items": [
-      "/blogs/mdgrep/index.html",
       "/blogs/rename/index.html",
       "/blogs/mytags/index.html",
       "/blogs/python-ast-extract-module-method-names/index.html",
       "/blogs/visualisation-zoo/index.html",
       "/blogs/bash-commands/index.html",
       "/blogs/docker-commands/index.html",
-      "/blogs/organise-research-project-git/index.html",
       "/blogs/yob/index.html",
+      "/blogs/organise-research-project-git/index.html",
       "/blogs/bibliography-management-orgmode/index.html",
       "/blogs/doi2bib/index.html",
       "/blogs/aspell-commands/index.html",
@@ -50,5 +41,13 @@
       "/blogs/searching-vim/index.html",
       "/blogs/private-link-sharing/index.html"
     ]
+  },
+  {
+    "listing": "/talks.html",
+    "items": []
+  },
+  {
+    "listing": "/publications.html",
+    "items": []
   }
 ]
