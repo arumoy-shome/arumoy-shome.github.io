@@ -1,0 +1,10 @@
+/* css styles */
+@font-face {
+  font-family: Iosevka;
+  src: url(fonts/webfont-iosevka-26.2.1/woff2/iosevka-regular.woff2)
+}
+
+@font-face {
+  font-family: Iosevka Aile;
+  src: url(fonts/webfont-iosevka-aile-26.2.1/woff2/iosevka-aile-regular.woff2)
+}
