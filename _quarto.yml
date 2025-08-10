@@ -1,6 +1,5 @@
 project:
   type: website
-  output-dir: docs
 
 website:
   title: "Arumoy Shome"
@@ -44,3 +43,5 @@ citation-location: margin
 resources:
   - CNAME
 code-annotations: hover
+execute:
+  freeze: auto

@@ -1,0 +1,12 @@
+{
+  "hash": "e8260f692832fac20e644b7341e7a5d5",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Taming the mess in plaintext notes (mdgrep)\ndate: 2024-11-29\nabstract: TODO\ncategories: [productivity, shell, vim]\n---\n\n::: {#644e5fe0 .cell execution_count=1}\n``` {.python .cell-code}\nimport os\nos.getcwd()\n```\n\n::: {.cell-output .cell-output-display execution_count=1}\n```\n'/Users/aru/code/www-arumoy/blogs/mdgrep'\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

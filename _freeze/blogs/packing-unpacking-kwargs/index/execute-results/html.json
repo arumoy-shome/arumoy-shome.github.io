@@ -1,0 +1,12 @@
+{
+  "hash": "5d7739fb01c882a34c6c3c1cb502192e",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Packing and Unpacking `**kwargs`\ndate: 2022-11-01\nabstract: |\n    Packing and unpacking keyword arguments in Python.\ncategories: [python]\n---\n\n\n\n\nIn python, we can unpack keyword arguments using the `**kwargs` in the function definition like so.\n\n::: {#1df36e09 .cell execution_count=1}\n``` {.python .cell-code}\ndef greet(**kwargs):\n    for _, v in kwargs.items():\n        print(\"Hello {}!\".format(v))\n\ngreet(a=\"Aru\", b=\"Ura\")\n```\n\n::: {.cell-output .cell-output-stdout}\n```\nHello Aru!\nHello Ura!\n```\n:::\n:::\n\n\nTurns out, that we can convert the unpacked dict into back into keyword arguments and pass it along to another function as well! This is done like so.\n\n::: {#f2585e31 .cell execution_count=2}\n``` {.python .cell-code}\ndef greet(**kwargs):\n    for _, v in kwargs.items():\n        print(\"Hello {}!\".format(v))\n\n    meet(**kwargs)\n\ndef meet(a=None, b=None):\n    print(\"Nice to meet you again, {} & {}\".format(a, b))\n\ngreet(a=\"Aru\", b=\"Ura\")\n```\n\n::: {.cell-output .cell-output-stdout}\n```\nHello Aru!\nHello Ura!\nNice to meet you again, Aru & Ura\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
