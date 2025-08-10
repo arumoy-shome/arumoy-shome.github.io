@@ -6,48 +6,28 @@
       "/blogs/mytags/index.html",
       "/blogs/python-ast-extract-module-method-names/index.html",
       "/blogs/visualisation-zoo/index.html",
-      "/blogs/bash-commands/index.html",
-      "/blogs/docker-commands/index.html",
       "/blogs/yob/index.html",
       "/blogs/organise-research-project-git/index.html",
       "/blogs/bibliography-management-orgmode/index.html",
       "/blogs/doi2bib/index.html",
-      "/blogs/aspell-commands/index.html",
-      "/blogs/navigating-large-markdown-files-vim/index.html",
       "/blogs/cms-pandoc/index.html",
-      "/blogs/packing-unpacking-kwargs/index.html",
-      "/blogs/ripgrep-commands/index.html",
       "/blogs/remla-data-validation/index.html",
       "/blogs/effortless-parallel-execution-xargs/index.html",
       "/blogs/data-smells-public-datasets/index.html",
       "/blogs/website-management-pandoc/index.html",
       "/blogs/today/index.html",
       "/blogs/aims/index.html",
-      "/blogs/reflections-scientific-research/index.html",
       "/blogs/privacy-preserving-deep-learning/index.html",
-      "/blogs/focus/index.html",
-      "/blogs/project-management/index.html",
       "/blogs/research-workflow-plaintext/index.html",
-      "/blogs/nutrition/index.html",
-      "/blogs/aocp/index.html",
-      "/blogs/scientific-paper-discovery/index.html",
-      "/blogs/research-workflow/index.html",
-      "/blogs/productivity/index.html",
-      "/blogs/dired-commands/index.html",
-      "/blogs/gc-matplotlib-orgmode/index.html",
-      "/blogs/python-context-file/index.html",
-      "/blogs/shell-path-finder/index.html",
-      "/blogs/navigating-vim/index.html",
-      "/blogs/searching-vim/index.html",
-      "/blogs/private-link-sharing/index.html"
+      "/blogs/aocp/index.html"
     ]
   },
   {
-    "listing": "/talks.html",
+    "listing": "/publications.html",
     "items": []
   },
   {
-    "listing": "/publications.html",
+    "listing": "/talks.html",
     "items": []
   }
 ]
