@@ -11,7 +11,6 @@ website:
       - blogs.qmd
       - talks.qmd
       - publications.qmd
-      - bib.qmd
       - license.qmd
     right:
       - icon: rss
