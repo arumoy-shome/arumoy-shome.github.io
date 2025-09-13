@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,14 +69,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-4df3b0c4fafa0f66eafcead0ee6cff11.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1713c1db1ad41a796903378fc9ac7b2b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -116,6 +117,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Arumoy Shome</span>
     </a>
@@ -170,6 +173,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <div id="quarto-announcement" data-announcement-id="79643b0bd1e87b31016c14fec21f2e3e" class="alert alert-warning hidden"><i class="bi bi-info-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p><strong>I’m on the lookout for full-time Data Science (or similar) positions. If you have any leads or just want to chat, <script type="text/javascript">
+<!--
+h='&#x61;&#114;&#x75;&#x6d;&#x6f;&#x79;&#46;&#x6d;&#x65;';a='&#64;';n='&#x63;&#x6f;&#110;&#116;&#x61;&#x63;&#116;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'&#102;&#x65;&#x65;&#108;&#32;&#102;&#114;&#x65;&#x65;&#32;&#116;&#x6f;&#32;&#114;&#x65;&#x61;&#x63;&#104;&#32;&#x6f;&#x75;&#116;'+'<\/'+'a'+'>');
+// -->
+</script><noscript>feel free to reach out (contact at arumoy dot me)</noscript>! <a href="resume.html">Here’s my resume</a> if you’re interested in checking it out. Thanks a bunch!</strong> 😊</p>
+</div></div>
 </header>
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
@@ -262,7 +273,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="recommendations-for-.gitignore-patterns" class="level1">
 <h1>Recommendations for <code>.gitignore</code> patterns</h1>
 <p>Github has <a href="https://github.com/github/gitignore">an excellent repository</a> of <code>.gitignore</code> patterns for various filetypes. Consider importing them into your own global <code>.gitignore</code> file (for instance, Latex and Python). At the project level, do not check in the pdf version of your papers since these are typically high churn files and git cannot produce meaningful diffs for binary files. Instead use the <code>latexmk</code> command to generate the pdf. You can also consider putting the command in a <code>Makefile</code> to reduce keystrokes.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">latexmk</span> <span class="at">-pdf</span> <span class="at">-outdir</span><span class="op">=</span>report report/<span class="op">&lt;</span>your-paper<span class="op">&gt;</span>.pdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">latexmk</span> <span class="at">-pdf</span> <span class="at">-outdir</span><span class="op">=</span>report report/<span class="op">&lt;</span>your-paper<span class="op">&gt;</span>.pdf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If you use Overleaf, <a href="https://www.overleaf.com/learn/how-to/Git_Integration_and_GitHub_Synchronization">connect your document to the Github project</a> so that everything remains in sync.</p>
 </section>
 <section id="recommendations-for-git-commit-messages" class="level1">
@@ -285,7 +296,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In contrast, say you refactor the data processing pipeline script. The subject line could be as follows:</p>
 <pre><code>refac(bin): remove magic numbers in data-process.sh</code></pre>
 <p>This makes it very easy to track down prior commits that introduced changes in the paper versus in the code. For instance, you can target all refactoring commits within the <code>report/</code> directory using the following <code>git grep</code> command:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--grep</span> <span class="st">'refac.*report.'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--grep</span> <span class="st">'refac.*report.'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
@@ -343,13 +354,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

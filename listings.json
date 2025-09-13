@@ -1,13 +1,21 @@
 [
   {
+    "listing": "/talks.html",
+    "items": []
+  },
+  {
+    "listing": "/publications.html",
+    "items": []
+  },
+  {
     "listing": "/blogs.html",
     "items": [
       "/blogs/rename/index.html",
       "/blogs/mytags/index.html",
       "/blogs/python-ast-extract-module-method-names/index.html",
       "/blogs/visualisation-zoo/index.html",
-      "/blogs/yob/index.html",
       "/blogs/organise-research-project-git/index.html",
+      "/blogs/yob/index.html",
       "/blogs/bibliography-management-orgmode/index.html",
       "/blogs/doi2bib/index.html",
       "/blogs/cms-pandoc/index.html",
@@ -21,13 +29,5 @@
       "/blogs/research-workflow-plaintext/index.html",
       "/blogs/aocp/index.html"
     ]
-  },
-  {
-    "listing": "/publications.html",
-    "items": []
-  },
-  {
-    "listing": "/talks.html",
-    "items": []
   }
 ]

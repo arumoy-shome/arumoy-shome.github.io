@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,14 +69,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-4df3b0c4fafa0f66eafcead0ee6cff11.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1713c1db1ad41a796903378fc9ac7b2b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -116,6 +117,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Arumoy Shome</span>
     </a>
@@ -170,6 +173,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <div id="quarto-announcement" data-announcement-id="79643b0bd1e87b31016c14fec21f2e3e" class="alert alert-warning hidden"><i class="bi bi-info-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p><strong>I’m on the lookout for full-time Data Science (or similar) positions. If you have any leads or just want to chat, <script type="text/javascript">
+<!--
+h='&#x61;&#114;&#x75;&#x6d;&#x6f;&#x79;&#46;&#x6d;&#x65;';a='&#64;';n='&#x63;&#x6f;&#110;&#116;&#x61;&#x63;&#116;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'&#102;&#x65;&#x65;&#108;&#32;&#102;&#114;&#x65;&#x65;&#32;&#116;&#x6f;&#32;&#114;&#x65;&#x61;&#x63;&#104;&#32;&#x6f;&#x75;&#116;'+'<\/'+'a'+'>');
+// -->
+</script><noscript>feel free to reach out (contact at arumoy dot me)</noscript>! <a href="resume.html">Here’s my resume</a> if you’re interested in checking it out. Thanks a bunch!</strong> 😊</p>
+</div></div>
 </header>
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
@@ -383,7 +394,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-aocp.el
+<span class="screen-reader-only">Tip</span>aocp.el
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -400,7 +411,7 @@ aocp.el
 <p>Using <a href="https://orgmode.org/manual/Publishing.html">org-publish</a>, we can run a website from within emacs.</p>
 <p>Org does <a href="https://orgmode.org/manual/Tables.html">tables</a> and <a href="https://orgmode.org/manual/Images.html">images</a>!</p>
 <p>We can write arbitrary pieces of code within org documents, use <a href="https://orgmode.org/worg/org-contrib/babel/">org-babel</a> to execute them and <a href="https://orgmode.org/manual/Extracting-Source-Code.html">org-tangle</a> to extract and create a source code file.</p>
-<div class="sourceCode" id="cb1" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp code-with-copy"><code class="sourceCode commonlisp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(message <span class="st">"Hello SERG from org-mode!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp code-with-copy"><code class="sourceCode commonlisp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(message <span class="st">"Hello SERG from org-mode!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Since we can mix text and code in org documents, it becomes trivial to document experiments - complete with code snippets - which are reproducible. In fact, org is a popular choice within the community to document their emacs config. Yes, org-mode is basically Jupyter notebooks in plaintext!</p>
 <p>And the list goes on. Refer to the <a href="https://orgmode.org/manual/">org manual</a> for an exhaustive list of what org can do.</p>
 </section>
@@ -480,13 +491,14 @@ aocp.el
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

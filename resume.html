@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Arumoy Shome">
-<meta name="dcterms.date" content="2024-11-17">
 
-<title>Generating tags for git repositories (mytags) – Arumoy Shome</title>
+<title>Arumoy Shome</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,62 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-1713c1db1ad41a796903378fc9ac7b2b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-1713c1db1ad41a796903378fc9ac7b2b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -107,19 +70,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Arumoy Shome</span>
     </a>
   </div>
@@ -130,25 +93,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../blogs.html"> 
+    <a class="nav-link" href="./blogs.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../talks.html"> 
+    <a class="nav-link" href="./talks.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../publications.html"> 
+    <a class="nav-link" href="./publications.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../license.html"> 
+    <a class="nav-link" href="./license.html"> 
 <span class="menu-text">License</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="../../blogs.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="./blogs.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -183,116 +146,121 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'&#10
 </div></div>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Generating tags for git repositories (mytags)</h1>
-                                <div class="quarto-categories">
-                <div class="quarto-category">shell</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Arumoy Shome </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">November 17, 2024</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  <div>
-    <div class="abstract">
-      <div class="block-title">Abstract</div>
-      <p><code>mytags</code> is a wrapper around <code>ctags</code> which respects your gitignore files.</p>
-    </div>
-  </div>
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
-
-
-
-
-<p>Often while working on remote servers where I don’t have permissions to install language servers, I find <a href="https://github.com/universal-ctags/ctags"><code>ctags</code></a> to be an effective tool to navigate code. <code>mytags</code> is a simple Bash script I wrote which wraps around <code>ctags</code> with some added functionality.</p>
-<p>Here is the script as of 2024-11-27, <a href="https://github.com/arumoy-shome/dotfiles/blob/master/bin/mytags">you can find the latest version in my dotfiles repo</a>.</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>mytags</strong></pre>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Arumoy Shome</h1>
+<p class="subtitle lead">PhD Candidate | Data Science, Software Engineering &amp; Research</p>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="mytags"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
-<span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">__is_git_repo()</span> <span class="kw">{</span></span>
-<span id="annotated-cell-1-4"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">git</span> rev-parse <span class="op">&amp;&gt;</span>/dev/null</span>
-<span id="annotated-cell-1-5"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="annotated-cell-1-6"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-1-7"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">__git_toplevel()</span> <span class="kw">{</span></span>
-<span id="annotated-cell-1-8"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">git</span> rev-parse <span class="at">--show-toplevel</span></span>
-<span id="annotated-cell-1-9"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="annotated-cell-1-10"><a href="#annotated-cell-1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-1-11"><a href="#annotated-cell-1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">__ctags()</span> <span class="kw">{</span></span>
-<span id="annotated-cell-1-12"><a href="#annotated-cell-1-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-x</span> <span class="st">"</span><span class="va">$(</span><span class="bu">command</span> <span class="at">-v</span> fd<span class="va">)</span><span class="st">"</span> <span class="kw">]]</span></span>
-<span id="annotated-cell-1-13"><a href="#annotated-cell-1-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">then</span></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="5">5</button><span id="annotated-cell-1-14" class="code-annotation-target"><a href="#annotated-cell-1-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">command</span> ctags <span class="st">"</span><span class="va">$@</span><span class="st">"</span> <span class="va">$(</span><span class="ex">fd</span> <span class="at">--type</span> f <span class="at">--hidden</span> <span class="at">--exclude</span> <span class="st">'.git'</span><span class="va">)</span></span>
-<span id="annotated-cell-1-15"><a href="#annotated-cell-1-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span></span>
-<span id="annotated-cell-1-16"><a href="#annotated-cell-1-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">command</span> ctags <span class="st">"</span><span class="va">$@</span><span class="st">"</span> <span class="va">$(</span><span class="fu">git</span> ls-files <span class="at">--exclude-standard</span><span class="va">)</span></span>
-<span id="annotated-cell-1-17"><a href="#annotated-cell-1-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">fi</span></span>
-<span id="annotated-cell-1-18"><a href="#annotated-cell-1-18" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="annotated-cell-1-19"><a href="#annotated-cell-1-19" aria-hidden="true" tabindex="-1"></a></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1">1</button><span id="annotated-cell-1-20" class="code-annotation-target"><a href="#annotated-cell-1-20" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="ot">! </span><span class="ex">__is_git_repo</span></span>
-<span id="annotated-cell-1-21"><a href="#annotated-cell-1-21" aria-hidden="true" tabindex="-1"></a><span class="cf">then</span></span>
-<span id="annotated-cell-1-22"><a href="#annotated-cell-1-22" aria-hidden="true" tabindex="-1"></a>  <span class="bu">echo</span> <span class="st">"mytags: not inside git repo."</span></span>
-<span id="annotated-cell-1-23"><a href="#annotated-cell-1-23" aria-hidden="true" tabindex="-1"></a>  <span class="bu">exit</span> 1</span>
-<span id="annotated-cell-1-24"><a href="#annotated-cell-1-24" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span>
-<span id="annotated-cell-1-25"><a href="#annotated-cell-1-25" aria-hidden="true" tabindex="-1"></a></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2">2</button><span id="annotated-cell-1-26" class="code-annotation-target"><a href="#annotated-cell-1-26" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3">3</button><span id="annotated-cell-1-27" class="code-annotation-target"><a href="#annotated-cell-1-27" aria-hidden="true" tabindex="-1"></a>  <span class="bu">cd</span> <span class="va">$(</span><span class="ex">__git_toplevel</span><span class="va">)</span> <span class="kw">&amp;&amp;</span></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="4">4</button><span id="annotated-cell-1-28" class="code-annotation-target"><a href="#annotated-cell-1-28" aria-hidden="true" tabindex="-1"></a>  <span class="ex">__ctags</span> <span class="st">"</span><span class="va">$@</span><span class="st">"</span></span>
-<span id="annotated-cell-1-29"><a href="#annotated-cell-1-29" aria-hidden="true" tabindex="-1"></a><span class="kw">)</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">Professional Summary</div>
+    <p>5+ years of experience in large-scale data mining, machine learning and software engineering. Led 4 end-to-end research projects from ideation to publication (does industry care?) and pioneered 3 frameworks to improve the MLOps workflow. Hands-on in Python, large-scale data mining, and machine learning. In possession of a valid work permit.</p>
+  </div>
 </div>
-<dl class="code-annotation-container-hidden code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="20,21,22,23,24" data-code-annotation="1"><code>mytags</code> check that we are inside a git repo, if not exit gracefully.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="26,29" data-code-annotation="2">When inside a git repo, start a new subshell and…</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="27" data-code-annotation="3"><code>cd</code> to the top-level of the repo (i.e.&nbsp;where the <code>.git</code> folder is located), this allows us to run <code>mytags</code> from any subdirectory inside the git repo</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="28" data-code-annotation="4">execute ctags with relevant files, either using <code>fd</code> if it exists or <code>git ls-files</code></span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="5">5</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="14,15,16" data-code-annotation="5">any additional arguments are passed along to <code>ctags</code></span>
-</dd>
-</dl>
 
 
+</header>
+
+
+<section id="education" class="level1">
+<h1>Education</h1>
+<ul>
+<li><strong>PhD, Software Engineering for Artificial Intelligence</strong>, <a href="https://www.tudelft.nl/en/">Delft University of Technology</a>, <strong>Netherlands</strong>, <em>2021–Present</em></li>
+<li><strong>M.Sc. Computer Science, Big Data Engineering</strong>, <a href="https://vu.nl/en">VU Amsterdam</a>, <strong>Netherlands</strong>, <em>2018-2020</em></li>
+<li><strong>B.Sc. Systems Design Engineering</strong>, <a href="https://uwaterloo.ca/">University of Waterloo</a>, <strong>Canada</strong>, <em>2012-2018</em></li>
+</ul>
+</section>
+<section id="technical-skills" class="level1">
+<h1>Technical Skills</h1>
+<ul>
+<li><strong>Data Science &amp; Machine Learning</strong>: Python, Scikit-Learn, PyTorch</li>
+<li><strong>Data Analysis &amp; Engineering</strong>: Pandas, PySpark, Data Mining, Big Data Engineering, Data Pipeline Development, Data Collection</li>
+<li><strong>Visualization &amp; Analytics</strong>: Seaborn, Matplotlib, D3.js, Three.js, Information Visualization, Visual Analytics</li>
+<li><strong>Development Tools</strong>: Git, Docker, Linux, Unix, Nix</li>
+<li><strong>Programming Languages</strong>: Python, Ruby, Javascript, HTML, SCSS, Bash, LaTeX</li>
+<li><strong>Web Development</strong>: Ruby on Rails, UI/UX Development, Object-Relational Mapping</li>
+<li><strong>Research</strong>: Data Quality Analysis, Fairness Testing, Static Analysis, Quantitative Research</li>
+</ul>
+</section>
+<section id="professional-experience" class="level1">
+<h1>Professional Experience</h1>
+<p><strong>PhD Candidate | Data Science</strong>, <a href="https://www.tudelft.nl/en/">Delft University of Technology</a>, <strong>Delft, Netherlands</strong>, <em>2021-2025</em></p>
+<ul>
+<li>Developed large-scale data mining pipeline to process 297,800 Jupyter notebooks (283 GB) from GitHub and Kaggle. Extracted 3 million code statements using Python, Pandas, and Bash. Released results as an open-source dataset to enable future research. Project website: <a href="https://github.com/arumoy-shome/shome2023notebook" class="uri">https://github.com/arumoy-shome/shome2023notebook</a></li>
+<li>Proposed data-centric fairness testing methodology for machine learning models. Evaluated 4 ML algorithms against 2 fairness metrics across 5 datasets with 1,600 end-to-end ML pipeline executions using Python and Scikit-Learn. Project website: <a href="https://github.com/arumoy-shome/shome2022qualitative" class="uri">https://github.com/arumoy-shome/shome2022qualitative</a></li>
+<li>Pioneered “data smells” framework for ML dataset quality assessment. Analyzed top 25 ML datasets from Kaggle using Python and Pandas. Identified 14 data quality antipatterns and published the findings as an open-source catalog. Project website: <a href="https://arumoy.me/data-smells" class="uri">https://arumoy.me/data-smells</a></li>
+<li>Executed the data and ML pipelines on a Linux server and distributed the workloads across 20 CPU cores using Bash and Unix commands. Used Git and Docker to provide reproducible software artifacts.</li>
+<li>Managed 2 M.Sc. research projects, and an edX MOOC course on Unix tools with 1000+ active students.</li>
+<li>Delivered technical talks, poster presentations and guest lectures to academic and industry audiences. Translated technical concepts into actionable insights for diverse stakeholders.</li>
+</ul>
+<p><strong>Research Intern | Data Science</strong>, <a href="https://www.esciencecenter.nl/">Netherlands eScience Centre</a>, <strong>Amsterdam, Netherlands</strong>, <em>2019-2020</em></p>
+<ul>
+<li>Built ML pipeline for neutrino detection in the KM3NeT Neutrino Telescope, implementing Multi Layer Perceptrons and Graph Convolutional Neural Networks to process high-volume particle physics data. Project website: <a href="https://github.com/arumoy-shome/km3net" class="uri">https://github.com/arumoy-shome/km3net</a></li>
+<li>Delivered solution that outperformed existing GPU-based systems in filtration quality while meeting strict performance requirements for real-time particle detection.</li>
+<li>Collaborated across interdisciplinary teams including particle physicists, GPU engineers, and computer scientists, translating complex AI requirements into practical implementations.</li>
+</ul>
+<p><strong>Web Developer Intern | Software Engineering</strong>, <a href="https://shopify.com">Shopify</a>, <strong>Ottawa, Canada</strong>, <em>2015-2016</em></p>
+<ul>
+<li>Collaborated with developers, designers and product managers to implement UI/UX features such as web components, animations and styling on a mature Ruby on Rails project using Ruby, JavaScript, HTML, &amp; SCSS.</li>
+<li>Applied Object-Oriented Programming (OOP) principles and Test-Driven Development (TDD) to refactor code and improve test coverage.</li>
+<li>Used Object-Relational Mapping (ORM) to optimize database queries and reduce server response time.</li>
+</ul>
+</section>
+<section id="technical-projects" class="level1">
+<h1>Technical Projects</h1>
+<p><strong>3D Kadaster</strong>, University of Amsterdam, <em>2018</em></p>
+<ul>
+<li>Developed 3D model of all buildings in The Netherlands using AHN2 point cloud dataset (1.6 TB) and BAG building polygons dataset (177 GB).</li>
+<li>Processed massive geospatial datasets using PySpark distributed computing framework for scalable data processing.</li>
+<li>Executed algorithms on SurfSara supercomputer infrastructure for high-performance geospatial analysis.</li>
+<li>Created interactive 3D visualizations using Three.js for web-based exploration of national building infrastructure.</li>
+</ul>
+<p><strong>ACE: Art, Color and Emotions</strong>, ACM International Conference on MultiMedia, <em>2019</em></p>
+<ul>
+<li>Built ACE, a visual sentiment analysis platform by developing custom ML models trained on the large-scale OmniArt dataset (512 GB) to enable data-driven analysis of artistic emotions. Demo video: <a href="https://youtu.be/B1ZM6EQgEvU" class="uri">https://youtu.be/B1ZM6EQgEvU</a></li>
+<li>Designed and implemented full-stack solution featuring intuitive D3.js interface with optimized interaction patterns and scalable web architecture capable of handling high-volume image processing and real-time sentiment analysis.</li>
+</ul>
+<p><strong>Elevate</strong>, University of Waterloo, <em>2017</em></p>
+<ul>
+<li>Developed an improved and cost-effective alternative to state-of-the-art cognitive assessment tools for Down Syndrome using web technologies, adaptive learning, and human-centric design. Project website: <a href="https://arumoy.me/elevate" class="uri">https://arumoy.me/elevate</a></li>
+<li>Established international research partnership with Waterloo Regional Down Syndrome Society (Canada) and Fundacion Paraiso Down (El Salvador) to explore specialized educational resource needs through comprehensive user surveys and interviews.</li>
+<li>Implemented iterative design methodology with usability testing, user testing, and engagement testing as primary validation protocols.</li>
+<li>Developed comprehensive business plan and presented product at multiple startup incubators and pitch competitions to obtain funding.</li>
+</ul>
+</section>
+<section id="professional-activities" class="level1">
+<h1>Professional Activities</h1>
+<ul>
+<li>Collaborated as committee member for International Conference on AI Engineering (CAIN) ’25. Demonstrated teamwork, communication, and project management skills to coordinate logistics and enhance engagement for 125 participants.</li>
+<li>Served as program committee member for DeepTest ’25 and NL-based Software Engineering (NLBSE) ’24 international workshops. Critically evaluated and provided constructive feedback on 4 technical research papers.</li>
+<li>Writes and maintains open-source shell scripts using Python and Bash to automate frequent tasks and improve personal workflows. Publishes technical implementation details as blog posts.</li>
+</ul>
+</section>
+<section id="language" class="level1">
+<h1>Language</h1>
+<ul>
+<li><strong>English</strong> (<em>Native</em>), <strong>Hindi</strong> (<em>Native</em>), <strong>Bengali</strong> (<em>Native</em>), <strong>Dutch</strong> (<em>Basic - A2</em>)</li>
+</ul>
+
+
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

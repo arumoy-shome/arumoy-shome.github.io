@@ -9,7 +9,7 @@
 <link>https://arumoy.me/blogs.html</link>
 <atom:link href="https://arumoy.me/blogs.xml" rel="self" type="application/rss+xml"/>
 <description>Arumoy Shome&#39;s Website</description>
-<generator>quarto-1.7.33</generator>
+<generator>quarto-1.8.24</generator>
 <lastBuildDate>Thu, 28 Nov 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Renaming files so they make sense (rename)</title>
@@ -33,7 +33,7 @@
 <div class="code-with-filename-file">
 <pre><strong>rename</strong></pre>
 </div>
-<div class="sourceCode" id="cb1" data-filename="rename" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="rename" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#!/usr/bin/env python3</span></span>
 <span id="cb1-2"></span>
@@ -383,11 +383,11 @@ font-style: inherit;">"</span>)</span>
 background-color: null;
 font-style: inherit;">=</span>args.source, dst<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span>dst)</span></code></pre></div>
+font-style: inherit;">=</span>dst)</span></code></pre></div></div>
 </div>
 <p>The stopwords are read from a text file so adding new stopwords (or words you never want to see in your filenames) easy. I store this file in my dotfiles repo to ensure that the <code>rename</code> script works on any machine where I clone my system configuration files.</p>
 <p>By default, the script will ask for confirmation before renaming a file. The <code>--force</code> flag can be passed to bypass this. This makes it convenient to rename files in bulk using standard unix tools such as <code>find</code> and <code>xargs</code>. For instance, below how I show how you can rename all Docx files in a directory automatically.</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">find</span> <span class="pp" style="color: #AD0000;
 background-color: null;
@@ -409,7 +409,7 @@ font-style: inherit;">-0</span> <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">-n1</span> rename <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">--force</span></span></code></pre></div>
+font-style: inherit;">--force</span></span></code></pre></div></div>
 
 
 
@@ -435,7 +435,7 @@ font-style: inherit;">--force</span></span></code></pre></div>
 <div class="code-with-filename-file">
 <pre><strong>mytags</strong></pre>
 </div>
-<div class="sourceCode" id="annotated-cell-1" data-filename="mytags" style="background: #f1f3f5;"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="mytags" style="background: #f1f3f5;"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#!/usr/bin/env bash</span></span>
 <span id="annotated-cell-1-2"></span>
@@ -611,7 +611,7 @@ font-style: inherit;">"</span></span>
 <span id="annotated-cell-1-29"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">)</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div>
+font-style: inherit;">)</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div></div>
 </div>
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
@@ -658,21 +658,21 @@ font-style: inherit;">)</span></span><div class="code-annotation-gutter-bg"></di
 <p>Python has a built-in <code>ast</code> module which provides detailed documentation on the various nodes used to represent different elements of Python source code.</p>
 <p>We can use the <code>ast.parse</code> method to create a AST from a given Python source code. Here is an example of how a function call is represented in a AST.</p>
 <div id="fa4c06d1" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> ast</span>
 <span id="cb1-2">ast.parse(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"foo(x, y)"</span>)</span></code></pre></div>
+font-style: inherit;">"foo(x, y)"</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>&lt;ast.Module at 0x1063c3950&gt;</code></pre>
 </div>
 </div>
 <p>The <code>ast.parse</code> method returns a <code>ast.Module</code> object which by itself is not very helpful. To view the internal structure of the tree, we can use the <code>ast.dump</code> method.</p>
 <div id="5f17333f" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">ast.dump(ast.parse(<span class="st" style="color: #20794D;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">ast.dump(ast.parse(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"foo(x, y)"</span>))</span></code></pre></div>
+font-style: inherit;">"foo(x, y)"</span>))</span></code></pre></div></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>"Module(body=[Expr(value=Call(func=Name(id='foo', ctx=Load()), args=[Name(id='x', ctx=Load()), Name(id='y', ctx=Load())]))])"</code></pre>
 </div>
@@ -685,7 +685,7 @@ font-style: inherit;">"foo(x, y)"</span>))</span></code></pre></div>
 Listing&nbsp;1: Base case
 </figcaption>
 <div aria-describedby="lst-base-case-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="bu" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(ast.dump(ast.parse(<span class="st" style="color: #20794D;
 background-color: null;
@@ -693,7 +693,7 @@ font-style: inherit;">"foo(x, y)"</span>), indent<span class="op" style="color: 
 background-color: null;
 font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">4</span>))</span></code></pre></div>
+font-style: inherit;">4</span>))</span></code></pre></div></div>
 </div>
 </figure>
 </div>
@@ -717,7 +717,7 @@ font-style: inherit;">4</span>))</span></code></pre></div>
 Listing&nbsp;2: Single nested function call
 </figcaption>
 <div aria-describedby="lst-single-nest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="bu" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(ast.dump(ast.parse(<span class="st" style="color: #20794D;
 background-color: null;
@@ -725,7 +725,7 @@ font-style: inherit;">"bar.foo(x, y)"</span>), indent<span class="op" style="col
 background-color: null;
 font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">4</span>))</span></code></pre></div>
+font-style: inherit;">4</span>))</span></code></pre></div></div>
 </div>
 </figure>
 </div>
@@ -746,7 +746,7 @@ font-style: inherit;">4</span>))</span></code></pre></div>
 <p>Things are a bit different now. We see that the <code>Call.func</code> is no longer a <code>ast.Name</code> node, but instead an <code>ast.Attribute</code> node. <code>Attribute.value</code> is now a <code>ast.Name</code> node with the name of the module (in our case <code>bar</code>) on the <code>id</code> attribute and the name of the function on the <code>attr</code> attribute.</p>
 <p>Lets examine something a bit more complicated: What if the function is in a submodule?</p>
 <div id="3c5ce0da" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="bu" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(ast.dump(ast.parse(<span class="st" style="color: #20794D;
 background-color: null;
@@ -754,7 +754,7 @@ font-style: inherit;">"baz.bar.foo(x, y)"</span>), indent<span class="op" style=
 background-color: null;
 font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">4</span>))</span></code></pre></div>
+font-style: inherit;">4</span>))</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Module(
     body=[
@@ -774,7 +774,7 @@ font-style: inherit;">4</span>))</span></code></pre></div>
 </div>
 <p>And even more nested?</p>
 <div id="a666b26f" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="bu" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(ast.dump(ast.parse(<span class="st" style="color: #20794D;
 background-color: null;
@@ -782,7 +782,7 @@ font-style: inherit;">"quack.baz.bar.foo(x, y)"</span>), indent<span class="op" 
 background-color: null;
 font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">4</span>))</span></code></pre></div>
+font-style: inherit;">4</span>))</span></code></pre></div></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Module(
     body=[
@@ -814,7 +814,7 @@ font-style: inherit;">4</span>))</span></code></pre></div>
 </ol>
 <p>We can do this using the <code>ast.NodeVisitor</code> class. Lets create a <code>FunctionNameCollector</code> class which inherits from <code>ast.NodeVisitor</code>. In the class, we define a <code>visit_Name</code> and <code>visit_Attribute</code> methods which are called every time we visit a <code>Name</code> or <code>Attribute</code> method respectively (more on this later).</p>
 <div id="69b93336" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">class</span> FunctionNameCollector(ast.NodeVisitor):</span>
@@ -918,7 +918,7 @@ font-weight: bold;
 font-style: inherit;">in</span> call_nodes:</span>
 <span id="cb13-20">    collector.visit(node.func)</span>
 <span id="cb13-21"></span>
-<span id="cb13-22">collector.names</span></code></pre></div>
+<span id="cb13-22">collector.names</span></code></pre></div></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>['foo', 'foo', 'foo', 'foo']</code></pre>
 </div>
@@ -938,7 +938,7 @@ font-style: inherit;">in</span> call_nodes:</span>
 </ol>
 <p>So the <code>visit_Name</code> method remains the same however, we do need to modify the <code>visit_Attribute</code> method such that it traverses all child nodes under <code>Attribute.value</code> until we hit the base case. Here is the modified code.</p>
 <div id="04290394" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">class</span> NameCollector(ast.NodeVisitor):</span>
@@ -1027,7 +1027,7 @@ font-weight: bold;
 font-style: inherit;">in</span> call_nodes:</span>
 <span id="cb15-18">    collector.visit(node.func)</span>
 <span id="cb15-19"></span>
-<span id="cb15-20">collector.names</span></code></pre></div>
+<span id="cb15-20">collector.names</span></code></pre></div></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>[(None, 'foo'), ('bar', 'foo'), ('baz', 'foo'), ('quack', 'foo')]</code></pre>
 </div>
@@ -1134,6 +1134,96 @@ Strezoski, Gjorgji, Arumoy Shome, Riccardo Bianchi, Shruti Rao, and Marcel Worri
   <pubDate>Sun, 17 Mar 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
+  <title>Organising research projects with git</title>
+  <dc:creator>Arumoy Shome</dc:creator>
+  <link>https://arumoy.me/blogs/organise-research-project-git/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>In this post I list some of the standards and conventions I have developed over the course of my PhD to organise research project data. I use git to version control the relevant files and host them on Github.</p>
+<section id="project-naming-convention" class="level1">
+<h1>Project naming convention</h1>
+<p>I name my research projects uniformly across all applications: file system, task management, Github, etc. I use the naming convention of <code>&lt;my-last-name&gt;&lt;project-start-year&gt;&lt;keyword&gt;</code>.</p>
+</section>
+<section id="project-directory-structure" class="level1">
+<h1>Project directory structure</h1>
+<p>My research projects have the following directory structure. Here is an example from a prior project I worked on:</p>
+<pre><code>~/phd/shome2022qualitative/
+├── bin
+├── data
+├── docs
+├── report
+├── src
+└── vendor
+    ├── biswas2021fair
+    └── zhang2021ignorance
+</code></pre>
+<p>Typically, research projects have several scripts for the data collection, data pre-processing, training ML models and running experiments. Put these scripts in the <code>bin/</code> directory. If you have a more mature code base, you can organise your files in the <code>src/</code> directory. This way your scripts in <code>bin/</code> are still able to import modules or helper functions from <code>src/</code>.</p>
+<p>Put all datasets for the project in the <code>data/</code> directory. I typically put existing datasets (such as benchmarks introduced in prior papers) and the data created during the course of the project in separate folders within the <code>data/</code> directory.</p>
+<p>If you have a simple static website consisting of html and css pages, put them in the <code>docs/</code> directory. Then you can use <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site">Github Pages</a> to serve your website.</p>
+<p>Put all your latex files, images and additional resources such as <code>*.cls</code> and <code>*.bst</code> files in the <code>report/</code> directory. You may write several papers that originate from the same core project idea. Name the latex files using the <code>&lt;conference-name&gt;&lt;year&gt;.tex</code> template. This prevents the need for duplicating all the accompanying files for each submission. Use version control to track the progress of your papers. For instance, use <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">git tags</a> to mark the major drafts and final submission. This makes it easy to retrieve prior versions of the paper if required.</p>
+<p>If replication packages from prior papers are available on git, use <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">git submodules</a> and put them in the <code>vendor/</code> directory. If they are hosted on other platforms such as Zenodo or Figshare, check in the source code files you need as reference. Use folders within <code>vendor/</code> to organise replication packages from multiple papers.</p>
+</section>
+<section id="recommendations-for-.gitignore-patterns" class="level1">
+<h1>Recommendations for <code>.gitignore</code> patterns</h1>
+<p>Github has <a href="https://github.com/github/gitignore">an excellent repository</a> of <code>.gitignore</code> patterns for various filetypes. Consider importing them into your own global <code>.gitignore</code> file (for instance, Latex and Python). At the project level, do not check in the pdf version of your papers since these are typically high churn files and git cannot produce meaningful diffs for binary files. Instead use the <code>latexmk</code> command to generate the pdf. You can also consider putting the command in a <code>Makefile</code> to reduce keystrokes.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">latexmk</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-pdf</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-outdir</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>report report/<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>your-paper<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span>.pdf</span></code></pre></div></div>
+<p>If you use Overleaf, <a href="https://www.overleaf.com/learn/how-to/Git_Integration_and_GitHub_Synchronization">connect your document to the Github project</a> so that everything remains in sync.</p>
+</section>
+<section id="recommendations-for-git-commit-messages" class="level1">
+<h1>Recommendations for git commit messages</h1>
+<p>Follow the general best practices for writing good git commit messages. I use the following template which was recommended by <a href="https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">Tim Pope</a>. You can also paste the following snippet into <code>~/.config/git/message</code>. Then the text is automatically displayed in your text editor, whenever you write a commit message. See <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration">the git configuration documentation</a> for more details.</p>
+<pre><code># 50-character subject line
+#
+# 72-character wrapped longer description. This should answer:
+#
+# * Why was this change necessary?
+# * How does it address the problem?
+# * Are there any side effects?
+#
+# Include a link to the ticket, if any.</code></pre>
+<section id="additionally-for-the-subject-line" class="level2">
+<h2 class="anchored" data-anchor-id="additionally-for-the-subject-line">Additionally for the subject line</h2>
+<p>For instance, say you want to commit a first draft of your paper. Use a subject line as follows:</p>
+<pre id="annotated-cell-4" class="code-annotation-code"><code>feat(report): init icse24 paper draft</code></pre>
+<p>Where <code>feat</code> is an abbreviation for “feature”. The braces specify the folder within which the changes were made, and the title provides a quick description of the change.</p>
+<p>In contrast, say you refactor the data processing pipeline script. The subject line could be as follows:</p>
+<pre><code>refac(bin): remove magic numbers in data-process.sh</code></pre>
+<p>This makes it very easy to track down prior commits that introduced changes in the paper versus in the code. For instance, you can target all refactoring commits within the <code>report/</code> directory using the following <code>git grep</code> command:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> log <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--grep</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'refac.*report.'</span></span></code></pre></div></div>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>research</category>
+  <category>productivity</category>
+  <guid>https://arumoy.me/blogs/organise-research-project-git/</guid>
+  <pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
   <title>Toggling background color in kitty and vim (yob)</title>
   <dc:creator>Arumoy Shome</dc:creator>
   <link>https://arumoy.me/blogs/yob/</link>
@@ -1150,7 +1240,7 @@ Strezoski, Gjorgji, Arumoy Shome, Riccardo Bianchi, Shruti Rao, and Marcel Worri
 <div class="code-with-filename-file">
 <pre><strong>yob</strong></pre>
 </div>
-<div class="sourceCode" id="annotated-cell-1" data-filename="yob" style="background: #f1f3f5;"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="yob" style="background: #f1f3f5;"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#!/usr/bin/env bash</span></span>
 <span id="annotated-cell-1-2"></span>
@@ -1560,7 +1650,7 @@ font-style: inherit;">"</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">$@</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div>
+font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div></div>
 </div>
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
@@ -1592,11 +1682,11 @@ font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></di
 <div class="code-with-filename-file">
 <pre><strong>~/.config/kitty/kitty.conf</strong></pre>
 </div>
-<div class="sourceCode" id="cb1" data-filename="~/.config/kitty/kitty.conf" style="background: #f1f3f5;"><pre class="sourceCode conf code-with-copy"><code class="sourceCode toml"><span id="cb1-1"><span class="dt" style="color: #AD0000;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="~/.config/kitty/kitty.conf" style="background: #f1f3f5;"><pre class="sourceCode conf code-with-copy"><code class="sourceCode toml"><span id="cb1-1"><span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">include</span> <span class="dt" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">current-theme.conf</span></span></code></pre></div>
+font-style: inherit;">current-theme.conf</span></span></code></pre></div></div>
 </div>
 </section>
 <section id="syncing-vim-colors-with-kitty" class="level1">
@@ -1642,96 +1732,6 @@ call AruAutoBackground()</code></pre>
   <pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>Organising research projects with git</title>
-  <dc:creator>Arumoy Shome</dc:creator>
-  <link>https://arumoy.me/blogs/organise-research-project-git/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>In this post I list some of the standards and conventions I have developed over the course of my PhD to organise research project data. I use git to version control the relevant files and host them on Github.</p>
-<section id="project-naming-convention" class="level1">
-<h1>Project naming convention</h1>
-<p>I name my research projects uniformly across all applications: file system, task management, Github, etc. I use the naming convention of <code>&lt;my-last-name&gt;&lt;project-start-year&gt;&lt;keyword&gt;</code>.</p>
-</section>
-<section id="project-directory-structure" class="level1">
-<h1>Project directory structure</h1>
-<p>My research projects have the following directory structure. Here is an example from a prior project I worked on:</p>
-<pre><code>~/phd/shome2022qualitative/
-├── bin
-├── data
-├── docs
-├── report
-├── src
-└── vendor
-    ├── biswas2021fair
-    └── zhang2021ignorance
-</code></pre>
-<p>Typically, research projects have several scripts for the data collection, data pre-processing, training ML models and running experiments. Put these scripts in the <code>bin/</code> directory. If you have a more mature code base, you can organise your files in the <code>src/</code> directory. This way your scripts in <code>bin/</code> are still able to import modules or helper functions from <code>src/</code>.</p>
-<p>Put all datasets for the project in the <code>data/</code> directory. I typically put existing datasets (such as benchmarks introduced in prior papers) and the data created during the course of the project in separate folders within the <code>data/</code> directory.</p>
-<p>If you have a simple static website consisting of html and css pages, put them in the <code>docs/</code> directory. Then you can use <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site">Github Pages</a> to serve your website.</p>
-<p>Put all your latex files, images and additional resources such as <code>*.cls</code> and <code>*.bst</code> files in the <code>report/</code> directory. You may write several papers that originate from the same core project idea. Name the latex files using the <code>&lt;conference-name&gt;&lt;year&gt;.tex</code> template. This prevents the need for duplicating all the accompanying files for each submission. Use version control to track the progress of your papers. For instance, use <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">git tags</a> to mark the major drafts and final submission. This makes it easy to retrieve prior versions of the paper if required.</p>
-<p>If replication packages from prior papers are available on git, use <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">git submodules</a> and put them in the <code>vendor/</code> directory. If they are hosted on other platforms such as Zenodo or Figshare, check in the source code files you need as reference. Use folders within <code>vendor/</code> to organise replication packages from multiple papers.</p>
-</section>
-<section id="recommendations-for-.gitignore-patterns" class="level1">
-<h1>Recommendations for <code>.gitignore</code> patterns</h1>
-<p>Github has <a href="https://github.com/github/gitignore">an excellent repository</a> of <code>.gitignore</code> patterns for various filetypes. Consider importing them into your own global <code>.gitignore</code> file (for instance, Latex and Python). At the project level, do not check in the pdf version of your papers since these are typically high churn files and git cannot produce meaningful diffs for binary files. Instead use the <code>latexmk</code> command to generate the pdf. You can also consider putting the command in a <code>Makefile</code> to reduce keystrokes.</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">latexmk</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-pdf</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-outdir</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>report report/<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;</span>your-paper<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span>.pdf</span></code></pre></div>
-<p>If you use Overleaf, <a href="https://www.overleaf.com/learn/how-to/Git_Integration_and_GitHub_Synchronization">connect your document to the Github project</a> so that everything remains in sync.</p>
-</section>
-<section id="recommendations-for-git-commit-messages" class="level1">
-<h1>Recommendations for git commit messages</h1>
-<p>Follow the general best practices for writing good git commit messages. I use the following template which was recommended by <a href="https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">Tim Pope</a>. You can also paste the following snippet into <code>~/.config/git/message</code>. Then the text is automatically displayed in your text editor, whenever you write a commit message. See <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration">the git configuration documentation</a> for more details.</p>
-<pre><code># 50-character subject line
-#
-# 72-character wrapped longer description. This should answer:
-#
-# * Why was this change necessary?
-# * How does it address the problem?
-# * Are there any side effects?
-#
-# Include a link to the ticket, if any.</code></pre>
-<section id="additionally-for-the-subject-line" class="level2">
-<h2 class="anchored" data-anchor-id="additionally-for-the-subject-line">Additionally for the subject line</h2>
-<p>For instance, say you want to commit a first draft of your paper. Use a subject line as follows:</p>
-<pre id="annotated-cell-4" class="code-annotation-code"><code>feat(report): init icse24 paper draft</code></pre>
-<p>Where <code>feat</code> is an abbreviation for “feature”. The braces specify the folder within which the changes were made, and the title provides a quick description of the change.</p>
-<p>In contrast, say you refactor the data processing pipeline script. The subject line could be as follows:</p>
-<pre><code>refac(bin): remove magic numbers in data-process.sh</code></pre>
-<p>This makes it very easy to track down prior commits that introduced changes in the paper versus in the code. For instance, you can target all refactoring commits within the <code>report/</code> directory using the following <code>git grep</code> command:</p>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">git</span> log <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--grep</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'refac.*report.'</span></span></code></pre></div>
-
-
-</section>
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>research</category>
-  <category>productivity</category>
-  <guid>https://arumoy.me/blogs/organise-research-project-git/</guid>
-  <pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate>
-</item>
-<item>
   <title>Managing Scientific Bibliography using Emacs Org-mode</title>
   <dc:creator>Arumoy Shome</dc:creator>
   <link>https://arumoy.me/blogs/bibliography-management-orgmode/</link>
@@ -1748,7 +1748,7 @@ font-style: inherit;">'refac.*report.'</span></span></code></pre></div>
 <div class="code-with-filename-file">
 <pre><strong>bib.org</strong></pre>
 </div>
-<div class="sourceCode" id="cb1" data-filename="bib.org" style="background: #f1f3f5;"><pre class="sourceCode org code-with-copy"><code class="sourceCode orgmode"><span id="cb1-1">#+title: Bibliography</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="bib.org" style="background: #f1f3f5;"><pre class="sourceCode org code-with-copy"><code class="sourceCode orgmode"><span id="cb1-1">#+title: Bibliography</span>
 <span id="cb1-2">#+tags: test viz data self notebook survey</span>
 <span id="cb1-3">#+tags: <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -1814,7 +1814,7 @@ font-style: inherit;">- </span>State "DONE"       from "TODO"       [2022-09-19 
 <span id="cb1-40">  archiveprefix = {arXiv},</span>
 <span id="cb1-41">  primaryclass  = {cs.SE}</span>
 <span id="cb1-42">}</span>
-<span id="cb1-43">#+end_src</span></code></pre></div>
+<span id="cb1-43">#+end_src</span></code></pre></div></div>
 </div>
 </section>
 <section id="retrieving-bibtex-information-from-crossref" class="level1">
@@ -1827,7 +1827,7 @@ font-style: inherit;">- </span>State "DONE"       from "TODO"       [2022-09-19 
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Scientific Paper Discovery
+<span class="screen-reader-only">Tip</span>Scientific Paper Discovery
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1840,7 +1840,7 @@ Scientific Paper Discovery
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-doi2bib
+<span class="screen-reader-only">Tip</span>doi2bib
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1855,10 +1855,10 @@ doi2bib
 <div class="code-with-filename-file">
 <pre><strong>bib.txt</strong></pre>
 </div>
-<div class="sourceCode" id="cb2" data-filename="bib.txt" style="background: #f1f3f5;"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb2-1">* %?</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="bib.txt" style="background: #f1f3f5;"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb2-1">* %?</span>
 <span id="cb2-2"></span>
 <span id="cb2-3">#+begin_src bibtex</span>
-<span id="cb2-4">#+end_src</span></code></pre></div>
+<span id="cb2-4">#+end_src</span></code></pre></div></div>
 </div>
 <p>I have the following org-capture configuration in my init.el file.</p>
 <div class="code-with-filename">
@@ -1877,7 +1877,7 @@ doi2bib
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Evil Mode
+<span class="screen-reader-only">Note</span>Evil Mode
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1943,7 +1943,7 @@ Evil Mode
 <div class="code-with-filename-file">
 <pre><strong>doi2bib</strong></pre>
 </div>
-<div class="sourceCode" id="annotated-cell-1" data-filename="doi2bib" style="background: #f1f3f5;"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="doi2bib" style="background: #f1f3f5;"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#!/usr/bin/env python3</span></span>
 <span id="annotated-cell-1-2"></span>
@@ -2117,7 +2117,7 @@ background-color: null;
 font-style: inherit;">=</span> get_bibtex(args.doi, args.preprint)</span>
 <span id="annotated-cell-1-40">    <span class="bu" style="color: null;
 background-color: null;
-font-style: inherit;">print</span>(bibtex)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div>
+font-style: inherit;">print</span>(bibtex)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div></div>
 </div>
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
@@ -2144,7 +2144,7 @@ key.format="%-1n(author)%4d(year)%-T(title)"</code></pre>
 </div>
 <p>By default, bibtool uses tabs for indentation. I turn this off. Bibtool adds “.ea” to the author name to indicate “and others”. I prefer to just have the last name of the first author in the key, so I set it to an empty string. I set the format of the key to the last name of the first author, followed by the year of publication and the first meaningful word from the title.</p>
 <p>Here is the script in action, I use one of my own publications as an example.</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">$</span> doi2bib 10.1145/3522664.3528621 <span class="kw" style="color: #003B4F;
 background-color: null;
@@ -2193,9 +2193,9 @@ background-color: null;
 font-style: inherit;">collection</span>    = {CAIN ’22}</span>
 <span id="cb2-15"><span class="er" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">}</span></span></code></pre></div>
+font-style: inherit;">}</span></span></code></pre></div></div>
 <p>And here is another example using an Arxiv ID (again, one of my own).</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">$</span> doi2bib <span class="at" style="color: #657422;
 background-color: null;
@@ -2234,7 +2234,7 @@ background-color: null;
 font-style: inherit;">primaryclass</span>  = {cs.SE}</span>
 <span id="cb3-11"><span class="er" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">}</span></span></code></pre></div>
+font-style: inherit;">}</span></span></code></pre></div></div>
 
 
 
@@ -2260,7 +2260,7 @@ font-style: inherit;">}</span></span></code></pre></div>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Migrated to Quarto
+<span class="screen-reader-only">Important</span>Migrated to Quarto
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2279,7 +2279,7 @@ Migrated to Quarto
 <div class="code-with-filename-file">
 <pre><strong>my-new-blog.md</strong></pre>
 </div>
-<div class="sourceCode" id="cb2" data-filename="my-new-blog.md" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><span class="pp" style="color: #AD0000;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="my-new-blog.md" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><span class="pp" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">---</span></span>
 <span id="cb2-2"><span class="fu" style="color: #4758AB;
@@ -2318,14 +2318,14 @@ font-style: inherit;">|</span></span>
 <span id="cb2-7">    index page automatically! Read on to learn how I do this.</span>
 <span id="cb2-8"><span class="pp" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">---</span></span></code></pre></div>
+font-style: inherit;">---</span></span></code></pre></div></div>
 </div>
 <p>Although the naming convention is clear, writing it is a bit cumbersome. Note that I also need to write the same information twice—once within the file in the yaml metadata, and again when naming the file. To reduce chances of human error, and make my life a bit easier, I automate the process of creating a new post using the following python script.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>bin/new</strong></pre>
 </div>
-<div class="sourceCode" id="annotated-cell-3" data-filename="bin/new" style="background: #f1f3f5;"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-3-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-3" data-filename="bin/new" style="background: #f1f3f5;"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#!/usr/bin/env python3</span></span>
 <span id="annotated-cell-3-2"></span>
@@ -2705,7 +2705,7 @@ font-style: inherit;">{</span>FILE<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
-font-style: inherit;"> created"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div>
+font-style: inherit;"> created"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div></div>
 </div>
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
@@ -2731,7 +2731,7 @@ font-style: inherit;"> created"</span>)</span><div class="code-annotation-gutter
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Python argparse
+<span class="screen-reader-only">Tip</span>Python argparse
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2749,7 +2749,7 @@ Python argparse
 <div class="code-with-filename-file">
 <pre><strong>bin/create-indices</strong></pre>
 </div>
-<div class="sourceCode" id="annotated-cell-4" data-filename="bin/create-indices" style="background: #f1f3f5;"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-4-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-4" data-filename="bin/create-indices" style="background: #f1f3f5;"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-4-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#!/usr/bin/env bash</span></span>
 <span id="annotated-cell-4-2"></span>
@@ -2977,7 +2977,7 @@ font-style: inherit;">"</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">$TMP</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div>
+font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div></div>
 </div>
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
@@ -3014,7 +3014,7 @@ $endif$</code></pre>
 <div class="code-with-filename-file">
 <pre><strong>bin/publish</strong></pre>
 </div>
-<div class="sourceCode" id="cb4" data-filename="bin/publish" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-filename="bin/publish" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#!/usr/bin/env bash</span></span>
 <span id="cb4-2"></span>
@@ -3092,7 +3092,7 @@ font-style: inherit;">"</span></span>
 <span id="cb4-6">  <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
-font-style: inherit;">done</span></span></code></pre></div>
+font-style: inherit;">done</span></span></code></pre></div></div>
 </div>
 <p>The script finds all markdown files in the relevant directories, and converts them to html using pandoc. I use a custom template once again which includes some custom css and fonts of my choice.</p>
 <p>Finally, to automate the entire build process I use GNU make. I have a single <code>all</code> target which simply runs the <code>create-indices</code> and <code>publish</code> scripts in the right order.</p>
@@ -3242,7 +3242,7 @@ Figure&nbsp;5: Data Validation How
 <div class="code-with-filename-file">
 <pre><strong>csv2schema.py</strong></pre>
 </div>
-<div class="sourceCode" id="cb1" data-filename="csv2schema.py" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="csv2schema.py" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#!/usr/bin/env python</span></span>
 <span id="cb1-2"></span>
@@ -3341,7 +3341,7 @@ font-style: inherit;">'.proto'</span>))</span>
 background-color: null;
 font-style: inherit;">+</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'.proto'</span>))</span></code></pre></div>
+font-style: inherit;">'.proto'</span>))</span></code></pre></div></div>
 </div>
 <p>The script accepts as argument a valid csv file (we assume that the file names are pruned and do not contain a period character within the name, but only to denote the extension). We read the file as a pandas dataframe, generate the statistics using <code>tfdv.generate_statistics_from_dataframe</code> function and infer a schema which is stored on disk for later analysis.</p>
 <p>Following is the bash shellscript wrapper which executes the python script presented above across several datasets using the <code>find</code> command. You may have to experiment with the <code>-P</code> flag which specifies the number of cores to distribute the execution across.</p>
@@ -3349,7 +3349,7 @@ font-style: inherit;">'.proto'</span>))</span></code></pre></div>
 <div class="code-with-filename-file">
 <pre><strong>"csv2schema.bash</strong></pre>
 </div>
-<div class="sourceCode" id="cb2" data-filename="&quot;csv2schema.bash" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="&quot;csv2schema.bash" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#!/usr/bin/env bash</span></span>
 <span id="cb2-2"></span>
@@ -3379,7 +3379,7 @@ font-style: inherit;">xargs</span> <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">-n</span> 1 <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">-P</span> 4 ./bin/write-schema.py</span></code></pre></div>
+font-style: inherit;">-P</span> 4 ./bin/write-schema.py</span></code></pre></div></div>
 </div>
 <p>That’s all there is to it! Write your main script with one file in mind, and distribute across several files using a combination of <code>find</code> and <code>xargs</code>.</p>
 
@@ -3589,7 +3589,7 @@ Figure&nbsp;8: Strings in human-friendly formats
 <div class="code-with-filename-file">
 <pre><strong>~/.emacs.d/init.el</strong></pre>
 </div>
-<div class="sourceCode" id="cb1" data-filename="~/.emacs.d/init.el" style="background: #f1f3f5;"><pre class="sourceCode lisp code-with-copy"><code class="sourceCode commonlisp"><span id="cb1-1">(<span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="~/.emacs.d/init.el" style="background: #f1f3f5;"><pre class="sourceCode lisp code-with-copy"><code class="sourceCode commonlisp"><span id="cb1-1">(<span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">setq</span> org-publish-project-alist</span>
@@ -3725,7 +3725,7 @@ font-style: inherit;">"website-posts"</span> <span class="st" style="color: #207
 background-color: null;
 font-style: inherit;">"website-static"</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"website-cname"</span>))))</span></code></pre></div>
+font-style: inherit;">"website-cname"</span>))))</span></code></pre></div></div>
 </div>
 <p>Since org-publish wipes the <code>:publishing-directory</code> clean prior to each build, I copy the <code>CNAME</code> file back in there.</p>
 <p>I was very pleased with its simplicity and its text-centric nature. The fact that it just worked out of the box was a pleasant surprise. However this intricate setup only worked in Emacs and this did not sit well with me. So I decided to find a more universal solution and landed on <a href="https://pandoc.org/">Pandoc</a>.</p>
@@ -3779,7 +3779,7 @@ clean:
 <div class="code-with-filename-file">
 <pre><strong>today</strong></pre>
 </div>
-<div class="sourceCode" id="cb1" data-filename="today" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="today" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#!/usr/bin/env bash</span></span>
 <span id="cb1-2"></span>
@@ -4151,7 +4151,7 @@ font-style: inherit;">"</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">$@</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"</span></span></code></pre></div>
+font-style: inherit;">"</span></span></code></pre></div></div>
 </div>
 <p>Without any arguments, <code>today</code> prints the date in ‘%Y-%m-%d’ format. Using the following optional flags the output can be manipulated.</p>
 <table class="caption-top table">
@@ -4182,7 +4182,7 @@ font-style: inherit;">"</span></span></code></pre></div>
 </table>
 <p>The <code>--stamp</code> flag can be used to optionally wrap the output in square braces.</p>
 <p>I frequently use this to add a timestamp to my git commit messages.</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">git</span> commit <span class="at" style="color: #657422;
 background-color: null;
@@ -4200,7 +4200,7 @@ font-style: inherit;">-s</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">)</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"</span></span></code></pre></div>
+font-style: inherit;">"</span></span></code></pre></div></div>
 <p>Or insert a timestamp into the current buffer I am editing in vim.</p>
 <pre class="vim"><code>:r! today -l -s</code></pre>
 
@@ -4229,7 +4229,7 @@ font-style: inherit;">"</span></span></code></pre></div>
 <div class="code-with-filename-file">
 <pre><strong>aims</strong></pre>
 </div>
-<div class="sourceCode" id="annotated-cell-1" data-filename="aims" style="background: #f1f3f5;"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="aims" style="background: #f1f3f5;"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#!/usr/bin/env bash</span></span>
 <span id="annotated-cell-1-2"></span>
@@ -4646,7 +4646,7 @@ font-style: inherit;">"</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">$@</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div>
+font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div></div>
 </div>
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
@@ -4676,7 +4676,7 @@ font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></di
 <div class="code-with-filename-file">
 <pre><strong>~/.local/share/aims/default</strong></pre>
 </div>
-<div class="sourceCode" id="annotated-cell-2" data-filename="~/.local/share/aims/default" style="background: #f1f3f5;"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-2-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-2" data-filename="~/.local/share/aims/default" style="background: #f1f3f5;"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#!/usr/bin/env bash</span></span>
 <span id="annotated-cell-2-2"></span>
@@ -4733,7 +4733,7 @@ font-style: inherit;">]"</span> <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;&gt;</span> <span class="va" style="color: #111111;
 background-color: null;
-font-style: inherit;">$1</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div>
+font-style: inherit;">$1</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div></div>
 </div>
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
@@ -4759,7 +4759,7 @@ Tip
 <p><a href="../aocp">I also wrote aocp.el</a>, an emacs package to capture bibtex information of research papers using org-mode.</p>
 </div>
 </div>
-<div class="sourceCode" id="annotated-cell-3" style="background: #f1f3f5;"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-3-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-3" style="background: #f1f3f5;"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#!/usr/bin/env bash</span></span>
 <span id="annotated-cell-3-2"></span>
@@ -5068,7 +5068,7 @@ font-style: inherit;">"</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">$1</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div>
+font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div></div>
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
 <dd>
@@ -5461,7 +5461,7 @@ Figure&nbsp;10: Lifecycle of PPDL
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-aocp.el
+<span class="screen-reader-only">Tip</span>aocp.el
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -5478,9 +5478,9 @@ aocp.el
 <p>Using <a href="https://orgmode.org/manual/Publishing.html">org-publish</a>, we can run a website from within emacs.</p>
 <p>Org does <a href="https://orgmode.org/manual/Tables.html">tables</a> and <a href="https://orgmode.org/manual/Images.html">images</a>!</p>
 <p>We can write arbitrary pieces of code within org documents, use <a href="https://orgmode.org/worg/org-contrib/babel/">org-babel</a> to execute them and <a href="https://orgmode.org/manual/Extracting-Source-Code.html">org-tangle</a> to extract and create a source code file.</p>
-<div class="sourceCode" id="cb1" data-org-language="emacs-lisp" style="background: #f1f3f5;"><pre class="sourceCode commonlisp code-with-copy"><code class="sourceCode commonlisp"><span id="cb1-1">(message <span class="st" style="color: #20794D;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-org-language="emacs-lisp" style="background: #f1f3f5;"><pre class="sourceCode commonlisp code-with-copy"><code class="sourceCode commonlisp"><span id="cb1-1">(message <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Hello SERG from org-mode!"</span>)</span></code></pre></div>
+font-style: inherit;">"Hello SERG from org-mode!"</span>)</span></code></pre></div></div>
 <p>Since we can mix text and code in org documents, it becomes trivial to document experiments - complete with code snippets - which are reproducible. In fact, org is a popular choice within the community to document their emacs config. Yes, org-mode is basically Jupyter notebooks in plaintext!</p>
 <p>And the list goes on. Refer to the <a href="https://orgmode.org/manual/">org manual</a> for an exhaustive list of what org can do.</p>
 </section>
