@@ -4,12 +4,11 @@ subtitle: PhD Candidate | Data Science, Software Engineering & Research
 abstract: |
   5+ years of experience in
   large-scale data mining, machine learning and software engineering.
-  Led 4 end-to-end research projects from ideation to publication (does industry care?)
+  Led 4 end-to-end research projects from ideation to publication
   and pioneered 3 frameworks to improve the MLOps workflow.
   Hands-on in Python,
   large-scale data mining,
   and machine learning.
-  In possession of a valid work permit.
 abstract-title: Professional Summary
 ---
 
