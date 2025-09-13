@@ -2,6 +2,16 @@ project:
   type: website
 
 website:
+  announcement:
+    icon: info-circle
+    dismissable: false
+    content: |
+      **I’m on the lookout for full-time Data Science (or similar) positions.
+      If you have any leads or just want to chat, [feel free to reach
+      out](mailto:contact@arumoy.me)! [Here’s my resume](resume.html) if you’re interested in
+      checking it out. Thanks a bunch!** 😊
+    type: warning
+    position: below-navbar
   title: "Arumoy Shome"
   site-url: "https://arumoy.me"
   description: "Arumoy Shome's Website"
@@ -34,6 +44,7 @@ website:
         href: https://linkedin.com/in/arumoyshome
 format:
   html:
+    email-obfuscation: javascript
     theme: cosmo
     css: styles.css
 bibliography: bibliography.bib
