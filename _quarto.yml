@@ -52,6 +52,7 @@ reference-location: margin
 citation-location: margin
 resources:
   - CNAME
+  - resume.pdf
 code-annotations: hover
 execute:
   freeze: auto
