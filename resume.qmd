@@ -1,14 +1,17 @@
 ---
 title: Arumoy Shome
-subtitle: PhD Candidate | Software Engineering for AI
+subtitle: Data Scientist and Software Engineer
 abstract: |
-  5+ years of experience in
-  data science and software engineering.
-  Led 4 end-to-end projects
-  and pioneered 3 frameworks to improve the MLOps workflow.
+  Data Scientist and Software Engineer with 5+ years of experience at Delft
+  University of Technology, Netherlands,
+  and prior web development experience at
+  Shopify, Canada.
+  Led four end-to-end projects
+  and pioneered three frameworks to improve the MLOps workflow.
   Hands-on in Python,
   large-scale data mining,
   and machine learning.
+  Authorized to work without sponsorship.
 abstract-title: Professional Summary
 format:
   html:
@@ -42,7 +45,7 @@ format:
 
 # Professional Experience
 
-**PhD Candidate | Data Science**, [Delft University of
+**Data Science (PhD Candidate)**, [Delft University of
 Technology](https://www.tudelft.nl/en/), **Delft, Netherlands**, *2021-2025*
 
 + Developed large-scale data mining pipeline to process 297,800 Jupyter
@@ -68,7 +71,7 @@ Technology](https://www.tudelft.nl/en/), **Delft, Netherlands**, *2021-2025*
   academic and industry audiences. Translated technical concepts into
   actionable insights for diverse stakeholders.
 
-**Research Intern | Data Science**, [Netherlands eScience
+**Data Science (Research Intern)**, [Netherlands eScience
 Centre](https://www.esciencecenter.nl/), **Amsterdam, Netherlands**,
 *2019-2020*
 
@@ -83,7 +86,7 @@ Centre](https://www.esciencecenter.nl/), **Amsterdam, Netherlands**,
   GPU engineers, and computer scientists, translating complex AI requirements
   into practical implementations.
 
-**Web Developer Intern | Software Engineering**,
+**Web Developer Intern**,
 [Shopify](https://shopify.com), **Ottawa, Canada**,
 *2015-2016*
 
