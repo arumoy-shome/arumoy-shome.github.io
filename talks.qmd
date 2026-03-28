@@ -10,7 +10,6 @@ listing:
   feed: false
 page-layout: full
 title-block-banner: true
-
 ---
 
 Following is a list of public talks I have given in the past.
