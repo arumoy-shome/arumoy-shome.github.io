@@ -10,7 +10,7 @@
 <atom:link href="https://arumoy.me/blogs.xml" rel="self" type="application/rss+xml"/>
 <description>Arumoy Shome&#39;s Website</description>
 <generator>quarto-1.8.26</generator>
-<lastBuildDate>Thu, 28 Nov 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 27 Nov 2024 23:00:00 GMT</lastBuildDate>
 <item>
   <title>Renaming files so they make sense (rename)</title>
   <dc:creator>Arumoy Shome</dc:creator>
@@ -417,7 +417,7 @@ font-style: inherit;">--force</span></span></code></pre></div></div>
   <category>shell</category>
   <category>python</category>
   <guid>https://arumoy.me/blogs/rename/</guid>
-  <pubDate>Thu, 28 Nov 2024 00:00:00 GMT</pubDate>
+  <pubDate>Wed, 27 Nov 2024 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Generating tags for git repositories (mytags)</title>
@@ -641,7 +641,7 @@ font-style: inherit;">)</span></span><div class="code-annotation-gutter-bg"></di
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>shell</category>
   <guid>https://arumoy.me/blogs/mytags/</guid>
-  <pubDate>Sun, 17 Nov 2024 00:00:00 GMT</pubDate>
+  <pubDate>Sat, 16 Nov 2024 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Extracting the Module and Function Names from Python ASTs</title>
@@ -1042,7 +1042,7 @@ font-style: inherit;">in</span> call_nodes:</span>
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>python</category>
   <guid>https://arumoy.me/blogs/python-ast-extract-module-method-names/</guid>
-  <pubDate>Sat, 23 Mar 2024 00:00:00 GMT</pubDate>
+  <pubDate>Fri, 22 Mar 2024 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Visualisation Zoo</title>
@@ -1131,7 +1131,7 @@ Strezoski, Gjorgji, Arumoy Shome, Riccardo Bianchi, Shruti Rao, and Marcel Worri
   <category>python</category>
   <category>design</category>
   <guid>https://arumoy.me/blogs/visualisation-zoo/</guid>
-  <pubDate>Sun, 17 Mar 2024 00:00:00 GMT</pubDate>
+  <pubDate>Sat, 16 Mar 2024 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Organising research projects with git</title>
@@ -1221,7 +1221,7 @@ font-style: inherit;">'refac.*report.'</span></span></code></pre></div></div>
   <category>research</category>
   <category>productivity</category>
   <guid>https://arumoy.me/blogs/organise-research-project-git/</guid>
-  <pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate>
+  <pubDate>Thu, 18 Jan 2024 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Toggling background color in kitty and vim (yob)</title>
@@ -1729,7 +1729,7 @@ call AruAutoBackground()</code></pre>
   <category>shell</category>
   <category>vim</category>
   <guid>https://arumoy.me/blogs/yob/</guid>
-  <pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate>
+  <pubDate>Thu, 18 Jan 2024 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Managing Scientific Bibliography using Emacs Org-mode</title>
@@ -1926,7 +1926,7 @@ font-style: inherit;">- </span>State "DONE"       from "TODO"       [2022-09-19 
   <category>emacs</category>
   <category>productivity</category>
   <guid>https://arumoy.me/blogs/bibliography-management-orgmode/</guid>
-  <pubDate>Wed, 29 Nov 2023 00:00:00 GMT</pubDate>
+  <pubDate>Tue, 28 Nov 2023 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Automatically retrieving Bibtex information from DOI</title>
@@ -1938,7 +1938,7 @@ font-style: inherit;">- </span>State "DONE"       from "TODO"       [2022-09-19 
 
 
 
-<p><code>doi2bib</code> is a simple Python script I wrote to automatically retrieve bibtex information for a given DOI. The script queries Crossref to obtain the bibtex. The script can also handle pre-prints published on Arxiv. Here is the content of <code>doi2bib</code> along with some explaination of what the script does.</p>
+<p><code>doi2bib</code> is a simple Python script I wrote to automatically retrieve bibtex information for a given DOI. The script queries Crossref to obtain the bibtex. The script can also handle pre-prints published on Arxiv. Here is the content of <code>doi2bib</code> along with some explanation of what the script does.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>doi2bib</strong></pre>
@@ -2242,7 +2242,7 @@ font-style: inherit;">}</span></span></code></pre></div></div>
   <category>shell</category>
   <category>productivity</category>
   <guid>https://arumoy.me/blogs/doi2bib/</guid>
-  <pubDate>Sun, 26 Nov 2023 00:00:00 GMT</pubDate>
+  <pubDate>Sat, 25 Nov 2023 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>CMS using Pandoc and Friends</title>
@@ -3117,7 +3117,7 @@ font-style: inherit;">done</span></span></code></pre></div></div>
   <category>shell</category>
   <category>web</category>
   <guid>https://arumoy.me/blogs/cms-pandoc/</guid>
-  <pubDate>Fri, 03 Feb 2023 00:00:00 GMT</pubDate>
+  <pubDate>Thu, 02 Feb 2023 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Data Validation with TFDV</title>
@@ -3224,7 +3224,7 @@ Figure&nbsp;5: Data Validation How
   <category>research</category>
   <category>SE4AI</category>
   <guid>https://arumoy.me/blogs/remla-data-validation/</guid>
-  <pubDate>Mon, 16 May 2022 00:00:00 GMT</pubDate>
+  <pubDate>Sun, 15 May 2022 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Effortless Parallel Execution with xargs &amp; Friends</title>
@@ -3388,7 +3388,7 @@ font-style: inherit;">-P</span> 4 ./bin/write-schema.py</span></code></pre></div
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>shell</category>
   <guid>https://arumoy.me/blogs/effortless-parallel-execution-xargs/</guid>
-  <pubDate>Sun, 08 May 2022 00:00:00 GMT</pubDate>
+  <pubDate>Sat, 07 May 2022 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Data Smells in Public Datasets</title>
@@ -3569,7 +3569,7 @@ Figure&nbsp;8: Strings in human-friendly formats
   <category>SE4AI</category>
   <category>technical debt</category>
   <guid>https://arumoy.me/blogs/data-smells-public-datasets/</guid>
-  <pubDate>Wed, 04 May 2022 00:00:00 GMT</pubDate>
+  <pubDate>Tue, 03 May 2022 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>There and Back Again A Tale of Website Management</title>
@@ -3761,7 +3761,7 @@ clean:
   <category>vim</category>
   <category>web</category>
   <guid>https://arumoy.me/blogs/website-management-pandoc/</guid>
-  <pubDate>Fri, 04 Mar 2022 00:00:00 GMT</pubDate>
+  <pubDate>Thu, 03 Mar 2022 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Timestamps in the Shell (today)</title>
@@ -4210,7 +4210,7 @@ font-style: inherit;">"</span></span></code></pre></div></div>
   <category>shell</category>
   <category>productivity</category>
   <guid>https://arumoy.me/blogs/today/</guid>
-  <pubDate>Thu, 03 Mar 2022 00:00:00 GMT</pubDate>
+  <pubDate>Wed, 02 Mar 2022 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Aru’s Information Management System (AIMS)</title>
@@ -5091,7 +5091,7 @@ font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></di
   <category>shell</category>
   <category>productivity</category>
   <guid>https://arumoy.me/blogs/aims/</guid>
-  <pubDate>Mon, 28 Feb 2022 00:00:00 GMT</pubDate>
+  <pubDate>Sun, 27 Feb 2022 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Privacy Preserving Deep Learning</title>
@@ -5331,7 +5331,7 @@ Figure&nbsp;10: Lifecycle of PPDL
   <category>research</category>
   <category>privacy</category>
   <guid>https://arumoy.me/blogs/privacy-preserving-deep-learning/</guid>
-  <pubDate>Tue, 07 Sep 2021 00:00:00 GMT</pubDate>
+  <pubDate>Mon, 06 Sep 2021 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Research Workflow in Plaintext</title>
@@ -5513,7 +5513,7 @@ font-style: inherit;">"Hello SERG from org-mode!"</span>)</span></code></pre></d
   <category>emacs</category>
   <category>research</category>
   <guid>https://arumoy.me/blogs/research-workflow-plaintext/</guid>
-  <pubDate>Mon, 12 Jul 2021 00:00:00 GMT</pubDate>
+  <pubDate>Sun, 11 Jul 2021 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Aru’s Org Capture Template (aocp.el)</title>
@@ -5566,7 +5566,7 @@ font-style: inherit;">"Hello SERG from org-mode!"</span>)</span></code></pre></d
   <category>emacs</category>
   <category>productivity</category>
   <guid>https://arumoy.me/blogs/aocp/</guid>
-  <pubDate>Wed, 16 Jun 2021 00:00:00 GMT</pubDate>
+  <pubDate>Tue, 15 Jun 2021 22:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

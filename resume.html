@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Arumoy Shome">
-<meta name="dcterms.date" content="2024-01-19">
 
-<title>Organising research projects with git – Arumoy Shome</title>
+<title>Arumoy Shome</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,62 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6366b8537f22fe2521dbe9c1a8a1a9f2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-6366b8537f22fe2521dbe9c1a8a1a9f2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -107,17 +70,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Arumoy Shome</span>
     </a>
   </div>
@@ -128,25 +91,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../blogs.html"> 
+    <a class="nav-link" href="./blogs.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../talks.html"> 
+    <a class="nav-link" href="./talks.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../publications.html"> 
+    <a class="nav-link" href="./publications.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../license.html"> 
+    <a class="nav-link" href="./license.html"> 
 <span class="menu-text">License</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="../../blogs.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="./blogs.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -177,127 +140,119 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 h='&#x61;&#114;&#x75;&#x6d;&#x6f;&#x79;&#46;&#x6d;&#x65;';a='&#64;';n='&#x63;&#x6f;&#110;&#116;&#x61;&#x63;&#116;';e=n+a+h;
 document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'&#102;&#x65;&#x65;&#108;&#32;&#102;&#114;&#x65;&#x65;&#32;&#116;&#x6f;&#32;&#114;&#x65;&#x61;&#x63;&#104;&#32;&#x6f;&#x75;&#116;'+'<\/'+'a'+'>');
 // -->
-</script><noscript>feel free to reach out (contact at arumoy dot me)</noscript>! <a href="../../resume.html">Here’s my resume</a> if you’re interested in checking it out. Thanks a bunch!</strong> 😊</p>
+</script><noscript>feel free to reach out (contact at arumoy dot me)</noscript>! <a href="./resume.html">Here’s my resume</a> if you’re interested in checking it out. Thanks a bunch!</strong> 😊</p>
 </div></div>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Organising research projects with git</h1>
-                                <div class="quarto-categories">
-                <div class="quarto-category">research</div>
-                <div class="quarto-category">productivity</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Arumoy Shome </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">January 19, 2024</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  <div>
-    <div class="abstract">
-      <div class="block-title">Abstract</div>
-      <p>Some standards and conventions I follow when organising research project data using git.</p>
-    </div>
-  </div>
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#project-naming-convention" id="toc-project-naming-convention" class="nav-link active" data-scroll-target="#project-naming-convention">Project naming convention</a></li>
-  <li><a href="#project-directory-structure" id="toc-project-directory-structure" class="nav-link" data-scroll-target="#project-directory-structure">Project directory structure</a></li>
-  <li><a href="#recommendations-for-.gitignore-patterns" id="toc-recommendations-for-.gitignore-patterns" class="nav-link" data-scroll-target="#recommendations-for-.gitignore-patterns">Recommendations for <code>.gitignore</code> patterns</a></li>
-  <li><a href="#recommendations-for-git-commit-messages" id="toc-recommendations-for-git-commit-messages" class="nav-link" data-scroll-target="#recommendations-for-git-commit-messages">Recommendations for git commit messages</a>
-  <ul class="collapse">
-  <li><a href="#additionally-for-the-subject-line" id="toc-additionally-for-the-subject-line" class="nav-link" data-scroll-target="#additionally-for-the-subject-line">Additionally for the subject line</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Arumoy Shome</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">Professional Summary</div>
+    <p>Data Scientist and Software Engineer with 5+ years of experience at Delft University of Technology, Netherlands, and prior web development experience at Shopify, Canada. Led four end-to-end projects and pioneered three frameworks to improve the MLOps workflow. Hands-on in Python, large-scale data mining, and machine learning.</p>
+  </div>
+</div>
 
 
-<p>In this post I list some of the standards and conventions I have developed over the course of my PhD to organise research project data. I use git to version control the relevant files and host them on Github.</p>
-<section id="project-naming-convention" class="level1">
-<h1>Project naming convention</h1>
-<p>I name my research projects uniformly across all applications: file system, task management, Github, etc. I use the naming convention of <code>&lt;my-last-name&gt;&lt;project-start-year&gt;&lt;keyword&gt;</code>.</p>
+</header>
+
+
+<section id="skills" class="level1">
+<h1>Skills</h1>
+<ul>
+<li><strong>Data Science and Machine Learning:</strong> Python, Scikit-Learn, PyTorch, Numpy</li>
+<li><strong>Data Engineering and Analysis:</strong> Pandas, SQL, PySpark</li>
+<li><strong>Visualization and Analytics:</strong> Seaborn, Matplotlib, D3.js, Three.js</li>
+<li><strong>DevOps and MLOps:</strong> Git, Docker, Linux, Unix, Nix</li>
+<li><strong>Programming Languages:</strong> Python, Ruby, JavaScript, Bash, HTML, CSS, LaTeX</li>
+<li><strong>Statistical Analysis:</strong> Hypothesis Testing, Correlation Analysis, Regression</li>
+<li><strong>Web Development:</strong> REST APIs, Ruby on Rails, UI/UX Development, Object-Relational Mapping, D3.js</li>
+<li><strong>Research:</strong> Data Quality Analysis, Fairness Testing, Static Analysis, Quantitative Research</li>
+</ul>
 </section>
-<section id="project-directory-structure" class="level1">
-<h1>Project directory structure</h1>
-<p>My research projects have the following directory structure. Here is an example from a prior project I worked on:</p>
-<pre><code>~/phd/shome2022qualitative/
-├── bin
-├── data
-├── docs
-├── report
-├── src
-└── vendor
-    ├── biswas2021fair
-    └── zhang2021ignorance
-</code></pre>
-<p>Typically, research projects have several scripts for the data collection, data pre-processing, training ML models and running experiments. Put these scripts in the <code>bin/</code> directory. If you have a more mature code base, you can organise your files in the <code>src/</code> directory. This way your scripts in <code>bin/</code> are still able to import modules or helper functions from <code>src/</code>.</p>
-<p>Put all datasets for the project in the <code>data/</code> directory. I typically put existing datasets (such as benchmarks introduced in prior papers) and the data created during the course of the project in separate folders within the <code>data/</code> directory.</p>
-<p>If you have a simple static website consisting of html and css pages, put them in the <code>docs/</code> directory. Then you can use <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site">Github Pages</a> to serve your website.</p>
-<p>Put all your latex files, images and additional resources such as <code>*.cls</code> and <code>*.bst</code> files in the <code>report/</code> directory. You may write several papers that originate from the same core project idea. Name the latex files using the <code>&lt;conference-name&gt;&lt;year&gt;.tex</code> template. This prevents the need for duplicating all the accompanying files for each submission. Use version control to track the progress of your papers. For instance, use <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">git tags</a> to mark the major drafts and final submission. This makes it easy to retrieve prior versions of the paper if required.</p>
-<p>If replication packages from prior papers are available on git, use <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">git submodules</a> and put them in the <code>vendor/</code> directory. If they are hosted on other platforms such as Zenodo or Figshare, check in the source code files you need as reference. Use folders within <code>vendor/</code> to organise replication packages from multiple papers.</p>
+<section id="experience" class="level1">
+<h1>Experience</h1>
+<p><strong>Data Scientist and Applied Researcher (PhD Candidate)</strong>, Delft University of Technology, Delft, The Netherlands, <em>June 2021 - Present</em></p>
+<ul>
+<li>Developed a large-scale data mining pipeline to process 297,800 Jupyter notebooks (283 GB) collected from GitHub and Kaggle using REST APIs. Extracted 3 million lines of code using Python, Pandas, and Bash. Released the results as an open-source dataset to enable future research. Project website: https://github.com/arumoy-shome/shome2023notebook.</li>
+<li>Applied embedding based clustering using CodeBERT, UMAP and HDBSCAN to identify a representative sample using stratified sampling. Used NLP techniques (text representation, feature extraction and vectorization) to perform exploratory data analysis (EDA) and generated 26 insights to inform ML pipeline reliability.</li>
+<li>Developed an end-to-end automated ML pipeline (data ingestion, feature engineering, model training and evaluation) using Python, Scikit-Learn and Bash. Evaluated 4 ML classification algorithms (Logistic Regression, Decision Trees, Random Forest and Ada Boost) against 2 fairness metrics (Disparate Impact and Statistical Parity Difference) across 5 tabular datasets. Project website: https://github.com/arumoy-shome/shome2022qualitative.</li>
+<li>Proposed a novel data-centric ML fairness testing methodology to reduce development time and computational costs of ML pipelines. Designed experiments using AIOps data from 1,600+ pipeline executions and used statistical hypothesis testing (student t-test), correlation and regression analysis to validate findings.</li>
+<li>Pioneered the Data Smells framework and published the findings as an open-source catalog to aid students, academics and data practitioners with ML dataset quality assessment. Project website: https://arumoy.me/data-smells.</li>
+<li>Performed EDA and feature engineering on top 25 ML tabular datasets from Kaggle using Python and Pandas. Identified 14 data quality antipatterns and proposed cost-effective fixes to reduce technical debt of ML-enabled systems.</li>
+<li>Collaborated with 13 experts from industry and academia across technology, healthcare and financial service sectors. Identified 23 engineering best practices to reduce technical debt and deploy ML prototypes to production.</li>
+<li>Deployed the data and ML pipelines on Linux infrastructure and distributed the workloads across 20 CPU cores using Bash and Unix commands. Used Git and Docker to provide reproducible and open source software artifacts released under the Creative Commons Attribution (CC-BY) license.</li>
+<li>Presented results through 6 publications at international conferences and scientific journals. Delivered technical talks, poster presentations and guest lectures to academic and industry audience, communicating technical concepts into actionable insights for diverse stakeholders.</li>
+<li>Managed 2 M.Sc. research projects, and an edX MOOC course on Unix tools with 1000+ active students.</li>
+</ul>
+<p><strong>Deep Learning Research Engineer (Internship)</strong>, Netherlands eScience Centre, Amsterdam, The Netherlands, <em>July 2019 - March 2020</em></p>
+<ul>
+<li>Built an end-to-end deep learning pipeline for real-time neutrino detection in the KM3NeT Neutrino Telescope using Python, Pandas and PyTorch. Project website: https://github.com/arumoy-shome/km3net.</li>
+<li>Developed a novel signal processing pipeline using Multi Layer Perceptrons achieving 92% accuracy in data filtration quality and a 12% improvement over the state-of-the-art GPU-based solution.</li>
+<li>Designed and implemented a Graph Convolutional Neural Network for event node classification in particle physics data, achieving 67% accuracy on event detection.</li>
+<li>Collaborated with an interdisciplinary team of particle physicists, GPU engineers, and computer scientists to translate complex AI requirements into practical implementations.</li>
+</ul>
+<p><strong>Software Engineer (Internship)</strong>, Shopify, Ottawa, Canada, <em>September 2015 - September 2016</em></p>
+<ul>
+<li>Collaborated with developers, designers and product managers to implement 25+ UI/UX features such as web components, animations and styling on a mature Ruby on Rails project using Ruby, JavaScript, HTML, &amp; CSS.</li>
+<li>Applied Object-Oriented Programming (OOP) principles and Test-Driven Development (TDD) to refactor code and improve test coverage by 7%.</li>
+<li>Used Object-Relational Mapping (ORM) to optimize database queries and maintain server response times to under 100ms.</li>
+</ul>
 </section>
-<section id="recommendations-for-.gitignore-patterns" class="level1">
-<h1>Recommendations for <code>.gitignore</code> patterns</h1>
-<p>Github has <a href="https://github.com/github/gitignore">an excellent repository</a> of <code>.gitignore</code> patterns for various filetypes. Consider importing them into your own global <code>.gitignore</code> file (for instance, Latex and Python). At the project level, do not check in the pdf version of your papers since these are typically high churn files and git cannot produce meaningful diffs for binary files. Instead use the <code>latexmk</code> command to generate the pdf. You can also consider putting the command in a <code>Makefile</code> to reduce keystrokes.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">latexmk</span> <span class="at">-pdf</span> <span class="at">-outdir</span><span class="op">=</span>report report/<span class="op">&lt;</span>your-paper<span class="op">&gt;</span>.pdf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If you use Overleaf, <a href="https://www.overleaf.com/learn/how-to/Git_Integration_and_GitHub_Synchronization">connect your document to the Github project</a> so that everything remains in sync.</p>
+<section id="projects" class="level1">
+<h1>Projects</h1>
+<p><strong>3D Kadaster</strong>, <em>September 2018 - December 2018</em></p>
+<ul>
+<li>Developed 3D model of all buildings in the Netherlands using AHN2 point cloud dataset (1.6 TB) and BAG building polygon dataset (177 GB).</li>
+<li>Processed geospatial datasets using PySpark distributed computing framework for scalable data processing.</li>
+<li>Executed algorithms on SurfSara supercomputer infrastructure for high-performance geospatial analysis.</li>
+<li>Created interactive 3D visualizations using Three.js for web-based exploration of national building infrastructure.</li>
+</ul>
+<p><strong>ACE: Art, Color and Emotions</strong>, <a href="https://youtu.be/B1ZM6EQgEvU" class="uri">https://youtu.be/B1ZM6EQgEvU</a>, <em>January 2019 - June 2019</em></p>
+<ul>
+<li>Built ACE, a visual sentiment analysis platform by developing custom ML models trained on the large-scale OmniArt dataset (512 GB) to enable data-driven analysis of artistic emotions.</li>
+<li>Designed and implemented full-stack solution featuring intuitive D3.js interface with optimized interaction patterns and scalable web architecture capable of handling high-volume image processing and real-time sentiment analysis.</li>
+</ul>
+<p><strong>Elevate</strong>, <a href="https://arumoy.me/elevate" class="uri">https://arumoy.me/elevate</a>, <em>September 2016 - May 2017</em>,</p>
+<ul>
+<li>Developed an improved and cost-effective alternative to state-of-the-art cognitive assessment tools for Down Syndrome using web technologies, adaptive learning, and human-centric design.</li>
+<li>Validated and refined the prototype through 3 usability testing sessions with human participants with Down syndrome.</li>
+<li>Established 2 international research partnership with Waterloo Regional Down Syndrome Society (Canada) and Fundacion Paraiso Down (El Salvador) to explore specialized educational resource needs through comprehensive user surveys and interviews.</li>
+<li>Developed comprehensive business plan and presented product at multiple startup incubators and pitch competitions to obtain funding.</li>
+</ul>
 </section>
-<section id="recommendations-for-git-commit-messages" class="level1">
-<h1>Recommendations for git commit messages</h1>
-<p>Follow the general best practices for writing good git commit messages. I use the following template which was recommended by <a href="https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">Tim Pope</a>. You can also paste the following snippet into <code>~/.config/git/message</code>. Then the text is automatically displayed in your text editor, whenever you write a commit message. See <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration">the git configuration documentation</a> for more details.</p>
-<pre><code># 50-character subject line
-#
-# 72-character wrapped longer description. This should answer:
-#
-# * Why was this change necessary?
-# * How does it address the problem?
-# * Are there any side effects?
-#
-# Include a link to the ticket, if any.</code></pre>
-<section id="additionally-for-the-subject-line" class="level2">
-<h2 class="anchored" data-anchor-id="additionally-for-the-subject-line">Additionally for the subject line</h2>
-<p>For instance, say you want to commit a first draft of your paper. Use a subject line as follows:</p>
-<pre id="annotated-cell-4" class="code-annotation-code"><code>feat(report): init icse24 paper draft</code></pre>
-<p>Where <code>feat</code> is an abbreviation for “feature”. The braces specify the folder within which the changes were made, and the title provides a quick description of the change.</p>
-<p>In contrast, say you refactor the data processing pipeline script. The subject line could be as follows:</p>
-<pre><code>refac(bin): remove magic numbers in data-process.sh</code></pre>
-<p>This makes it very easy to track down prior commits that introduced changes in the paper versus in the code. For instance, you can target all refactoring commits within the <code>report/</code> directory using the following <code>git grep</code> command:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--grep</span> <span class="st">'refac.*report.'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="education" class="level1">
+<h1>Education</h1>
+<ul>
+<li><strong>PhD Computer Science, Software Engineering for Artificial Intelligence</strong>. Delft University of Technology. Delft, The Netherlands. <em>Present</em>.</li>
+<li><strong>M.Sc. Computer Science, Big Data Engineering</strong>. VU University Amsterdam. Amsterdam, The Netherlands. <em>2018-2020</em>.</li>
+<li><strong>B.Sc. Applied Science, Systems Design Engineering, Minor in Entrepreneurship</strong>. University of Waterloo. Waterloo, Canada. <em>2012-2018</em>.</li>
+</ul>
+</section>
+<section id="language" class="level1">
+<h1>Language</h1>
+<p><strong>English</strong> (Native), <strong>Dutch</strong> (Basic - A2), <strong>Hindi</strong> (Native), <strong>Bengali</strong> (Native)</p>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
