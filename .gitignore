@@ -1,3 +1,5 @@
 /.quarto/
 !*.xml
 _site
+
+**/*.quarto_ipynb
