@@ -11,7 +11,7 @@ categories: [shell, productivity]
 `doi2bib` is a simple Python script I wrote to automatically retrieve
 bibtex information for a given DOI. The script queries Crossref to
 obtain the bibtex. The script can also handle pre-prints published on
-Arxiv. Here is the content of `doi2bib` along with some explanation
+Arxiv. Here is the content of `doi2bib` along with some explaination
 of what the script does.
 
 ```{.python filename="doi2bib"}
