@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,6 +11,9 @@
 
 <title>Automatically retrieving Bibtex information from DOI – Arumoy Shome</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,15 +72,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6366b8537f22fe2521dbe9c1a8a1a9f2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -233,11 +235,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'&#10
 
 
 <p><code>doi2bib</code> is a simple Python script I wrote to automatically retrieve bibtex information for a given DOI. The script queries Crossref to obtain the bibtex. The script can also handle pre-prints published on Arxiv. Here is the content of <code>doi2bib</code> along with some explanation of what the script does.</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>doi2bib</strong></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="doi2bib"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env python3</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env python3</span></span>
 <span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="annotated-cell-1-4"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> argparse</span>
@@ -277,7 +275,6 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'&#10
 <span id="annotated-cell-1-38"><a href="#annotated-cell-1-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="annotated-cell-1-39"><a href="#annotated-cell-1-39" aria-hidden="true" tabindex="-1"></a>    bibtex <span class="op">=</span> get_bibtex(args.doi, args.preprint)</span>
 <span id="annotated-cell-1-40"><a href="#annotated-cell-1-40" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(bibtex)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
@@ -293,43 +290,38 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'&#10
 </dd>
 </dl>
 <p>I pipe the results through the <a href="http://www.gerd-neugebauer.de/software/TeX/BibTool/en/">bib-tool CLI</a>, to format the text and generate a unique key. I specify the following key format in my <code>.bibtoolrsc</code> file.</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>.bibtoolrsc</strong></pre>
-</div>
-<pre data-filename=".bibtoolrsc"><code>print.use.tab=off
+<pre><code>print.use.tab=off
 fmt.et.al=""
 key.format="%-1n(author)%4d(year)%-T(title)"</code></pre>
-</div>
 <p>By default, bibtool uses tabs for indentation. I turn this off. Bibtool adds “.ea” to the author name to indicate “and others”. I prefer to just have the last name of the first author in the key, so I set it to an empty string. I set the format of the key to the last name of the first author, followed by the year of publication and the first meaningful word from the title.</p>
 <p>Here is the script in action, I use one of my own publications as an example.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> doi2bib 10.1145/3522664.3528621 <span class="kw">|</span><span class="ex">bibtool</span> <span class="at">-k</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">@InProceedings{</span>   shome2022data,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">series</span>        = {CAIN ’22},</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">title</span>         = {Data smells in public datasets},</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">url</span>           = {http://dx.doi.org/10.1145/3522664.3528621},</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">doi</span>           = {10.1145/3522664.3528621},</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">booktitle</span>     = {Proceedings of the 1st International Conference on AI</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                  <span class="ex">Engineering:</span> Software Engineering for AI},</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">publisher</span>     = {ACM},</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="ex">author</span>        = {Shome, Arumoy and Cruz, Luís and van Deursen, Arie},</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="ex">year</span>          = {2022},</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="ex">month</span>         = may,</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="ex">collection</span>    = {CAIN ’22}</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>$ doi2bib 10.1145/3522664.3528621 |bibtool -k
+
+@InProceedings{   shome2022data,
+  series        = {CAIN ’22},
+  title         = {Data smells in public datasets},
+  url           = {http://dx.doi.org/10.1145/3522664.3528621},
+  doi           = {10.1145/3522664.3528621},
+  booktitle     = {Proceedings of the 1st International Conference on AI
+                  Engineering: Software Engineering for AI},
+  publisher     = {ACM},
+  author        = {Shome, Arumoy and Cruz, Luís and van Deursen, Arie},
+  year          = {2022},
+  month         = may,
+  collection    = {CAIN ’22}
+}</code></pre>
 <p>And here is another example using an Arxiv ID (again, one of my own).</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> doi2bib <span class="at">--preprint</span> 2305.04988 <span class="kw">|</span><span class="ex">bibtool</span> <span class="at">-k</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">@Misc{</span>            shome2023towards,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">title</span>         = {Towards Understanding Machine Learning Testing in</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                  <span class="ex">Practise},</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">author</span>        = {Arumoy Shome and Luis Cruz and Arie van Deursen},</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">year</span>          = {2023},</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">eprint</span>        = {2305.04988},</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">archiveprefix</span> = {arXiv},</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">primaryclass</span>  = {cs.SE}</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>$ doi2bib --preprint 2305.04988 |bibtool -k
+
+@Misc{            shome2023towards,
+  title         = {Towards Understanding Machine Learning Testing in
+                  Practise},
+  author        = {Arumoy Shome and Luis Cruz and Arie van Deursen},
+  year          = {2023},
+  eprint        = {2305.04988},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.SE}
+}</code></pre>
 
 
 

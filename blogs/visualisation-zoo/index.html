@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,6 +11,9 @@
 
 <title>Visualisation Zoo – Arumoy Shome</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -26,7 +29,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -54,15 +56,14 @@ div.csl-indent {
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6366b8537f22fe2521dbe9c1a8a1a9f2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -226,14 +227,14 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+'&#10
 
 
 
-<p>This is a collection of data visualisations I have created in the past from prior research publications. The title of this post is inspired by the <span class="citation" data-cites="heer2010tour">Heer, Bostock, and Ogievetsky (<a href="#ref-heer2010tour" role="doc-biblioref">2010</a>)</span> paper.</p>
+<p>This is a collection of data visualisations I have created in the past from prior research publications. The title of this post is inspired by the <span class="citation" data-cites="heer2010tour">Heer et al. (<a href="#ref-heer2010tour" role="doc-biblioref">2010</a>)</span> paper.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-heer2010tour" class="csl-entry" role="listitem">
 Heer, Jeffrey, Michael Bostock, and Vadim Ogievetsky. 2010. <span>“A Tour Through the Visualization Zoo.”</span> <em>Communications of the ACM</em> 53 (6): 59–67. <a href="https://doi.org/10.1145/1743546.1743567">https://doi.org/10.1145/1743546.1743567</a>.
 </div></div><section id="joint-distribution-of-categorical-variables" class="level1 page-columns page-full">
 <h1>Joint Distribution of Categorical Variables</h1>
-<p>The following visualisation in <a href="#fig-jointplot" class="quarto-xref">Figure&nbsp;1</a> comes from the very first Conference paper I wrote <span class="citation" data-cites="shome2022data">(<a href="#ref-shome2022data" role="doc-biblioref">Shome, Cruz, and Deursen 2022</a>)</span>. The paper explored the presence of anti-patterns in popular ML datasets that lead to accumulation of technical debt in the downstream stages of the pipeline.</p>
+<p>The following visualisation in <a href="#fig-jointplot" class="quarto-xref">Figure&nbsp;1</a> comes from the very first Conference paper I wrote <span class="citation" data-cites="shome2022data">(<a href="#ref-shome2022data" role="doc-biblioref">Shome et al. 2022</a>)</span>. The paper explored the presence of anti-patterns in popular ML datasets that lead to accumulation of technical debt in the downstream stages of the pipeline.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-shome2022data" class="csl-entry" role="listitem">
-Shome, Arumoy, Luís Cruz, and Arie van Deursen. 2022. <span>“Data Smells in Public Datasets.”</span> In <em>Proceedings of the 1st International Conference on AI Engineering: Software Engineering for AI</em>. CAIN ’22. ACM. <a href="https://doi.org/10.1145/3522664.3528621">https://doi.org/10.1145/3522664.3528621</a>.
+Shome, Arumoy, Luís Cruz, and Arie van Deursen. 2022. <span>“Data Smells in Public Datasets.”</span> <em>Proceedings of the 1st International Conference on AI Engineering: Software Engineering for AI</em>, CAIN ’22, May. <a href="https://doi.org/10.1145/3522664.3528621">https://doi.org/10.1145/3522664.3528621</a>.
 </div></div><p>We curated a catalogue of 14 such anti-patterns or <em>“data-smells”</em> and manually analysed their presence in 25 popular ML datasets from Kaggle.</p>
 <p>I created the visualisation using a <a href="https://seaborn.pydata.org/generated/seaborn.JointGrid.html#seaborn.JointGrid">JointGrid from the Seaborn library</a>. The visualisation in the main subplot shows the distribution of the data-smells across all datasets that were analysed using a two-dimensional histogram. The visualisations in the marginal subplots shows a histogram of the corresponding categorical variables.</p>
 <div id="fig-jointplot" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -261,9 +262,9 @@ Figure&nbsp;2: Heatmap of correlation between numerical variables
 </figure>
 </div>
 </div>
-<p>The next visualisation comes from our <span class="citation" data-cites="shome2024data">Shome, Cruz, and Deursen (<a href="#ref-shome2024data" role="doc-biblioref">2024</a>)</span> paper. Here we analysed the relationship between data dependent and model dependent fairness metrics. <a href="#fig-heatmap-corr" class="quarto-xref">Figure&nbsp;2</a> shows the results obtained from the empirical study conducted using 8 datasets and 4 ML models.</p>
+<p>The next visualisation comes from our <span class="citation" data-cites="shome2024data">Shome et al. (<a href="#ref-shome2024data" role="doc-biblioref">2024</a>)</span> paper. Here we analysed the relationship between data dependent and model dependent fairness metrics. <a href="#fig-heatmap-corr" class="quarto-xref">Figure&nbsp;2</a> shows the results obtained from the empirical study conducted using 8 datasets and 4 ML models.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-shome2024data" class="csl-entry" role="listitem">
-Shome, Arumoy, Luı̀s Cruz, and Arie van Deursen. 2024. <span>“Data Vs. Model Machine Learning Fairness Testing: An Empirical Study.”</span> In <em>International Workshop on Deep Learning for Testing and Testing for Deep Learning</em>. DeepTest ’24. IEEE/ACM. <a href="https://doi.org/10.1145/3643786.3648022">https://doi.org/10.1145/3643786.3648022</a>.
+Shome, Arumoy, Luı̀s Cruz, and Arie van Deursen. 2024. <span>“Data Vs. Model Machine Learning Fairness Testing: An Empirical Study.”</span> <em>International Workshop on Deep Learning for Testing and Testing for Deep Learning</em>, DeepTest ’24. <a href="https://doi.org/10.1145/3643786.3648022">https://doi.org/10.1145/3643786.3648022</a>.
 </div></div><p>Each heatmap represents results obtained from a fairness metric (we used <em>Disparate Impact</em> and <em>Statistical Parity Difference</em>). The ML models are represented along the Y axis, while the datasets are along the X axis. Each block shows the correlation between the data and model variants of the corresponding fairness metric. The statistically significant cases are marked with an asterisk. The strength of the correlation is denoted using color–bright hues of red indicate positive correlation while cooler hues of blue represent negative correlation.</p>
 </section>
 <section id="omniart-sentiments-through-colours" class="level1 page-columns page-full">
@@ -278,7 +279,7 @@ Shome, Arumoy, Luı̀s Cruz, and Arie van Deursen. 2024. <span>“Data Vs. Model
 </div>
 <p>This is from a project where we used the <a href="https://isis-data.science.uva.nl/strezoski/#2">OmniArt dataset</a> to explore the relationship between colors and emotional tones in art through sentiment analysis. We used NLP techniques to analyze metadata from various artworks, focusing on how colors influence perceived sentiments based on painting descriptions. This work is also published as a conference paper with a video demonstration of the tool <span class="citation" data-cites="strezoski2019ace">(<a href="#ref-strezoski2019ace" role="doc-biblioref">Strezoski et al. 2019</a>)</span>.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-strezoski2019ace" class="csl-entry" role="listitem">
-Strezoski, Gjorgji, Arumoy Shome, Riccardo Bianchi, Shruti Rao, and Marcel Worring. 2019. <span>“ACE: Art, Color and Emotion.”</span> In <em>Proceedings of the 27th ACM International Conference on Multimedia</em>. MM ’19. ACM. <a href="https://doi.org/10.1145/3343031.3350588">https://doi.org/10.1145/3343031.3350588</a>.
+Strezoski, Gjorgji, Arumoy Shome, Riccardo Bianchi, Shruti Rao, and Marcel Worring. 2019. <span>“ACE: Art, Color and Emotion.”</span> <em>Proceedings of the 27th ACM International Conference on Multimedia</em>, MM ’19, October. <a href="https://doi.org/10.1145/3343031.3350588">https://doi.org/10.1145/3343031.3350588</a>.
 </div></div><p>We created an interactive tool to allow users from varied backgrounds to intuitively explore the complex relationship between colour usage in art and the emotional sentiments those colours may evoke. In the image, you can see a snapshot of the tool which comprises of several interconnected components designed to facilitate interactive exploration of the data.</p>
 <p>These visual components are designed to allow users from varied backgrounds to intuitively explore the complex relationship between color usage in art and the emotional sentiments those colors may evoke. This tool not only aids in art analysis but also makes the process accessible to a broader audience, enhancing understanding through interactive visual storytelling and data-driven insights.</p>
 </section>

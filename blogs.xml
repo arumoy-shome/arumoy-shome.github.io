@@ -9,7 +9,7 @@
 <link>https://arumoy.me/blogs.html</link>
 <atom:link href="https://arumoy.me/blogs.xml" rel="self" type="application/rss+xml"/>
 <description>Arumoy Shome&#39;s Website</description>
-<generator>quarto-1.8.26</generator>
+<generator>quarto-1.9.37</generator>
 <lastBuildDate>Wed, 27 Nov 2024 23:00:00 GMT</lastBuildDate>
 <item>
   <title>Renaming files so they make sense (rename)</title>
@@ -657,7 +657,7 @@ font-style: inherit;">)</span></span><div class="code-annotation-gutter-bg"></di
 <h1>Preliminaries: Python <code>ast</code> module</h1>
 <p>Python has a built-in <code>ast</code> module which provides detailed documentation on the various nodes used to represent different elements of Python source code.</p>
 <p>We can use the <code>ast.parse</code> method to create a AST from a given Python source code. Here is an example of how a function call is represented in a AST.</p>
-<div id="fa4c06d1" class="cell" data-execution_count="1">
+<div id="32af3963" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> ast</span>
@@ -665,11 +665,11 @@ font-style: inherit;">import</span> ast</span>
 background-color: null;
 font-style: inherit;">"foo(x, y)"</span>)</span></code></pre></div></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>&lt;ast.Module at 0x1063c3950&gt;</code></pre>
+<pre><code>&lt;ast.Module at 0x10cc7aa10&gt;</code></pre>
 </div>
 </div>
 <p>The <code>ast.parse</code> method returns a <code>ast.Module</code> object which by itself is not very helpful. To view the internal structure of the tree, we can use the <code>ast.dump</code> method.</p>
-<div id="5f17333f" class="cell" data-execution_count="2">
+<div id="bec0e253" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">ast.dump(ast.parse(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"foo(x, y)"</span>))</span></code></pre></div></div>
@@ -678,7 +678,7 @@ font-style: inherit;">"foo(x, y)"</span>))</span></code></pre></div></div>
 </div>
 </div>
 <p>We can pass the <code>indent</code> argument to <code>ast.dump</code> along with a <code>print</code> statement to make the output more readable.</p>
-<div id="a553dec9" class="cell" data-execution_count="3">
+<div id="a9985c15" class="cell" data-execution_count="3">
 <div id="lst-base-case" class="python cell-code listing quarto-float quarto-figure quarto-figure-left anchored">
 <figure class="quarto-float quarto-float-lst figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-base-case-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -710,7 +710,7 @@ font-style: inherit;">4</span>))</span></code></pre></div></div>
 </div>
 <p>Note that the function call is represented by a <code>ast.Call</code> node which contains a <code>func</code> and <code>args</code> attribute. The function name (in our case, <code>foo</code>) is represented by a <code>ast.Name</code> node, with the actual name under the <code>id</code> attribute.</p>
 <p>And here is the AST when we want to use a function defined in a different module.</p>
-<div id="e2e40618" class="cell" data-execution_count="4">
+<div id="b6f1efef" class="cell" data-execution_count="4">
 <div id="lst-single-nest" class="python cell-code listing quarto-float quarto-figure quarto-figure-left anchored">
 <figure class="quarto-float quarto-float-lst figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-single-nest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -745,7 +745,7 @@ font-style: inherit;">4</span>))</span></code></pre></div></div>
 </div>
 <p>Things are a bit different now. We see that the <code>Call.func</code> is no longer a <code>ast.Name</code> node, but instead an <code>ast.Attribute</code> node. <code>Attribute.value</code> is now a <code>ast.Name</code> node with the name of the module (in our case <code>bar</code>) on the <code>id</code> attribute and the name of the function on the <code>attr</code> attribute.</p>
 <p>Lets examine something a bit more complicated: What if the function is in a submodule?</p>
-<div id="3c5ce0da" class="cell" data-execution_count="5">
+<div id="aae30df9" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(ast.dump(ast.parse(<span class="st" style="color: #20794D;
@@ -773,7 +773,7 @@ font-style: inherit;">4</span>))</span></code></pre></div></div>
 </div>
 </div>
 <p>And even more nested?</p>
-<div id="a666b26f" class="cell" data-execution_count="6">
+<div id="7645610b" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(ast.dump(ast.parse(<span class="st" style="color: #20794D;
@@ -813,7 +813,7 @@ font-style: inherit;">4</span>))</span></code></pre></div></div>
 <li>If its a nested function call, then <code>Call.func</code> will contain nested <code>Attribute</code> nodes. The name of the function will be under the first <code>Attribute.attr</code>.</li>
 </ol>
 <p>We can do this using the <code>ast.NodeVisitor</code> class. Lets create a <code>FunctionNameCollector</code> class which inherits from <code>ast.NodeVisitor</code>. In the class, we define a <code>visit_Name</code> and <code>visit_Attribute</code> methods which are called every time we visit a <code>Name</code> or <code>Attribute</code> method respectively (more on this later).</p>
-<div id="69b93336" class="cell" data-execution_count="7">
+<div id="4aad564a" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
@@ -937,7 +937,7 @@ font-style: inherit;">in</span> call_nodes:</span>
 </ol></li>
 </ol>
 <p>So the <code>visit_Name</code> method remains the same however, we do need to modify the <code>visit_Attribute</code> method such that it traverses all child nodes under <code>Attribute.value</code> until we hit the base case. Here is the modified code.</p>
-<div id="04290394" class="cell" data-execution_count="8">
+<div id="80fde94c" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
@@ -1054,14 +1054,14 @@ font-style: inherit;">in</span> call_nodes:</span>
 
 
 
-<p>This is a collection of data visualisations I have created in the past from prior research publications. The title of this post is inspired by the <span class="citation" data-cites="heer2010tour">Heer, Bostock, and Ogievetsky (2010)</span> paper.</p>
+<p>This is a collection of data visualisations I have created in the past from prior research publications. The title of this post is inspired by the <span class="citation" data-cites="heer2010tour">Heer et al. (2010)</span> paper.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-heer2010tour" class="csl-entry">
 Heer, Jeffrey, Michael Bostock, and Vadim Ogievetsky. 2010. <span>“A Tour Through the Visualization Zoo.”</span> <em>Communications of the ACM</em> 53 (6): 59–67. <a href="https://doi.org/10.1145/1743546.1743567">https://doi.org/10.1145/1743546.1743567</a>.
 </div></div><section id="joint-distribution-of-categorical-variables" class="level1 page-columns page-full">
 <h1>Joint Distribution of Categorical Variables</h1>
-<p>The following visualisation in Figure&nbsp;1 comes from the very first Conference paper I wrote <span class="citation" data-cites="shome2022data">(Shome, Cruz, and Deursen 2022)</span>. The paper explored the presence of anti-patterns in popular ML datasets that lead to accumulation of technical debt in the downstream stages of the pipeline.</p>
+<p>The following visualisation in Figure&nbsp;1 comes from the very first Conference paper I wrote <span class="citation" data-cites="shome2022data">(Shome et al. 2022)</span>. The paper explored the presence of anti-patterns in popular ML datasets that lead to accumulation of technical debt in the downstream stages of the pipeline.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-shome2022data" class="csl-entry">
-Shome, Arumoy, Luís Cruz, and Arie van Deursen. 2022. <span>“Data Smells in Public Datasets.”</span> In <em>Proceedings of the 1st International Conference on AI Engineering: Software Engineering for AI</em>. CAIN ’22. ACM. <a href="https://doi.org/10.1145/3522664.3528621">https://doi.org/10.1145/3522664.3528621</a>.
+Shome, Arumoy, Luís Cruz, and Arie van Deursen. 2022. <span>“Data Smells in Public Datasets.”</span> <em>Proceedings of the 1st International Conference on AI Engineering: Software Engineering for AI</em>, CAIN ’22, May. <a href="https://doi.org/10.1145/3522664.3528621">https://doi.org/10.1145/3522664.3528621</a>.
 </div></div><p>We curated a catalogue of 14 such anti-patterns or <em>“data-smells”</em> and manually analysed their presence in 25 popular ML datasets from Kaggle.</p>
 <p>I created the visualisation using a <a href="https://seaborn.pydata.org/generated/seaborn.JointGrid.html#seaborn.JointGrid">JointGrid from the Seaborn library</a>. The visualisation in the main subplot shows the distribution of the data-smells across all datasets that were analysed using a two-dimensional histogram. The visualisations in the marginal subplots shows a histogram of the corresponding categorical variables.</p>
 <div id="fig-jointplot" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1089,9 +1089,9 @@ Figure&nbsp;2: Heatmap of correlation between numerical variables
 </figure>
 </div>
 </div>
-<p>The next visualisation comes from our <span class="citation" data-cites="shome2024data">Shome, Cruz, and Deursen (2024)</span> paper. Here we analysed the relationship between data dependent and model dependent fairness metrics. Figure&nbsp;2 shows the results obtained from the empirical study conducted using 8 datasets and 4 ML models.</p>
+<p>The next visualisation comes from our <span class="citation" data-cites="shome2024data">Shome et al. (2024)</span> paper. Here we analysed the relationship between data dependent and model dependent fairness metrics. Figure&nbsp;2 shows the results obtained from the empirical study conducted using 8 datasets and 4 ML models.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-shome2024data" class="csl-entry">
-Shome, Arumoy, Luı̀s Cruz, and Arie van Deursen. 2024. <span>“Data Vs. Model Machine Learning Fairness Testing: An Empirical Study.”</span> In <em>International Workshop on Deep Learning for Testing and Testing for Deep Learning</em>. DeepTest ’24. IEEE/ACM. <a href="https://doi.org/10.1145/3643786.3648022">https://doi.org/10.1145/3643786.3648022</a>.
+Shome, Arumoy, Luı̀s Cruz, and Arie van Deursen. 2024. <span>“Data Vs. Model Machine Learning Fairness Testing: An Empirical Study.”</span> <em>International Workshop on Deep Learning for Testing and Testing for Deep Learning</em>, DeepTest ’24. <a href="https://doi.org/10.1145/3643786.3648022">https://doi.org/10.1145/3643786.3648022</a>.
 </div></div><p>Each heatmap represents results obtained from a fairness metric (we used <em>Disparate Impact</em> and <em>Statistical Parity Difference</em>). The ML models are represented along the Y axis, while the datasets are along the X axis. Each block shows the correlation between the data and model variants of the corresponding fairness metric. The statistically significant cases are marked with an asterisk. The strength of the correlation is denoted using color–bright hues of red indicate positive correlation while cooler hues of blue represent negative correlation.</p>
 </section>
 <section id="omniart-sentiments-through-colours" class="level1 page-columns page-full">
@@ -1106,7 +1106,7 @@ Shome, Arumoy, Luı̀s Cruz, and Arie van Deursen. 2024. <span>“Data Vs. Model
 </div>
 <p>This is from a project where we used the <a href="https://isis-data.science.uva.nl/strezoski/#2">OmniArt dataset</a> to explore the relationship between colors and emotional tones in art through sentiment analysis. We used NLP techniques to analyze metadata from various artworks, focusing on how colors influence perceived sentiments based on painting descriptions. This work is also published as a conference paper with a video demonstration of the tool <span class="citation" data-cites="strezoski2019ace">(Strezoski et al. 2019)</span>.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-strezoski2019ace" class="csl-entry">
-Strezoski, Gjorgji, Arumoy Shome, Riccardo Bianchi, Shruti Rao, and Marcel Worring. 2019. <span>“ACE: Art, Color and Emotion.”</span> In <em>Proceedings of the 27th ACM International Conference on Multimedia</em>. MM ’19. ACM. <a href="https://doi.org/10.1145/3343031.3350588">https://doi.org/10.1145/3343031.3350588</a>.
+Strezoski, Gjorgji, Arumoy Shome, Riccardo Bianchi, Shruti Rao, and Marcel Worring. 2019. <span>“ACE: Art, Color and Emotion.”</span> <em>Proceedings of the 27th ACM International Conference on Multimedia</em>, MM ’19, October. <a href="https://doi.org/10.1145/3343031.3350588">https://doi.org/10.1145/3343031.3350588</a>.
 </div></div><p>We created an interactive tool to allow users from varied backgrounds to intuitively explore the complex relationship between colour usage in art and the emotional sentiments those colours may evoke. In the image, you can see a snapshot of the tool which comprises of several interconnected components designed to facilitate interactive exploration of the data.</p>
 <p>These visual components are designed to allow users from varied backgrounds to intuitively explore the complex relationship between color usage in art and the emotional sentiments those colors may evoke. This tool not only aids in art analysis but also makes the process accessible to a broader audience, enhancing understanding through interactive visual storytelling and data-driven insights.</p>
 </section>
@@ -1939,11 +1939,7 @@ font-style: inherit;">- </span>State "DONE"       from "TODO"       [2022-09-19 
 
 
 <p><code>doi2bib</code> is a simple Python script I wrote to automatically retrieve bibtex information for a given DOI. The script queries Crossref to obtain the bibtex. The script can also handle pre-prints published on Arxiv. Here is the content of <code>doi2bib</code> along with some explanation of what the script does.</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>doi2bib</strong></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" data-filename="doi2bib" style="background: #f1f3f5;"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-1" style="background: #f1f3f5;"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#!/usr/bin/env python3</span></span>
 <span id="annotated-cell-1-2"></span>
@@ -2118,7 +2114,6 @@ font-style: inherit;">=</span> get_bibtex(args.doi, args.preprint)</span>
 <span id="annotated-cell-1-40">    <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(bibtex)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div></div>
-</div>
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
@@ -2134,107 +2129,38 @@ font-style: inherit;">print</span>(bibtex)</span><div class="code-annotation-gut
 </dd>
 </dl>
 <p>I pipe the results through the <a href="http://www.gerd-neugebauer.de/software/TeX/BibTool/en/">bib-tool CLI</a>, to format the text and generate a unique key. I specify the following key format in my <code>.bibtoolrsc</code> file.</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>.bibtoolrsc</strong></pre>
-</div>
-<pre data-filename=".bibtoolrsc"><code>print.use.tab=off
+<pre><code>print.use.tab=off
 fmt.et.al=""
 key.format="%-1n(author)%4d(year)%-T(title)"</code></pre>
-</div>
 <p>By default, bibtool uses tabs for indentation. I turn this off. Bibtool adds “.ea” to the author name to indicate “and others”. I prefer to just have the last name of the first author in the key, so I set it to an empty string. I set the format of the key to the last name of the first author, followed by the year of publication and the first meaningful word from the title.</p>
 <p>Here is the script in action, I use one of my own publications as an example.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">$</span> doi2bib 10.1145/3522664.3528621 <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">|</span><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">bibtool</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-k</span></span>
-<span id="cb2-2"></span>
-<span id="cb2-3"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">@InProceedings{</span>   shome2022data,</span>
-<span id="cb2-4">  <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">series</span>        = {CAIN ’22},</span>
-<span id="cb2-5">  <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">title</span>         = {Data smells in public datasets},</span>
-<span id="cb2-6">  <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">url</span>           = {http://dx.doi.org/10.1145/3522664.3528621},</span>
-<span id="cb2-7">  <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">doi</span>           = {10.1145/3522664.3528621},</span>
-<span id="cb2-8">  <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">booktitle</span>     = {Proceedings of the 1st International Conference on AI</span>
-<span id="cb2-9">                  <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Engineering:</span> Software Engineering for AI},</span>
-<span id="cb2-10">  <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">publisher</span>     = {ACM},</span>
-<span id="cb2-11">  <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">author</span>        = {Shome, Arumoy and Cruz, Luís and van Deursen, Arie},</span>
-<span id="cb2-12">  <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">year</span>          = {2022},</span>
-<span id="cb2-13">  <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">month</span>         = may,</span>
-<span id="cb2-14">  <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">collection</span>    = {CAIN ’22}</span>
-<span id="cb2-15"><span class="er" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">}</span></span></code></pre></div></div>
+<pre><code>$ doi2bib 10.1145/3522664.3528621 |bibtool -k
+
+@InProceedings{   shome2022data,
+  series        = {CAIN ’22},
+  title         = {Data smells in public datasets},
+  url           = {http://dx.doi.org/10.1145/3522664.3528621},
+  doi           = {10.1145/3522664.3528621},
+  booktitle     = {Proceedings of the 1st International Conference on AI
+                  Engineering: Software Engineering for AI},
+  publisher     = {ACM},
+  author        = {Shome, Arumoy and Cruz, Luís and van Deursen, Arie},
+  year          = {2022},
+  month         = may,
+  collection    = {CAIN ’22}
+}</code></pre>
 <p>And here is another example using an Arxiv ID (again, one of my own).</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">$</span> doi2bib <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--preprint</span> 2305.04988 <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">|</span><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">bibtool</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-k</span></span>
-<span id="cb3-2"></span>
-<span id="cb3-3"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">@Misc{</span>            shome2023towards,</span>
-<span id="cb3-4">  <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">title</span>         = {Towards Understanding Machine Learning Testing in</span>
-<span id="cb3-5">                  <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">Practise},</span></span>
-<span id="cb3-6">  <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">author</span>        = {Arumoy Shome and Luis Cruz and Arie van Deursen},</span>
-<span id="cb3-7">  <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">year</span>          = {2023},</span>
-<span id="cb3-8">  <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">eprint</span>        = {2305.04988},</span>
-<span id="cb3-9">  <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">archiveprefix</span> = {arXiv},</span>
-<span id="cb3-10">  <span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">primaryclass</span>  = {cs.SE}</span>
-<span id="cb3-11"><span class="er" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">}</span></span></code></pre></div></div>
+<pre><code>$ doi2bib --preprint 2305.04988 |bibtool -k
+
+@Misc{            shome2023towards,
+  title         = {Towards Understanding Machine Learning Testing in
+                  Practise},
+  author        = {Arumoy Shome and Luis Cruz and Arie van Deursen},
+  year          = {2023},
+  eprint        = {2305.04988},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.SE}
+}</code></pre>
 
 
 
