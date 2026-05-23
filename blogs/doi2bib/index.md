@@ -11,10 +11,10 @@ categories: [shell, productivity]
 `doi2bib` is a simple Python script I wrote to automatically retrieve
 bibtex information for a given DOI. The script queries Crossref to
 obtain the bibtex. The script can also handle pre-prints published on
-Arxiv. Here is the content of `doi2bib` along with some explaination
+Arxiv. Here is the content of `doi2bib` along with some explanation
 of what the script does.
 
-```{.python filename="doi2bib"}
+```python
 #!/usr/bin/env python3
 
 import sys
@@ -69,7 +69,7 @@ CLI](http://www.gerd-neugebauer.de/software/TeX/BibTool/en/), to
 format the text and generate a unique key. I specify the following key
 format in my `.bibtoolrsc` file.
 
-```{filename=".bibtoolrsc"}
+```
 print.use.tab=off
 fmt.et.al=""
 key.format="%-1n(author)%4d(year)%-T(title)"
@@ -85,7 +85,7 @@ first meaningful word from the title.
 Here is the script in action, I use one of my own publications as an
 example.
 
-```{.bash}
+```
 $ doi2bib 10.1145/3522664.3528621 |bibtool -k
 
 @InProceedings{   shome2022data,
@@ -105,7 +105,7 @@ $ doi2bib 10.1145/3522664.3528621 |bibtool -k
 
 And here is another example using an Arxiv ID (again, one of my own).
 
-```{.bash}
+```
 $ doi2bib --preprint 2305.04988 |bibtool -k
 
 @Misc{            shome2023towards,
