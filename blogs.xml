@@ -10,7 +10,7 @@
 <atom:link href="https://arumoy.me/blogs.xml" rel="self" type="application/rss+xml"/>
 <description>Arumoy Shome&#39;s Website</description>
 <generator>quarto-1.9.37</generator>
-<lastBuildDate>Wed, 27 Nov 2024 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 28 Nov 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Renaming files so they make sense (rename)</title>
   <dc:creator>Arumoy Shome</dc:creator>
@@ -417,7 +417,7 @@ font-style: inherit;">--force</span></span></code></pre></div></div>
   <category>shell</category>
   <category>python</category>
   <guid>https://arumoy.me/blogs/rename/</guid>
-  <pubDate>Wed, 27 Nov 2024 23:00:00 GMT</pubDate>
+  <pubDate>Thu, 28 Nov 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Generating tags for git repositories (mytags)</title>
@@ -641,7 +641,7 @@ font-style: inherit;">)</span></span><div class="code-annotation-gutter-bg"></di
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>shell</category>
   <guid>https://arumoy.me/blogs/mytags/</guid>
-  <pubDate>Sat, 16 Nov 2024 23:00:00 GMT</pubDate>
+  <pubDate>Sun, 17 Nov 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Extracting the Module and Function Names from Python ASTs</title>
@@ -1042,7 +1042,7 @@ font-style: inherit;">in</span> call_nodes:</span>
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>python</category>
   <guid>https://arumoy.me/blogs/python-ast-extract-module-method-names/</guid>
-  <pubDate>Fri, 22 Mar 2024 23:00:00 GMT</pubDate>
+  <pubDate>Sat, 23 Mar 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Visualisation Zoo</title>
@@ -1131,97 +1131,7 @@ Strezoski, Gjorgji, Arumoy Shome, Riccardo Bianchi, Shruti Rao, and Marcel Worri
   <category>python</category>
   <category>design</category>
   <guid>https://arumoy.me/blogs/visualisation-zoo/</guid>
-  <pubDate>Sat, 16 Mar 2024 23:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Organising research projects with git</title>
-  <dc:creator>Arumoy Shome</dc:creator>
-  <link>https://arumoy.me/blogs/organise-research-project-git/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>In this post I list some of the standards and conventions I have developed over the course of my PhD to organise research project data. I use git to version control the relevant files and host them on Github.</p>
-<section id="project-naming-convention" class="level1">
-<h1>Project naming convention</h1>
-<p>I name my research projects uniformly across all applications: file system, task management, Github, etc. I use the naming convention of <code>&lt;my-last-name&gt;&lt;project-start-year&gt;&lt;keyword&gt;</code>.</p>
-</section>
-<section id="project-directory-structure" class="level1">
-<h1>Project directory structure</h1>
-<p>My research projects have the following directory structure. Here is an example from a prior project I worked on:</p>
-<pre><code>~/phd/shome2022qualitative/
-├── bin
-├── data
-├── docs
-├── report
-├── src
-└── vendor
-    ├── biswas2021fair
-    └── zhang2021ignorance
-</code></pre>
-<p>Typically, research projects have several scripts for the data collection, data pre-processing, training ML models and running experiments. Put these scripts in the <code>bin/</code> directory. If you have a more mature code base, you can organise your files in the <code>src/</code> directory. This way your scripts in <code>bin/</code> are still able to import modules or helper functions from <code>src/</code>.</p>
-<p>Put all datasets for the project in the <code>data/</code> directory. I typically put existing datasets (such as benchmarks introduced in prior papers) and the data created during the course of the project in separate folders within the <code>data/</code> directory.</p>
-<p>If you have a simple static website consisting of html and css pages, put them in the <code>docs/</code> directory. Then you can use <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site">Github Pages</a> to serve your website.</p>
-<p>Put all your latex files, images and additional resources such as <code>*.cls</code> and <code>*.bst</code> files in the <code>report/</code> directory. You may write several papers that originate from the same core project idea. Name the latex files using the <code>&lt;conference-name&gt;&lt;year&gt;.tex</code> template. This prevents the need for duplicating all the accompanying files for each submission. Use version control to track the progress of your papers. For instance, use <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">git tags</a> to mark the major drafts and final submission. This makes it easy to retrieve prior versions of the paper if required.</p>
-<p>If replication packages from prior papers are available on git, use <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">git submodules</a> and put them in the <code>vendor/</code> directory. If they are hosted on other platforms such as Zenodo or Figshare, check in the source code files you need as reference. Use folders within <code>vendor/</code> to organise replication packages from multiple papers.</p>
-</section>
-<section id="recommendations-for-.gitignore-patterns" class="level1">
-<h1>Recommendations for <code>.gitignore</code> patterns</h1>
-<p>Github has <a href="https://github.com/github/gitignore">an excellent repository</a> of <code>.gitignore</code> patterns for various filetypes. Consider importing them into your own global <code>.gitignore</code> file (for instance, Latex and Python). At the project level, do not check in the pdf version of your papers since these are typically high churn files and git cannot produce meaningful diffs for binary files. Instead use the <code>latexmk</code> command to generate the pdf. You can also consider putting the command in a <code>Makefile</code> to reduce keystrokes.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
-background-color: null;
-font-style: inherit;">latexmk</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-pdf</span> <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">-outdir</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>report report/<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;</span>your-paper<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span>.pdf</span></code></pre></div></div>
-<p>If you use Overleaf, <a href="https://www.overleaf.com/learn/how-to/Git_Integration_and_GitHub_Synchronization">connect your document to the Github project</a> so that everything remains in sync.</p>
-</section>
-<section id="recommendations-for-git-commit-messages" class="level1">
-<h1>Recommendations for git commit messages</h1>
-<p>Follow the general best practices for writing good git commit messages. I use the following template which was recommended by <a href="https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">Tim Pope</a>. You can also paste the following snippet into <code>~/.config/git/message</code>. Then the text is automatically displayed in your text editor, whenever you write a commit message. See <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration">the git configuration documentation</a> for more details.</p>
-<pre><code># 50-character subject line
-#
-# 72-character wrapped longer description. This should answer:
-#
-# * Why was this change necessary?
-# * How does it address the problem?
-# * Are there any side effects?
-#
-# Include a link to the ticket, if any.</code></pre>
-<section id="additionally-for-the-subject-line" class="level2">
-<h2 class="anchored" data-anchor-id="additionally-for-the-subject-line">Additionally for the subject line</h2>
-<p>For instance, say you want to commit a first draft of your paper. Use a subject line as follows:</p>
-<pre id="annotated-cell-4" class="code-annotation-code"><code>feat(report): init icse24 paper draft</code></pre>
-<p>Where <code>feat</code> is an abbreviation for “feature”. The braces specify the folder within which the changes were made, and the title provides a quick description of the change.</p>
-<p>In contrast, say you refactor the data processing pipeline script. The subject line could be as follows:</p>
-<pre><code>refac(bin): remove magic numbers in data-process.sh</code></pre>
-<p>This makes it very easy to track down prior commits that introduced changes in the paper versus in the code. For instance, you can target all refactoring commits within the <code>report/</code> directory using the following <code>git grep</code> command:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">git</span> log <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">--grep</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'refac.*report.'</span></span></code></pre></div></div>
-
-
-</section>
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>research</category>
-  <category>productivity</category>
-  <guid>https://arumoy.me/blogs/organise-research-project-git/</guid>
-  <pubDate>Thu, 18 Jan 2024 23:00:00 GMT</pubDate>
+  <pubDate>Sun, 17 Mar 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Toggling background color in kitty and vim (yob)</title>
@@ -1729,7 +1639,97 @@ call AruAutoBackground()</code></pre>
   <category>shell</category>
   <category>vim</category>
   <guid>https://arumoy.me/blogs/yob/</guid>
-  <pubDate>Thu, 18 Jan 2024 23:00:00 GMT</pubDate>
+  <pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Organising research projects with git</title>
+  <dc:creator>Arumoy Shome</dc:creator>
+  <link>https://arumoy.me/blogs/organise-research-project-git/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>In this post I list some of the standards and conventions I have developed over the course of my PhD to organise research project data. I use git to version control the relevant files and host them on Github.</p>
+<section id="project-naming-convention" class="level1">
+<h1>Project naming convention</h1>
+<p>I name my research projects uniformly across all applications: file system, task management, Github, etc. I use the naming convention of <code>&lt;my-last-name&gt;&lt;project-start-year&gt;&lt;keyword&gt;</code>.</p>
+</section>
+<section id="project-directory-structure" class="level1">
+<h1>Project directory structure</h1>
+<p>My research projects have the following directory structure. Here is an example from a prior project I worked on:</p>
+<pre><code>~/phd/shome2022qualitative/
+├── bin
+├── data
+├── docs
+├── report
+├── src
+└── vendor
+    ├── biswas2021fair
+    └── zhang2021ignorance
+</code></pre>
+<p>Typically, research projects have several scripts for the data collection, data pre-processing, training ML models and running experiments. Put these scripts in the <code>bin/</code> directory. If you have a more mature code base, you can organise your files in the <code>src/</code> directory. This way your scripts in <code>bin/</code> are still able to import modules or helper functions from <code>src/</code>.</p>
+<p>Put all datasets for the project in the <code>data/</code> directory. I typically put existing datasets (such as benchmarks introduced in prior papers) and the data created during the course of the project in separate folders within the <code>data/</code> directory.</p>
+<p>If you have a simple static website consisting of html and css pages, put them in the <code>docs/</code> directory. Then you can use <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site">Github Pages</a> to serve your website.</p>
+<p>Put all your latex files, images and additional resources such as <code>*.cls</code> and <code>*.bst</code> files in the <code>report/</code> directory. You may write several papers that originate from the same core project idea. Name the latex files using the <code>&lt;conference-name&gt;&lt;year&gt;.tex</code> template. This prevents the need for duplicating all the accompanying files for each submission. Use version control to track the progress of your papers. For instance, use <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">git tags</a> to mark the major drafts and final submission. This makes it easy to retrieve prior versions of the paper if required.</p>
+<p>If replication packages from prior papers are available on git, use <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">git submodules</a> and put them in the <code>vendor/</code> directory. If they are hosted on other platforms such as Zenodo or Figshare, check in the source code files you need as reference. Use folders within <code>vendor/</code> to organise replication packages from multiple papers.</p>
+</section>
+<section id="recommendations-for-.gitignore-patterns" class="level1">
+<h1>Recommendations for <code>.gitignore</code> patterns</h1>
+<p>Github has <a href="https://github.com/github/gitignore">an excellent repository</a> of <code>.gitignore</code> patterns for various filetypes. Consider importing them into your own global <code>.gitignore</code> file (for instance, Latex and Python). At the project level, do not check in the pdf version of your papers since these are typically high churn files and git cannot produce meaningful diffs for binary files. Instead use the <code>latexmk</code> command to generate the pdf. You can also consider putting the command in a <code>Makefile</code> to reduce keystrokes.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">latexmk</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-pdf</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-outdir</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>report report/<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>your-paper<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span>.pdf</span></code></pre></div></div>
+<p>If you use Overleaf, <a href="https://www.overleaf.com/learn/how-to/Git_Integration_and_GitHub_Synchronization">connect your document to the Github project</a> so that everything remains in sync.</p>
+</section>
+<section id="recommendations-for-git-commit-messages" class="level1">
+<h1>Recommendations for git commit messages</h1>
+<p>Follow the general best practices for writing good git commit messages. I use the following template which was recommended by <a href="https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">Tim Pope</a>. You can also paste the following snippet into <code>~/.config/git/message</code>. Then the text is automatically displayed in your text editor, whenever you write a commit message. See <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration">the git configuration documentation</a> for more details.</p>
+<pre><code># 50-character subject line
+#
+# 72-character wrapped longer description. This should answer:
+#
+# * Why was this change necessary?
+# * How does it address the problem?
+# * Are there any side effects?
+#
+# Include a link to the ticket, if any.</code></pre>
+<section id="additionally-for-the-subject-line" class="level2">
+<h2 class="anchored" data-anchor-id="additionally-for-the-subject-line">Additionally for the subject line</h2>
+<p>For instance, say you want to commit a first draft of your paper. Use a subject line as follows:</p>
+<pre id="annotated-cell-4" class="code-annotation-code"><code>feat(report): init icse24 paper draft</code></pre>
+<p>Where <code>feat</code> is an abbreviation for “feature”. The braces specify the folder within which the changes were made, and the title provides a quick description of the change.</p>
+<p>In contrast, say you refactor the data processing pipeline script. The subject line could be as follows:</p>
+<pre><code>refac(bin): remove magic numbers in data-process.sh</code></pre>
+<p>This makes it very easy to track down prior commits that introduced changes in the paper versus in the code. For instance, you can target all refactoring commits within the <code>report/</code> directory using the following <code>git grep</code> command:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> log <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--grep</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'refac.*report.'</span></span></code></pre></div></div>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>research</category>
+  <category>productivity</category>
+  <guid>https://arumoy.me/blogs/organise-research-project-git/</guid>
+  <pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Managing Scientific Bibliography using Emacs Org-mode</title>
@@ -1926,7 +1926,7 @@ font-style: inherit;">- </span>State "DONE"       from "TODO"       [2022-09-19 
   <category>emacs</category>
   <category>productivity</category>
   <guid>https://arumoy.me/blogs/bibliography-management-orgmode/</guid>
-  <pubDate>Tue, 28 Nov 2023 23:00:00 GMT</pubDate>
+  <pubDate>Wed, 29 Nov 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Automatically retrieving Bibtex information from DOI</title>
@@ -2168,7 +2168,7 @@ key.format="%-1n(author)%4d(year)%-T(title)"</code></pre>
   <category>shell</category>
   <category>productivity</category>
   <guid>https://arumoy.me/blogs/doi2bib/</guid>
-  <pubDate>Sat, 25 Nov 2023 23:00:00 GMT</pubDate>
+  <pubDate>Sun, 26 Nov 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>CMS using Pandoc and Friends</title>
@@ -3043,7 +3043,7 @@ font-style: inherit;">done</span></span></code></pre></div></div>
   <category>shell</category>
   <category>web</category>
   <guid>https://arumoy.me/blogs/cms-pandoc/</guid>
-  <pubDate>Thu, 02 Feb 2023 23:00:00 GMT</pubDate>
+  <pubDate>Fri, 03 Feb 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Data Validation with TFDV</title>
@@ -3150,7 +3150,7 @@ Figure&nbsp;5: Data Validation How
   <category>research</category>
   <category>SE4AI</category>
   <guid>https://arumoy.me/blogs/remla-data-validation/</guid>
-  <pubDate>Sun, 15 May 2022 22:00:00 GMT</pubDate>
+  <pubDate>Mon, 16 May 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Effortless Parallel Execution with xargs &amp; Friends</title>
@@ -3314,7 +3314,7 @@ font-style: inherit;">-P</span> 4 ./bin/write-schema.py</span></code></pre></div
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>shell</category>
   <guid>https://arumoy.me/blogs/effortless-parallel-execution-xargs/</guid>
-  <pubDate>Sat, 07 May 2022 22:00:00 GMT</pubDate>
+  <pubDate>Sun, 08 May 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Data Smells in Public Datasets</title>
@@ -3495,7 +3495,7 @@ Figure&nbsp;8: Strings in human-friendly formats
   <category>SE4AI</category>
   <category>technical debt</category>
   <guid>https://arumoy.me/blogs/data-smells-public-datasets/</guid>
-  <pubDate>Tue, 03 May 2022 22:00:00 GMT</pubDate>
+  <pubDate>Wed, 04 May 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>There and Back Again A Tale of Website Management</title>
@@ -3687,7 +3687,7 @@ clean:
   <category>vim</category>
   <category>web</category>
   <guid>https://arumoy.me/blogs/website-management-pandoc/</guid>
-  <pubDate>Thu, 03 Mar 2022 23:00:00 GMT</pubDate>
+  <pubDate>Fri, 04 Mar 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Timestamps in the Shell (today)</title>
@@ -4136,7 +4136,7 @@ font-style: inherit;">"</span></span></code></pre></div></div>
   <category>shell</category>
   <category>productivity</category>
   <guid>https://arumoy.me/blogs/today/</guid>
-  <pubDate>Wed, 02 Mar 2022 23:00:00 GMT</pubDate>
+  <pubDate>Thu, 03 Mar 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Aru’s Information Management System (AIMS)</title>
@@ -5017,7 +5017,7 @@ font-style: inherit;">"</span></span><div class="code-annotation-gutter-bg"></di
   <category>shell</category>
   <category>productivity</category>
   <guid>https://arumoy.me/blogs/aims/</guid>
-  <pubDate>Sun, 27 Feb 2022 23:00:00 GMT</pubDate>
+  <pubDate>Mon, 28 Feb 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Privacy Preserving Deep Learning</title>
@@ -5257,7 +5257,7 @@ Figure&nbsp;10: Lifecycle of PPDL
   <category>research</category>
   <category>privacy</category>
   <guid>https://arumoy.me/blogs/privacy-preserving-deep-learning/</guid>
-  <pubDate>Mon, 06 Sep 2021 22:00:00 GMT</pubDate>
+  <pubDate>Tue, 07 Sep 2021 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Research Workflow in Plaintext</title>
@@ -5439,7 +5439,7 @@ font-style: inherit;">"Hello SERG from org-mode!"</span>)</span></code></pre></d
   <category>emacs</category>
   <category>research</category>
   <guid>https://arumoy.me/blogs/research-workflow-plaintext/</guid>
-  <pubDate>Sun, 11 Jul 2021 22:00:00 GMT</pubDate>
+  <pubDate>Mon, 12 Jul 2021 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Aru’s Org Capture Template (aocp.el)</title>
@@ -5492,7 +5492,7 @@ font-style: inherit;">"Hello SERG from org-mode!"</span>)</span></code></pre></d
   <category>emacs</category>
   <category>productivity</category>
   <guid>https://arumoy.me/blogs/aocp/</guid>
-  <pubDate>Tue, 15 Jun 2021 22:00:00 GMT</pubDate>
+  <pubDate>Wed, 16 Jun 2021 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
