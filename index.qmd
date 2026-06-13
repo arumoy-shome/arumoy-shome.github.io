@@ -7,9 +7,6 @@ about:
     - icon: github
       text: Github
       href: https://github.com/arumoy-shome
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com/arumoy_shome
     - icon: linkedin
       text: LinkedIn
       href: https://linkedin.com/in/arumoyshome
