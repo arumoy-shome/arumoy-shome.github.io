@@ -11,49 +11,113 @@ Python has a built-in `ast` module which provides detailed documentation on the 
 
 We can use the `ast.parse` method to create a AST from a given Python source code. Here is an example of how a function call is represented in a AST.
 
-```{python}
+```python
 import ast
 ast.parse("foo(x, y)")
 ```
 
+```
+<ast.Module at 0x10cc7aa10>
+```
+
 The `ast.parse` method returns a `ast.Module` object which by itself is not very helpful. To view the internal structure of the tree, we can use the `ast.dump` method.
 
-```{python}
+```python
 ast.dump(ast.parse("foo(x, y)"))
+```
+
+```
+"Module(body=[Expr(value=Call(func=Name(id='foo', ctx=Load()), args=[Name(id='x', ctx=Load()), Name(id='y', ctx=Load())]))])"
 ```
 
 We can pass the `indent` argument to `ast.dump` along with a `print` statement to make the output more readable.
 
-```{python}
-#| lst-cap: Base case
-#| lst-label: lst-base-case
-
+```python
 print(ast.dump(ast.parse("foo(x, y)"), indent=4))
+```
+
+```
+Module(
+    body=[
+        Expr(
+            value=Call(
+                func=Name(id='foo', ctx=Load()),
+                args=[
+                    Name(id='x', ctx=Load()),
+                    Name(id='y', ctx=Load())]))])
 ```
 
 Note that the function call is represented by a `ast.Call` node which contains a `func` and `args` attribute. The function name (in our case, `foo`) is represented by a `ast.Name` node, with the actual name under the `id` attribute.
 
 And here is the AST when we want to use a function defined in a different module.
 
-```{python}
-#| lst-label: lst-single-nest
-#| lst-cap: Single nested function call
-
+```python
 print(ast.dump(ast.parse("bar.foo(x, y)"), indent=4))
+```
+
+```
+Module(
+    body=[
+        Expr(
+            value=Call(
+                func=Attribute(
+                    value=Name(id='bar', ctx=Load()),
+                    attr='foo',
+                    ctx=Load()),
+                args=[
+                    Name(id='x', ctx=Load()),
+                    Name(id='y', ctx=Load())]))])
 ```
 
 Things are a bit different now. We see that the `Call.func` is no longer a `ast.Name` node, but instead an `ast.Attribute` node. `Attribute.value` is now a `ast.Name` node with the name of the module (in our case `bar`) on the `id` attribute and the name of the function on the `attr` attribute.
 
 Lets examine something a bit more complicated: What if the function is in a submodule?
 
-```{python}
+```python
 print(ast.dump(ast.parse("baz.bar.foo(x, y)"), indent=4))
+```
+
+```
+Module(
+    body=[
+        Expr(
+            value=Call(
+                func=Attribute(
+                    value=Attribute(
+                        value=Name(id='baz', ctx=Load()),
+                        attr='bar',
+                        ctx=Load()),
+                    attr='foo',
+                    ctx=Load()),
+                args=[
+                    Name(id='x', ctx=Load()),
+                    Name(id='y', ctx=Load())]))])
 ```
 
 And even more nested?
 
-```{python}
+```python
 print(ast.dump(ast.parse("quack.baz.bar.foo(x, y)"), indent=4))
+```
+
+```
+Module(
+    body=[
+        Expr(
+            value=Call(
+                func=Attribute(
+                    value=Attribute(
+                        value=Attribute(
+                            value=Name(id='quack', ctx=Load()),
+                            attr='baz',
+                            ctx=Load()),
+                        attr='bar',
+                        ctx=Load()),
+                    attr='foo',
+                    ctx=Load()),
+                args=[
+                    Name(id='x', ctx=Load()),
+                    Name(id='y', ctx=Load())]))])
 ```
 
 It seems that nested function calls are represented using nested `ast.Attribute` nodes. The top level module name is always a `ast.Name` node under the deepest `ast.Attribute.value` node. And the function name is always under the first `ast.Attribute.attr` node
@@ -67,7 +131,7 @@ Lets start with the simplest case, where we are only interested in the function 
 
 We can do this using the `ast.NodeVisitor` class. Lets create a `FunctionNameCollector` class which inherits from `ast.NodeVisitor`. In the class, we define a `visit_Name` and `visit_Attribute` methods which are called every time we visit a `Name` or `Attribute` method respectively (more on this later).
 
-```{python}
+```python
 class FunctionNameCollector(ast.NodeVisitor):
     def __init__(self):
         self.names = []
@@ -77,7 +141,6 @@ class FunctionNameCollector(ast.NodeVisitor):
 
     def visit_Attribute(self, node: ast.Attribute) -> None:
         self.names.append(node.attr)
-
 
 tests = ["foo(x, y)", "bar.foo(x, y)", "baz.bar.foo(x, y)", "quack.baz.bar.foo(x, y)"]
 
@@ -90,6 +153,10 @@ for node in call_nodes:
     collector.visit(node.func)
 
 collector.names
+```
+
+```
+['foo', 'foo', 'foo', 'foo']
 ```
 
 I collect all the `ast.Call` nodes in our test cases using the `ast.walk` function which returns a generator that yields every child node under the given AST. Then I call the `visit` method provided by `ast.NodeVisitor` which visits only the direct child nodes of all `Call.func` nodes in our test cases.
@@ -105,7 +172,7 @@ Here is where things get a bit more interesting. Here are the cases to consider:
 
 So the `visit_Name` method remains the same however, we do need to modify the `visit_Attribute` method such that it traverses all child nodes under `Attribute.value` until we hit the base case. Here is the modified code.
 
-```{python}
+```python
 class NameCollector(ast.NodeVisitor):
     def __init__(self):
         self.names = []
@@ -126,6 +193,10 @@ for node in call_nodes:
     collector.visit(node.func)
 
 collector.names
+```
+
+```
+[(None, 'foo'), ('bar', 'foo'), ('baz', 'foo'), ('quack', 'foo')]
 ```
 
 The code is similar to `FunctionNameCollector` defined above, with a few key changes. The `collector.names` now returns a list of tuples containing the `module, function` names.

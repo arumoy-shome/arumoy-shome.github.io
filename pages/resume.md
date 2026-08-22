@@ -1,17 +1,19 @@
 ---
 title: Arumoy Shome
-abstract: |
-  Data Scientist and Software Engineer with 5+ years of experience at Delft
-  University of Technology, Netherlands,
-  and prior web development experience at
-  Shopify, Canada.
-  Led four end-to-end projects
-  and pioneered three frameworks to improve the MLOps workflow.
-  Hands-on in Python,
-  large-scale data mining,
-  and machine learning.
-abstract-title: Professional Summary
+title-suffix: "Resume"
 ---
+
+# Professional Summary
+
+Data Scientist and Software Engineer with 5+ years of experience at Delft
+University of Technology, Netherlands,
+and prior web development experience at
+Shopify, Canada.
+Led four end-to-end projects
+and pioneered three frameworks to improve the MLOps workflow.
+Hands-on in Python,
+large-scale data mining,
+and machine learning.
 
 # Skills
 

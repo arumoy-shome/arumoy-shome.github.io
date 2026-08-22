@@ -1,25 +1,37 @@
+name: Publish
+
 on:
   workflow_dispatch:
   push:
     branches: master
 
-name: Quarto Publish
+permissions:
+  contents: write
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-
-      - name: Render and Publish
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          target: gh-pages
+      # The apt package lags well behind; the site is built against pandoc 3.x
+      # (it relies on --wrap=none and --citeproc), so install a pinned release.
+      - name: Set up Pandoc
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PANDOC_VERSION: "3.7.0.2"
+        run: |
+          curl -fsSL -o pandoc.deb \
+            "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
+          sudo dpkg -i pandoc.deb
+          pandoc --version | head -1
+
+      - name: Build
+        run: make
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          cname: arumoy.me

@@ -1,10 +1,234 @@
-/* css styles */
-@font-face {
-  font-family: Iosevka;
-  src: url(fonts/webfont-iosevka-26.2.1/woff2/iosevka-regular.woff2)
+/* arumoy.me — hand-rolled, no framework, no JS. */
+
+:root {
+  --fg: #1a1a1a;
+  --bg: #fdfdfd;
+  --muted: #5c5c5c;
+  --rule: #e0e0e0;
+  --accent: #26527a;
+  --code-bg: #f4f4f4;
 }
 
-@font-face {
-  font-family: Iosevka Aile;
-  src: url(fonts/webfont-iosevka-aile-26.2.1/woff2/iosevka-aile-regular.woff2)
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg: #dcdcdc;
+    --bg: #1c1c1c;
+    --muted: #9a9a9a;
+    --rule: #3a3a3a;
+    --accent: #8ab4dd;
+    --code-bg: #262626;
+  }
+}
+
+html {
+  font-size: 18px;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 36em;
+  padding: 2rem 1rem 4rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+a { color: var(--accent); }
+a:hover { text-decoration: none; }
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+.skip:focus {
+  position: static;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* --- site chrome --- */
+
+header.site {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+header.site .site-name {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--fg);
+}
+
+header.site nav a,
+footer.site nav a {
+  margin-right: 0.75rem;
+  font-size: 0.9rem;
+}
+header.site nav a:last-child,
+footer.site nav a:last-child { margin-right: 0; }
+
+footer.site {
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+footer.site p { margin: 0.25rem 0; }
+footer.site nav { margin-top: 0.5rem; }
+
+/* --- title block --- */
+
+#title-block-header { margin: 2rem 0 1rem; }
+#title-block-header .title { margin-bottom: 0.25rem; }
+#title-block-header .date,
+#title-block-header .categories,
+#title-block-header .subtitle {
+  margin: 0.15rem 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* --- typography --- */
+
+h1, h2, h3, h4, h5, h6 { line-height: 1.25; margin: 2rem 0 0.5rem; }
+h1 { font-size: 1.8rem; }
+h2 { font-size: 1.4rem; }
+h3 { font-size: 1.15rem; }
+h4, h5, h6 { font-size: 1rem; }
+h5, h6 { font-style: italic; font-weight: normal; }
+
+p { margin: 1rem 0; }
+ol, ul { padding-left: 1.5rem; }
+li > ol, li > ul { margin-top: 0; }
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--accent);
+  background: var(--code-bg);
+}
+blockquote > :first-child { margin-top: 0; }
+blockquote > :last-child { margin-bottom: 0; }
+
+hr { border: none; border-top: 1px solid var(--rule); margin: 2rem 0; }
+
+/* --- code --- */
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  background: var(--code-bg);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+pre {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+  background: var(--code-bg);
+  border-left: 3px solid var(--rule);
+}
+pre code { background: none; padding: 0; font-size: 0.8rem; }
+
+/* the bold line that names a file, sitting directly above its code block */
+p > strong > code { font-size: 0.8rem; }
+
+/* Pandoc inlines a light-theme syntax palette; several of its token colours
+   are near-black and vanish on the dark background. Override the ones that
+   matter, keeping the same hue families. */
+@media (prefers-color-scheme: dark) {
+  code span.kw, code span.cf { color: #c792ea; }          /* keyword, control */
+  code span.dt               { color: #ffcb6b; }          /* datatype */
+  code span.st, code span.ch, code span.sc { color: #c3e88d; } /* strings */
+  code span.co               { color: #7f9199; }          /* comment */
+  code span.dv, code span.bn, code span.fl { color: #f78c6c; } /* numbers */
+  code span.fu               { color: #82aaff; }          /* function */
+  code span.va               { color: #eeffff; }          /* variable */
+  code span.op, code span.ot { color: #89ddff; }          /* operator, other */
+  code span.at, code span.an { color: #ffcb6b; }          /* attribute */
+  code span.pp               { color: #c792ea; }          /* preprocessor */
+  code span.er, code span.al { color: #ff5370; }          /* error, alert */
+}
+
+/* --- figures --- */
+
+img { max-width: 100%; height: auto; }
+
+figure { margin: 1.5rem 0; text-align: center; }
+figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* full-bleed figures (was Quarto's .column-screen) */
+.wide {
+  max-width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  padding: 0 1rem;
+}
+
+/* side-by-side figures (was Quarto's layout-ncol="2") */
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+.grid2 figure { margin: 0; }
+
+@media (max-width: 600px) {
+  .grid2 { grid-template-columns: 1fr; }
+  .wide { margin-inline: 0; max-width: 100%; padding: 0; }
+}
+
+/* --- tables --- */
+
+table {
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+  width: 100%;
+  display: block;
+  overflow-x: auto;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+th, td { padding: 0.35rem 0.5rem; text-align: left; }
+thead { border-bottom: 1px solid var(--fg); }
+tbody tr { border-bottom: 1px solid var(--rule); }
+
+/* --- table of contents --- */
+
+#TOC {
+  margin: 1.5rem 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--rule);
+  font-size: 0.9rem;
+}
+#TOC h2 { margin: 0 0 0.5rem; font-size: 0.9rem; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--muted); }
+#TOC ul { list-style: none; padding-left: 1rem; margin: 0; }
+#TOC > ul { padding-left: 0; }
+#TOC a { text-decoration: none; }
+#TOC a:hover { text-decoration: underline; }
+
+/* --- citations --- */
+
+#refs { font-size: 0.9rem; }
+.csl-entry { margin-bottom: 0.75rem; }
+
+@media print {
+  header.site nav, footer.site, #TOC, .skip { display: none; }
+  body { max-width: none; }
 }

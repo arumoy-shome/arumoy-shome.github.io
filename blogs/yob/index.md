@@ -22,7 +22,9 @@ Here is the script in its entirety as of 2024-01-19. You can also find
 the latest version in my [dotfiles
 repository](https://github.com/arumoy-shome/dotfiles/blob/master/bin/yob).
 
-```{.bash filename="yob"}
+**`yob`**
+
+```bash
 #!/usr/bin/env bash
 
 LIGHT_THEME="colors/gruvbox-light.conf" # <1>
@@ -111,7 +113,9 @@ colorsheme files to `current-theme.conf` in kitty's config directory.
 The following line ensures that kitty sources the right colorscheme
 next time kitty starts.
 
-```{.conf filename="~/.config/kitty/kitty.conf"}
+**`~/.config/kitty/kitty.conf`**
+
+```ini
 include current-theme.conf
 ```
 
@@ -121,7 +125,9 @@ The `aru#set_background()` function reads the first line of
 `~/.local/share/yob/background` using the built-in `readfile` function
 in vim (see `:help readfile`) and updates the `background`.
 
-```{.vim filename=".vim/autoload/aru.vim"}
+**`.vim/autoload/aru.vim`**
+
+```
 function! aru#set_background() abort
   let config_file = expand('~/.local/share/yob/background')
   if filereadable(config_file)
@@ -137,7 +143,9 @@ sessions does not update. To account for this I introduce an
 autocommand that is fired every time vim is started and when it gets
 focus.
 
-```{.vim filename=".vimrc"}
+**`.vimrc`**
+
+```
 set termguicolors
 color retrobox
 

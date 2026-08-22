@@ -1,15 +1,7 @@
 ---
 title: "Arumoy Shome"
 image: profile.jpeg
-about:
-  template: jolla
-  links:
-    - icon: github
-      text: Github
-      href: https://github.com/arumoy-shome
-    - icon: linkedin
-      text: LinkedIn
-      href: https://linkedin.com/in/arumoyshome
+title-suffix: ""
 ---
 
 
@@ -23,7 +15,7 @@ Machine Learning (ML) components. While we must look to the micro to
 identify and understand a problem, I try to keep an eye towards the
 current era of big-data and large-scale ML as a long-term area of
 research. You can find a list of my publications
-[here](publications.qmd).
+[here](publications.html).
 
 I completed my Msc. in Computer Science from the [Vrije Universiteit
 Amsterdam](https://www.vu.nl/en) and [Universiteit van
@@ -51,10 +43,10 @@ Scale Data Engineering, Data Visualization and Artificial
 Intelligence.
 
 I enjoy sharing knowledge and having discussions and am always happy
-to [engage with other publicly](talks.qmd). Sometimes, I [write about
-my day-to-day challenges](blogs.qmd) as a software engineering, data
+to [engage with other publicly](talks.html). Sometimes, I [write about
+my day-to-day challenges](blogs.html) as a software engineering, data
 scientist & researcher.
 
 All materials (excluding links to external websites or third party
 products) on this website are open sourced under the [Creative Commons
-BY 4.0 license](license.qmd).
+BY 4.0 license](license.html).

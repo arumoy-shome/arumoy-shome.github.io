@@ -262,9 +262,9 @@ are looking for.
 
 ## aocp.el
 
-::: {.callout-tip title="aocp.el"}
-More details regarding this package [can be found in my prior post](../aocp).
-:::
+> **Tip — aocp.el**
+>
+> More details regarding this package [can be found in my prior post](../aocp).
 
 As you may expect, this task is repetitive and entering these properties
 manually becomes cumbersome. To automate this process, I wrote an emacs

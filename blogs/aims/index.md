@@ -27,7 +27,9 @@ You can find the latest version of the script on my [dotfiles
 repo](https://github.com/arumoy-shome/dotfiles/blob/master/bin/aims),
 below is the script as it stands on 2022-02-28.
 
-```{.bash filename="aims"}
+**`aims`**
+
+```bash
 #!/usr/bin/env bash
 
 NOTESDIR="$HOME/org"                                        # <1>
@@ -98,7 +100,9 @@ shellscripts, it gives us the full expressiveness of the shell. This
 is best demonstrated with some examples. Here is my `default` template
 as of 2022-02-28 which is used when no template is specified.
 
-```{.bash filename="~/.local/share/aims/default"}
+**`~/.local/share/aims/default`**
+
+```bash
 #!/usr/bin/env bash
 
 [[ -z "$1" ]] && return 1 # <1>
@@ -113,10 +117,10 @@ echo "# [$(date +'%Y-%m-%d %a %H:%M')]" >> $1 # <2>
 It simply adds a level 1 markdown header followed by a timestamp. Here
 is another for capturing bibtex information for research papers.
 
-::: {.callout-tip}
-[I also wrote aocp.el](../aocp), an emacs package to capture bibtex
-information of research papers using org-mode.
-:::
+> **Tip**
+>
+> [I also wrote aocp.el](../aocp), an emacs package to capture bibtex
+> information of research papers using org-mode.
 ```bash
 #!/usr/bin/env bash
 

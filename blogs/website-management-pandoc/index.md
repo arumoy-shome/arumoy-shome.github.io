@@ -26,7 +26,9 @@ setup in my `init.el`.
 See [the documentation for `org-publish-project-alist`](TODO) on how to
 setup org-publish.
 
-```{.lisp filename="~/.emacs.d/init.el"}
+**`~/.emacs.d/init.el`**
+
+```commonlisp
 (setq org-publish-project-alist
  '(("org" :components ("org-posts" "org-static"))
    ("website-posts"
@@ -79,7 +81,9 @@ My current workflow comprises of authoring content in markdown which
 I edit in vim. I use GNU make to automate the html generation using
 pandoc. The contents of my Makefile are as follows.
 
-```{.make filename="Makefile"}
+**`Makefile`**
+
+```makefile
 # Taken from <https://gist.github.com/kristopherjohnson/7466917>
 
 SRCFILES:= $(wildcard *.md)

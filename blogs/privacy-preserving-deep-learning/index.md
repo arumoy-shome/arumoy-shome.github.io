@@ -80,11 +80,11 @@ look at Distributed Learning and data privacy techniques for PPDL.
 
 # Study Design
 
-![Study Design](study-design.png){#fig-study-design}
+![Study Design](study-design.png)
 
 The goal of this research project was to conduct a systematic review
 of DL systems for MIA which take the privacy of the patients into
-account. Figure @fig-study-design presents an overview of the study
+account. The figure above presents an overview of the study
 design. Emphasis was also put on analysis of these privacy-preserving
 techniques to determine those which provide good performance, are
 scalable and robust, and provide maximum protection against security
@@ -186,15 +186,15 @@ obtained.
 
 # Results
 
-::: {layout-ncol="2"}
-![Training techniques using sensitive data](training-techniques.png){#fig-training-techniques}
+::: {.grid2}
+![Training techniques using sensitive data](training-techniques.png)
 
-![Distributed training techniques](distributed-learning.png){#fig-distributed-learning}
+![Distributed training techniques](distributed-learning.png)
 :::
 
 The study identified 15 papers that presented techniques to train DL
-models using sensitive data (summarised in Figure
-@fig-training-techniques). The techniques can be broadly classified
+models using sensitive data (summarised above). The techniques can be
+broadly classified
 as:
 
 1. centralised training,
@@ -204,19 +204,19 @@ as:
 The majority of the solutions adopted a distributed training approach
 and this is what the rest of the talk will focus upon.
 
-As seen in Figure @fig-distributed-learning Distributed training can
+As seen above, distributed training can
 be broadly categorised as
 
 1. asynchronous and
 2. synchronous training techniques.
 
-::: {layout-ncol="2"}
-![Asynchronous techniques](smpc-fl.png){#fig-smpc-fl}
+::: {.grid2}
+![Asynchronous techniques](smpc-fl.png)
 
-![FL variants](fl-variants.png){#fig-fl-variants}
+![FL variants](fl-variants.png)
 :::
 
-Figure @fig-smpc-fl provides a high-level overview of the asynchronous
+The figures above provide a high-level overview of the asynchronous
 techniques. There are predominantly two popular techniques: Federated
 Learning (FL) and Secure Multi Party Computing (SMPC). Both techniques
 share the same guiding principles. Several models are training in
@@ -227,15 +227,16 @@ aggregated parameters are sent back to the local models.
 It's worth nothing that all asynchronous training techniques introduce
 additional data privacy through DP or HE to reduce data leakage.
 
-There are several flavours of FL (as seen in Figure @fig-fl-variants),
+There are several flavours of FL (as seen in the FL variants figure
+above),
 the most popular being shared gradients and shared weights. However,
 there is a third which shows promising results and that is the shared
 layers. We will talk more about FL with shared layers later in the
 talk.
 
-![Synchronous techniques](sync-training.png){#fig-sync-training}
+![Synchronous techniques](sync-training.png)
 
-Figure @fig-sync-training presents the three prominent synchronous
+The figure above presents the three prominent synchronous
 training techniques:
 
 1. model ensemble (ME)
@@ -254,15 +255,15 @@ catastrophic forgetting and ME is least performant.
 
 # Discussion
 
-::: {layout-ncol="2"}
+::: {.grid2}
 ![Synchronous vs. asynchronous
-learning](sync-async-learning.png){#fig-sync-async-learning}
+learning](sync-async-learning.png)
 
 ![Homomorphic vs. differential
-privacy](homomorphic-differential.png){#fig-homomorphic-differential}
+privacy](homomorphic-differential.png)
 :::
 
-As summarised in Figure @fig-sync-async-learning We observe a
+As summarised in the figures above, we observe a
 trade-off between synchronous and asynchronous learning. Occam's Razor
 dictates that CWT being the simpler solution be chosen where possible.
 However, as we scale the number of institutes, after a certain
@@ -281,9 +282,9 @@ added computational costs. It is recommended to use HE when privacy is
 of the utmost importance and runtime is not of significant.
 
 ![Pyramid of distributed learning for sensitive
-data](pyramid.png){#fig-pyramid}
+data](pyramid.png)
 
-Figure @fig-pyramid presents an overview of the findings of this
+The figure above presents an overview of the findings of this
 literature survey. Distributed Learning is able to drastically reduce
 the data leakage compared to centralised learning however they are
 still vulnerable to model inversion and inference attacks. Additional
@@ -316,10 +317,10 @@ they are unable to participate.
 
 # Conclusion
 
-![Lifecycle of PPDL](summary.png){#fig-summary}
+![Lifecycle of PPDL](summary.png)
 
-We observe the following lifecycle of PPDL, summarised in Figure
-@fig-summary. We start with data owners who are geographically
+We observe the following lifecycle of PPDL, summarised in the figure
+above. We start with data owners who are geographically
 distributed and protected by different privacy laws & regulations. We
 can use distributed learning techniques which result in a better model
 performance without compromising data ownership and drastically

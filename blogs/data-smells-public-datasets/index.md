@@ -32,12 +32,12 @@ directions of work.
 
 # Problem & Contributions
 
-![Pillars of ML](ml-mature-pillars.svg){#fig-ml-pillars}
+![Pillars of ML](ml-mature-pillars.svg)
 
 Compared to traditional software systems---which typically mature by
 experiencing change in the *code*---machine learning systems
-experience change in the *code, model & data* (Figure
-@fig-ml-pillars). These three pillars of change are tangled with one
+experience change in the *code, model & data* (see the figure
+above). These three pillars of change are tangled with one
 another, where a small change or bug in any part of the pipeline,
 ripples through to the downstream stages. Thus it becomes extremely
 important to catch such problems in the early, upstream stages of the
@@ -62,9 +62,9 @@ data smells by analysing 25 popular public datasets.
 
 # Methodology
 
-![Methodology](data-smells-methodology.svg){#fig-method}
+![Methodology](data-smells-methodology.svg)
 
-As seen in Figure @fig-method, our methodology consists of 3 distinct
+As seen in the figure above, our methodology consists of 3 distinct
 phases.
 
 We start with the data selection phase. We used Kaggle---a popular
@@ -86,9 +86,9 @@ and create the final catalogue.
 
 # Results
 
-![Overview of Results](data-smells-2d-histplot.svg){#fig-2d-histplot}
+![Overview of Results](data-smells-2d-histplot.svg)
 
-Figure @fig-2d-histplot is a two dimensional histogram with an
+The figure above is a two dimensional histogram with an
 overview of the "meta" analysis of the datasets & smells. The plot
 presents the datasets along the X axis and the smells along the Y axis
 which allows us to observe the most frequent smells and where they
@@ -104,7 +104,7 @@ interesting and hope will spark some discussion.
 
 ##  Correlated Features
 
-![Correlation of features in all datasets](data-smells-red-corr.svg){#fig-red-corr}
+![Correlation of features in all datasets](data-smells-red-corr.svg)
 
 I will start with the presence of correlated features smell which many
 of us are perhaps already familiar with. I want to start with this
@@ -119,7 +119,7 @@ faster to train a model on & take up less storage.
 
 ## Presence of Sensitive Features
 
-![Sensitive features](data-smells-misc-sensitive.svg){#fig-misc-sensitive}
+![Sensitive features](data-smells-misc-sensitive.svg)
 
 I want to motivate this smell with this figure. This is a probability
 density plot from the adult census dataset. This dataset consists
@@ -143,9 +143,9 @@ threat using video surveillance.
 
 ## Hierarchy from Label Encoding
 
-![Hierarchy from label encoding](data-smells-cat-hierarchy.svg){#fig-cat-hierarchy}
+![Hierarchy from label encoding](data-smells-cat-hierarchy.svg)
 
-Figure @fig-cat-hierarchy presents a probability density plot from the
+The figure above presents a probability density plot from the
 adult census dataset. Here we compare the income class of individuals
 to their level of education. We can see that for this dataset, an
 individual with a higher level of education is likely to earn more.
@@ -162,7 +162,7 @@ where non should exist.
 
 ## Binary Missing Values
 
-![Binary missing values](data-smells-miss-bin.svg){#fig-misc-bin}
+![Binary missing values](data-smells-miss-bin.svg)
 
 Two features from the permit dataset contain a lot of missing values
 (over 90% of the data in these features are missing). A common
@@ -182,7 +182,7 @@ dataset.
 
 ## Strings in Human-friendly Formats
 
-![Strings in human-friendly formats](data-smells-str-human.svg){#fig-str-human}
+![Strings in human-friendly formats](data-smells-str-human.svg)
 
 The *netfix* dataset contains information regarding content on the
 popular entertainment streaming service. The dataset contains
