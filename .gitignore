@@ -1,3 +1,7 @@
 _site/
 build/
 .venv/
+
+# The global ignore file (~/.config/git/ignore) excludes *.xml, which would
+# silently swallow templates/feed-item.xml. Repo rules win, so re-include it.
+!*.xml

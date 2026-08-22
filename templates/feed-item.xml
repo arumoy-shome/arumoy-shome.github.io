@@ -1,0 +1,8 @@
+<item>
+  <title>$title$</title>
+  <link>$site-url$/blogs/$slug$/</link>
+  <guid isPermaLink="true">$site-url$/blogs/$slug$/</guid>
+  <pubDate>$pubdate$</pubDate>
+$for(categories)$  <category>$categories$</category>
+$endfor$  <description><![CDATA[$body$]]></description>
+</item>
