@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# serve: preview the built site at http://localhost:8000
+set -euo pipefail
+cd "$(dirname "$0")/../_site"
+echo "serving _site on http://localhost:${1:-8000}"
+exec python3 -m http.server "${1:-8000}"

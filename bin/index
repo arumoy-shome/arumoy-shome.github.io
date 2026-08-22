@@ -1,0 +1,172 @@
+#!/usr/bin/env bash
+#
+# index: build every generated artefact that depends on the set of blog posts.
+#
+# Walks blogs/*/index.md once and writes, into build/:
+#   frag/<slug>.md   listing entry for a post (markdown)
+#   item/<slug>.xml  RSS item for a post (full content)
+#   meta/<slug>.yaml slug + pre-slugified category links, fed back to pandoc
+#   blogs.md         the blog index page (intro + fragments, newest first)
+#   blogs.xml        the RSS feed
+#   sitemap.xml      the sitemap
+#   tags/<cat>.md    one page per category
+#
+# Posts carry no `description:` field; Quarto's listing silently fell back to
+# `abstract:`, so templates/listing.md reads `abstract` directly.
+
+set -euo pipefail
+
+SITEURL=$(sed -n 's/^site-url: *"\(.*\)"/\1/p' site.yaml)
+TITLE=$(sed -n 's/^site-title: *"\(.*\)"/\1/p' site.yaml)
+DESC=$(sed -n 's/^description: *"\(.*\)"/\1/p' site.yaml)
+
+BUILD=build
+rm -rf "$BUILD"/frag "$BUILD"/item "$BUILD"/meta "$BUILD"/tags
+mkdir -p "$BUILD"/frag "$BUILD"/item "$BUILD"/meta "$BUILD"/tags
+
+# RFC-822 date for RSS. BSD date needs -j -f, GNU date needs -d; `date -j`
+# with no format is a no-op on BSD and an error on GNU, so it discriminates.
+rfc822() {
+  if date -j >/dev/null 2>&1; then
+    date -j -f "%Y-%m-%d %H:%M:%S" "$1 00:00:00" "+%a, %d %b %Y %H:%M:%S +0000"
+  else
+    date -u -d "$1" "+%a, %d %b %Y %H:%M:%S +0000"
+  fi
+}
+
+# "Machine Learning" -> "machine-learning"
+slugify() {
+  printf '%s' "$1" | tr '[:upper:]' '[:lower:]' |
+    sed -e 's/[^a-z0-9]\{1,\}/-/g' -e 's/^-//' -e 's/-$//'
+}
+
+DESCTPL=$BUILD/desc.tpl  # one-variable template, reused for every post
+printf '%s' '$abstract$' >"$DESCTPL"
+
+ORDER=$BUILD/order.txt   # date|slug, one per post
+TAGMAP=$BUILD/tagmap.txt # catslug|catname|postslug
+: >"$ORDER"
+: >"$TAGMAP"
+
+for post in blogs/*/index.md; do
+  slug=$(basename "$(dirname "$post")")
+
+  # One cheap pass to read date + categories out of the frontmatter.
+  meta=$(pandoc "$post" --template=templates/meta.txt -t plain)
+  date=${meta%%|*}
+  cats=${meta#*|}
+  cats=${cats%$'\n'}
+
+  # Build the category links as markdown; pandoc escapes --metadata strings,
+  # but parses --metadata-file values as markdown, so they go through YAML.
+  links=""
+  if [[ -n $cats ]]; then
+    IFS=',' read -ra arr <<<"$cats"
+    for c in "${arr[@]}"; do
+      c="${c#"${c%%[![:space:]]*}"}"; c="${c%"${c##*[![:space:]]}"}"
+      [[ -z $c ]] && continue
+      cslug=$(slugify "$c")
+      links+="[${c}](/blogs/tags/${cslug}.html), "
+      printf '%s|%s|%s\n' "$cslug" "$c" "$slug" >>"$TAGMAP"
+    done
+    links=${links%, }
+  fi
+
+  # A one-line, plain-text abstract for <meta name="description">. Pandoc
+  # renders `description` to `description-meta` with markup stripped, which
+  # is what the page template uses; feeding it `abstract` directly would put
+  # block-level HTML inside an attribute.
+  desc=$(pandoc "$post" -t plain --wrap=none --template="$DESCTPL" |
+    tr '\n' ' ' |
+    sed -e 's/  */ /g' -e 's/^ //' -e 's/ $//' \
+        -e 's/\\/\\\\/g' -e 's/"/\\"/g')
+
+  {
+    printf 'slug: "%s"\n' "$slug"
+    printf 'pubdate: "%s"\n' "$(rfc822 "$date")"
+    printf 'site-url: "%s"\n' "$SITEURL"
+    [[ -n $desc ]] && printf 'description: "%s"\n' "$desc"
+    [[ -n $links ]] && printf 'catlinks: "%s"\n' "${links//\"/\\\"}"
+  } >"$BUILD/meta/$slug.yaml"
+
+  # --wrap=none matters: the markdown writer would otherwise reflow long
+  # titles across lines, which breaks both the `##` heading and the [](…)
+  # link spanning that break.
+  pandoc "$post" -t markdown --wrap=none \
+    --template=templates/listing.md \
+    --metadata-file="$BUILD/meta/$slug.yaml" \
+    >"$BUILD/frag/$slug.md"
+
+  # Full-content RSS item. Post bodies use image paths relative to the post
+  # directory, which a feed reader cannot resolve, so rewrite them to
+  # absolute URLs. Anything already absolute (https:, /path, #anchor) is
+  # left alone. Guard against ]]> terminating the CDATA section early.
+  pandoc "$post" -t html \
+    --citeproc --bibliography=bibliography.bib \
+    --template=templates/feed-item.xml \
+    --metadata-file="$BUILD/meta/$slug.yaml" |
+    sed -E "s#(src|href)=\"([^\"#/][^\":]*)\"#\1=\"$SITEURL/blogs/$slug/\2\"#g" |
+    sed -e 's#\]\]></description>#@@CDATA_END@@#' \
+        -e 's#\]\]>#]]\&gt;#g' \
+        -e 's#@@CDATA_END@@#]]></description>#' \
+      >"$BUILD/item/$slug.xml"
+
+  printf '%s|%s\n' "$date" "$slug" >>"$ORDER"
+done
+
+sort -r -o "$ORDER" "$ORDER"
+
+# --- blogs.md -----------------------------------------------------------
+cp pages/blogs-intro.md "$BUILD/blogs.md"
+while IFS='|' read -r _ slug; do
+  printf '\n' >>"$BUILD/blogs.md"
+  cat "$BUILD/frag/$slug.md" >>"$BUILD/blogs.md"
+done <"$ORDER"
+
+# --- tags/<cat>.md ------------------------------------------------------
+sort -u -o "$TAGMAP" "$TAGMAP"
+cut -d'|' -f1,2 "$TAGMAP" | sort -u | while IFS='|' read -r cslug cname; do
+  printf -- '---\ntitle: "Posts tagged %s"\n---\n\n[All posts](/blogs.html)\n' \
+    "$cname" >"$BUILD/tags/$cslug.md"
+  while IFS='|' read -r _ slug; do
+    if grep -qx "$cslug|$cname|$slug" "$TAGMAP"; then
+      printf '\n' >>"$BUILD/tags/$cslug.md"
+      cat "$BUILD/frag/$slug.md" >>"$BUILD/tags/$cslug.md"
+    fi
+  done <"$ORDER"
+done
+
+# --- blogs.xml ----------------------------------------------------------
+{
+  printf '<?xml version="1.0" encoding="UTF-8"?>\n'
+  printf '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+  printf '<channel>\n'
+  printf '  <title>%s</title>\n' "$TITLE"
+  printf '  <link>%s/blogs.html</link>\n' "$SITEURL"
+  printf '  <description>%s</description>\n' "$DESC"
+  printf '  <language>en</language>\n'
+  printf '  <atom:link href="%s/blogs.xml" rel="self" type="application/rss+xml"/>\n' "$SITEURL"
+  while IFS='|' read -r _ slug; do cat "$BUILD/item/$slug.xml"; done <"$ORDER"
+  printf '</channel>\n</rss>\n'
+} >"$BUILD/blogs.xml"
+
+# --- sitemap.xml --------------------------------------------------------
+{
+  printf '<?xml version="1.0" encoding="UTF-8"?>\n'
+  printf '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+  for p in "" blogs.html talks.html publications.html resume.html license.html; do
+    printf '  <url><loc>%s/%s</loc></url>\n' "$SITEURL" "$p"
+  done
+  while IFS='|' read -r date slug; do
+    printf '  <url><loc>%s/blogs/%s/</loc><lastmod>%s</lastmod></url>\n' \
+      "$SITEURL" "$slug" "$date"
+  done <"$ORDER"
+  cut -d'|' -f1 "$TAGMAP" | sort -u | while read -r cslug; do
+    printf '  <url><loc>%s/blogs/tags/%s.html</loc></url>\n' "$SITEURL" "$cslug"
+  done
+  printf '</urlset>\n'
+} >"$BUILD/sitemap.xml"
+
+printf 'index: %s posts, %s categories\n' \
+  "$(wc -l <"$ORDER" | tr -d ' ')" \
+  "$(cut -d'|' -f1 "$TAGMAP" | sort -u | wc -l | tr -d ' ')" >&2

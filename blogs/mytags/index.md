@@ -17,7 +17,9 @@ Here is the script as of 2024-11-27, [you can find the latest version in
 my dotfiles
 repo](https://github.com/arumoy-shome/dotfiles/blob/master/bin/mytags).
 
-```{.bash filename="mytags"}
+**`mytags`**
+
+```bash
 #!/usr/bin/env bash
 
 __is_git_repo() {

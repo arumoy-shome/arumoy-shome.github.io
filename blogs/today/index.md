@@ -15,7 +15,9 @@ various formats. Here is the script as of 2022-03-09, the latest
 version can be found in my
 [dotfiles](https://github.com/arumoy-shome/dotfiles).
 
-```{.bash filename="today"}
+**`today`**
+
+```bash
 #!/usr/bin/env bash
 
 # today: return today's date in various formats

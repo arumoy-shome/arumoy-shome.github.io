@@ -20,7 +20,9 @@ the xargs unix command.
 Following is a python script which generates the schema file and saves
 it to disk for a single csv dataset.
 
-```{.python filename="csv2schema.py"}
+**`csv2schema.py`**
+
+```python
 #!/usr/bin/env python
 
 import os
@@ -57,7 +59,9 @@ script presented above across several datasets using the `find`
 command. You may have to experiment with the `-P` flag which specifies
 the number of cores to distribute the execution across.
 
-```{.bash filename="csv2schema.bash}
+**`csv2schema.bash`**
+
+```bash
 #!/usr/bin/env bash
 
 mkdir -p data/{schema,stats/train}

@@ -12,7 +12,9 @@ show a hypothetical version of this file below, with two entries. I
 store each paper, as a level 1 header. I use the bibtex key as the
 title for the header.
 
-```{.org filename="bib.org"}
+**`bib.org`**
+
+```
 #+title: Bibliography
 #+tags: test viz data self notebook survey
 #+tags: [ test : fair ]
@@ -68,15 +70,15 @@ prints the bibtex information obtained from Crossref.
 The script also accepts a `--preprint` flag, in which case, it accepts
 an Arxiv ID and obtains the bibtex information from Arxiv directly.
 
-:::{.callout-tip title="Scientific Paper Discovery"}
-You can find more information on how I discovery scientific papers [in
-this blogpost](../scientific-paper-discovery).
-:::
+> **Tip — Scientific Paper Discovery**
+>
+> You can find more information on how I discovery scientific papers [in
+> this blogpost](../scientific-paper-discovery).
 
-:::{.callout-tip title="doi2bib"}
-You can find more details regarding the `doi2bib` script [in this
-blogpost](../doi2bib).
-:::
+> **Tip — doi2bib**
+>
+> You can find more details regarding the `doi2bib` script [in this
+> blogpost](../doi2bib).
 
 # Capturing bibtex information using org-capture
 
@@ -84,7 +86,9 @@ Emacs org-mode has a nifty capture feature that allows the user to
 quickly capture information. I have the following capture template to
 save bibtex information into the bib.org file above.
 
-```{.txt filename="bib.txt"}
+**`bib.txt`**
+
+```
 * %?
 
 #+begin_src bibtex
@@ -93,7 +97,9 @@ save bibtex information into the bib.org file above.
 
 I have the following org-capture configuration in my init.el file.
 
-```{.elisp filename="init.el"}
+**`init.el`**
+
+```commonlisp
 (org-capture-templates
 `(("p" "Paper" entry (file aru/org-bib-file)
    "%[~/.emacs.d/org-templates/bib.txt]" :prepend t)))
@@ -110,10 +116,10 @@ for more information on this keybinding). With `C-u M-|`, I run the
 into the source block. `C-c '` closes the special edit buffer and
 returns back to bib.org.
 
-:::{.callout-note title="Evil Mode"}
-I now use evil-mode which provides vim keybindings within Emacs. I
-populate the source block using the `:read!` command.
-:::
+> **Note — Evil Mode**
+>
+> I now use evil-mode which provides vim keybindings within Emacs. I
+> populate the source block using the `:read!` command.
 
 # Mapping of orgmode features and my usage
 

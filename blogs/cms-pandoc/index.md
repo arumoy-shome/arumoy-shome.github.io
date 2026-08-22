@@ -10,20 +10,20 @@ abstract: |
 categories: [shell, web]
 ---
 
-::: {.callout-important title="Migrated to Quarto"}
-Since 2023-07-01, I have been using [Quarto](https://quarto.org) to
-manage my website.
-
-The CMS system presented here works well. However, I felt the need for
-features such as code annotations and custom document layouts (to name
-a few) while still authoring content in plaintext. Quarto
-provides all this functionality (and more) without me having to dig
-around in pandoc's documentation or write custom javascript.
-
-My original website which I managed using the CMS system presented
-here, is open-sourced and [can be viewed on
-Github](https://github.com/arumoy-shome/www-arumoy-archive).
-:::
+> **Important — Migrated to Quarto**
+>
+> Since 2023-07-01, I have been using [Quarto](https://quarto.org) to
+> manage my website.
+>
+> The CMS system presented here works well. However, I felt the need for
+> features such as code annotations and custom document layouts (to name
+> a few) while still authoring content in plaintext. Quarto
+> provides all this functionality (and more) without me having to dig
+> around in pandoc's documentation or write custom javascript.
+>
+> My original website which I managed using the CMS system presented
+> here, is open-sourced and [can be viewed on
+> Github](https://github.com/arumoy-shome/www-arumoy-archive).
 
 [In a prior post](../website-management-pandoc), I shared my humble
 system for running a static website using pandoc. Since that post,
@@ -43,7 +43,9 @@ Within the post, I use yaml metadata to record additional information
 related to the post such as its title, date, author and a short
 abstract.
 
-```{.yaml filename="my-new-blog.md"}
+**`my-new-blog.md`**
+
+```yaml
 ---
 title: foo bar baz
 author: John Doe
@@ -61,7 +63,9 @@ naming the file. To reduce chances of human error, and make my life a
 bit easier, I automate the process of creating a new post using the
 following python script.
 
-```{.python filename="bin/new"}
+**`bin/new`**
+
+```python
 #!/usr/bin/env python3
 
 import os
@@ -152,14 +156,14 @@ sys.exit(f"{FILE} created")
 3. If this flag is passed, don't open the new file in `$EDITOR`.
 4. If this flag is passed, don't ask for confirmation.
 
-::: {.callout-tip title="Python argparse"}
-The Python argparse module provides a convenient API to create
-commandline tools. This code is much more legible and understandable
-compared to how we parse arguments in say bash or zsh.
-
-For instance, compare this to the argument parsing code I wrote in
-[AIMS, my information management script](../aims).
-:::
+> **Tip — Python argparse**
+>
+> The Python argparse module provides a convenient API to create
+> commandline tools. This code is much more legible and understandable
+> compared to how we parse arguments in say bash or zsh.
+>
+> For instance, compare this to the argument parsing code I wrote in
+> [AIMS, my information management script](../aims).
 
 The script has a `title` positional argument which is
 mandatory. Additionally, the script can also accept a type of the post
@@ -181,7 +185,9 @@ shell scripting, I have now managed to do this automatically!
 I use the following script to generate the blogs and the talks index
 pages.
 
-```{.bash filename="bin/create-indices"}
+**`bin/create-indices`**
+
+```bash
 #!/usr/bin/env bash
 
 # generate blogs.md # <1>
@@ -225,7 +231,9 @@ extract the date, title and abstract of each file and generate an
 intermediate markdown file in the format that I want each post to show
 on the index page. Here is the template file that I use.
 
-```{.pandoc filename="_templates/index.md"}
+**`_templates/index.md`**
+
+```
 # ${date} ${title}
 $if(abstract)$
 
@@ -246,7 +254,9 @@ generate the final file.
 Once the index pages are created, I use the following script to export
 all markdown files to html.
 
-```{.bash filename=bin/publish}
+**`bin/publish`**
+
+```bash
 #!/usr/bin/env bash
 
 find . -name "*.md" -not -path "*_templates*" |
@@ -263,7 +273,9 @@ Finally, to automate the entire build process I use GNU make. I have a
 single `all` target which simply runs the `create-indices` and
 `publish` scripts in the right order.
 
-```{.make filename="Makefile"}
+**`Makefile`**
+
+```makefile
 all:
 	bin/create-indices
 	bin/publish

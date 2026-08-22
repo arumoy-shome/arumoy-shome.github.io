@@ -20,7 +20,9 @@ Here is the full script as of 2024-11-29, you can find the latest
 version of the script [in my dotfiles
 repository](https://github.com/arumoy-shome/dotfiles/blob/master/bin/rename).
 
-```{.python filename="rename"}
+**`rename`**
+
+```python
 #!/usr/bin/env python3
 
 import argparse
@@ -98,7 +100,7 @@ convenient to rename files in bulk using standard unix tools such as
 `find` and `xargs`. For instance, below how I show how you can rename
 all Docx files in a directory automatically.
 
-```{.bash}
+```bash
 find * -name '*.docx' -print0 |
 xargs -0 -n1 rename --force
 ```
