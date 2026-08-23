@@ -6,23 +6,29 @@
 #   frag/<slug>.md   listing entry for a post (markdown)
 #   item/<slug>.xml  RSS item for a post (full content)
 #   meta/<slug>.yaml slug + pre-slugified category links, fed back to pandoc
+#   order/<slug>     date|slug, concatenated and sorted into order.txt
+#   cats/<slug>      catslug|catname|postslug, concatenated into tagmap.txt
 #   blogs.md         the blog index page (intro + fragments, newest first)
 #   blogs.xml        the RSS feed
 #   sitemap.xml      the sitemap
 #   tags/<cat>.md    one page per category
+#
+# Each post costs three pandoc invocations, so the per-post work runs in
+# parallel under xargs -P: the script re-invokes itself as `index --post
+# <path>` once per post. Workers share nothing and write only files named
+# after their own slug -- that is why the ordering and category data go to
+# order/<slug> and cats/<slug> rather than being appended to one file, which
+# would interleave under concurrency. The driver concatenates and sorts them
+# once the workers are done.
 #
 # Posts carry no `description:` field; Quarto's listing silently fell back to
 # `abstract:`, so templates/listing.md reads `abstract` directly.
 
 set -euo pipefail
 
-SITEURL=$(sed -n 's/^site-url: *"\(.*\)"/\1/p' site.yaml)
-TITLE=$(sed -n 's/^site-title: *"\(.*\)"/\1/p' site.yaml)
-DESC=$(sed -n 's/^description: *"\(.*\)"/\1/p' site.yaml)
-
 BUILD=build
-rm -rf "$BUILD"/frag "$BUILD"/item "$BUILD"/meta "$BUILD"/tags
-mkdir -p "$BUILD"/frag "$BUILD"/item "$BUILD"/meta "$BUILD"/tags
+SITEURL=$(sed -n 's/^site-url: *"\(.*\)"/\1/p' site.yaml)
+DESCTPL=$BUILD/desc.tpl  # one-variable template, reused for every post
 
 # RFC-822 date for RSS. BSD date needs -j -f, GNU date needs -d; `date -j`
 # with no format is a no-op on BSD and an error on GNU, so it discriminates.
@@ -40,15 +46,11 @@ slugify() {
     sed -e 's/[^a-z0-9]\{1,\}/-/g' -e 's/^-//' -e 's/-$//'
 }
 
-DESCTPL=$BUILD/desc.tpl  # one-variable template, reused for every post
-printf '%s' '$abstract$' >"$DESCTPL"
-
-ORDER=$BUILD/order.txt   # date|slug, one per post
-TAGMAP=$BUILD/tagmap.txt # catslug|catname|postslug
-: >"$ORDER"
-: >"$TAGMAP"
-
-for post in blogs/*/index.md; do
+# --- worker -------------------------------------------------------------
+# Render every per-post artefact for one post. Invoked by the driver's xargs.
+render_post() {
+  local post=$1
+  local slug meta date cats links desc c cslug
   slug=$(basename "$(dirname "$post")")
 
   # One cheap pass to read date + categories out of the frontmatter.
@@ -60,14 +62,16 @@ for post in blogs/*/index.md; do
   # Build the category links as markdown; pandoc escapes --metadata strings,
   # but parses --metadata-file values as markdown, so they go through YAML.
   links=""
+  : >"$BUILD/cats/$slug"
   if [[ -n $cats ]]; then
+    local arr
     IFS=',' read -ra arr <<<"$cats"
     for c in "${arr[@]}"; do
       c="${c#"${c%%[![:space:]]*}"}"; c="${c%"${c##*[![:space:]]}"}"
       [[ -z $c ]] && continue
       cslug=$(slugify "$c")
       links+="[${c}](/blogs/tags/${cslug}.html), "
-      printf '%s|%s|%s\n' "$cslug" "$c" "$slug" >>"$TAGMAP"
+      printf '%s|%s|%s\n' "$cslug" "$c" "$slug" >>"$BUILD/cats/$slug"
     done
     links=${links%, }
   fi
@@ -111,10 +115,37 @@ for post in blogs/*/index.md; do
         -e 's#@@CDATA_END@@#]]></description>#' \
       >"$BUILD/item/$slug.xml"
 
-  printf '%s|%s\n' "$date" "$slug" >>"$ORDER"
-done
+  printf '%s|%s\n' "$date" "$slug" >"$BUILD/order/$slug"
+}
 
-sort -r -o "$ORDER" "$ORDER"
+if [[ ${1:-} == --post ]]; then
+  render_post "$2"
+  exit 0
+fi
+
+# --- driver -------------------------------------------------------------
+
+TITLE=$(sed -n 's/^site-title: *"\(.*\)"/\1/p' site.yaml)
+DESC=$(sed -n 's/^description: *"\(.*\)"/\1/p' site.yaml)
+
+rm -rf "$BUILD"/frag "$BUILD"/item "$BUILD"/meta "$BUILD"/tags \
+       "$BUILD"/order "$BUILD"/cats
+mkdir -p "$BUILD"/frag "$BUILD"/item "$BUILD"/meta "$BUILD"/tags \
+         "$BUILD"/order "$BUILD"/cats
+
+printf '%s' '$abstract$' >"$DESCTPL"
+
+JOBS=${JOBS:-$(getconf _NPROCESSORS_ONLN 2>/dev/null || echo 4)}
+
+# -0 for paths, -n1 so each worker gets exactly one post (BSD xargs will
+# otherwise pack every argument into a single command and defeat -P).
+printf '%s\0' blogs/*/index.md |
+  xargs -0 -n1 -P "$JOBS" "$0" --post
+
+ORDER=$BUILD/order.txt   # date|slug, one per post
+TAGMAP=$BUILD/tagmap.txt # catslug|catname|postslug
+cat "$BUILD"/order/* | sort -r >"$ORDER"
+cat "$BUILD"/cats/* | sort -u >"$TAGMAP"
 
 # --- blogs.md -----------------------------------------------------------
 cp pages/blogs-intro.md "$BUILD/blogs.md"
@@ -124,7 +155,6 @@ while IFS='|' read -r _ slug; do
 done <"$ORDER"
 
 # --- tags/<cat>.md ------------------------------------------------------
-sort -u -o "$TAGMAP" "$TAGMAP"
 cut -d'|' -f1,2 "$TAGMAP" | sort -u | while IFS='|' read -r cslug cname; do
   printf -- '---\ntitle: "Posts tagged %s"\n---\n\n[All posts](/blogs.html)\n' \
     "$cname" >"$BUILD/tags/$cslug.md"
@@ -167,6 +197,7 @@ done
   printf '</urlset>\n'
 } >"$BUILD/sitemap.xml"
 
-printf 'index: %s posts, %s categories\n' \
+printf 'index: %s posts, %s categories (-P %s)\n' \
   "$(wc -l <"$ORDER" | tr -d ' ')" \
-  "$(cut -d'|' -f1 "$TAGMAP" | sort -u | wc -l | tr -d ' ')" >&2
+  "$(cut -d'|' -f1 "$TAGMAP" | sort -u | wc -l | tr -d ' ')" \
+  "$JOBS" >&2

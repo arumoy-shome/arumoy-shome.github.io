@@ -18,8 +18,10 @@ render as literal text.
 
 ```sh
 make                # build everything into _site/
+make -j8            # same, recipes in parallel (safe; output is identical)
 make clean          # rm -rf _site build
 make serve          # build, then serve _site on http://localhost:8000
+JOBS=1 bin/index    # force bin/index sequential (debugging)
 bin/new "Post Title"          # scaffold blogs/<slug>/index.md
 bin/new -f -x -c "shell, vim" -d 2026-01-30 "Title"   # no prompt, no $EDITOR
 ```
@@ -34,9 +36,9 @@ grep -c '^<h2' _site/blogs.html                             # index entry count
 (cd _site && find . -type f | sort)                         # diff against a known-good list
 ```
 
-A full build is ~8s. A no-op `make` is silent and instant. Editing any single post
-re-runs `bin/index` and therefore rebuilds all post pages; this is intentional
-coarseness, not a bug.
+A full build is ~5s (~3s with `make -j8`). A no-op `make` is silent and instant.
+Editing any single post re-runs `bin/index` and therefore rebuilds all post pages;
+this is intentional coarseness, not a bug.
 
 ## Architecture
 
@@ -72,6 +74,25 @@ emitted as literal text. Do not "simplify" this into a single HTML-emitting pass
 plain-text `description`, pre-slugified `catlinks`). The Makefile's post rule feeds
 that file back into pandoc, which is how post pages get their `<meta name="description">`
 and their category links. That is why every post page depends on `build/blogs.md`.
+
+### Parallelism in `bin/index`
+
+Each post costs three pandoc invocations, so `bin/index` re-invokes **itself** as
+`bin/index --post <path>` under `xargs -0 -n1 -P "$JOBS"`. The script therefore has
+two modes: a worker (`render_post`) and a driver.
+
+The invariant that makes this safe: **a worker writes only files named after its own
+slug.** Ordering and category data go to `build/order/<slug>` and `build/cats/<slug>`
+rather than being appended to one shared file — concurrent appends would interleave
+and corrupt both. The driver concatenates and sorts them after `xargs` returns, so
+output is deterministic regardless of completion order.
+
+If you add per-post work, keep it inside `render_post` and keep it writing only
+slug-named files. `JOBS=1` runs the same code path sequentially and must produce
+byte-identical output; that is the first thing to check if the two ever diverge.
+
+`-n1` is load-bearing: without it BSD xargs packs every path into one command and
+`-P` does nothing.
 
 ### URL contract — do not break
 
