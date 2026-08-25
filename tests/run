@@ -55,7 +55,11 @@ done
 # Whole-site tests read _site. A no-op make is instant, so this is cheap when
 # the tree is already current and makes `tests/run` usable on its own.
 if [[ -z ${SKIP_BUILD:-} ]]; then
-  if ! make -j"$(getconf _NPROCESSORS_ONLN 2>/dev/null || echo 4)" >"$TMPROOT/build.log" 2>&1; then
+  # env -u: when invoked via `make test` this would otherwise be a recursive
+  # make, inheriting MAKEFLAGS and printing "Entering directory".
+  if ! env -u MAKELEVEL -u MAKEFLAGS -u MFLAGS \
+       make -j"$(getconf _NPROCESSORS_ONLN 2>/dev/null || echo 4)" \
+       >"$TMPROOT/build.log" 2>&1; then
     printf '%sbuild failed; tests need a built _site%s\n' "$R" "$N" >&2
     cat "$TMPROOT/build.log" >&2
     exit 1

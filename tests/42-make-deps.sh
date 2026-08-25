@@ -18,7 +18,7 @@ cd "$REPO_ROOT"
 W=$TMP/repo
 repo_copy "$W"
 
-( cd "$W" && make -j8 ) >"$TMP/build.log" 2>&1 || {
+make_in "$W" -j8 >"$TMP/build.log" 2>&1 || {
   fail "initial build failed: $(_trunc "$(cat "$TMP/build.log")" 400)"
   exit 1
 }
@@ -29,7 +29,7 @@ rebuilt() {
   local stamp=$TMP/stamp
   : >"$stamp"
   ( cd "$W" && touch "$@" ) || return 1
-  ( cd "$W" && make -j8 ) >"$TMP/make.log" 2>&1 || {
+  make_in "$W" -j8 >"$TMP/make.log" 2>&1 || {
     _bad "$(_where 2)" "make failed after touching $*" "$(_trunc "$(cat "$TMP/make.log")" 400)"
     return 1
   }

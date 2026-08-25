@@ -169,6 +169,18 @@ site_html() { find "${1:-$REPO_ROOT/_site}" -name '*.html' -type f | LC_ALL=C so
 # checks that must not fire on a post documenting the syntax they look for.
 visible_text() { awk -f "$TESTDIR/strip-code.awk" "$1"; }
 
+# make_in DIR ARGS... -- run make in DIR as a user would, not as a sub-make.
+#
+# When the suite is invoked through `make test`, MAKELEVEL and MAKEFLAGS are
+# already in the environment. GNU make then treats the inner call as recursive
+# and prints "Entering directory", which is not silence; worse, it inherits
+# flags, so a `make -j8 test` would quietly make the tests' own `make -j1` run
+# in parallel and defeat the comparison. Scrub all three.
+make_in() {
+  local dir=$1; shift
+  ( cd "$dir" && env -u MAKELEVEL -u MAKEFLAGS -u MFLAGS make "$@" )
+}
+
 # repo_copy DEST -- a scratch copy of the working tree without generated or
 # VCS directories, for tests that build but must not disturb the tree they
 # were launched from.

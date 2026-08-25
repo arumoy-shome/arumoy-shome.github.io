@@ -17,7 +17,7 @@ repo_copy "$W"
 
 build() {
   local jobs=$1
-  ( cd "$W" && make -j"$jobs" ) >"$TMP/make.$jobs.log" 2>&1 || {
+  make_in "$W" -j"$jobs" >"$TMP/make.$jobs.log" 2>&1 || {
     _bad "$(_where 2)" "make -j$jobs failed" "$(_trunc "$(cat "$TMP/make.$jobs.log")" 600)"
     return 1
   }
@@ -26,7 +26,7 @@ build() {
 # --- serial vs parallel ----------------------------------------------------
 if build 1; then
   rm -rf "$TMP/site-j1"; cp -R "$W/_site" "$TMP/site-j1"
-  ( cd "$W" && make clean ) >/dev/null 2>&1
+  make_in "$W" clean >/dev/null 2>&1
   if build 8; then
     assert_same_tree "$TMP/site-j1" "$W/_site" "make -j1 and make -j8 produce identical _site"
   fi
@@ -35,7 +35,7 @@ fi
 # --- repeatability ---------------------------------------------------------
 # Same recipes, same inputs, run again from scratch: the bytes must match.
 # Anything time- or order-dependent leaking into the output shows up here.
-( cd "$W" && make clean ) >/dev/null 2>&1
+make_in "$W" clean >/dev/null 2>&1
 if build 4; then
   assert_same_tree "$TMP/site-j1" "$W/_site" "a clean rebuild reproduces the same _site"
 fi
@@ -43,14 +43,14 @@ fi
 # --- the no-op build -------------------------------------------------------
 # Everything is current, so make must print nothing at all. Output here means
 # a rule is re-firing every time.
-out=$( cd "$W" && make 2>&1 )
+out=$(make_in "$W" 2>&1)
 rc=$?
 assert_eq "0" "$rc" "a no-op make exits 0"
 assert_eq "" "$out" "a no-op make is silent"
 
 # Twice more, to catch a rule that alternates rather than always firing.
 for i in 1 2; do
-  out=$( cd "$W" && make 2>&1 )
+  out=$(make_in "$W" 2>&1)
   assert_eq "" "$out" "no-op make is still silent (run $((i + 1)))"
 done
 
@@ -58,7 +58,7 @@ done
 # than a bug: category pages are only discoverable after bin/index has run, so
 # `tags` is a .PHONY target and a phony prerequisite always counts as out of
 # date. The cost is real though — see below.
-( cd "$W" && make -q ) >/dev/null 2>&1
+make_in "$W" -q >/dev/null 2>&1
 assert_ne "0" "$?" "make -q reports work to do, because tags is phony"
 
 # What that phony target actually costs: every no-op build re-renders every
@@ -66,7 +66,7 @@ assert_ne "0" "$?" "make -q reports work to do, because tags is phony"
 # category. Pinned here so the cost is visible and a fix would show up as a
 # failing assertion rather than going unnoticed.
 : >"$TMP/stamp"
-( cd "$W" && make ) >/dev/null 2>&1
+make_in "$W" >/dev/null 2>&1
 # index.html under tags/ is a real target, not part of the phony loop.
 rerendered=$(find "$W/_site/blogs/tags" -name '*.html' ! -name index.html \
   -newer "$TMP/stamp" | wc -l | tr -d ' ')
@@ -81,7 +81,7 @@ assert_no_file_newer "$W/_site/blogs/tags/index.html" "$TMP/stamp" \
   "the tag index has a real rule and is not re-rendered"
 
 # --- clean really cleans ---------------------------------------------------
-( cd "$W" && make clean ) >/dev/null 2>&1
+make_in "$W" clean >/dev/null 2>&1
 assert_no_file "$W/_site" "make clean removes _site"
 assert_no_file "$W/build" "make clean removes build"
 
