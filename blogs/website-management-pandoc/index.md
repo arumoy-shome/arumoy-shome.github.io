@@ -23,7 +23,7 @@ I decided to forgo this madness and just use html & css to build my
 website. I used org-publish to accomplish this using the following
 setup in my `init.el`.
 
-See [the documentation for `org-publish-project-alist`](TODO) on how to
+See the documentation for `org-publish-project-alist` on how to
 setup org-publish.
 
 **`~/.emacs.d/init.el`**
@@ -73,8 +73,8 @@ A custom template can be specified using the `--template` flag. See
 the pandoc manual for more info.
 
 Following the advice laid out by
-[https://jgthms.com/web-design-in-4-minutes/](Web design in
-4 minutes), I designed a minimal pandoc custom template which you can
+[Web design in 4 minutes](https://jgthms.com/web-design-in-4-minutes/),
+I designed a minimal pandoc custom template which you can
 find my in [dotfiles](https://github.com/arumoy-shome/dotfiles) repo.
 
 My current workflow comprises of authoring content in markdown which

@@ -164,5 +164,5 @@ This one is a bit more involved but highlights the power of using
 shellscripts for templating. Given that a bibentry is copied in the
 clipboard, this template adds a level 1 markdown header with a
 timestamp and the bibkey. It adds my [note-taking
-prompts](../research-workflow#writing-notes) and sticks the bibentry
+prompts](../research-workflow-plaintext) and sticks the bibentry
 at the bottom.

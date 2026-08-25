@@ -27,15 +27,27 @@ COMMON := --standalone --wrap=none \
           --metadata reference-section-title="References"
 POST_FLAGS := $(COMMON) --toc --metadata author="Arumoy Shome"
 
-.PHONY: all clean serve tags
+# The inputs every pandoc call reads, and therefore the prerequisites every
+# HTML output shares. bibliography.bib belongs here because --citeproc runs on
+# every page: without it, editing a reference rebuilds nothing.
+COMMON_DEPS := templates/page.html site.yaml bibliography.bib
+
+.PHONY: all clean serve tags test
 all: $(PAGE_HTML) $(POST_HTML) $(ASSET_OUT) $(GENPAGE) $(GENXML) $(STATIC) tags
+
+# tests/run builds first anyway; depending on all here keeps `make test` in a
+# clean tree from looking like a test failure. TEST_FAST=1 skips 40-42, which
+# do full rebuilds and account for most of the runtime.
+test: all
+	tests/run
 
 # --- generated data ------------------------------------------------------
 # bin/index writes build/{blogs.md,blogs.xml,sitemap.xml,tags/*.md} in one
 # pass over the posts; blogs.md is the stamp for all of them.
 $(BUILD)/blogs.md: $(POSTS) bin/index templates/listing.md \
                    templates/meta.txt templates/feed-item.xml \
-                   pages/blogs-intro.md pages/tags-intro.md site.yaml
+                   pages/blogs-intro.md pages/tags-intro.md site.yaml \
+                   bibliography.bib
 	@mkdir -p $(BUILD)
 	bin/index
 
@@ -59,16 +71,15 @@ $(BUILD)/talks.md: talks.yaml templates/talks.md pages/talks-intro.md bin/yamlse
 	  --metadata-file=$(BUILD)/talks-data.yaml >> $@
 
 # --- html ----------------------------------------------------------------
-$(SITE)/blogs/%/index.html: blogs/%/index.md templates/page.html site.yaml \
-                            $(BUILD)/blogs.md
+$(SITE)/blogs/%/index.html: blogs/%/index.md $(COMMON_DEPS) $(BUILD)/blogs.md
 	@mkdir -p $(dir $@)
 	$(PANDOC) $(POST_FLAGS) --metadata-file=$(BUILD)/meta/$*.yaml -o $@ $<
 
-$(SITE)/%.html: pages/%.md templates/page.html site.yaml
+$(SITE)/%.html: pages/%.md $(COMMON_DEPS)
 	@mkdir -p $(dir $@)
 	$(PANDOC) $(COMMON) -o $@ $<
 
-$(SITE)/%.html: $(BUILD)/%.md templates/page.html site.yaml
+$(SITE)/%.html: $(BUILD)/%.md $(COMMON_DEPS)
 	@mkdir -p $(dir $@)
 	$(PANDOC) $(COMMON) -o $@ $<
 
@@ -76,7 +87,7 @@ $(SITE)/%.html: $(BUILD)/%.md templates/page.html site.yaml
 # it: the post rule would want blogs/tags/index.md, the generated-page rule
 # build/blogs/tags/index.md. build/blogs.md is the stamp for everything
 # bin/index writes, build/tags.md included.
-$(SITE)/blogs/tags/index.html: $(BUILD)/blogs.md templates/page.html site.yaml
+$(SITE)/blogs/tags/index.html: $(BUILD)/blogs.md $(COMMON_DEPS)
 	@mkdir -p $(dir $@)
 	$(PANDOC) $(COMMON) -o $@ $(BUILD)/tags.md
 

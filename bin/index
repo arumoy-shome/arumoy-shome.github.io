@@ -119,6 +119,11 @@ render_post() {
   printf '%s|%s\n' "$date" "$slug" >"$BUILD/order/$slug"
 }
 
+# Sourcing with INDEX_LIB=1 yields the helpers above without running the
+# driver, which would rm -rf build/. Used by tests/. Must be sourced from the
+# repo root: SITEURL is read from site.yaml at source time.
+[[ ${INDEX_LIB:-} == 1 ]] && return 0
+
 if [[ ${1:-} == --post ]]; then
   render_post "$2"
   exit 0

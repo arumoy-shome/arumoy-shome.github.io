@@ -1,0 +1,36 @@
+name: Test
+
+# Pushes to master are covered by the test job in publish.yml, which gates the
+# deploy. This workflow is what gives pull requests a signal.
+on:
+  workflow_dispatch:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # Same pinned release as publish.yml: the apt package lags well behind,
+      # and the suite must exercise the version that actually ships the site.
+      - name: Set up Pandoc
+        env:
+          PANDOC_VERSION: "3.7.0.2"
+        run: |
+          curl -fsSL -o pandoc.deb \
+            "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
+          sudo dpkg -i pandoc.deb
+          pandoc --version | head -1
+
+      # xmllint, for the feed and sitemap well-formedness checks.
+      - name: Set up xmllint
+        run: sudo apt-get install -y --no-install-recommends libxml2-utils
+
+      # Ubuntu is the GNU half of the BSD/GNU date(1) split that rfc822()
+      # branches on. macOS covers the BSD half locally -- and only if GNU
+      # coreutils is not shadowing /bin/date, which is why 11-rfc822 drives
+      # both branches explicitly rather than trusting the platform.
+      - name: Run the test suite
+        run: make test

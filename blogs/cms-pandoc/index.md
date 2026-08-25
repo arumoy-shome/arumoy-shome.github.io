@@ -176,8 +176,8 @@ the post and names it in the specified format.
 
 # Automatically generating index pages
 
-I have two index pages on my website---the [blogs](blogs) page which
-list all the blogposts I have written and the [talks](talks) page
+I have two index pages on my website---the [blogs](/blogs.html) page which
+list all the blogposts I have written and the [talks](/talks.html) page
 which lists all the talks I have given in the past. Previously, I was
 creating these pages manually. However, with a bit of unix
 shell scripting, I have now managed to do this automatically!
