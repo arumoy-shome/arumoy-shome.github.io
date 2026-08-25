@@ -391,14 +391,13 @@ tuple.</p>]]></description>
   <description><![CDATA[<p>This is a collection of data visualisations I
 have created in the past from prior research publications. The title of
 this post is inspired by the <span class="citation"
-data-cites="heer2010tour">Heer, Bostock, and Ogievetsky (2010)</span>
-paper.</p>
+data-cites="heer2010tour">[1]</span> paper.</p>
 <h1 id="joint-distribution-of-categorical-variables">Joint Distribution
 of Categorical Variables</h1>
 <p>The following visualisation comes from the very first Conference
-paper I wrote <span class="citation" data-cites="shome2022data">(Shome,
-Cruz, and Deursen 2022)</span>. The paper explored the presence of
-anti-patterns in popular ML datasets that lead to accumulation of
+paper I wrote <span class="citation"
+data-cites="shome2022data">[2]</span>. The paper explored the presence
+of anti-patterns in popular ML datasets that lead to accumulation of
 technical debt in the downstream stages of the pipeline.</p>
 <p>We curated a catalogue of 14 such anti-patterns or
 <em>“data-smells”</em> and manually analysed their presence in 25
@@ -427,10 +426,10 @@ variables</figcaption>
 </figure>
 </div>
 <p>The next visualisation comes from our <span class="citation"
-data-cites="shome2024data">Shome, Cruz, and Deursen (2024)</span> paper.
-Here we analysed the relationship between data dependent and model
-dependent fairness metrics. The heatmap above shows the results obtained
-from the empirical study conducted using 8 datasets and 4 ML models.</p>
+data-cites="shome2024data">[3]</span> paper. Here we analysed the
+relationship between data dependent and model dependent fairness
+metrics. The heatmap above shows the results obtained from the empirical
+study conducted using 8 datasets and 4 ML models.</p>
 <p>Each heatmap represents results obtained from a fairness metric (we
 used <em>Disparate Impact</em> and <em>Statistical Parity
 Difference</em>). The ML models are represented along the Y axis, while
@@ -457,8 +456,7 @@ through sentiment analysis. We used NLP techniques to analyze metadata
 from various artworks, focusing on how colors influence perceived
 sentiments based on painting descriptions. This work is also published
 as a conference paper with a video demonstration of the tool <span
-class="citation" data-cites="strezoski2019ace">(Strezoski et al.
-2019)</span>.</p>
+class="citation" data-cites="strezoski2019ace">[4]</span>.</p>
 <p>We created an interactive tool to allow users from varied backgrounds
 to intuitively explore the complex relationship between colour usage in
 art and the emotional sentiments those colours may evoke. In the image,
@@ -493,34 +491,39 @@ href="https://event.cwi.nl/lsde/2018/showcase_c1.shtml">interactive demo
 hosted on the course website</a>. Fair warning, the demo is pretty bad.
 So here is an image of the model for the beautiful city of
 Amsterdam.</p>
-<div id="refs" class="references csl-bib-body hanging-indent"
-data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0"
+role="list">
 <div id="ref-heer2010tour" class="csl-entry" role="listitem">
-Heer, Jeffrey, Michael Bostock, and Vadim Ogievetsky. 2010. <span>“A
-Tour Through the Visualization Zoo.”</span> <em>Communications of the
-ACM</em> 53 (6): 59–67. <a
-href="https://doi.org/10.1145/1743546.1743567">https://doi.org/10.1145/1743546.1743567</a>.
+<div class="csl-left-margin">[1] </div><div
+class="csl-right-inline">Jeffrey Heer, Michael Bostock, and Vadim
+Ogievetsky. 2010. A tour through the visualization zoo.
+<em>Communications of the ACM</em> 53, 6 (June 2010), 59–67. <a
+href="https://doi.org/10.1145/1743546.1743567">https://doi.org/10.1145/1743546.1743567</a></div>
 </div>
 <div id="ref-shome2022data" class="csl-entry" role="listitem">
-Shome, Arumoy, Luís Cruz, and Arie van Deursen. 2022. <span>“Data Smells
-in Public Datasets.”</span> In <em>Proceedings of the 1st International
-Conference on AI Engineering: Software Engineering for AI</em>. CAIN
-’22. ACM. <a
-href="https://doi.org/10.1145/3522664.3528621">https://doi.org/10.1145/3522664.3528621</a>.
+<div class="csl-left-margin">[2] </div><div
+class="csl-right-inline">Arumoy Shome, Luís Cruz, and Arie van Deursen.
+2022. Data smells in public datasets. In <em>Proceedings of the 1st
+international conference on AI engineering: Software engineering for
+AI</em> (<em>CAIN ’22</em>), May 2022. ACM. <a
+href="https://doi.org/10.1145/3522664.3528621">https://doi.org/10.1145/3522664.3528621</a></div>
 </div>
 <div id="ref-shome2024data" class="csl-entry" role="listitem">
-Shome, Arumoy, Luı̀s Cruz, and Arie van Deursen. 2024. <span>“Data Vs.
-Model Machine Learning Fairness Testing: An Empirical Study.”</span> In
-<em>International Workshop on Deep Learning for Testing and Testing for
-Deep Learning</em>. DeepTest ’24. IEEE/ACM. <a
-href="https://doi.org/10.1145/3643786.3648022">https://doi.org/10.1145/3643786.3648022</a>.
+<div class="csl-left-margin">[3] </div><div
+class="csl-right-inline">Arumoy Shome, Luís Cruz, and Arie van Deursen.
+2024. Data vs. Model machine learning fairness testing: An empirical
+study. In <em>International workshop on deep learning for testing and
+testing for deep learning</em> (<em>DeepTest ’24</em>), 2024. IEEE/ACM.
+<a
+href="https://doi.org/10.1145/3643786.3648022">https://doi.org/10.1145/3643786.3648022</a></div>
 </div>
 <div id="ref-strezoski2019ace" class="csl-entry" role="listitem">
-Strezoski, Gjorgji, Arumoy Shome, Riccardo Bianchi, Shruti Rao, and
-Marcel Worring. 2019. <span>“ACE: Art, Color and Emotion.”</span> In
-<em>Proceedings of the 27th ACM International Conference on
-Multimedia</em>. MM ’19. ACM. <a
-href="https://doi.org/10.1145/3343031.3350588">https://doi.org/10.1145/3343031.3350588</a>.
+<div class="csl-left-margin">[4] </div><div
+class="csl-right-inline">Gjorgji Strezoski, Arumoy Shome, Riccardo
+Bianchi, Shruti Rao, and Marcel Worring. 2019. ACE: Art, color and
+emotion. In <em>Proceedings of the 27th ACM international conference on
+multimedia</em> (<em>MM ’19</em>), October 2019. ACM. <a
+href="https://doi.org/10.1145/3343031.3350588">https://doi.org/10.1145/3343031.3350588</a></div>
 </div>
 </div>]]></description>
 </item>
