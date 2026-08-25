@@ -855,8 +855,8 @@ case, it accepts an Arxiv ID and obtains the bibtex information from
 Arxiv directly.</p>
 <blockquote>
 <p><strong>Tip — Scientific Paper Discovery</strong></p>
-<p>You can find more information on how I discovery scientific papers <a
-href="https://arumoy.me/blogs/bibliography-management-orgmode/../scientific-paper-discovery">in this blogpost</a>.</p>
+<p>You can find more information on how I discovery scientific papers in
+this blogpost.</p>
 </blockquote>
 <blockquote>
 <p><strong>Tip — doi2bib</strong></p>
@@ -1211,12 +1211,12 @@ flag. The script automatically creates the yaml frontmatter for the post
 and names it in the specified format.</p>
 <h1 id="automatically-generating-index-pages">Automatically generating
 index pages</h1>
-<p>I have two index pages on my website—the <a href="https://arumoy.me/blogs/cms-pandoc/blogs">blogs</a>
-page which list all the blogposts I have written and the <a
-href="https://arumoy.me/blogs/cms-pandoc/talks">talks</a> page which lists all the talks I have given in
-the past. Previously, I was creating these pages manually. However, with
-a bit of unix shell scripting, I have now managed to do this
-automatically!</p>
+<p>I have two index pages on my website—the <a
+href="/blogs.html">blogs</a> page which list all the blogposts I have
+written and the <a href="/talks.html">talks</a> page which lists all the
+talks I have given in the past. Previously, I was creating these pages
+manually. However, with a bit of unix shell scripting, I have now
+managed to do this automatically!</p>
 <p>I use the following script to generate the blogs and the talks index
 pages.</p>
 <p><strong><code>bin/create-indices</code></strong></p>
@@ -1759,9 +1759,8 @@ match.</p>
 <p>I decided to forgo this madness and just use html &amp; css to build
 my website. I used org-publish to accomplish this using the following
 setup in my <code>init.el</code>.</p>
-<p>See <a href="https://arumoy.me/blogs/website-management-pandoc/TODO">the documentation for
-<code>org-publish-project-alist</code></a> on how to setup
-org-publish.</p>
+<p>See the documentation for <code>org-publish-project-alist</code> on
+how to setup org-publish.</p>
 <p><strong><code>~/.emacs.d/init.el</code></strong></p>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">setq</span> org-publish-project-alist</span>
@@ -1805,8 +1804,9 @@ the <code>--template</code> flag. See <a
 href="https://pandoc.org/MANUAL.html#templates">section on templates</a>
 in the pandoc manual for more info.</p>
 <p>Following the advice laid out by <a
-href="https://arumoy.me/blogs/website-management-pandoc/Web%20design%20in%204%20minutes">https://jgthms.com/web-design-in-4-minutes/</a>,
-I designed a minimal pandoc custom template which you can find my in <a
+href="https://jgthms.com/web-design-in-4-minutes/">Web design in 4
+minutes</a>, I designed a minimal pandoc custom template which you can
+find my in <a
 href="https://github.com/arumoy-shome/dotfiles">dotfiles</a> repo.</p>
 <p>My current workflow comprises of authoring content in markdown which
 I edit in vim. I use GNU make to automate the html generation using
@@ -2105,8 +2105,8 @@ source block.</li>
 shellscripts for templating. Given that a bibentry is copied in the
 clipboard, this template adds a level 1 markdown header with a timestamp
 and the bibkey. It adds my <a
-href="https://arumoy.me/blogs/aims/../research-workflow#writing-notes">note-taking prompts</a> and
-sticks the bibentry at the bottom.</p>]]></description>
+href="https://arumoy.me/blogs/aims/../research-workflow-plaintext">note-taking prompts</a> and sticks
+the bibentry at the bottom.</p>]]></description>
 </item>
 <item>
   <title>Privacy Preserving Deep Learning</title>
@@ -2760,7 +2760,7 @@ config files</a> if you prefer code.</li>
 bibliographic information in Emacs, I extracted the repeated actions
 into an Emacs package.</p>
 <p>To gain some perspective on my workflow, see my prior article on my
-<a href="https://arumoy.me/blogs/aocp/../research-workflow">research workflow</a>.</p>
+<a href="https://arumoy.me/blogs/aocp/../research-workflow-plaintext">research workflow</a>.</p>
 <p>The package is available on <a
 href="https://github.com/arumoy-shome/aocp.el">github</a> with two
 alternative installation methods: 1. By manually downloading the
