@@ -1,0 +1,13 @@
+site-title: "Fixture Site"
+site-url: "https://fixture.example"
+description: "A synthetic site used by the test suite"
+title-suffix: "Fixture Site"
+author: "Test Author"
+copyright: "Copyright Test Author"
+license: "Fixture content."
+nav:
+  - href: "/blogs.html"
+    text: "blogs"
+links:
+  - href: "/blogs.xml"
+    text: "RSS"

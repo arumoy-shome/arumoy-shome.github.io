@@ -1,0 +1,16 @@
+- title: Newest
+  subtitle: A Journal
+  date: 2025-06-01
+  authors:
+    - Ada Lovelace
+    - Alan Turing
+- title: Oldest
+  subtitle: A Workshop
+  date: 2019-03-15
+  authors:
+    - Grace Hopper
+- title: Middle
+  subtitle: A Conference
+  date: 2022-11-30
+  authors:
+    - Ada Lovelace
