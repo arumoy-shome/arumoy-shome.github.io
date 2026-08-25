@@ -66,7 +66,7 @@ emitted as literal text. Do not "simplify" this into a single HTML-emitting pass
 | `templates/page.html` | The single HTML template for every page. |
 | `templates/*.md`, `*.xml`, `meta.txt` | Fragment templates consumed by `bin/index` and the Makefile. |
 | `site.yaml` | Site-wide metadata: nav, footer, `og:` values, `title-suffix`. Passed to every pandoc call. |
-| `pages/` | Hand-written page bodies. `*-intro.md` are the prose headers of the three generated listing pages. |
+| `pages/` | Hand-written page bodies. `*-intro.md` are the prose headers of the four generated listing pages. |
 | `blogs/<slug>/index.md` | One directory per post, images alongside. |
 | `build/`, `_site/` | Generated; both gitignored. |
 
@@ -102,7 +102,8 @@ Inherited from the Quarto site and verified against it during the migration:
   `/resume.html`, `/license.html`
 - posts are **directory-style**: `/blogs/<slug>/`, with images as siblings
 - `/blogs.xml`, `/sitemap.xml`, `/robots.txt`, `/CNAME` keep their paths
-- `/blogs/tags/<category>.html` is the only URL family added post-migration
+- `/blogs/tags/<category>.html` is the only URL family added post-migration,
+  indexed by `/blogs/tags/` (directory-style, like a post)
 
 `_site/blogs/` (post directories) and `_site/blogs.html` (the index) coexist
 deliberately.
