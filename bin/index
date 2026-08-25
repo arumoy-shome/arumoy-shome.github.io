@@ -12,6 +12,7 @@
 #   blogs.xml        the RSS feed
 #   sitemap.xml      the sitemap
 #   tags/<cat>.md    one page per category
+#   tags.md          the tag index (every category with its post count)
 #
 # Each post costs three pandoc invocations, so the per-post work runs in
 # parallel under xargs -P: the script re-invokes itself as `index --post
@@ -161,7 +162,7 @@ done <"$ORDER"
 
 # --- tags/<cat>.md ------------------------------------------------------
 cut -d'|' -f1,2 "$TAGMAP" | sort -u | while IFS='|' read -r cslug cname; do
-  printf -- '---\ntitle: "Posts tagged %s"\n---\n\n[All posts](/blogs.html)\n' \
+  printf -- '---\ntitle: "Posts tagged %s"\n---\n\n[All posts](/blogs.html) · [All tags](/blogs/tags/)\n' \
     "$cname" >"$BUILD/tags/$cslug.md"
   while IFS='|' read -r _ slug; do
     if grep -qx "$cslug|$cname|$slug" "$TAGMAP"; then
@@ -170,6 +171,18 @@ cut -d'|' -f1,2 "$TAGMAP" | sort -u | while IFS='|' read -r cslug cname; do
     fi
   done <"$ORDER"
 done
+
+# --- tags.md ------------------------------------------------------------
+# The tag index: every category, alphabetical by display name, with the
+# number of posts filed under it. One awk pass over the tagmap counts them.
+cp pages/tags-intro.md "$BUILD/tags.md"
+printf '\n' >>"$BUILD/tags.md"
+awk -F'|' '{n[$1]++; name[$1]=$2}
+           END {for (s in n) printf "%s|%s|%d\n", s, name[s], n[s]}' "$TAGMAP" |
+  sort -f -t'|' -k2,2 |
+  while IFS='|' read -r cslug cname n; do
+    printf -- '- [%s](/blogs/tags/%s.html) (%s)\n' "$cname" "$cslug" "$n"
+  done >>"$BUILD/tags.md"
 
 # --- blogs.xml ----------------------------------------------------------
 {
@@ -189,7 +202,8 @@ done
 {
   printf '<?xml version="1.0" encoding="UTF-8"?>\n'
   printf '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-  for p in "" blogs.html talks.html publications.html resume.html license.html; do
+  for p in "" blogs.html talks.html publications.html resume.html license.html \
+           blogs/tags/; do
     printf '  <url><loc>%s/%s</loc></url>\n' "$SITEURL" "$p"
   done
   while IFS='|' read -r date slug; do
