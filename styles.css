@@ -91,6 +91,27 @@ footer.site nav { margin-top: 0.5rem; }
 
 #title-block-header { margin: 2rem 0 1rem; }
 #title-block-header .title { margin-bottom: 0.25rem; }
+
+/* Portrait for pages carrying an `image:` in their frontmatter. The float is
+   deliberate: it escapes the header so the opening prose wraps beside it. */
+#title-block-header .profile {
+  float: right;
+  width: 8rem;
+  height: 8rem;
+  margin: 0 0 1rem 1.5rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Too little room left for text beside a 8rem float on a phone. */
+@media (max-width: 30em) {
+  #title-block-header .profile {
+    float: none;
+    display: block;
+    margin: 0 0 1rem;
+  }
+}
+
 #title-block-header .date,
 #title-block-header .categories,
 #title-block-header .subtitle {
