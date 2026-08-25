@@ -2,5 +2,4 @@
 title: Tags
 ---
 
-Every category used across the [blog](/blogs.html), with the number of
-posts filed under it.
+All tags used across this [blog](/blogs.html).
