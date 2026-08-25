@@ -27,7 +27,10 @@ assert_file "$SITE/talks.html" "talks page is built" || exit 1
 talks_html=$(cat "$SITE/talks.html")
 
 # --- every record becomes an entry -----------------------------------------
-n_talks=$(grep -c '^- ' talks.yaml)
+# Records are indented under the `talks:` key, so this must not anchor at
+# column 0; `- title:` rather than `- ` so a dash inside an abstract block
+# scalar cannot inflate the count.
+n_talks=$(grep -c '^[[:space:]]*- title:' talks.yaml)
 assert_eq "$n_talks" "$(printf '%s' "$talks_html" | grep -c '<h3')" "one <h3> per talk"
 note "$n_talks talks"
 
@@ -55,7 +58,8 @@ assert_not_contains "$talks_html" '$if(' "no template syntax reached the page"
 assert_not_contains "$talks_html" "\$for(" "the entry loop was expanded"
 
 # --- ordering --------------------------------------------------------------
-# bin/yamlseq sorts newest-first, and that order must survive both passes.
+# talks.yaml is maintained newest-first by hand; this is what catches a new
+# entry appended in the wrong place, and that the order survives both passes.
 talk_dates=$(printf '%s' "$talks_html" | grep -oE '20[0-9]{2}-[0-9]{2}-[0-9]{2}')
 assert_ne "" "$talk_dates" "talk dates are rendered, so the ordering check has something to check"
 if [[ -n $talk_dates ]]; then

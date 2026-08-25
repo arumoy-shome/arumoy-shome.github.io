@@ -55,14 +55,13 @@ $(BUILD)/blogs.md: $(POSTS) bin/index templates/listing.md \
 	@mkdir -p $(BUILD)
 	bin/index
 
-$(BUILD)/talks.md: talks.yaml templates/talks.md pages/talks-intro.md bin/yamlseq
+$(BUILD)/talks.md: talks.yaml templates/talks.md pages/talks-intro.md
 	@mkdir -p $(BUILD)
-	bin/yamlseq talks talks.yaml > $(BUILD)/talks-data.yaml
 	cp pages/talks-intro.md $@
 	@printf '\n' >> $@
 	$(PANDOC) /dev/null -f markdown -t markdown --wrap=none \
 	  --template=templates/talks.md \
-	  --metadata-file=$(BUILD)/talks-data.yaml >> $@
+	  --metadata-file=talks.yaml >> $@
 
 # --- html ----------------------------------------------------------------
 $(SITE)/blogs/%/index.html: blogs/%/index.md $(COMMON_DEPS) $(BUILD)/blogs.md

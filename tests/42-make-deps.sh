@@ -116,10 +116,6 @@ changed=$(rebuilt bin/index)
 assert_contains "$changed" "_site/blogs.html" "editing bin/index regenerates the index"
 assert_contains "$changed" "_site/blogs.xml"  "editing bin/index regenerates the feed"
 
-changed=$(rebuilt bin/yamlseq)
-assert_contains "$changed" "_site/talks.html"            "editing bin/yamlseq regenerates talks"
-assert_not_contains "$changed" "_site/publications.html" "...but publications no longer goes through it"
-
 # --- fragment templates and intros -----------------------------------------
 changed=$(rebuilt templates/listing.md)
 assert_contains "$changed" "_site/blogs.html" "the listing template regenerates the index"

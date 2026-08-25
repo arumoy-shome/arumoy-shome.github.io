@@ -42,7 +42,7 @@ not a bug. A no-op `make` is silent, but not free: category pages sit behind the
 make test                  # everything, ~80s
 TEST_FAST=1 make test      # skip 40-42, which do full rebuilds (~15s)
 tests/run 5                # only tests/5*.sh
-tests/run links yamlseq    # match by name
+tests/run links listings   # match by name
 tests/run --update-golden  # after adding a post, refresh the URL manifest
 ```
 
@@ -50,7 +50,6 @@ tests/run --update-golden  # after adding a post, refresh the URL manifest
 | --- | --- |
 | `10-slugify` | `slugify()`, every category in use, agreement with `bin/new`'s Python copy |
 | `11-rfc822` | both branches of the BSD/GNU `date` split, driven explicitly |
-| `20-yamlseq` | ordering, ties, undated records, indentation, inline markdown |
 | `30-index-fixture` | the pandoc traps below, against `tests/fixtures/site` |
 | `31-feed` | CDATA guard, relative-URL rewriting, feed and sitemap shape |
 | `32-tags` | category page membership, ordering, the tag index and its counts |
@@ -94,6 +93,22 @@ The markdown intermediate is what makes inline markdown inside data files work â
 abstracts, all get a real markdown parse instead of being emitted as literal
 text. Do not "simplify" this into a single HTML-emitting pass.
 
+### The talks page
+
+`talks.yaml` is fed straight to pandoc's `--metadata-file`, so two things about
+its shape are load-bearing:
+
+- it must stay a **mapping** â€” every record nested under a single `talks:` key.
+  A bare top-level sequence is rejected outright (`expected YAML object`).
+- entries are ordered **newest-first by hand**. Nothing sorts them at build
+  time. `tests/60-listings.sh` asserts the rendered dates come out descending,
+  which is what catches an entry appended to the wrong end.
+
+A `talks:` key with no records underneath does *not* fail the build: pandoc
+iterates `$for(talks)$` once over the null and emits an empty `###` heading. If
+the talks page comes out with a stray blank heading, look at the indentation
+first.
+
 ### The publications page
 
 `publications.html` is **not** a listing page. It is an ordinary hand-written
@@ -116,10 +131,10 @@ the `nocite:` list; nothing else.
 | --- | --- |
 | `Makefile` | Pattern rules with real dependencies. `COMMON` / `POST_FLAGS` hold the shared pandoc flags. |
 | `bin/index` | The only real logic. One pass over `blogs/*/index.md` producing `build/{blogs.md,blogs.xml,sitemap.xml,tags/*.md,frag/,item/,meta/}`. |
-| `bin/yamlseq` | `talks.yaml` is a bare YAML **sequence**; pandoc's `--metadata-file` needs a **mapping** at the root. Wraps it under a key and date-sorts newest-first. |
 | `templates/page.html` | The single HTML template for every page. |
 | `templates/*.md`, `*.xml`, `meta.txt` | Fragment templates consumed by `bin/index` and the Makefile. |
 | `site.yaml` | Site-wide metadata: nav, footer, `og:` values, `title-suffix`. Passed to every pandoc call. |
+| `talks.yaml` | The talks listing data. A `talks:` mapping, ordered newest-first by hand; see above. |
 | `bibliography.bib` | Every reference on the site: works cited by posts, and Arumoy's own publications. |
 | `association-for-computing-machinery.csl` | Vendored citation style, applied site-wide. Chosen over `acm-sig-proceedings.csl`, which truncates to "et al." past two authors and so drops co-authors from the publications page. |
 | `pages/` | Hand-written page bodies. `*-intro.md` are the prose headers of the generated listing pages. |

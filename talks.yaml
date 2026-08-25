@@ -1,40 +1,41 @@
-- title: "Towards Automatic Translation of Machine Learning Visual Insights to Analytical Assertions"
-  date: 2024-04-20
-  abstract: |
-    Paper presentation at **[International Workshop on Natural Language-Based Software Engineering (NLBSE) 2024](https://nlbse2024.github.io/)**.
-- title: "Data vs. Model Fairness Testing: An Empirical Study"
-  date: 2024-04-18
-  abstract: |
-    Poster presentation at **[International Conference of Software Engineering (ICSE) 2024](https://conf.researchr.org/track/icse-2024/icse-2024-posters)**.
-- title: "Data vs. Model Fairness Testing: An Empirical Study"
-  date: 2024-04-20
-  abstract: |
-    Paper presentation at **[International Workshop on Deep Learning for Testing and Testing for Deep Learning (DeepTest) 2024 workshop](https://conf.researchr.org/home/icse-2024/deeptest-2024)**.
-- title: "Bridging the Gap Between Visual and Analytical Machine Learning Testing"
-  date: 2023-06-02
-  abstract: |
-    Lightening talk at **[SEN Symposium 2023](https://www.sen-symposium.nl/)**.
-- title: "Towards Understanding Machine Learning Testing in Practice"
-  date: 2023-05-15
-  abstract: |
-    Poster presentation at **[International Conference on AI Engineering (CAIN) 2023](https://conf.researchr.org/home/cain-2023)**.
+talks:
+  - title: "Data vs. Model Fairness Testing: An Empirical Study"
+    date: 2024-04-20
+    abstract: |
+      Paper presentation at **[International Workshop on Deep Learning for Testing and Testing for Deep Learning (DeepTest) 2024 workshop](https://conf.researchr.org/home/icse-2024/deeptest-2024)**.
+  - title: "Towards Automatic Translation of Machine Learning Visual Insights to Analytical Assertions"
+    date: 2024-04-20
+    abstract: |
+      Paper presentation at **[International Workshop on Natural Language-Based Software Engineering (NLBSE) 2024](https://nlbse2024.github.io/)**.
+  - title: "Data vs. Model Fairness Testing: An Empirical Study"
+    date: 2024-04-18
+    abstract: |
+      Poster presentation at **[International Conference of Software Engineering (ICSE) 2024](https://conf.researchr.org/track/icse-2024/icse-2024-posters)**.
+  - title: "Bridging the Gap Between Visual and Analytical Machine Learning Testing"
+    date: 2023-06-02
+    abstract: |
+      Lightening talk at **[SEN Symposium 2023](https://www.sen-symposium.nl/)**.
+  - title: "Towards Understanding Machine Learning Testing in Practice"
+    date: 2023-05-15
+    abstract: |
+      Poster presentation at **[International Conference on AI Engineering (CAIN) 2023](https://conf.researchr.org/home/cain-2023)**.
 
-- title: "Data Validation with TFDV"
-  date: 2022-05-16
-  abstract: |
-    Guest lecture for **[Release Engineering for Machine Learning Applications](https://se.ewi.tudelft.nl/remla/)** course at TU Delft. Materials for the hands-on tutorial on using [Tensorflow Data Validation](https://github.com/tensorflow/data-validation), instructions & code can be found in [this github repo](https://github.com/arumoy-shome/remla).
-- title: "Data Smells in Public Datasets"
-  date: 2022-05-04
-  abstract: |
-    Paper presentation at the **[International Conference on AI Engineering
-    (CAIN)
-    2022](https://conf.researchr.org/home/cain-2022)**.
-- title: "Privacy Preserving Deep Learning"
-  date: 2021-09-07
-  abstract: |
-    A talk on Privacy Preserving Deep Learning (PPDL) I gave to my
-    research group. It was largly based on a literature review I did during my Msc.
-- title: "Research Workflow in Plaintext"
-  date: 2021-07-12
-  abstract: |
-    Talk on using Emacs and org-mode to craft a research workflow.
+  - title: "Data Validation with TFDV"
+    date: 2022-05-16
+    abstract: |
+      Guest lecture for **[Release Engineering for Machine Learning Applications](https://se.ewi.tudelft.nl/remla/)** course at TU Delft. Materials for the hands-on tutorial on using [Tensorflow Data Validation](https://github.com/tensorflow/data-validation), instructions & code can be found in [this github repo](https://github.com/arumoy-shome/remla).
+  - title: "Data Smells in Public Datasets"
+    date: 2022-05-04
+    abstract: |
+      Paper presentation at the **[International Conference on AI Engineering
+      (CAIN)
+      2022](https://conf.researchr.org/home/cain-2022)**.
+  - title: "Privacy Preserving Deep Learning"
+    date: 2021-09-07
+    abstract: |
+      A talk on Privacy Preserving Deep Learning (PPDL) I gave to my
+      research group. It was largly based on a literature review I did during my Msc.
+  - title: "Research Workflow in Plaintext"
+    date: 2021-07-12
+    abstract: |
+      Talk on using Emacs and org-mode to craft a research workflow.
