@@ -12,7 +12,8 @@ PAGES     := pages/index.md pages/license.md pages/resume.md
 PAGE_HTML := $(patsubst pages/%.md,$(SITE)/%.html,$(PAGES))
 
 STATIC := $(SITE)/styles.css $(SITE)/profile.jpeg $(SITE)/CNAME $(SITE)/robots.txt
-GENPAGE := $(SITE)/blogs.html $(SITE)/talks.html $(SITE)/publications.html
+GENPAGE := $(SITE)/blogs.html $(SITE)/talks.html $(SITE)/publications.html \
+           $(SITE)/blogs/tags/index.html
 GENXML  := $(SITE)/blogs.xml $(SITE)/sitemap.xml
 
 # The template pulls nav, footer and og: metadata out of site.yaml.
@@ -34,7 +35,7 @@ all: $(PAGE_HTML) $(POST_HTML) $(ASSET_OUT) $(GENPAGE) $(GENXML) $(STATIC) tags
 # pass over the posts; blogs.md is the stamp for all of them.
 $(BUILD)/blogs.md: $(POSTS) bin/index templates/listing.md \
                    templates/meta.txt templates/feed-item.xml \
-                   pages/blogs-intro.md site.yaml
+                   pages/blogs-intro.md pages/tags-intro.md site.yaml
 	@mkdir -p $(BUILD)
 	bin/index
 
@@ -70,6 +71,14 @@ $(SITE)/%.html: pages/%.md templates/page.html site.yaml
 $(SITE)/%.html: $(BUILD)/%.md templates/page.html site.yaml
 	@mkdir -p $(dir $@)
 	$(PANDOC) $(COMMON) -o $@ $<
+
+# The tag index lives at /blogs/tags/, so neither pattern rule above matches
+# it: the post rule would want blogs/tags/index.md, the generated-page rule
+# build/blogs/tags/index.md. build/blogs.md is the stamp for everything
+# bin/index writes, build/tags.md included.
+$(SITE)/blogs/tags/index.html: $(BUILD)/blogs.md templates/page.html site.yaml
+	@mkdir -p $(dir $@)
+	$(PANDOC) $(COMMON) -o $@ $(BUILD)/tags.md
 
 # Category pages are discovered only after bin/index has run, so they are
 # built by a recursive make rather than by a static pattern rule.
