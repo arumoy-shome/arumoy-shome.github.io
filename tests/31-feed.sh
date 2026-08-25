@@ -84,7 +84,7 @@ assert_contains "$feed" "<category>Machine Learning</category>" "category keeps 
 
 # --- sitemap ---------------------------------------------------------------
 sm=$B/sitemap.xml
-for p in "" blogs.html talks.html publications.html resume.html license.html; do
+for p in "" blogs.html talks.html publications.html resume.html license.html blogs/tags/; do
   assert_contains "$(cat "$sm")" "<loc>https://fixture.example/$p</loc>" "sitemap lists /$p"
 done
 for slug in alpha beta gamma; do
@@ -96,7 +96,7 @@ for cat in machine-learning productivity shell; do
 done
 assert_eq "3" "$(grep -c '<lastmod>' "$sm")" "each post carries a lastmod"
 assert_contains "$(cat "$sm")" "<lastmod>2025-03-01</lastmod>" "lastmod is the post date"
-assert_eq "12" "$(grep -c '<url>' "$sm")" "6 pages + 3 posts + 3 tags"
+assert_eq "13" "$(grep -c '<url>' "$sm")" "6 flat pages + the tag index + 3 posts + 3 tag pages"
 
 # --- the real feed ---------------------------------------------------------
 real=$REPO_ROOT/_site/blogs.xml

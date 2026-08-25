@@ -21,24 +21,61 @@ make                # build everything into _site/
 make -j8            # same, recipes in parallel (safe; output is identical)
 make clean          # rm -rf _site build
 make serve          # build, then serve _site on http://localhost:8000
+make test           # build, then run tests/
 JOBS=1 bin/index    # force bin/index sequential (debugging)
 bin/new "Post Title"          # scaffold blogs/<slug>/index.md
 bin/new -f -x -c "shell, vim" -d 2026-01-30 "Title"   # no prompt, no $EDITOR
 ```
 
-There is no test suite and no linter. Verification means building and inspecting the
-output. Useful checks after a change:
+A full build is ~5s (~3s with `make -j8`). Editing any single post re-runs
+`bin/index` and therefore rebuilds all post pages; this is intentional coarseness,
+not a bug. A no-op `make` is silent, but not free: category pages sit behind the
+`.PHONY` tags target and are re-rendered on every build (~1s), which is also why
+`make -q` never reports a clean tree.
+
+## Tests
+
+`tests/` is plain bash — no framework, no dependency beyond pandoc and `xmllint`.
+`tests/run` builds the site, then runs each `tests/[0-9]*.sh` as its own process.
 
 ```sh
-grep -rn ':::\|@fig-\|filename=' _site --include='*.html'   # leaked Quarto syntax
-xmllint --noout _site/blogs.xml _site/sitemap.xml           # feed + sitemap well-formed
-grep -c '^<h2' _site/blogs.html                             # index entry count
-(cd _site && find . -type f | sort)                         # diff against a known-good list
+make test                  # everything, ~80s
+TEST_FAST=1 make test      # skip 40-42, which do full rebuilds (~15s)
+tests/run 5                # only tests/5*.sh
+tests/run links yamlseq    # match by name
+tests/run --update-golden  # after adding a post, refresh the URL manifest
 ```
 
-A full build is ~5s (~3s with `make -j8`). A no-op `make` is silent and instant.
-Editing any single post re-runs `bin/index` and therefore rebuilds all post pages;
-this is intentional coarseness, not a bug.
+| File | Covers |
+| --- | --- |
+| `10-slugify` | `slugify()`, every category in use, agreement with `bin/new`'s Python copy |
+| `11-rfc822` | both branches of the BSD/GNU `date` split, driven explicitly |
+| `20-yamlseq` | ordering, ties, undated records, indentation, inline markdown |
+| `30-index-fixture` | the pandoc traps below, against `tests/fixtures/site` |
+| `31-feed` | CDATA guard, relative-URL rewriting, feed and sitemap shape |
+| `32-tags` | category page membership, ordering, the tag index and its counts |
+| `40-jobs-identity` | `JOBS=1` vs `JOBS=N` byte-identity, fixture and real corpus |
+| `41-make-determinism` | `-j1` vs `-j8`, repeatability, the no-op build |
+| `42-make-deps` | what each input rebuilds |
+| `50-urls` | the URL contract, against `tests/golden/site-manifest.txt` |
+| `51-links` | every internal link, fragment and asset resolves |
+| `52-leaked-syntax` | Quarto leftovers, unexpanded template vars, escaped markdown |
+| `53-page-head` | `<title>`/description integrity, stylesheet order, TOC correctness |
+| `60-listings` | the two-stage publications/talks pipeline |
+| `70-new` | `bin/new` output, and that the build can read it back |
+
+Two rules keep the suite stable across pandoc versions (local is ahead of the
+3.7.0.2 pinned in CI): **no golden HTML** — the only byte-exact artefact is the
+`_site` file manifest, everything else asserts properties — and byte comparison
+only ever between two runs of the *same* pandoc.
+
+Assertion helpers never return non-zero, so a file reports all its failures rather
+than aborting at the first. `INDEX_LIB=1 . bin/index` sources the helpers without
+running the driver.
+
+Tests that document a trap are only worth having if they fail when it returns.
+Each one has been checked by reintroducing the bug and confirming that test — and
+no other — goes red.
 
 ## Architecture
 

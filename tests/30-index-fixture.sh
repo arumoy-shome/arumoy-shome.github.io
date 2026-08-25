@@ -112,6 +112,22 @@ assert_contains "$(cat "$B/frag/alpha.md")" "An abstract containing" "alpha's ab
 assert_contains "$(cat "$B/frag/beta.md")"  "An abstract that spans"  "beta's abstract reaches the listing"
 assert_contains "$(cat "$B/frag/gamma.md")" "Exercises the feed"      "gamma's abstract reaches the listing"
 
+# The listing must carry the abstract as MARKDOWN, not the flattened
+# description. Both start with the same words, so checking the prose alone
+# cannot tell them apart: swapping $abstract$ for $description$ in
+# templates/listing.md would still produce plausible-looking output. The
+# markup is what distinguishes them.
+frag_alpha=$(cat "$B/frag/alpha.md")
+assert_contains "$frag_alpha" "[a markdown link](https://example.org/alpha)" \
+  "the listing keeps the abstract's markdown link"
+assert_contains "$frag_alpha" "*emphasis*" "the listing keeps the abstract's emphasis"
+assert_contains "$(cat "$B/frag/beta.md")" "[link](https://example.org/beta)" \
+  "beta's listing keeps its markdown link too"
+
+# The description is the flattened form, and must NOT be what the listing shows.
+assert_not_contains "$(raw_yaml "$B/meta/alpha.yaml" description)" "](" \
+  "the description is flattened, confirming the two differ"
+
 # --- pubdate ---------------------------------------------------------------
 assert_eq "Sat, 01 Mar 2025 00:00:00 +0000" "$(raw_yaml "$B/meta/alpha.yaml" pubdate)" "alpha pubdate"
 assert_eq "https://fixture.example" "$(raw_yaml "$B/meta/alpha.yaml" site-url)" "site-url comes from site.yaml"

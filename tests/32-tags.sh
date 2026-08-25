@@ -59,10 +59,38 @@ assert_contains "$(cat "$B/tags/machine-learning.md")" 'title: "Posts tagged Mac
 assert_contains "$(cat "$B/tags/shell.md")" "$(head -1 "$B/frag/alpha.md")" \
   "tag entries reuse the listing fragment"
 
+# --- the tag index ---------------------------------------------------------
+# build/tags.md lists every category with its post count, and is the only
+# thing in build/blogs.md's output that is not per-category.
+assert_file "$B/tags.md" "the tag index fragment is generated"
+idx=$(cat "$B/tags.md")
+assert_contains "$idx" "FIXTURE_TAGS_INTRO_MARKER" "the tag index carries its intro prose"
+assert_contains "$idx" "- [Machine Learning](/blogs/tags/machine-learning.html) (1)" \
+  "index lists Machine Learning with its post count"
+assert_contains "$idx" "- [productivity](/blogs/tags/productivity.html) (1)" \
+  "index lists productivity with its post count"
+assert_contains "$idx" "- [shell](/blogs/tags/shell.html) (2)" \
+  "shell is counted twice, once per post"
+assert_eq "3" "$(printf '%s' "$idx" | grep -c '^- \[')" "one line per category"
+
+# Alphabetical by display name, case-insensitively: "Machine Learning" sorts
+# before "productivity" despite the capital.
+assert_eq "Machine Learning
+productivity
+shell" "$(printf '%s' "$idx" | sed -n 's/^- \[\([^]]*\)\].*/\1/p')" \
+  "categories are listed alphabetically, ignoring case"
+
+# Each category page links back to the index.
+assert_contains "$(cat "$B/tags/shell.md")" "[All tags](/blogs/tags/)" \
+  "category pages link back to the tag index"
+
 # --- the real site ---------------------------------------------------------
 # Every category in use has a built HTML page, and every built page is
-# reachable from the posts that reference it.
-real_tags=$(cd "$REPO_ROOT/_site/blogs/tags" && ls *.html | sed 's/\.html$//' | sort)
+# reachable from the posts that reference it. index.html is the tag index
+# rather than a category, so it is excluded from the comparison.
+assert_file "$REPO_ROOT/_site/blogs/tags/index.html" "the tag index page is built"
+real_tags=$(cd "$REPO_ROOT/_site/blogs/tags" && ls *.html | sed 's/\.html$//' \
+  | grep -vx index | sort)
 n=0
 for post in blogs/*/index.md; do
   meta=$(pandoc "$post" --template=templates/meta.txt -t plain)

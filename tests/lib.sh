@@ -118,6 +118,14 @@ assert_no_file() {
   if [[ ! -e $p ]]; then _ok; else _bad "$(_where)" "$msg" "unexpectedly present: $p"; fi
 }
 
+# assert_no_file_newer PATH REF [MSG] -- PATH was not modified after REF.
+assert_no_file_newer() {
+  local p=$1 ref=$2 msg=${3:-file was rebuilt}
+  if [[ -e $p && $p -nt $ref ]]; then
+    _bad "$(_where)" "$msg" "$p is newer than $ref"
+  else _ok; fi
+}
+
 assert_dir() {
   local p=$1 msg=${2:-directory missing}
   if [[ -d $p ]]; then _ok; else _bad "$(_where)" "$msg" "no such directory: $p"; fi
@@ -155,7 +163,11 @@ assert_same_tree() {
 
 # Every .html file under the built site. Populated lazily; callers use
 # "$(site_html)" in a for loop.
-site_html() { find "${1:-$REPO_ROOT/_site}" -name '*.html' -type f | sort; }
+site_html() { find "${1:-$REPO_ROOT/_site}" -name '*.html' -type f | LC_ALL=C sort; }
+
+# visible_text FILE -- the page with code blocks and inline code removed, for
+# checks that must not fire on a post documenting the syntax they look for.
+visible_text() { awk -f "$TESTDIR/strip-code.awk" "$1"; }
 
 # repo_copy DEST -- a scratch copy of the working tree without generated or
 # VCS directories, for tests that build but must not disturb the tree they

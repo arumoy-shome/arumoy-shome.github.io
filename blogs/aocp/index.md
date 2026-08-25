@@ -10,7 +10,7 @@ After observing my workflow of managing bibliographic information in
 Emacs, I extracted the repeated actions into an Emacs package.
 
 To gain some perspective on my workflow, see my prior article on my
-[research workflow](../research-workflow).
+[research workflow](../research-workflow-plaintext).
 
 The package is available on
 [github](https://github.com/arumoy-shome/aocp.el) with two alternative

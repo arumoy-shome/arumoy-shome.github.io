@@ -65,26 +65,32 @@ assert_ne "0" "$?" "make -q reports work to do, because tags is phony"
 # category page. It is silent, so it looks free, but it is one pandoc call per
 # category. Pinned here so the cost is visible and a fix would show up as a
 # failing assertion rather than going unnoticed.
-before=$(find "$W/_site/blogs/tags" -name '*.html' -newer "$W/Makefile" | wc -l | tr -d ' ')
 : >"$TMP/stamp"
 ( cd "$W" && make ) >/dev/null 2>&1
-rerendered=$(find "$W/_site/blogs/tags" -name '*.html' -newer "$TMP/stamp" | wc -l | tr -d ' ')
-n_tags=$(find "$W/_site/blogs/tags" -name '*.html' | wc -l | tr -d ' ')
-assert_eq "$n_tags" "$rerendered" "every tag page is re-rendered on a no-op build ($n_tags of them)"
+# index.html under tags/ is a real target, not part of the phony loop.
+rerendered=$(find "$W/_site/blogs/tags" -name '*.html' ! -name index.html \
+  -newer "$TMP/stamp" | wc -l | tr -d ' ')
+n_cats=$(find "$W/_site/blogs/tags" -name '*.html' ! -name index.html | wc -l | tr -d ' ')
+assert_eq "$n_cats" "$rerendered" "every category page is re-rendered on a no-op build ($n_cats of them)"
 
 # Pages that are NOT behind the phony target stay untouched, which is the
 # control showing the rest of the graph is wired correctly.
 untouched=$(find "$W/_site" -maxdepth 1 -name '*.html' -newer "$TMP/stamp" | wc -l | tr -d ' ')
 assert_eq "0" "$untouched" "top-level pages are not rebuilt by a no-op make"
+assert_no_file_newer "$W/_site/blogs/tags/index.html" "$TMP/stamp" \
+  "the tag index has a real rule and is not re-rendered"
 
 # --- clean really cleans ---------------------------------------------------
 ( cd "$W" && make clean ) >/dev/null 2>&1
 assert_no_file "$W/_site" "make clean removes _site"
 assert_no_file "$W/build" "make clean removes build"
 
-# Nothing generated escapes into the source tree: after a full build the only
-# untracked directories are the two gitignored ones.
+# Nothing generated escapes into the source tree. Compare the file list before
+# and after a build rather than mtimes against some reference file, which only
+# measures when the working copy was last edited.
+before=$( cd "$W" && find . -path ./_site -prune -o -path ./build -prune -o \
+  -type f -print | LC_ALL=C sort )
 build 4 || true
-leaked=$( cd "$W" && find . -maxdepth 1 -newer Makefile ! -name . ! -name _site \
-  ! -name build ! -name '.*' -type f | sort )
-assert_eq "" "$leaked" "the build writes nothing into the source tree"
+after=$( cd "$W" && find . -path ./_site -prune -o -path ./build -prune -o \
+  -type f -print | LC_ALL=C sort )
+assert_eq "$before" "$after" "the build creates no files outside _site/ and build/"

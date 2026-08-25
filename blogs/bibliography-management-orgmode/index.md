@@ -72,8 +72,8 @@ an Arxiv ID and obtains the bibtex information from Arxiv directly.
 
 > **Tip — Scientific Paper Discovery**
 >
-> You can find more information on how I discovery scientific papers [in
-> this blogpost](../scientific-paper-discovery).
+> You can find more information on how I discovery scientific papers in
+> this blogpost.
 
 > **Tip — doi2bib**
 >

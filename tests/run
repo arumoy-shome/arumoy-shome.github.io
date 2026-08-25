@@ -34,7 +34,9 @@ fi
 
 update_golden() {
   mkdir -p "$TESTDIR/golden"
-  (cd "$REPO_ROOT/_site" && find . -type f | sort) >"$TESTDIR/golden/site-manifest.txt"
+  # LC_ALL=C: macOS and Ubuntu collate differently, and this file is compared
+  # byte for byte on both.
+  (cd "$REPO_ROOT/_site" && find . -type f | LC_ALL=C sort) >"$TESTDIR/golden/site-manifest.txt"
   printf 'wrote %s (%d entries)\n' "tests/golden/site-manifest.txt" \
     "$(wc -l <"$TESTDIR/golden/site-manifest.txt" | tr -d ' ')"
 }

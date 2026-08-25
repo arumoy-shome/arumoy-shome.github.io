@@ -32,8 +32,14 @@ POST_FLAGS := $(COMMON) --toc --metadata author="Arumoy Shome"
 # every page: without it, editing a reference rebuilds nothing.
 COMMON_DEPS := templates/page.html site.yaml bibliography.bib
 
-.PHONY: all clean serve tags
+.PHONY: all clean serve tags test
 all: $(PAGE_HTML) $(POST_HTML) $(ASSET_OUT) $(GENPAGE) $(GENXML) $(STATIC) tags
+
+# tests/run builds first anyway; depending on all here keeps `make test` in a
+# clean tree from looking like a test failure. TEST_FAST=1 skips 40-42, which
+# do full rebuilds and account for most of the runtime.
+test: all
+	tests/run
 
 # --- generated data ------------------------------------------------------
 # bin/index writes build/{blogs.md,blogs.xml,sitemap.xml,tags/*.md} in one
