@@ -71,8 +71,11 @@ assert_contains "$out" '*emphasis*'              "block scalar content survives"
 assert_ok "a record containing markdown still parses" -- \
   env sh -c "bin/yamlseq pubs '$FIX/markdown.yaml' > '$TMP/m.yaml' && pandoc /dev/null --metadata-file='$TMP/m.yaml' -t plain"
 
-# --- the real data files ---------------------------------------------------
-for pair in "publications publications.yaml" "talks talks.yaml"; do
+# --- the real data file ----------------------------------------------------
+# talks.yaml is the only caller left; publications.yaml was retired when
+# publications.html moved to citeproc. The loop stays so a second data file
+# costs one word.
+for pair in "talks talks.yaml"; do
   set -- $pair
   key=$1 file=$2
   n_in=$(grep -c '^- ' "$file")

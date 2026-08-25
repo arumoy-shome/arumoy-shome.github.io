@@ -27,6 +27,13 @@ make_in "$W" -j8 >"$TMP/build.log" 2>&1 || {
 # minus the category pages that always churn.
 rebuilt() {
   local stamp=$TMP/stamp
+  # macOS ships GNU Make 3.81, which compares mtimes at one-second resolution.
+  # A build fast enough to finish inside the same second as the next touch
+  # leaves make unable to tell prerequisite from target, and it silently
+  # decides the target is up to date -- so this reports "nothing rebuilt" for
+  # a dependency that is in fact wired correctly. Cross a second boundary
+  # before touching so the comparison is never ambiguous.
+  sleep 1
   : >"$stamp"
   ( cd "$W" && touch "$@" ) || return 1
   make_in "$W" -j8 >"$TMP/make.log" 2>&1 || {
@@ -74,6 +81,14 @@ changed=$(rebuilt bibliography.bib)
 assert_contains "$changed" "_site/blogs/aims/index.html" "the bibliography rebuilds post pages"
 assert_contains "$changed" "_site/index.html"            "the bibliography rebuilds plain pages"
 assert_contains "$changed" "_site/blogs.html"            "the bibliography rebuilds listing pages"
+assert_contains "$changed" "_site/publications.html"     "the bibliography rebuilds publications, which is nothing but references"
+
+# The citation style is site-wide for the same reason, and is the sole input
+# deciding how every reference on the site is formatted.
+changed=$(rebuilt association-for-computing-machinery.csl)
+assert_contains "$changed" "_site/blogs/aims/index.html" "the CSL rebuilds post pages"
+assert_contains "$changed" "_site/index.html"            "the CSL rebuilds plain pages"
+assert_contains "$changed" "_site/publications.html"     "the CSL rebuilds publications"
 
 # --- narrow inputs ---------------------------------------------------------
 # These must rebuild their own output and nothing else.
@@ -82,9 +97,10 @@ assert_contains "$changed" "_site/talks.html" "talks.yaml rebuilds the talks pag
 assert_not_contains "$changed" "_site/blogs.html"        "talks.yaml leaves the blog index alone"
 assert_not_contains "$changed" "_site/publications.html" "talks.yaml leaves publications alone"
 
-changed=$(rebuilt publications.yaml)
-assert_contains "$changed" "_site/publications.html" "publications.yaml rebuilds its page"
-assert_not_contains "$changed" "_site/talks.html"    "publications.yaml leaves talks alone"
+changed=$(rebuilt pages/publications.md)
+assert_contains "$changed" "_site/publications.html" "the publications page rebuilds itself"
+assert_not_contains "$changed" "_site/talks.html"    "...and leaves talks alone"
+assert_not_contains "$changed" "_site/blogs.html"    "...and the blog index alone"
 
 changed=$(rebuilt styles.css)
 assert_eq "_site/styles.css" "$changed" "styles.css is recopied, and nothing else runs"
@@ -101,8 +117,8 @@ assert_contains "$changed" "_site/blogs.html" "editing bin/index regenerates the
 assert_contains "$changed" "_site/blogs.xml"  "editing bin/index regenerates the feed"
 
 changed=$(rebuilt bin/yamlseq)
-assert_contains "$changed" "_site/publications.html" "editing bin/yamlseq regenerates publications"
-assert_contains "$changed" "_site/talks.html"        "editing bin/yamlseq regenerates talks"
+assert_contains "$changed" "_site/talks.html"            "editing bin/yamlseq regenerates talks"
+assert_not_contains "$changed" "_site/publications.html" "...but publications no longer goes through it"
 
 # --- fragment templates and intros -----------------------------------------
 changed=$(rebuilt templates/listing.md)
@@ -116,9 +132,6 @@ assert_contains "$changed" "_site/blogs.html" "the blog intro regenerates the in
 
 changed=$(rebuilt pages/tags-intro.md)
 assert_contains "$changed" "_site/blogs/tags/index.html" "the tags intro regenerates the tag index"
-
-changed=$(rebuilt templates/publications.md)
-assert_contains "$changed" "_site/publications.html" "the publications template regenerates its page"
 
 changed=$(rebuilt templates/talks.md)
 assert_contains "$changed" "_site/talks.html" "the talks template regenerates its page"

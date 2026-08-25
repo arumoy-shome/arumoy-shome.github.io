@@ -2,8 +2,8 @@
 #
 # yamlseq KEY FILE
 #
-# publications.yaml and talks.yaml are bare YAML sequences, but pandoc's
-# --metadata-file requires a mapping at the root. Wrap the sequence under KEY
+# talks.yaml is a bare YAML sequence, but pandoc's --metadata-file requires a
+# mapping at the root. Wrap the sequence under KEY
 # and order the entries by their `date:` field, newest first (what Quarto's
 # `sort: "date desc"` used to do).
 #

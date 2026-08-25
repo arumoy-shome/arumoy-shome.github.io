@@ -61,7 +61,8 @@ tests/run --update-golden  # after adding a post, refresh the URL manifest
 | `51-links` | every internal link, fragment and asset resolves |
 | `52-leaked-syntax` | Quarto leftovers, unexpanded template vars, escaped markdown |
 | `53-page-head` | `<title>`/description integrity, stylesheet order, TOC correctness |
-| `60-listings` | the two-stage publications/talks pipeline |
+| `60-listings` | the two-stage talks pipeline |
+| `61-publications` | the `nocite:` list, the `#refs` div, and that no post's citation leaks onto the page |
 | `70-new` | `bin/new` output, and that the build can read it back |
 
 Two rules keep the suite stable across pandoc versions (local is ahead of the
@@ -81,17 +82,33 @@ no other — goes red.
 
 ### The two-stage pandoc pipeline
 
-Listing pages (`blogs.html`, `talks.html`, `publications.html`, tag pages) are built
-in **two** pandoc passes, and the intermediate is **markdown**, not HTML:
+Listing pages (`blogs.html`, `talks.html`, tag pages) are built in **two** pandoc
+passes, and the intermediate is **markdown**, not HTML:
 
-1. data (post frontmatter, or `publications.yaml` / `talks.yaml`) → pandoc with a
-   *markdown-emitting* template → a markdown fragment in `build/`
+1. data (post frontmatter, or `talks.yaml`) → pandoc with a *markdown-emitting*
+   template → a markdown fragment in `build/`
 2. `build/<name>.md` → pandoc with `templates/page.html` → `_site/<name>.html`
 
 The markdown intermediate is what makes inline markdown inside data files work —
-`46^th^` in `publications.yaml`, `**bold**` and links inside `talks.yaml` abstracts,
-and links inside post abstracts all get a real markdown parse instead of being
-emitted as literal text. Do not "simplify" this into a single HTML-emitting pass.
+`**bold**` and links inside `talks.yaml` abstracts, and links inside post
+abstracts, all get a real markdown parse instead of being emitted as literal
+text. Do not "simplify" this into a single HTML-emitting pass.
+
+### The publications page
+
+`publications.html` is **not** a listing page. It is an ordinary hand-written
+page, `pages/publications.md`, whose body is a `nocite:` list of bibkeys and an
+empty `::: {#refs .publications}` div that citeproc fills from
+`bibliography.bib`.
+
+That bib is dual-purpose: it holds both the works cited by blog posts and
+Arumoy's own papers. The `nocite:` list is the only thing separating them — a
+`@*` would drop Zhang, Heer, Quaranta and Pimentel onto the publications page.
+`tests/61-publications.sh` is what catches that.
+
+Entry order is the citation style's, i.e. alphabetical by first author, not
+newest-first. Adding a publication means adding a BibTeX entry and its key to
+the `nocite:` list; nothing else.
 
 ### Pieces
 
@@ -99,11 +116,13 @@ emitted as literal text. Do not "simplify" this into a single HTML-emitting pass
 | --- | --- |
 | `Makefile` | Pattern rules with real dependencies. `COMMON` / `POST_FLAGS` hold the shared pandoc flags. |
 | `bin/index` | The only real logic. One pass over `blogs/*/index.md` producing `build/{blogs.md,blogs.xml,sitemap.xml,tags/*.md,frag/,item/,meta/}`. |
-| `bin/yamlseq` | `publications.yaml` / `talks.yaml` are bare YAML **sequences**; pandoc's `--metadata-file` needs a **mapping** at the root. Wraps them under a key and date-sorts newest-first. |
+| `bin/yamlseq` | `talks.yaml` is a bare YAML **sequence**; pandoc's `--metadata-file` needs a **mapping** at the root. Wraps it under a key and date-sorts newest-first. |
 | `templates/page.html` | The single HTML template for every page. |
 | `templates/*.md`, `*.xml`, `meta.txt` | Fragment templates consumed by `bin/index` and the Makefile. |
 | `site.yaml` | Site-wide metadata: nav, footer, `og:` values, `title-suffix`. Passed to every pandoc call. |
-| `pages/` | Hand-written page bodies. `*-intro.md` are the prose headers of the four generated listing pages. |
+| `bibliography.bib` | Every reference on the site: works cited by posts, and Arumoy's own publications. |
+| `association-for-computing-machinery.csl` | Vendored citation style, applied site-wide. Chosen over `acm-sig-proceedings.csl`, which truncates to "et al." past two authors and so drops co-authors from the publications page. |
+| `pages/` | Hand-written page bodies. `*-intro.md` are the prose headers of the generated listing pages. |
 | `blogs/<slug>/index.md` | One directory per post, images alongside. |
 | `build/`, `_site/` | Generated; both gitignored. |
 
@@ -159,9 +178,17 @@ These were each found by debugging real breakage. Changing them silently breaks 
 - **Document frontmatter beats `--metadata-file`.** That is how `pages/index.md` and
   `pages/resume.md` override `title-suffix` from `site.yaml`.
 - **A `$if(...)$` opening at the *end* of a template line swallows the following
-  newline.** In `templates/publications.md` the conditional therefore starts its own
-  line; putting it back at end-of-line silently removes the blank line between
-  entries, and the next `###` stops being parsed as a heading.
+  newline.** A conditional in a markdown-emitting template must therefore start its
+  own line; at end-of-line it silently removes the blank line between entries, and
+  the next `###` stops being parsed as a heading.
+- **An explicit `::: {#refs}` div suppresses the `reference-section-title` heading.**
+  Citeproc only inserts the "References" header when it appends the bibliography
+  itself; where the document places the div, no heading is emitted. That is what lets
+  `publications.html` be a bare list, and why `COMMON` can keep
+  `--metadata reference-section-title` for posts without special-casing that page.
+- **`--metadata` beats document frontmatter, unlike `--metadata-file`.** So
+  `reference-section-title` cannot be overridden from a page's own YAML; the `#refs`
+  div above is the lever that works.
 - **`$highlighting-css$` must appear before `<link rel="stylesheet" href="/styles.css">`**
   in `templates/page.html`. Pandoc's inlined palette is light-theme only, and
   `styles.css` overrides its token colours for dark mode; equal specificity means
@@ -193,7 +220,14 @@ Because there are no Lua filters, prose uses plain markdown:
 - `::: {.wide}` is a full-bleed figure, `::: {.grid2}` a two-column pair; both are
   styled in `styles.css`
 - citations (`@key`, `[@key]`) resolve against `bibliography.bib` via `--citeproc`,
-  which is enabled for every page
+  which is enabled for every page, styled site-wide by
+  `association-for-computing-machinery.csl`. The style is numeric, so an in-text
+  citation renders as `[1]`, and a post's reference list is numbered to match
+- the style prints a thesis's `type` field but ignores `note` and `howpublished`.
+  That is why the unpublished entries in `bibliography.bib` carry their
+  description in `type` (`MSc. systematic literature review`) or, for the paper
+  under review, in `institution` — those are the fields that actually reach the
+  page
 - `# <1>` code-annotation markers render literally as comments, with the explanatory
   numbered list following the block. This is accepted, not broken.
 

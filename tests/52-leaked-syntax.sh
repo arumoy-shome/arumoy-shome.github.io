@@ -53,15 +53,20 @@ assert_match "$(cat "$SITE/blogs.html")" 'href="/blogs/tags/[a-z0-9-]+\.html"' \
   "category links are rendered as anchors"
 
 # --- the markdown intermediate did its job --------------------------------
-# publications.yaml and talks.yaml contain inline markdown. The two-stage
-# pipeline exists so it gets a real markdown parse; if it were emitted as
-# HTML in one pass, the source characters would survive verbatim.
-pubs=$(cat "$SITE/publications.html")
+# talks.yaml contains inline markdown. The two-stage pipeline exists so it
+# gets a real markdown parse; if it were emitted as HTML in one pass, the
+# source characters would survive verbatim.
 talks=$(cat "$SITE/talks.html")
-assert_not_contains "$pubs"  '^th^' "superscript source does not survive into publications"
-assert_not_contains "$pubs"  '**'   "bold source does not survive into publications"
+assert_not_contains "$talks" '^th^' "superscript source does not survive into talks"
 assert_not_contains "$talks" '**'   "bold source does not survive into talks"
 assert_not_match "$talks" '\]\(http' "link source does not survive into talks"
+
+# The equivalent hazard for publications.html, which comes from BibTeX rather
+# than YAML: a mis-parsed entry leaks LaTeX braces and accent escapes instead.
+pubs=$(cat "$SITE/publications.html")
+assert_not_match "$pubs" '\{\\'    "no LaTeX accent escape survives into publications"
+assert_not_match "$pubs" '\\[a-z]+\{' "no LaTeX command survives into publications"
+assert_not_contains "$pubs" '}}'   "no BibTeX brace survives into publications"
 
 # --- citations -------------------------------------------------------------
 # --citeproc runs on every page. An unresolved key renders as a marker rather

@@ -1,15 +1,3 @@
-@InProceedings{   zhang2021ignorance,
-  title         = {“Ignorance and Prejudice” in Software Fairness},
-  url           = {http://dx.doi.org/10.1109/ICSE43902.2021.00129},
-  doi           = {10.1109/icse43902.2021.00129},
-  booktitle     = {2021 IEEE/ACM 43rd International Conference on Software
-                  Engineering (ICSE)},
-  publisher     = {IEEE},
-  author        = {Zhang, Jie M. and Harman, Mark},
-  year          = {2021},
-  month         = may
-}
-
 @InProceedings{   strezoski2019ace,
   series        = {MM ’19},
   title         = {ACE: Art, Color and Emotion},
@@ -23,40 +11,6 @@
   year          = {2019},
   month         = oct,
   collection    = {MM ’19}
-}
-
-@article{zhang2020machine,
-  title =        {Machine learning testing: Survey, landscapes and
-                  horizons},
-  author =       {Zhang, Jie M and Harman, Mark and Ma, Lei and Liu,
-                  Yang},
-  journal =      {IEEE Transactions on Software Engineering},
-  year =         2020,
-  publisher =    {IEEE}
-}
-
-@inproceedings{quaranta2021kgtorrent,
-  title =        {KGTorrent: A dataset of python Jupyter notebooks
-                  from kaggle},
-  author =       {Quaranta, Luigi and Calefato, Fabio and Lanubile,
-                  Filippo},
-  booktitle =    {2021 IEEE/ACM 18th International Conference on
-                  Mining Software Repositories (MSR)},
-  pages =        {550--554},
-  year =         2021,
-  organization = {IEEE}
-}
-
-@inproceedings{pimentel2019large,
-  title =        {A large-scale study about quality and
-                  reproducibility of jupyter notebooks},
-  author =       {Pimentel, Jo{\~a}o Felipe and Murta, Leonardo and
-                  Braganholo, Vanessa and Freire, Juliana},
-  booktitle =    {2019 IEEE/ACM 16th international conference on
-                  mining software repositories (MSR)},
-  pages =        {507--517},
-  year =         2019,
-  organization = {IEEE}
 }
 
 @InProceedings{   shome2022data,
@@ -94,10 +48,68 @@
                   Empirical Study},
   url           = {http://dx.doi.org/10.1145/3643786.3648022},
   doi           = {10.1145/3643786.3648022},
-  author        = {Shome, Arumoy and Cruz, Lu{\`\i}s and van Deursen, Arie},
+  author        = {Shome, Arumoy and Cruz, Lu{\'i}s and van Deursen, Arie},
   booktitle     = {International Workshop on Deep Learning for Testing and
                   Testing for Deep Learning},
   publisher     = {IEEE/ACM},
   month         = april,
   year          = {2024}
+}
+
+% Not yet published: institution is what the ACM style prints for a report,
+% so it carries the review status that used to live in publications.yaml's
+% subtitle. `type` and `note` are ignored by the style; they are here for
+% anyone reading the .bib.
+@TechReport{      shome2024characterizing,
+  title         = {Characterizing Feedback Mechanisms in Machine Learning
+                  Jupyter Notebooks},
+  url           = {https://arxiv.org/abs/2408.00153},
+  author        = {Shome, Arumoy and Cruz, Lu{\'i}s and Spinellis, Diomidis
+                  and van Deursen, Arie},
+  institution   = {Under review at the Journal of Empirical Software
+                  Engineering (EMSE)},
+  year          = {2024},
+  month         = aug
+}
+
+@inproceedings{shome2024translation,
+  author = {Shome, Arumoy and Cruz, Luis and Van Deursen, Arie},
+  title = {Towards Automatic Translation of Machine Learning Visual Insights to Analytical Assertions},
+  booktitle = {Proceedings of the Third ACM/IEEE International Workshop on NL-based Software Engineering},
+  pages = {29--32},
+  publisher = {ACM},
+  year = {2024},
+  month = {apr},
+  doi = {10.1145/3643787.3648032},
+  url = {http://dx.doi.org/10.1145/3643787.3648032},
+}
+
+
+@inproceedings{shome2023testing,
+  author = {Shome, Arumoy and Cruz, Luís and van Deursen, Arie},
+  title = {Towards Understanding Machine Learning Testing in Practise},
+  booktitle = {2023 IEEE/ACM 2nd International Conference on AI Engineering – Software Engineering for AI (CAIN)},
+  pages = {117--118},
+  publisher = {IEEE},
+  year = {2023},
+  month = {may},
+  doi = {10.1109/cain58948.2023.00028},
+  url = {http://dx.doi.org/10.1109/CAIN58948.2023.00028},
+}
+
+% `type` overrides the "Master's thesis" the style would otherwise print for
+% a thesis entry; it is what puts "MSc. systematic literature review" on the
+% publications page.
+
+@MastersThesis{   shome2020km3net,
+  type          = {MSc. thesis},
+  title         = {KM3NeT Neutrino Detection using Deep Learning},
+  url           = {https://arumoy.me/km3net/km3net.pdf},
+  author        = {Shome, Arumoy and Belloum, Adam and van Werkhoven, Ben and
+                  Bruijn, Ronald},
+  school        = {Vrije Universiteit Amsterdam and Universiteit van
+                  Amsterdam},
+  note          = {Unpublished},
+  year          = {2020},
+  month         = oct
 }

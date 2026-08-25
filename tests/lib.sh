@@ -196,14 +196,18 @@ repo_copy() {
 # tests/fixtures/site is a self-contained mini-site: bin/index uses only
 # relative paths, so it runs anywhere the expected layout exists.
 
-# fixture_copy DEST -- copy the fixture with a working templates link. The
-# committed symlink is relative (so bin/index can be run inside the fixture
-# directory by hand for debugging) and has to be re-pointed once copied.
+# fixture_copy DEST -- copy the fixture with working links to the templates
+# and the citation style. Both committed symlinks are relative (so bin/index
+# can be run inside the fixture directory by hand for debugging) and have to
+# be re-pointed once copied. The fixture keeps its own bibliography.bib, but
+# there is no point in a second copy of a vendored CSL.
 fixture_copy() {
   local dest=$1
   rm -rf "$dest"; mkdir -p "$dest"
   ( cd "$TESTDIR/fixtures/site" && tar -cf - . ) | ( cd "$dest" && tar -xf - )
   ln -sfn "$REPO_ROOT/templates" "$dest/templates"
+  ln -sfn "$REPO_ROOT/association-for-computing-machinery.csl" \
+    "$dest/association-for-computing-machinery.csl"
 }
 
 # fixture_build DEST [JOBS] -- copy, then run bin/index in it.

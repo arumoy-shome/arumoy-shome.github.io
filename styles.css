@@ -246,8 +246,24 @@ tbody tr { border-bottom: 1px solid var(--rule); }
 
 /* --- citations --- */
 
+/* A reference list is a footnote to a post, but it is the whole body of the
+   publications page, so that one gets full-size text. */
 #refs { font-size: 0.9rem; }
-.csl-entry { margin-bottom: 0.75rem; }
+#refs.publications { font-size: 1rem; }
+
+.csl-entry { margin-bottom: 0.75rem; clear: both; }
+
+/* The ACM style is numeric with second-field-align="flush", so pandoc splits
+   each entry into a "[1]" label and the entry body as two block divs. These
+   are pandoc's own rules for that pair: without them the number takes a line
+   of its own. Kept float-based rather than flex so a hanging indent still
+   falls out for entries that wrap. */
+.csl-left-margin { min-width: 2em; float: left; }
+.csl-right-inline { margin-left: 2em; padding-left: 0.4em; }
+
+/* A style without second-field-align emits neither div, and pandoc marks the
+   list hanging-indent instead. */
+.hanging-indent .csl-entry { padding-left: 1.5em; text-indent: -1.5em; }
 
 @media print {
   header.site nav, footer.site, #TOC, .skip { display: none; }

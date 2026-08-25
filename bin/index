@@ -108,6 +108,7 @@ render_post() {
   # left alone. Guard against ]]> terminating the CDATA section early.
   pandoc "$post" -t html \
     --citeproc --bibliography=bibliography.bib \
+    --csl=association-for-computing-machinery.csl \
     --template=templates/feed-item.xml \
     --metadata-file="$BUILD/meta/$slug.yaml" |
     sed -E "s#(src|href)=\"([^\"#/][^\":]*)\"#\1=\"$SITEURL/blogs/$slug/\2\"#g" |

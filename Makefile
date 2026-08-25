@@ -8,11 +8,12 @@ POSTS     := $(wildcard blogs/*/index.md)
 POST_HTML := $(patsubst blogs/%/index.md,$(SITE)/blogs/%/index.html,$(POSTS))
 ASSETS    := $(shell find blogs -type f ! -name '*.md')
 ASSET_OUT := $(patsubst blogs/%,$(SITE)/blogs/%,$(ASSETS))
-PAGES     := pages/index.md pages/license.md pages/resume.md
+PAGES     := pages/index.md pages/license.md pages/resume.md \
+             pages/publications.md
 PAGE_HTML := $(patsubst pages/%.md,$(SITE)/%.html,$(PAGES))
 
 STATIC := $(SITE)/styles.css $(SITE)/profile.jpeg $(SITE)/CNAME $(SITE)/robots.txt
-GENPAGE := $(SITE)/blogs.html $(SITE)/talks.html $(SITE)/publications.html \
+GENPAGE := $(SITE)/blogs.html $(SITE)/talks.html \
            $(SITE)/blogs/tags/index.html
 GENXML  := $(SITE)/blogs.xml $(SITE)/sitemap.xml
 
@@ -20,17 +21,20 @@ GENXML  := $(SITE)/blogs.xml $(SITE)/sitemap.xml
 # --citeproc is harmless on documents without citations, so it lives here.
 # --wrap=none keeps pandoc's HTML writer from folding long lines, which
 # otherwise injects newlines inside <title> and <meta content="…"> values.
+CSL := association-for-computing-machinery.csl
+
 COMMON := --standalone --wrap=none \
           --template=templates/page.html \
           --metadata-file=site.yaml \
-          --citeproc --bibliography=bibliography.bib \
+          --citeproc --bibliography=bibliography.bib --csl=$(CSL) \
           --metadata reference-section-title="References"
 POST_FLAGS := $(COMMON) --toc --metadata author="Arumoy Shome"
 
 # The inputs every pandoc call reads, and therefore the prerequisites every
-# HTML output shares. bibliography.bib belongs here because --citeproc runs on
-# every page: without it, editing a reference rebuilds nothing.
-COMMON_DEPS := templates/page.html site.yaml bibliography.bib
+# HTML output shares. bibliography.bib and the CSL belong here because
+# --citeproc runs on every page: without them, editing a reference or the
+# citation style rebuilds nothing.
+COMMON_DEPS := templates/page.html site.yaml bibliography.bib $(CSL)
 
 .PHONY: all clean serve tags test
 all: $(PAGE_HTML) $(POST_HTML) $(ASSET_OUT) $(GENPAGE) $(GENXML) $(STATIC) tags
@@ -47,19 +51,9 @@ test: all
 $(BUILD)/blogs.md: $(POSTS) bin/index templates/listing.md \
                    templates/meta.txt templates/feed-item.xml \
                    pages/blogs-intro.md pages/tags-intro.md site.yaml \
-                   bibliography.bib
+                   bibliography.bib $(CSL)
 	@mkdir -p $(BUILD)
 	bin/index
-
-$(BUILD)/publications.md: publications.yaml templates/publications.md \
-                          pages/publications-intro.md bin/yamlseq
-	@mkdir -p $(BUILD)
-	bin/yamlseq publications publications.yaml > $(BUILD)/publications-data.yaml
-	cp pages/publications-intro.md $@
-	@printf '\n' >> $@
-	$(PANDOC) /dev/null -f markdown -t markdown --wrap=none \
-	  --template=templates/publications.md \
-	  --metadata-file=$(BUILD)/publications-data.yaml >> $@
 
 $(BUILD)/talks.md: talks.yaml templates/talks.md pages/talks-intro.md bin/yamlseq
 	@mkdir -p $(BUILD)
