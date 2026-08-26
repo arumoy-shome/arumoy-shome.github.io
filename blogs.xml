@@ -11,7 +11,6 @@
   <link>https://arumoy.me/blogs/tu-delft-dissertation-template-in-typst/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/tu-delft-dissertation-template-in-typst/</guid>
   <pubDate>Wed, 26 Aug 2026 00:00:00 +0000</pubDate>
-  <category>typst</category>
   <description><![CDATA[<p>I have released my <a
 href="https://github.com/arumoy-shome/tudelft-dissertation">PhD
 dissertation template</a> which I wrote in Typst. I had a lot of fun
@@ -23,7 +22,6 @@ writing a PhD dissertation a little bit more fun!</p>]]></description>
   <link>https://arumoy.me/blogs/managing-bibliography-with-bibshelf/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/managing-bibliography-with-bibshelf/</guid>
   <pubDate>Tue, 25 Aug 2026 00:00:00 +0000</pubDate>
-  <category>shell</category>
   <description><![CDATA[<p>After years of working with a cruddy
 shellscript, I finally managed to pull it out of my dotfiles and release
 it as a CLI.</p>
@@ -67,8 +65,6 @@ the bibtex entry.</p>]]></description>
   <link>https://arumoy.me/blogs/rename/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/rename/</guid>
   <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
-  <category>shell</category>
-  <category>python</category>
   <description><![CDATA[<p>Often I need to work with files that have
 really long and obscure names. <code>rename</code> is a Python script I
 wrote that renames a given file using a sane format. By default, it
@@ -168,7 +164,6 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="
   <link>https://arumoy.me/blogs/mytags/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/mytags/</guid>
   <pubDate>Sun, 17 Nov 2024 00:00:00 +0000</pubDate>
-  <category>shell</category>
   <description><![CDATA[<p>Often while working on remote servers where I
 don’t have permissions to install language servers, I find <a
 href="https://github.com/universal-ctags/ctags"><code>ctags</code></a>
@@ -227,7 +222,6 @@ ASTs</title>
   <link>https://arumoy.me/blogs/python-ast-extract-module-method-names/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/python-ast-extract-module-method-names/</guid>
   <pubDate>Sat, 23 Mar 2024 00:00:00 +0000</pubDate>
-  <category>python</category>
   <description><![CDATA[<h1
 id="preliminaries-python-ast-module">Preliminaries: Python
 <code>ast</code> module</h1>
@@ -442,8 +436,6 @@ tuple.</p>]]></description>
   <link>https://arumoy.me/blogs/visualisation-zoo/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/visualisation-zoo/</guid>
   <pubDate>Sun, 17 Mar 2024 00:00:00 +0000</pubDate>
-  <category>python</category>
-  <category>design</category>
   <description><![CDATA[<p>This is a collection of data visualisations I
 have created in the past from prior research publications. The title of
 this post is inspired by the <span class="citation"
@@ -588,8 +580,6 @@ href="https://doi.org/10.1145/3343031.3350588">https://doi.org/10.1145/3343031.3
   <link>https://arumoy.me/blogs/yob/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/yob/</guid>
   <pubDate>Fri, 19 Jan 2024 00:00:00 +0000</pubDate>
-  <category>shell</category>
-  <category>vim</category>
   <description><![CDATA[<p><code>yob</code> is a shell script that I
 wrote to toggle between a light and dark colorscheme in Kitty, my
 terminal of choice. Some additional configuration also allow me to sync
@@ -736,8 +726,6 @@ call AruAutoBackground()</code></pre>]]></description>
   <link>https://arumoy.me/blogs/organise-research-project-git/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/organise-research-project-git/</guid>
   <pubDate>Fri, 19 Jan 2024 00:00:00 +0000</pubDate>
-  <category>research</category>
-  <category>productivity</category>
   <description><![CDATA[<p>In this post I list some of the standards and
 conventions I have developed over the course of my PhD to organise
 research project data. I use git to version control the relevant files
@@ -851,8 +839,6 @@ class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#c
   <link>https://arumoy.me/blogs/bibliography-management-orgmode/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/bibliography-management-orgmode/</guid>
   <pubDate>Wed, 29 Nov 2023 00:00:00 +0000</pubDate>
-  <category>emacs</category>
-  <category>productivity</category>
   <description><![CDATA[<h1 id="front-matter-and-setup">Front Matter and
 setup</h1>
 <p>I store all my bibliographic information in a single
@@ -1007,8 +993,6 @@ advanced search syntax</a>).</p>]]></description>
   <link>https://arumoy.me/blogs/doi2bib/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/doi2bib/</guid>
   <pubDate>Sun, 26 Nov 2023 00:00:00 +0000</pubDate>
-  <category>shell</category>
-  <category>productivity</category>
   <description><![CDATA[<p><code>doi2bib</code> is a simple Python
 script I wrote to automatically retrieve bibtex information for a given
 DOI. The script queries Crossref to obtain the bibtex. The script can
@@ -1114,8 +1098,6 @@ own).</p>
   <link>https://arumoy.me/blogs/cms-pandoc/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/cms-pandoc/</guid>
   <pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate>
-  <category>shell</category>
-  <category>web</category>
   <description><![CDATA[<blockquote>
 <p><strong>Important — Migrated to Quarto</strong></p>
 <p>Since 2023-07-01, I have been using <a
@@ -1376,9 +1358,6 @@ select modified and untracked markdown files.</p>]]></description>
   <link>https://arumoy.me/blogs/remla-data-validation/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/remla-data-validation/</guid>
   <pubDate>Mon, 16 May 2022 00:00:00 +0000</pubDate>
-  <category>data</category>
-  <category>research</category>
-  <category>SE4AI</category>
   <description><![CDATA[<blockquote>
 <p><strong>Note</strong></p>
 <p>I gave this guest lecture once again in the 2023 iteration of <a
@@ -1500,7 +1479,6 @@ based on their understanding of the data &amp; domain expertise.</p>
   <link>https://arumoy.me/blogs/effortless-parallel-execution-xargs/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/effortless-parallel-execution-xargs/</guid>
   <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
-  <category>shell</category>
   <description><![CDATA[<p>Recently, I had to run <a
 href="https://github.com/tensorflow/data-validation">Tensorflow Data
 Validation</a> on over 500 public datasets from <a
@@ -1561,10 +1539,6 @@ mind, and distribute across several files using a combination of
   <link>https://arumoy.me/blogs/data-smells-public-datasets/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/data-smells-public-datasets/</guid>
   <pubDate>Wed, 04 May 2022 00:00:00 +0000</pubDate>
-  <category>data</category>
-  <category>research</category>
-  <category>SE4AI</category>
-  <category>technical debt</category>
   <description><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>In this talk I will present our recent paper titled <em>Data Smells
 in Public Datasets</em> which was published at the <em><a
@@ -1799,9 +1773,6 @@ throughout the ML lifecycle.</p>]]></description>
   <link>https://arumoy.me/blogs/website-management-pandoc/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/website-management-pandoc/</guid>
   <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
-  <category>shell</category>
-  <category>vim</category>
-  <category>web</category>
   <description><![CDATA[<p>After years of using <a
 href="https://orgmode.org">orgmode</a> along with the <a
 href="https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html">org-publish</a>
@@ -1894,8 +1865,6 @@ class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb2-1"><
   <link>https://arumoy.me/blogs/today/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/today/</guid>
   <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
-  <category>shell</category>
-  <category>productivity</category>
   <description><![CDATA[<p>I often work with text files containing pros
 (such as blog posts and git commit messages) and require adding a
 timestamp containing the current date, day &amp; time.</p>
@@ -2008,8 +1977,6 @@ vim.</p>
   <link>https://arumoy.me/blogs/aims/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/aims/</guid>
   <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
-  <category>shell</category>
-  <category>productivity</category>
   <description><![CDATA[<p>AIMS or Aru’s Information Management System
 is a collection of shellscripts to manage information in plaintext. It
 is inspired by <a href="https://orgmode.org/">org-mode</a>, and tries to
@@ -2172,9 +2139,6 @@ the bibentry at the bottom.</p>]]></description>
   <link>https://arumoy.me/blogs/privacy-preserving-deep-learning/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/privacy-preserving-deep-learning/</guid>
   <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
-  <category>machine learning</category>
-  <category>research</category>
-  <category>privacy</category>
   <description><![CDATA[<p>Good morning all, thank you for being here.
 Today I wanted to share my research on Privacy Preserving Deep Learning
 (PPDL) which I conducted during my Msc. As an example, we will be
@@ -2519,9 +2483,6 @@ outcomes of neural networks with a sense of trust.</p>]]></description>
   <link>https://arumoy.me/blogs/research-workflow-plaintext/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/research-workflow-plaintext/</guid>
   <pubDate>Mon, 12 Jul 2021 00:00:00 +0000</pubDate>
-  <category>productivity</category>
-  <category>emacs</category>
-  <category>research</category>
   <description><![CDATA[<h1 id="introduction">Introduction</h1>
 <p>In this talk I will go over how we can use Emacs and org-mode to
 craft a research workflow. We will look at how we can leverage the power
@@ -2813,8 +2774,6 @@ config files</a> if you prefer code.</li>
   <link>https://arumoy.me/blogs/aocp/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/aocp/</guid>
   <pubDate>Wed, 16 Jun 2021 00:00:00 +0000</pubDate>
-  <category>emacs</category>
-  <category>productivity</category>
   <description><![CDATA[<p>After observing my workflow of managing
 bibliographic information in Emacs, I extracted the repeated actions
 into an Emacs package.</p>

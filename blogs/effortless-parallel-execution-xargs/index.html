@@ -100,7 +100,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header">
 <h1 class="title">Effortless Parallel Execution with xargs &amp; Friends</h1>
 <p class="date">2022-05-08</p>
-<p class="categories"><a href="/blogs/tags/shell.html">shell</a></p>
 </header>
 <p>Recently, I had to run <a href="https://github.com/tensorflow/data-validation">Tensorflow Data Validation</a> on over 500 public datasets from <a href="https://kaggle.com/">Kaggle</a> to generate a baseline schema file for further analysis. I chose to do this using the xargs unix command.</p>
 <p>Following is a python script which generates the schema file and saves it to disk for a single csv dataset.</p>
@@ -138,8 +137,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xargs</span> <span class="at">-n</span> 1 <span class="at">-P</span> 4 ./bin/write-schema.py</span></code></pre></div>
 <p>That’s all there is to it! Write your main script with one file in mind, and distribute across several files using a combination of <code>find</code> and <code>xargs</code>.</p>
 <nav class="post-nav" aria-label="More posts">
-  <a class="older" href="/blogs/data-smells-public-datasets/"><span class="dir">← Older</span><span class="t">Data Smells in Public Datasets</span></a>
-  <a class="newer" href="/blogs/remla-data-validation/"><span class="dir">Newer →</span><span class="t">Data Validation with TFDV</span></a>
+  <a class="newer" href="/blogs/remla-data-validation/"><span class="dir">← Newer</span></a>
+  <a class="older" href="/blogs/data-smells-public-datasets/"><span class="dir">Older →</span></a>
 </nav>
 </main>
 <footer class="site">
