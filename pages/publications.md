@@ -3,7 +3,6 @@ title: Publications
 nocite: |
     @shome2026changes,
     @shome2026characterizing,
-    @shome2024characterizing,
     @shome2024data,
     @shome2024translation,
     @shome2023testing,
