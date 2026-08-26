@@ -16,6 +16,7 @@
 ./blogs/data-smells-public-datasets/ml-mature-pillars.svg
 ./blogs/doi2bib/index.html
 ./blogs/effortless-parallel-execution-xargs/index.html
+./blogs/managing-bibliography-with-bibshelf/index.html
 ./blogs/mytags/index.html
 ./blogs/organise-research-project-git/index.html
 ./blogs/privacy-preserving-deep-learning/distributed-learning.png
