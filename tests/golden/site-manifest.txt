@@ -56,6 +56,7 @@
 ./blogs/tags/vim.html
 ./blogs/tags/web.html
 ./blogs/today/index.html
+./blogs/tu-delft-dissertation-template-in-typst/index.html
 ./blogs/visualisation-zoo/ace.png
 ./blogs/visualisation-zoo/amsterdam.jpg
 ./blogs/visualisation-zoo/heatmap-corr.png
