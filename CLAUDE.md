@@ -73,9 +73,44 @@ Assertion helpers never return non-zero, so a file reports all its failures rath
 than aborting at the first. `INDEX_LIB=1 . bin/index` sources the helpers without
 running the driver.
 
-Tests that document a trap are only worth having if they fail when it returns.
-Each one has been checked by reintroducing the bug and confirming that test — and
-no other — goes red.
+### Writing a test: which order
+
+Two kinds of test live here, and they are written in opposite orders.
+
+**A feature whose contract is known upfront** — prev/next navigation, a new meta
+key, a listing that has to sort a particular way — is written **test first**. State
+the observable contract, watch it fail, then implement. The point is not the red
+itself; it is that a test written after the code drifts toward asserting what the
+code *happens to emit* rather than what it *should*. Mutation testing cannot catch
+that — a test aimed at the wrong contract still goes red when you break the
+implementation under it.
+
+**A test that documents a trap** cannot be written first. The pandoc behaviours
+below were each found by debugging real breakage: the knowledge came out of the
+failure, so there was nothing to write in advance. `tests/fixtures/site/blogs/gamma`
+carries a code span holding a literal quote because a quote written in *prose* is
+curled by smart punctuation and never reaches the escaping — a fact discovered, not
+specified.
+
+**Both kinds then get mutated.** Reintroduce the bug in working code and confirm
+that test — and no other — goes red. This is the step that earns a test its keep,
+and it is not optional after a green TDD cycle, because red-on-absent is the
+weakest possible mutant: it only proves the test notices the feature missing
+*entirely*. Negative assertions give no signal at all in a red phase. In
+`tests/30-index-fixture.sh`:
+
+```sh
+assert_eq "" "$(raw_yaml "$B/meta/alpha.yaml" newer-url)" "the newest post has no newer neighbour"
+```
+
+That passes before a line of the driver loop exists, because `raw_yaml` returns
+empty for an absent key. Only mutating a working driver — swapping the window
+direction, or letting it wrap around at the endpoints — shows it discriminates.
+Prefer near-miss mutants (an off-by-one, a swapped pair, a dropped escape) over
+deleting the feature.
+
+The suite is cheap enough that neither step is a burden: `TEST_FAST=1 make test` is
+~15s, and `tests/run 30` alone is a couple of seconds.
 
 ## Architecture
 
