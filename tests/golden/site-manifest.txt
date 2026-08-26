@@ -53,6 +53,7 @@
 ./blogs/tags/se4ai.html
 ./blogs/tags/shell.html
 ./blogs/tags/technical-debt.html
+./blogs/tags/typst.html
 ./blogs/tags/vim.html
 ./blogs/tags/web.html
 ./blogs/today/index.html

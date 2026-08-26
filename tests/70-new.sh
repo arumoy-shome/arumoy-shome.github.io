@@ -5,7 +5,8 @@
 # slugify independently of bin/index (that agreement is checked in
 # 10-slugify). What matters here is that what it writes is something the rest
 # of the build can actually consume: the frontmatter has to parse, and
-# templates/meta.txt has to be able to read a date and categories back out.
+# templates/meta.txt has to be able to read a date, categories and title back
+# out.
 
 . "${TESTDIR:-$(dirname "$0")}/lib.sh"
 
@@ -41,8 +42,9 @@ assert_not_contains "$body" 'date: "2026-01-30"'  "the date is not quoted"
 # --- the build can read it back --------------------------------------------
 # This is the real contract: whatever bin/new writes, bin/index must be able
 # to parse with templates/meta.txt.
-meta=$(pandoc "$post" --template=templates/meta.txt -t plain)
-assert_eq "2026-01-30|shell,vim" "${meta%$'\n'}" "meta.txt reads the date and categories back"
+meta=$(pandoc "$post" --template=templates/meta.txt -t plain --wrap=none)
+assert_eq "2026-01-30|shell,vim|My Test Post" "${meta%$'\n'}" \
+  "meta.txt reads the date, categories and title back"
 
 # And pandoc must accept the document at all.
 assert_ok "the scaffolded post is valid pandoc input" -- \
@@ -55,8 +57,9 @@ run_new "$w" -f -x -d 2026-02-01 "No Categories Here" >/dev/null 2>&1
 post=$w/blogs/no-categories-here/index.md
 assert_file "$post" "a post with no categories is still created"
 assert_not_contains "$(cat "$post")" "categories:" "the categories key is omitted entirely"
-meta=$(pandoc "$post" --template=templates/meta.txt -t plain)
-assert_eq "2026-02-01|" "${meta%$'\n'}" "meta.txt yields an empty category list"
+meta=$(pandoc "$post" --template=templates/meta.txt -t plain --wrap=none)
+assert_eq "2026-02-01||No Categories Here" "${meta%$'\n'}" \
+  "meta.txt yields an empty category list, and the title still lands in field 3"
 
 # --- default date ----------------------------------------------------------
 w=$TMP/today

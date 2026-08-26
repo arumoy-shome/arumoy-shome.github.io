@@ -37,7 +37,8 @@ assert_eq "" "$(hits 'callout-(note|tip|warning|important|caution)')" "no callou
 # A literal $if(, $for( or $endif$ in the output means a template line was
 # emitted rather than evaluated.
 assert_eq "" "$(hits '\$(if|for|endif|endfor|sep)\(?')" "no pandoc template control syntax"
-for v in title body abstract date slug catlinks pubdate site-url description; do
+for v in title body abstract date slug catlinks pubdate site-url description \
+         postnav older-url older-title newer-url newer-title; do
   assert_eq "" "$(hits "\\\$$v\\\$")" "no unexpanded \$$v\$"
 done
 

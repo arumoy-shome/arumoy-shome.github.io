@@ -8,6 +8,8 @@
 #   meta/<slug>.yaml slug + pre-slugified category links, fed back to pandoc
 #   order/<slug>     date|slug, concatenated and sorted into order.txt
 #   cats/<slug>      catslug|catname|postslug, concatenated into tagmap.txt
+#   title/<slug>     the post title, escaped for a YAML scalar; the driver
+#                    interpolates it into its neighbours' meta files
 #   blogs.md         the blog index page (intro + fragments, newest first)
 #   blogs.xml        the RSS feed
 #   sitemap.xml      the sitemap
@@ -51,14 +53,19 @@ slugify() {
 # Render every per-post artefact for one post. Invoked by the driver's xargs.
 render_post() {
   local post=$1
-  local slug meta date cats links desc c cslug
+  local slug meta date rest cats title links desc c cslug
   slug=$(basename "$(dirname "$post")")
 
-  # One cheap pass to read date + categories out of the frontmatter.
-  meta=$(pandoc "$post" --template=templates/meta.txt -t plain)
+  # One cheap pass to read date + categories + title out of the frontmatter.
+  # --wrap=none: the plain writer reflows at 72 columns, and the longest post
+  # titles are longer than that, which would split the last field across lines.
+  # Title comes last so a `|` in a title cannot corrupt the split.
+  meta=$(pandoc "$post" --template=templates/meta.txt -t plain --wrap=none)
   date=${meta%%|*}
-  cats=${meta#*|}
-  cats=${cats%$'\n'}
+  rest=${meta#*|}
+  cats=${rest%%|*}
+  title=${rest#*|}
+  title=${title%$'\n'}
 
   # Build the category links as markdown; pandoc escapes --metadata strings,
   # but parses --metadata-file values as markdown, so they go through YAML.
@@ -118,6 +125,12 @@ render_post() {
       >"$BUILD/item/$slug.xml"
 
   printf '%s|%s\n' "$date" "$slug" >"$BUILD/order/$slug"
+
+  # Escaped for a YAML double-quoted scalar, exactly as `desc` is above: post
+  # titles contain quotes and ampersands. The driver reads this back once the
+  # ordering is known and writes it into the neighbouring posts' meta files.
+  printf '%s' "$title" | sed -e 's/\\/\\\\/g' -e 's/"/\\"/g' \
+    >"$BUILD/title/$slug"
 }
 
 # Sourcing with INDEX_LIB=1 yields the helpers above without running the
@@ -136,9 +149,9 @@ TITLE=$(sed -n 's/^site-title: *"\(.*\)"/\1/p' site.yaml)
 DESC=$(sed -n 's/^description: *"\(.*\)"/\1/p' site.yaml)
 
 rm -rf "$BUILD"/frag "$BUILD"/item "$BUILD"/meta "$BUILD"/tags \
-       "$BUILD"/order "$BUILD"/cats
+       "$BUILD"/order "$BUILD"/cats "$BUILD"/title
 mkdir -p "$BUILD"/frag "$BUILD"/item "$BUILD"/meta "$BUILD"/tags \
-         "$BUILD"/order "$BUILD"/cats
+         "$BUILD"/order "$BUILD"/cats "$BUILD"/title
 
 printf '%s' '$abstract$' >"$DESCTPL"
 
@@ -153,6 +166,31 @@ ORDER=$BUILD/order.txt   # date|slug, one per post
 TAGMAP=$BUILD/tagmap.txt # catslug|catname|postslug
 cat "$BUILD"/order/* | sort -r >"$ORDER"
 cat "$BUILD"/cats/* | sort -u >"$TAGMAP"
+
+# --- prev/next navigation -----------------------------------------------
+# order.txt is newest-first, so the line above a post is its newer neighbour
+# and the line below is its older one. Neighbours are unknowable until every
+# worker has finished, which is why this appends to the meta YAML here rather
+# than being written by render_post -- a worker may only write files named
+# after its own slug.
+navslugs=()
+while IFS='|' read -r _ s; do navslugs+=("$s"); done <"$ORDER"
+for ((i = 0; i < ${#navslugs[@]}; i++)); do
+  # A lone post has no neighbours; emit nothing rather than an empty nav.
+  ((i + 1 < ${#navslugs[@]} || i > 0)) || continue
+  navmeta=$BUILD/meta/${navslugs[i]}.yaml
+  printf 'postnav: "true"\n' >>"$navmeta"
+  if ((i + 1 < ${#navslugs[@]})); then
+    older=${navslugs[i + 1]}
+    printf 'older-url: "/blogs/%s/"\nolder-title: "%s"\n' \
+      "$older" "$(cat "$BUILD/title/$older")" >>"$navmeta"
+  fi
+  if ((i > 0)); then
+    newer=${navslugs[i - 1]}
+    printf 'newer-url: "/blogs/%s/"\nnewer-title: "%s"\n' \
+      "$newer" "$(cat "$BUILD/title/$newer")" >>"$navmeta"
+  fi
+done
 
 # --- blogs.md -----------------------------------------------------------
 cp pages/blogs-intro.md "$BUILD/blogs.md"

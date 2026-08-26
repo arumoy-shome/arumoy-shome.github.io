@@ -22,6 +22,7 @@ for slug in alpha beta gamma; do
   assert_file "$B/meta/$slug.yaml"  "meta for $slug"
   assert_file "$B/order/$slug"      "order entry for $slug"
   assert_file "$B/cats/$slug"       "category entry for $slug"
+  assert_file "$B/title/$slug"      "title entry for $slug"
 done
 for f in blogs.md blogs.xml sitemap.xml order.txt tagmap.txt; do
   assert_file "$B/$f" "driver output $f"
@@ -75,10 +76,11 @@ assert_eq "1" "$(grep -c '^catlinks:' "$B/meta/gamma.yaml")" "gamma has its one 
 # block-level HTML in an attribute; bin/index renders it to one plain line.
 desc=$(raw_yaml "$B/meta/beta.yaml" description)
 # raw_yaml only matches a value that opens and closes on one line, so a
-# non-empty result is itself the single-line assertion. The line count backs
-# it up: one line per key, five keys.
+# non-empty result is itself the single-line assertion. The shape of the file
+# backs it up: every line is one key with a quoted scalar that closes on it.
 assert_ne "" "$desc" "description is a single-line quoted scalar"
-assert_eq "5" "$(wc -l <"$B/meta/beta.yaml" | tr -d ' ')" "meta yaml is one line per key"
+assert_eq "" "$(grep -vE '^[a-z-]+: ".*"$' "$B/meta/beta.yaml")" \
+  "meta yaml is one line per quoted key"
 assert_not_contains "$desc" "**"   "markdown emphasis is stripped"
 assert_not_contains "$desc" "](" "markdown link syntax is stripped"
 assert_contains "$desc" "bold text" "the words survive"
@@ -127,6 +129,40 @@ assert_contains "$(cat "$B/frag/beta.md")" "[link](https://example.org/beta)" \
 # The description is the flattened form, and must NOT be what the listing shows.
 assert_not_contains "$(raw_yaml "$B/meta/alpha.yaml" description)" "](" \
   "the description is flattened, confirming the two differ"
+
+# --- prev/next navigation --------------------------------------------------
+# Neighbours cannot be known inside render_post, which runs before order.txt
+# exists; the driver appends these keys once every worker has finished. The
+# fixture is ordered alpha (newest), beta, gamma (oldest), so it covers all
+# three cases: no newer, both, no older.
+assert_eq "/blogs/beta/"  "$(raw_yaml "$B/meta/alpha.yaml" older-url)" "alpha's older neighbour is beta"
+assert_eq ""              "$(raw_yaml "$B/meta/alpha.yaml" newer-url)" "the newest post has no newer neighbour"
+assert_eq "/blogs/beta/"  "$(raw_yaml "$B/meta/gamma.yaml" newer-url)" "gamma's newer neighbour is beta"
+assert_eq ""              "$(raw_yaml "$B/meta/gamma.yaml" older-url)" "the oldest post has no older neighbour"
+assert_eq "/blogs/gamma/" "$(raw_yaml "$B/meta/beta.yaml" older-url)"  "beta's older neighbour is gamma"
+assert_eq "/blogs/alpha/" "$(raw_yaml "$B/meta/beta.yaml" newer-url)"  "beta's newer neighbour is alpha"
+
+# The flag that wraps the <nav>: pandoc templates have no $if(a or b)$, so a
+# post with any neighbour at all needs one key to key the block off.
+for slug in alpha beta gamma; do
+  assert_eq "true" "$(raw_yaml "$B/meta/$slug.yaml" postnav)" "$slug carries the postnav flag"
+done
+
+# Neighbour titles, and the escaping they need. gamma's title carries a code
+# span holding a literal double quote and a backslash, so beta -- the only
+# post that names gamma -- is the regression test: an unescaped quote closes
+# the scalar early and the whole meta file stops parsing.
+assert_eq "$ALPHA_TITLE" "$(raw_yaml "$B/meta/beta.yaml" newer-title)" "beta names alpha's full title"
+gamma_title=$(raw_yaml "$B/meta/beta.yaml" older-title)
+assert_contains "$gamma_title" '\"' "a quote in a neighbour title is backslash-escaped"
+assert_contains "$gamma_title" '\\n' "a backslash in a neighbour title is doubled"
+assert_contains "$gamma_title" "Content" "the rest of the title survives the escaping"
+
+# --wrap=none on the frontmatter pass. The plain writer reflows at 72 columns,
+# and the title is the last field, so a wrap would truncate it mid-sentence.
+assert_eq "$ALPHA_TITLE" "$(cat "$B/title/alpha")" "the long title survives the frontmatter pass unwrapped"
+assert_ok "the title is long enough to have wrapped (>72 cols)" -- \
+  test "${#ALPHA_TITLE}" -gt 72
 
 # --- pubdate ---------------------------------------------------------------
 assert_eq "Sat, 01 Mar 2025 00:00:00 +0000" "$(raw_yaml "$B/meta/alpha.yaml" pubdate)" "alpha pubdate"

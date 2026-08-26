@@ -93,8 +93,7 @@ real_tags=$(cd "$REPO_ROOT/_site/blogs/tags" && ls *.html | sed 's/\.html$//' \
   | grep -vx index | sort)
 n=0
 for post in blogs/*/index.md; do
-  meta=$(pandoc "$post" --template=templates/meta.txt -t plain)
-  cats=${meta#*|}; cats=${cats%$'\n'}
+  cats=$(post_cats "$post")
   [[ -n $cats ]] || continue
   IFS=',' read -ra arr <<<"$cats"
   for c in "${arr[@]}"; do
@@ -109,8 +108,7 @@ note "checked $n category references across the real posts"
 
 # No orphan tag pages: every built page corresponds to a category in use.
 in_use=$(for post in blogs/*/index.md; do
-  meta=$(pandoc "$post" --template=templates/meta.txt -t plain)
-  cats=${meta#*|}; cats=${cats%$'\n'}
+  cats=$(post_cats "$post")
   IFS=',' read -ra arr <<<"$cats"
   for c in "${arr[@]}"; do
     c="${c#"${c%%[![:space:]]*}"}"; c="${c%"${c##*[![:space:]]}"}"

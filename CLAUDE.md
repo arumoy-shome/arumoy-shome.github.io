@@ -50,7 +50,7 @@ tests/run --update-golden  # after adding a post, refresh the URL manifest
 | --- | --- |
 | `10-slugify` | `slugify()`, every category in use, agreement with `bin/new`'s Python copy |
 | `11-rfc822` | both branches of the BSD/GNU `date` split, driven explicitly |
-| `30-index-fixture` | the pandoc traps below, against `tests/fixtures/site` |
+| `30-index-fixture` | the pandoc traps below, and the prev/next meta keys, against `tests/fixtures/site` |
 | `31-feed` | CDATA guard, relative-URL rewriting, feed and sitemap shape |
 | `32-tags` | category page membership, ordering, the tag index and its counts |
 | `40-jobs-identity` | `JOBS=1` vs `JOBS=N` byte-identity, fixture and real corpus |
@@ -59,7 +59,7 @@ tests/run --update-golden  # after adding a post, refresh the URL manifest
 | `50-urls` | the URL contract, against `tests/golden/site-manifest.txt` |
 | `51-links` | every internal link, fragment and asset resolves |
 | `52-leaked-syntax` | Quarto leftovers, unexpanded template vars, escaped markdown |
-| `53-page-head` | `<title>`/description integrity, stylesheet order, TOC correctness |
+| `53-page-head` | `<title>`/description integrity, stylesheet order, TOC correctness, prev/next bar |
 | `60-listings` | the two-stage talks pipeline |
 | `61-publications` | the `nocite:` list, the `#refs` div, and that no post's citation leaks onto the page |
 | `70-new` | `bin/new` output, and that the build can read it back |
@@ -130,7 +130,7 @@ the `nocite:` list; nothing else.
 | Path | Role |
 | --- | --- |
 | `Makefile` | Pattern rules with real dependencies. `COMMON` / `POST_FLAGS` hold the shared pandoc flags. |
-| `bin/index` | The only real logic. One pass over `blogs/*/index.md` producing `build/{blogs.md,blogs.xml,sitemap.xml,tags/*.md,frag/,item/,meta/}`. |
+| `bin/index` | The only real logic. One pass over `blogs/*/index.md` producing `build/{blogs.md,blogs.xml,sitemap.xml,tags/*.md,frag/,item/,meta/,title/}`. |
 | `templates/page.html` | The single HTML template for every page. |
 | `templates/*.md`, `*.xml`, `meta.txt` | Fragment templates consumed by `bin/index` and the Makefile. |
 | `site.yaml` | Site-wide metadata: nav, footer, `og:` values, `title-suffix`. Passed to every pandoc call. |
@@ -142,9 +142,40 @@ the `nocite:` list; nothing else.
 | `build/`, `_site/` | Generated; both gitignored. |
 
 `bin/index` writes `build/meta/<slug>.yaml` per post (slug, RFC-822 pubdate,
-plain-text `description`, pre-slugified `catlinks`). The Makefile's post rule feeds
-that file back into pandoc, which is how post pages get their `<meta name="description">`
-and their category links. That is why every post page depends on `build/blogs.md`.
+plain-text `description`, pre-slugified `catlinks`, and the prev/next keys below).
+The Makefile's post rule feeds that file back into pandoc, which is how post pages
+get their `<meta name="description">`, their category links and their navigation
+bar. That is why every post page depends on `build/blogs.md`.
+
+Adding a key to that YAML is therefore the whole mechanism for giving post pages —
+and *only* post pages — a new template variable. No Makefile change is needed, and
+`$if(<key>)$` in `templates/page.html` is post-only for free, because nothing else
+passes that file. `catlinks` and `postnav` both work this way.
+
+### Prev/next navigation
+
+Every post page ends in a `<nav class="post-nav">` linking its chronological
+neighbours: **older on the left, newer on the right**. The wording is chronological
+on purpose — "previous/next" is ambiguous on a reverse-chronological blog.
+
+The work is split across the two modes of `bin/index` (see below), and it has to be:
+
+- the **worker** writes `build/title/<slug>`, the post's title escaped for a YAML
+  double-quoted scalar. It cannot do more than that — when a worker runs,
+  `build/order.txt` does not exist yet, so no post knows its own neighbours.
+- the **driver**, once `order.txt` is sorted, walks it with a one-line window and
+  *appends* `postnav`, `older-url`/`older-title` and `newer-url`/`newer-title` to the
+  meta YAML the workers already wrote.
+
+`postnav` is a flag, not data: pandoc templates have no `$if(a or b)$`, so one key
+has to stand for "this post has at least one neighbour" and wrap the whole block. A
+single-post site gets no bar rather than an empty one.
+
+Neighbour titles need the same escaping `description` gets, for the same reason —
+they are interpolated into a double-quoted scalar, and an unescaped `"` closes it
+early and makes the entire file unparseable. Note that a quote written in *prose* is
+curled by smart punctuation and never reaches the escaping; only a code span produces
+a literal one. `tests/fixtures/site/blogs/gamma` has a title built to cover that.
 
 ### Parallelism in `bin/index`
 
@@ -153,10 +184,11 @@ Each post costs three pandoc invocations, so `bin/index` re-invokes **itself** a
 two modes: a worker (`render_post`) and a driver.
 
 The invariant that makes this safe: **a worker writes only files named after its own
-slug.** Ordering and category data go to `build/order/<slug>` and `build/cats/<slug>`
-rather than being appended to one shared file — concurrent appends would interleave
-and corrupt both. The driver concatenates and sorts them after `xargs` returns, so
-output is deterministic regardless of completion order.
+slug.** Ordering, category and title data go to `build/order/<slug>`,
+`build/cats/<slug>` and `build/title/<slug>` rather than being appended to one shared
+file — concurrent appends would interleave and corrupt all three. The driver
+concatenates and sorts them after `xargs` returns, so output is deterministic
+regardless of completion order.
 
 If you add per-post work, keep it inside `render_post` and keep it writing only
 slug-named files. `JOBS=1` runs the same code path sequentially and must produce
@@ -186,7 +218,13 @@ These were each found by debugging real breakage. Changing them silently breaks 
 - **`--wrap=none` is mandatory on every markdown-emitting template pass.** Without it
   the markdown writer reflows long lines, which splits `## [Title](url)` across two
   lines and destroys both the heading and the link. It is also on the HTML pass, where
-  folding otherwise injects newlines inside `<title>` and `<meta content="…">`.
+  folding otherwise injects newlines inside `<title>` and `<meta content="…">`, and on
+  the `-t plain` frontmatter pass through `templates/meta.txt`, whose last field is the
+  post title — several titles are past 72 columns and would wrap mid-field.
+- **The plain writer drops raw TeX.** A title or abstract containing `\Content` is read
+  as a LaTeX command by the markdown reader and vanishes on the way to `-t plain`. A
+  backslash only survives inside a code span. That is why the fixtures put their
+  awkward characters in backticks.
 - **`--metadata key=value` escapes markdown; `--metadata-file` parses it.** Passing
   `[shell](/blogs/tags/shell.html)` via `--metadata` yields `\[shell\](...)`. This is
   why `bin/index` writes category links into a per-post YAML file instead.

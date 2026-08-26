@@ -1,1 +1,1 @@
-$date$|$for(categories)$$categories$$sep$,$endfor$
+$date$|$for(categories)$$categories$$sep$,$endfor$|$title$

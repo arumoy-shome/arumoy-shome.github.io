@@ -1,5 +1,11 @@
 ---
-title: Gamma Post With Awkward Content
+# The code span is deliberate, and mirrors the abstract in beta: a quote
+# written in prose is curled by smart punctuation, so only a literal one
+# reaches bin/index and exercises the escaping it does before writing the
+# title into a neighbour's double-quoted YAML scalar. A bare backslash would
+# not survive either -- pandoc reads `\Content` as raw TeX and the plain
+# writer drops it -- so that too has to come from inside the span.
+title: 'Gamma Post With `"Awkward\n"` Content'
 date: 2023-01-20
 abstract: |
     Exercises the feed's URL rewriting and its CDATA guard.

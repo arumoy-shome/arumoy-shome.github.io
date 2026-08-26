@@ -108,6 +108,39 @@ assert_contains "$(cat "$SITE/blogs/aims/index.html")" 'href="/blogs/tags/' "a p
 
 assert_not_contains "$(cat "$SITE/license.html")" 'role="doc-toc"' "a plain page has no TOC"
 
+# --- prev/next navigation --------------------------------------------------
+# The bar is keyed off older-/newer- metadata, which only the post rule
+# supplies, so it must appear on every post and nowhere else. In a corpus of
+# n posts exactly one page -- the oldest -- has no older link, and exactly one
+# -- the newest -- has no newer link.
+#
+# blogs/*/index.html also matches blogs/tags/index.html, which is a generated
+# listing rather than a post; it must be skipped, not counted.
+n_posts=0; n_nav=0; no_older=""; no_newer=""; multi=""
+for p in "$SITE"/blogs/*/index.html; do
+  [[ $p == "$SITE"/blogs/tags/index.html ]] && continue
+  n_posts=$((n_posts + 1))
+  slug=$(basename "$(dirname "$p")")
+  c=$(grep -c '<nav class="post-nav"' "$p")
+  [[ $c == 1 ]] || { multi="$multi $slug($c)"; continue; }
+  n_nav=$((n_nav + 1))
+  grep -q '<a class="older" href="/blogs/' "$p" || no_older="$no_older $slug"
+  grep -q '<a class="newer" href="/blogs/' "$p" || no_newer="$no_newer $slug"
+done
+assert_eq "" "$multi" "no post has a duplicated or missing post-nav"
+assert_eq "$n_posts" "$n_nav" "every post page carries exactly one post-nav"
+# Derived from the build rather than hard-coded, so publishing a post does not
+# turn this red. build/order.txt is newest-first.
+assert_eq " $(tail -1 "$REPO_ROOT/build/order.txt" | cut -d'|' -f2)" "$no_older" \
+  "only the oldest post lacks an older link"
+assert_eq " $(head -1 "$REPO_ROOT/build/order.txt" | cut -d'|' -f2)" "$no_newer" \
+  "only the newest post lacks a newer link"
+
+# Listing pages share templates/page.html but must never get the bar.
+for p in blogs.html index.html license.html blogs/tags/shell.html blogs/tags/index.html; do
+  assert_not_contains "$(cat "$SITE/$p")" 'class="post-nav"' "$p has no post navigation"
+done
+
 # The title suffix is appended everywhere except where a page overrides it.
 assert_contains "$(cat "$post")" '– Arumoy Shome</title>' "post titles carry the suffix"
 assert_not_contains "$(cat "$SITE/index.html")" '– Arumoy Shome</title>' \
