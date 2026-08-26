@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Arumoy Shome" />
+  <meta name="dcterms.date" content="2026-08-25" />
+  <meta name="description" content="Shelve a paper or a book: fetch its bibtex, file its pdf, name it something you can find again." />
+  <title>Managing Bibliography with Bibshelf – Arumoy Shome</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Arumoy Shome" />
+  <meta property="og:title" content="Managing Bibliography with Bibshelf" />
+  <meta property="og:description" content="Shelve a paper or a book: fetch its bibtex, file its pdf, name it something you can find again." />
+  <meta name="twitter:card" content="summary" />
+  <style>
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!-- after the highlighting block, so styles.css can override its
+       light-theme token colours in dark mode -->
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="alternate" type="application/rss+xml" title="Arumoy Shome" href="/blogs.xml" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <a class="site-name" href="/">Arumoy Shome</a>
+  <nav>
+    <a href="/blogs.html">blogs</a>
+    <a href="/talks.html">talks</a>
+    <a href="/publications.html">publications</a>
+    <a href="/resume.html">resume</a>
+    <a href="/license.html">license</a>
+  </nav>
+</header>
+<main id="main">
+<header id="title-block-header">
+<h1 class="title">Managing Bibliography with Bibshelf</h1>
+<p class="date">2026-08-25</p>
+<p class="categories"><a href="/blogs/tags/shell.html">shell</a></p>
+</header>
+<p>After years of working with a cruddy shellscript, I finally managed to pull it out of my dotfiles and release it as a CLI.</p>
+<p><a href="https://github.com/arumoy-shome/bibshelf">Bibshelf</a> builds upon the basic functionality that I had sketched out in my <a href="/blogs/doi2bib">doi2bib script</a>, but with a few little upgrades.</p>
+<p>The basic functionality is the same. Give it a DOI and it will give you the corresponding bibtex entry, But now it can automatically distinguish between a DOI, arXiv ID and an ISBN. The bibtex data is pulled from &lt;doi.org&gt; for papers, and Open Library for books.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> bs 10.1109/CAIN58948.2023.00034     <span class="co"># doi</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> bs 2211.09545                       <span class="co"># arxiv, new style</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> bs hep-th/9711200                   <span class="co"># arxiv, pre-2007</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> bs 978-0-262-03561-3                <span class="co"># isbn, hyphens optional</span></span></code></pre></div>
+<p>Additionally, if you give it a PDF, it will file it automatically within your library: papers go under <code>files/</code> and books under <code>books</code>. It can also extract the DOI automatically from the pdf using <code>pdftotext</code> under the hood. It will try its best to resolve through user input if multiple DOIs are found in the document.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> bs <span class="at">--pdf</span> paper.pdf</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bs:</span> paper.pdf says 10.1007/s10664-023-10291-1</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">@article{morovati2023bugs,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">author</span> = {Morovati, Mohammad Mehdi and Nikanjam, Amin and Khomh, Foutse},</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">title</span> = {Bugs in Machine Learning-Based Systems: A Faultload Benchmark},</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">...</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">bs:</span> does this match the pdf<span class="pp">?</span> <span class="pp">[</span><span class="ss">Y/n</span><span class="pp">]</span>:</span></code></pre></div>
+<p>Files are named using a sane format: <code>[ first author] - [year] - [title]</code>. Several edge cases are handled here. For instance, the entire file name is capped at 255 bytes, colons and double quotes are removed, and accents are folded in the title (<code>Géron</code> becomes <code>Geron</code>) but retrained in the bibtex entry.</p>
+</main>
+<footer class="site">
+  <p>Copyright Arumoy Shome 2018-Present</p>
+  <p>All materials on this website are open sourced under the CC BY 4.0 license.</p>
+  <nav>
+    <a href="https://github.com/arumoy-shome">Github</a>
+    <a href="https://linkedin.com/in/arumoyshome">LinkedIn</a>
+    <a href="/blogs.xml">RSS</a>
+  </nav>
+</footer>
+</body>
+</html>

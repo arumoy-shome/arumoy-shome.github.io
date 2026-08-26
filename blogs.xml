@@ -7,6 +7,50 @@
   <language>en</language>
   <atom:link href="https://arumoy.me/blogs.xml" rel="self" type="application/rss+xml"/>
 <item>
+  <title>Managing Bibliography with Bibshelf</title>
+  <link>https://arumoy.me/blogs/managing-bibliography-with-bibshelf/</link>
+  <guid isPermaLink="true">https://arumoy.me/blogs/managing-bibliography-with-bibshelf/</guid>
+  <pubDate>Tue, 25 Aug 2026 00:00:00 +0000</pubDate>
+  <category>shell</category>
+  <description><![CDATA[<p>After years of working with a cruddy
+shellscript, I finally managed to pull it out of my dotfiles and release
+it as a CLI.</p>
+<p><a href="https://github.com/arumoy-shome/bibshelf">Bibshelf</a>
+builds upon the basic functionality that I had sketched out in my <a
+href="/blogs/doi2bib">doi2bib script</a>, but with a few little
+upgrades.</p>
+<p>The basic functionality is the same. Give it a DOI and it will give
+you the corresponding bibtex entry, But now it can automatically
+distinguish between a DOI, arXiv ID and an ISBN. The bibtex data is
+pulled from &lt;doi.org&gt; for papers, and Open Library for books.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> bs 10.1109/CAIN58948.2023.00034     <span class="co"># doi</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> bs 2211.09545                       <span class="co"># arxiv, new style</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> bs hep-th/9711200                   <span class="co"># arxiv, pre-2007</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> bs 978-0-262-03561-3                <span class="co"># isbn, hyphens optional</span></span></code></pre></div>
+<p>Additionally, if you give it a PDF, it will file it automatically
+within your library: papers go under <code>files/</code> and books under
+<code>books</code>. It can also extract the DOI automatically from the
+pdf using <code>pdftotext</code> under the hood. It will try its best to
+resolve through user input if multiple DOIs are found in the
+document.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> bs <span class="at">--pdf</span> paper.pdf</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bs:</span> paper.pdf says 10.1007/s10664-023-10291-1</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">@article{morovati2023bugs,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">author</span> = {Morovati, Mohammad Mehdi and Nikanjam, Amin and Khomh, Foutse},</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">title</span> = {Bugs in Machine Learning-Based Systems: A Faultload Benchmark},</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">...</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">bs:</span> does this match the pdf<span class="pp">?</span> <span class="pp">[</span><span class="ss">Y/n</span><span class="pp">]</span>:</span></code></pre></div>
+<p>Files are named using a sane format:
+<code>[ first author] - [year] - [title]</code>. Several edge cases are
+handled here. For instance, the entire file name is capped at 255 bytes,
+colons and double quotes are removed, and accents are folded in the
+title (<code>Géron</code> becomes <code>Geron</code>) but retrained in
+the bibtex entry.</p>]]></description>
+</item>
+<item>
   <title>Renaming files so they make sense (rename)</title>
   <link>https://arumoy.me/blogs/rename/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/rename/</guid>
