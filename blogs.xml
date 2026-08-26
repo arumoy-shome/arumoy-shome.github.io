@@ -11,9 +11,12 @@
   <link>https://arumoy.me/blogs/tu-delft-dissertation-template-in-typst/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/tu-delft-dissertation-template-in-typst/</guid>
   <pubDate>Wed, 26 Aug 2026 00:00:00 +0000</pubDate>
+  <category>typst</category>
   <description><![CDATA[<p>I have released my <a
 href="https://github.com/arumoy-shome/tudelft-dissertation">PhD
-dissertation template</a> which I wrote in Typst.</p>]]></description>
+dissertation template</a> which I wrote in Typst. I had a lot of fun
+building this project, and it definitely made the daunting task of
+writing a PhD dissertation a little bit more fun!</p>]]></description>
 </item>
 <item>
   <title>Managing Bibliography with Bibshelf</title>

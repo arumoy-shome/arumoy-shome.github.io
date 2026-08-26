@@ -179,6 +179,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>By default, the script will ask for confirmation before renaming a file. The <code>--force</code> flag can be passed to bypass this. This makes it convenient to rename files in bulk using standard unix tools such as <code>find</code> and <code>xargs</code>. For instance, below how I show how you can rename all Docx files in a directory automatically.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> <span class="pp">*</span> <span class="at">-name</span> <span class="st">&#39;*.docx&#39;</span> <span class="at">-print0</span> <span class="kw">|</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">xargs</span> <span class="at">-0</span> <span class="at">-n1</span> rename <span class="at">--force</span></span></code></pre></div>
+<nav class="post-nav" aria-label="More posts">
+  <a class="older" href="/blogs/mytags/"><span class="dir">← Older</span><span class="t">Generating tags for git repositories (mytags)</span></a>
+  <a class="newer" href="/blogs/managing-bibliography-with-bibshelf/"><span class="dir">Newer →</span><span class="t">Managing Bibliography with Bibshelf</span></a>
+</nav>
 </main>
 <footer class="site">
   <p>Copyright Arumoy Shome 2018-Present</p>

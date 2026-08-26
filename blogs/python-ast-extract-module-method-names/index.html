@@ -245,6 +245,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The code is similar to <code>FunctionNameCollector</code> defined above, with a few key changes. The <code>collector.names</code> now returns a list of tuples containing the <code>module, function</code> names.</p>
 <p>I use a stack to keep track of the <code>Attribute</code> nodes we visit. Whenever we visit an <code>Attribute</code> node, I append it to the stack and then call the <code>NodeVisitor.visit</code> method on the Node under its <code>value</code> attribute.</p>
 <p>When we visit a <code>Name</code> node, it can either be because we are at the base case (a direct function call) or because we have reached the last <code>Attribute.value</code> node. If the stack is not empty, then its the latter which means the <code>Name</code> node is the module name and the function name is under the first <code>Attribute.attr</code> in the stack. Otherwise, its a direct function call so the <code>Name</code> node is the function name. Since we don’t have a module in this case, we return <code>None</code> in the tuple.</p>
+<nav class="post-nav" aria-label="More posts">
+  <a class="older" href="/blogs/visualisation-zoo/"><span class="dir">← Older</span><span class="t">Visualisation Zoo</span></a>
+  <a class="newer" href="/blogs/mytags/"><span class="dir">Newer →</span><span class="t">Generating tags for git repositories (mytags)</span></a>
+</nav>
 </main>
 <footer class="site">
   <p>Copyright Arumoy Shome 2018-Present</p>

@@ -292,6 +292,10 @@ $endif$</code></pre>
 <h1 id="further-optimisations">Further optimisations</h1>
 <p>The <code>create-indices</code> script is currently sequential. You can imagine that this will keep getting slower as the number of posts increases. This step can be further optimised making the template extraction step parallel using <code>xargs</code> and then sorting the results.</p>
 <p>In the <code>publish</code> script, we are converting all markdown files to html. Here, we can make the markdown file selection process smarter by using <code>git ls-files</code>. This will allow us to only select modified and untracked markdown files.</p>
+<nav class="post-nav" aria-label="More posts">
+  <a class="older" href="/blogs/remla-data-validation/"><span class="dir">← Older</span><span class="t">Data Validation with TFDV</span></a>
+  <a class="newer" href="/blogs/doi2bib/"><span class="dir">Newer →</span><span class="t">Automatically retrieving Bibtex information from DOI</span></a>
+</nav>
 </main>
 <footer class="site">
   <p>Copyright Arumoy Shome 2018-Present</p>
