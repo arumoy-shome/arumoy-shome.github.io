@@ -123,13 +123,14 @@ footer.site nav { margin-top: 0.5rem; }
 /* --- post navigation --- */
 
 /* Only post pages carry older-/newer- metadata, so this bar exists only there.
-   The auto margin keeps the newer link hard right when the older one is
-   absent, which is the case on the newest post. */
+   Newer sits hard left, older hard right. The links must not grow -- a flex
+   item that fills half the bar puts its text somewhere in the middle -- so the
+   auto margin on .older is what does the placing, and it holds when the newer
+   link is absent (the newest post) as well as when it is not. */
 nav.post-nav {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  justify-content: space-between;
   margin-top: 3rem;
   padding-top: 1rem;
   border-top: 1px solid var(--rule);
@@ -137,19 +138,12 @@ nav.post-nav {
 }
 
 nav.post-nav a {
-  flex: 1 1 40%;
+  flex: 0 0 auto;
   text-decoration: none;
 }
-nav.post-nav a:hover .t { text-decoration: underline; }
-nav.post-nav .newer { margin-left: auto; text-align: right; }
-nav.post-nav .dir { display: block; font-size: 0.85rem; color: var(--muted); }
-nav.post-nav .t { display: block; }
-
-/* Two 40% columns are unreadable on a phone. */
-@media (max-width: 30em) {
-  nav.post-nav a { flex-basis: 100%; }
-  nav.post-nav .newer { margin-left: 0; text-align: left; }
-}
+nav.post-nav a:hover .dir { text-decoration: underline; }
+nav.post-nav .older { margin-left: auto; }
+nav.post-nav .dir { color: var(--muted); }
 
 /* --- typography --- */
 

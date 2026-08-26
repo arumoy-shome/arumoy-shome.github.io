@@ -79,11 +79,11 @@ $include-after$
 $endfor$
 $if(postnav)$
 <nav class="post-nav" aria-label="More posts">
-$if(older-url)$
-  <a class="older" href="$older-url$"><span class="dir">← Older</span><span class="t">$older-title$</span></a>
-$endif$
 $if(newer-url)$
-  <a class="newer" href="$newer-url$"><span class="dir">Newer →</span><span class="t">$newer-title$</span></a>
+  <a class="newer" href="$newer-url$"><span class="dir">← Newer</span></a>
+$endif$
+$if(older-url)$
+  <a class="older" href="$older-url$"><span class="dir">Older →</span></a>
 $endif$
 </nav>
 $endif$
