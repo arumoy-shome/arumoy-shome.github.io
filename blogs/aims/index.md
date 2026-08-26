@@ -8,7 +8,6 @@ abstract: |
     of its functionalities which I frequently use. AIMS is completely
     tuned towards my workflow as a researcher and how I manage my
     digital notes.
-categories: [shell, productivity]
 ---
 
 AIMS or Aru's Information Management System is a collection of

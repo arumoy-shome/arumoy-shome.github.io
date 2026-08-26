@@ -4,7 +4,6 @@ date: 2024-01-19
 abstract: |
     `yob` is a tiny shell script which toggles between a light and dark
     colorscheme in Kitty, my terminal of choice.
-categories: [shell, vim]
 ---
 
 `yob` is a shell script that I wrote to toggle between a light and

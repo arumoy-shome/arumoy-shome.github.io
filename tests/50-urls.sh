@@ -63,18 +63,6 @@ for p in blogs.xml sitemap.xml robots.txt CNAME styles.css; do
 done
 assert_eq "arumoy.me" "$(tr -d '\n' <"$SITE/CNAME")" "CNAME names the site"
 
-# --- the tag family --------------------------------------------------------
-# The only URL family added after the migration.
-assert_dir  "$SITE/blogs/tags"            "/blogs/tags/ exists"
-assert_file "$SITE/blogs/tags/index.html" "/blogs/tags/ is directory-style"
-n_tags=$(find "$SITE/blogs/tags" -name '*.html' ! -name index.html | wc -l | tr -d ' ')
-assert_ne "0" "$n_tags" "category pages are built ($n_tags of them)"
-
-# Category pages are flat .html inside that directory, not directories.
-while IFS= read -r f; do
-  assert_match "$f" '\.html$' "category page $f is a flat .html"
-done < <(find "$SITE/blogs/tags" -mindepth 1 -maxdepth 1 ! -name index.html -type f)
-
 # --- nothing unexpected at the top level -----------------------------------
 top=$(cd "$SITE" && find . -maxdepth 1 -type f | sed 's#^\./##' | LC_ALL=C sort | paste -sd' ' -)
 assert_eq "CNAME blogs.html blogs.xml index.html license.html profile.jpeg publications.html resume.html robots.txt sitemap.xml styles.css talks.html" \
@@ -82,6 +70,6 @@ assert_eq "CNAME blogs.html blogs.xml index.html license.html profile.jpeg publi
 
 # --- sitemap agrees with the contract --------------------------------------
 sm=$(cat "$SITE/sitemap.xml")
-for p in "" blogs.html talks.html publications.html resume.html license.html blogs/tags/; do
+for p in "" blogs.html talks.html publications.html resume.html license.html; do
   assert_contains "$sm" "<loc>https://arumoy.me/$p</loc>" "sitemap lists /$p"
 done

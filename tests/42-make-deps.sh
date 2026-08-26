@@ -5,12 +5,10 @@
 # not take effect until the next `make clean`, which is worse. Each case here
 # touches one input and checks what make decides to rebuild.
 #
-# Two properties of this build shape the assertions:
-#   - bin/index deletes and regenerates the whole of build/ on every run, and
-#     every post page depends on build/blogs.md, so editing ONE post rebuilds
-#     ALL post pages. CLAUDE.md calls this intentional coarseness.
-#   - category pages sit behind a .PHONY target and are re-rendered on every
-#     build, so they are excluded from the "exactly these changed" sets.
+# One property of this build shapes the assertions: bin/index deletes and
+# regenerates the whole of build/ on every run, and every post page depends on
+# build/blogs.md, so editing ONE post rebuilds ALL post pages. CLAUDE.md calls
+# this intentional coarseness.
 
 . "${TESTDIR:-$(dirname "$0")}/lib.sh"
 
@@ -23,8 +21,9 @@ make_in "$W" -j8 >"$TMP/build.log" 2>&1 || {
   exit 1
 }
 
-# rebuilt AFTER touching the given inputs: the _site files make regenerated,
-# minus the category pages that always churn.
+# rebuilt AFTER touching the given inputs: the _site files make regenerated.
+# Nothing is filtered out any more -- the phony tag target that used to churn
+# on every build is gone, so this is the exact set.
 rebuilt() {
   local stamp=$TMP/stamp
   # macOS ships GNU Make 3.81, which compares mtimes at one-second resolution.
@@ -40,11 +39,7 @@ rebuilt() {
     _bad "$(_where 2)" "make failed after touching $*" "$(_trunc "$(cat "$TMP/make.log")" 400)"
     return 1
   }
-  # Category pages are dropped (the phony target always re-renders them); the
-  # tag index is kept, because it has a real rule and so carries information.
-  ( cd "$W" && find _site -type f -newer "$stamp" ) \
-    | awk '$0 !~ /^_site\/blogs\/tags\// || $0 ~ /\/index\.html$/' \
-    | sort
+  ( cd "$W" && find _site -type f -newer "$stamp" ) | sort
 }
 
 changed=""
@@ -55,7 +50,6 @@ assert_contains "$changed" "_site/blogs/aims/index.html" "editing a post rebuild
 assert_contains "$changed" "_site/blogs.html"            "...and the blog index"
 assert_contains "$changed" "_site/blogs.xml"             "...and the feed"
 assert_contains "$changed" "_site/sitemap.xml"           "...and the sitemap"
-assert_contains "$changed" "_site/blogs/tags/index.html" "...and the tag index"
 # The documented coarseness: every post page goes with it.
 assert_contains "$changed" "_site/blogs/yob/index.html" \
   "every post page rebuilds too (intentional coarseness, see CLAUDE.md)"
@@ -125,9 +119,6 @@ assert_contains "$changed" "_site/blogs.xml" "the feed-item template regenerates
 
 changed=$(rebuilt pages/blogs-intro.md)
 assert_contains "$changed" "_site/blogs.html" "the blog intro regenerates the index"
-
-changed=$(rebuilt pages/tags-intro.md)
-assert_contains "$changed" "_site/blogs/tags/index.html" "the tags intro regenerates the tag index"
 
 changed=$(rebuilt templates/talks.md)
 assert_contains "$changed" "_site/talks.html" "the talks template regenerates its page"

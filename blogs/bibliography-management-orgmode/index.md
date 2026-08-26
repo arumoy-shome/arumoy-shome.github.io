@@ -2,7 +2,6 @@
 title: Managing Scientific Bibliography using Emacs Org-mode
 date: 2023-11-29
 abstract: How I organise, search and retrieve my scientific papers using Emacs org-mode.
-categories: [emacs, productivity]
 ---
 
 # Front Matter and setup

@@ -79,24 +79,17 @@ gamma" "$order" "feed items are newest-first"
 RFC822_RE='<pubDate>(Mon|Tue|Wed|Thu|Fri|Sat|Sun), [0-9]{2} [A-Z][a-z]{2} [0-9]{4} 00:00:00 \+0000</pubDate>'
 assert_eq "3" "$(grep -Ec "$RFC822_RE" "$FEED")" "every pubDate is RFC 822"
 
-# Categories come through as elements, using the display name.
-assert_contains "$feed" "<category>Machine Learning</category>" "category keeps its display name"
-
 # --- sitemap ---------------------------------------------------------------
 sm=$B/sitemap.xml
-for p in "" blogs.html talks.html publications.html resume.html license.html blogs/tags/; do
+for p in "" blogs.html talks.html publications.html resume.html license.html; do
   assert_contains "$(cat "$sm")" "<loc>https://fixture.example/$p</loc>" "sitemap lists /$p"
 done
 for slug in alpha beta gamma; do
   assert_contains "$(cat "$sm")" "<loc>https://fixture.example/blogs/$slug/</loc>" "sitemap lists $slug"
 done
-for cat in machine-learning productivity shell; do
-  assert_contains "$(cat "$sm")" "<loc>https://fixture.example/blogs/tags/$cat.html</loc>" \
-    "sitemap lists tag $cat"
-done
 assert_eq "3" "$(grep -c '<lastmod>' "$sm")" "each post carries a lastmod"
 assert_contains "$(cat "$sm")" "<lastmod>2025-03-01</lastmod>" "lastmod is the post date"
-assert_eq "13" "$(grep -c '<url>' "$sm")" "6 flat pages + the tag index + 3 posts + 3 tag pages"
+assert_eq "9" "$(grep -c '<url>' "$sm")" "6 flat pages + 3 posts"
 
 # --- the real feed ---------------------------------------------------------
 real=$REPO_ROOT/_site/blogs.xml

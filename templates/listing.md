@@ -1,5 +1,5 @@
 ## [$title$](/blogs/$slug$/)
 
-$date$$if(catlinks)$ · $catlinks$$endif$
+$date$
 
 $if(abstract)$$abstract$$endif$

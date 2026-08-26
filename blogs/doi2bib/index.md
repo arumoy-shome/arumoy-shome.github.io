@@ -5,7 +5,6 @@ abstract: |
     `doi2bib` is a simple Python script I wrote that fetches bibtex
     information from the Crossref API using the provided DOI. It can
     also handle pre-prints published on Arxiv.
-categories: [shell, productivity]
 ---
 
 `doi2bib` is a simple Python script I wrote to automatically retrieve

@@ -13,8 +13,7 @@ PAGES     := pages/index.md pages/license.md pages/resume.md \
 PAGE_HTML := $(patsubst pages/%.md,$(SITE)/%.html,$(PAGES))
 
 STATIC := $(SITE)/styles.css $(SITE)/profile.jpeg $(SITE)/CNAME $(SITE)/robots.txt
-GENPAGE := $(SITE)/blogs.html $(SITE)/talks.html \
-           $(SITE)/blogs/tags/index.html
+GENPAGE := $(SITE)/blogs.html $(SITE)/talks.html
 GENXML  := $(SITE)/blogs.xml $(SITE)/sitemap.xml
 
 # The template pulls nav, footer and og: metadata out of site.yaml.
@@ -36,8 +35,15 @@ POST_FLAGS := $(COMMON) --toc --metadata author="Arumoy Shome"
 # citation style rebuilds nothing.
 COMMON_DEPS := templates/page.html site.yaml bibliography.bib $(CSL)
 
-.PHONY: all clean serve tags test
-all: $(PAGE_HTML) $(POST_HTML) $(ASSET_OUT) $(GENPAGE) $(GENXML) $(STATIC) tags
+# Nothing phony sits behind `all` any more -- the tag family was the last of
+# it -- so a no-op build now genuinely has nothing to do, and make says so out
+# loud. `@:` is an empty recipe that keeps it silent instead. The cost is that
+# `all` is a phony target *with* a recipe, which make always counts as out of
+# date, so `make -q` still reports work to do; dropping the `@:` would trade
+# the silence for an accurate `-q`.
+.PHONY: all clean serve test
+all: $(PAGE_HTML) $(POST_HTML) $(ASSET_OUT) $(GENPAGE) $(GENXML) $(STATIC)
+	@:
 
 # tests/run builds first anyway; depending on all here keeps `make test` in a
 # clean tree from looking like a test failure. TEST_FAST=1 skips 40-42, which
@@ -46,11 +52,11 @@ test: all
 	tests/run
 
 # --- generated data ------------------------------------------------------
-# bin/index writes build/{blogs.md,blogs.xml,sitemap.xml,tags/*.md} in one
-# pass over the posts; blogs.md is the stamp for all of them.
+# bin/index writes build/{blogs.md,blogs.xml,sitemap.xml} in one pass over
+# the posts; blogs.md is the stamp for all of them.
 $(BUILD)/blogs.md: $(POSTS) bin/index templates/listing.md \
                    templates/meta.txt templates/feed-item.xml \
-                   pages/blogs-intro.md pages/tags-intro.md site.yaml \
+                   pages/blogs-intro.md site.yaml \
                    bibliography.bib $(CSL)
 	@mkdir -p $(BUILD)
 	bin/index
@@ -75,23 +81,6 @@ $(SITE)/%.html: pages/%.md $(COMMON_DEPS)
 $(SITE)/%.html: $(BUILD)/%.md $(COMMON_DEPS)
 	@mkdir -p $(dir $@)
 	$(PANDOC) $(COMMON) -o $@ $<
-
-# The tag index lives at /blogs/tags/, so neither pattern rule above matches
-# it: the post rule would want blogs/tags/index.md, the generated-page rule
-# build/blogs/tags/index.md. build/blogs.md is the stamp for everything
-# bin/index writes, build/tags.md included.
-$(SITE)/blogs/tags/index.html: $(BUILD)/blogs.md $(COMMON_DEPS)
-	@mkdir -p $(dir $@)
-	$(PANDOC) $(COMMON) -o $@ $(BUILD)/tags.md
-
-# Category pages are discovered only after bin/index has run, so they are
-# built by a recursive make rather than by a static pattern rule.
-tags: $(BUILD)/blogs.md
-	@mkdir -p $(SITE)/blogs/tags
-	@for f in $(BUILD)/tags/*.md; do \
-	  out=$(SITE)/blogs/tags/$$(basename $$f .md).html; \
-	  $(PANDOC) $(COMMON) -o $$out $$f; \
-	done
 
 # --- copied artefacts ----------------------------------------------------
 $(SITE)/blogs/%: blogs/%

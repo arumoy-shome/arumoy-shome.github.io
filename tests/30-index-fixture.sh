@@ -21,10 +21,9 @@ for slug in alpha beta gamma; do
   assert_file "$B/item/$slug.xml"   "feed item for $slug"
   assert_file "$B/meta/$slug.yaml"  "meta for $slug"
   assert_file "$B/order/$slug"      "order entry for $slug"
-  assert_file "$B/cats/$slug"       "category entry for $slug"
   assert_file "$B/title/$slug"      "title entry for $slug"
 done
-for f in blogs.md blogs.xml sitemap.xml order.txt tagmap.txt; do
+for f in blogs.md blogs.xml sitemap.xml order.txt; do
   assert_file "$B/$f" "driver output $f"
 done
 assert_eq "3" "$(find "$B/frag" -type f | wc -l | tr -d ' ')" "one fragment per post, no more"
@@ -54,22 +53,6 @@ assert_eq "## [$ALPHA_TITLE](/blogs/alpha/)" "$first_line" "heading and link sur
 assert_ok "the heading line is long enough to have wrapped (>72 cols)" -- \
   test "${#first_line}" -gt 72
 assert_eq "1" "$(grep -c '^## ' "$B/frag/alpha.md")" "exactly one heading in the fragment"
-
-# --- --metadata-file parses markdown, --metadata escapes it ----------------
-# Passing category links via --metadata would yield \[shell\](...). They go
-# through a YAML file precisely so they stay markdown.
-catlinks=$(raw_yaml "$B/meta/alpha.yaml" catlinks)
-assert_eq "[Machine Learning](/blogs/tags/machine-learning.html), [shell](/blogs/tags/shell.html)" \
-  "$catlinks" "category links are real markdown"
-assert_not_contains "$catlinks" '\[' "no backslash-escaped brackets"
-assert_not_contains "$catlinks" '\]' "no backslash-escaped brackets"
-
-# The category name keeps its display capitalisation while the URL is slugged.
-assert_contains "$catlinks" "[Machine Learning](" "display name is not slugified"
-assert_contains "$catlinks" "(/blogs/tags/machine-learning.html)" "URL is slugified"
-
-# A post with no categories must simply omit the key.
-assert_eq "1" "$(grep -c '^catlinks:' "$B/meta/gamma.yaml")" "gamma has its one category"
 
 # --- the plain-text description -------------------------------------------
 # Feeding `abstract` straight to <meta name="description"> would put

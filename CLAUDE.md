@@ -24,14 +24,16 @@ make serve          # build, then serve _site on http://localhost:8000
 make test           # build, then run tests/
 JOBS=1 bin/index    # force bin/index sequential (debugging)
 bin/new "Post Title"          # scaffold blogs/<slug>/index.md
-bin/new -f -x -c "shell, vim" -d 2026-01-30 "Title"   # no prompt, no $EDITOR
+bin/new -f -x -d 2026-01-30 "Title"   # no prompt, no $EDITOR
 ```
 
-A full build is ~5s (~3s with `make -j8`). Editing any single post re-runs
+A full build is ~4s (~2s with `make -j8`). Editing any single post re-runs
 `bin/index` and therefore rebuilds all post pages; this is intentional coarseness,
-not a bug. A no-op `make` is silent, but not free: category pages sit behind the
-`.PHONY` tags target and are re-rendered on every build (~1s), which is also why
-`make -q` never reports a clean tree.
+not a bug. A no-op `make` is silent and genuinely free — it re-renders nothing.
+The silence comes from the `@:` recipe on `all`; the cost of that recipe is that
+`all` is a phony target *with* a recipe, which make always counts as out of date,
+so `make -q` never reports a clean tree. Dropping the `@:` would trade the
+silence for an accurate `-q`.
 
 ## Tests
 
@@ -39,8 +41,8 @@ not a bug. A no-op `make` is silent, but not free: category pages sit behind the
 `tests/run` builds the site, then runs each `tests/[0-9]*.sh` as its own process.
 
 ```sh
-make test                  # everything, ~80s
-TEST_FAST=1 make test      # skip 40-42, which do full rebuilds (~15s)
+make test                  # everything, ~60s
+TEST_FAST=1 make test      # skip 40-42, which do full rebuilds (~10s)
 tests/run 5                # only tests/5*.sh
 tests/run links listings   # match by name
 tests/run --update-golden  # after adding a post, refresh the URL manifest
@@ -48,11 +50,10 @@ tests/run --update-golden  # after adding a post, refresh the URL manifest
 
 | File | Covers |
 | --- | --- |
-| `10-slugify` | `slugify()`, every category in use, agreement with `bin/new`'s Python copy |
+| `10-slugify` | `bin/new`'s slug, which is a post's permanent URL |
 | `11-rfc822` | both branches of the BSD/GNU `date` split, driven explicitly |
 | `30-index-fixture` | the pandoc traps below, and the prev/next meta keys, against `tests/fixtures/site` |
 | `31-feed` | CDATA guard, relative-URL rewriting, feed and sitemap shape |
-| `32-tags` | category page membership, ordering, the tag index and its counts |
 | `40-jobs-identity` | `JOBS=1` vs `JOBS=N` byte-identity, fixture and real corpus |
 | `41-make-determinism` | `-j1` vs `-j8`, repeatability, the no-op build |
 | `42-make-deps` | what each input rebuilds |
@@ -62,7 +63,7 @@ tests/run --update-golden  # after adding a post, refresh the URL manifest
 | `53-page-head` | `<title>`/description integrity, stylesheet order, TOC correctness, prev/next bar |
 | `60-listings` | the two-stage talks pipeline |
 | `61-publications` | the `nocite:` list, the `#refs` div, and that no post's citation leaks onto the page |
-| `70-new` | `bin/new` output, and that the build can read it back |
+| `70-new` | `bin/new` output, that the build can read it back, and that the removed `-c` is rejected |
 
 Two rules keep the suite stable across pandoc versions (local is ahead of the
 3.7.0.2 pinned in CI): **no golden HTML** — the only byte-exact artefact is the
@@ -110,14 +111,14 @@ Prefer near-miss mutants (an off-by-one, a swapped pair, a dropped escape) over
 deleting the feature.
 
 The suite is cheap enough that neither step is a burden: `TEST_FAST=1 make test` is
-~15s, and `tests/run 30` alone is a couple of seconds.
+~10s, and `tests/run 30` alone is a couple of seconds.
 
 ## Architecture
 
 ### The two-stage pandoc pipeline
 
-Listing pages (`blogs.html`, `talks.html`, tag pages) are built in **two** pandoc
-passes, and the intermediate is **markdown**, not HTML:
+Listing pages (`blogs.html`, `talks.html`) are built in **two** pandoc passes,
+and the intermediate is **markdown**, not HTML:
 
 1. data (post frontmatter, or `talks.yaml`) → pandoc with a *markdown-emitting*
    template → a markdown fragment in `build/`
@@ -165,7 +166,7 @@ the `nocite:` list; nothing else.
 | Path | Role |
 | --- | --- |
 | `Makefile` | Pattern rules with real dependencies. `COMMON` / `POST_FLAGS` hold the shared pandoc flags. |
-| `bin/index` | The only real logic. One pass over `blogs/*/index.md` producing `build/{blogs.md,blogs.xml,sitemap.xml,tags/*.md,frag/,item/,meta/,title/}`. |
+| `bin/index` | The only real logic. One pass over `blogs/*/index.md` producing `build/{blogs.md,blogs.xml,sitemap.xml,frag/,item/,meta/,order/,title/}`. |
 | `templates/page.html` | The single HTML template for every page. |
 | `templates/*.md`, `*.xml`, `meta.txt` | Fragment templates consumed by `bin/index` and the Makefile. |
 | `site.yaml` | Site-wide metadata: nav, footer, `og:` values, `title-suffix`. Passed to every pandoc call. |
@@ -177,15 +178,16 @@ the `nocite:` list; nothing else.
 | `build/`, `_site/` | Generated; both gitignored. |
 
 `bin/index` writes `build/meta/<slug>.yaml` per post (slug, RFC-822 pubdate,
-plain-text `description`, pre-slugified `catlinks`, and the prev/next keys below).
-The Makefile's post rule feeds that file back into pandoc, which is how post pages
-get their `<meta name="description">`, their category links and their navigation
-bar. That is why every post page depends on `build/blogs.md`.
+plain-text `description`, and the prev/next keys below). The Makefile's post rule
+feeds that file back into pandoc, which is how post pages get their
+`<meta name="description">` and their navigation bar. That is why every post page
+depends on `build/blogs.md`.
 
 Adding a key to that YAML is therefore the whole mechanism for giving post pages —
 and *only* post pages — a new template variable. No Makefile change is needed, and
 `$if(<key>)$` in `templates/page.html` is post-only for free, because nothing else
-passes that file. `catlinks` and `postnav` both work this way.
+passes that file. `postnav` works this way; so did `catlinks`, before the tag
+family was removed.
 
 ### Prev/next navigation
 
@@ -219,11 +221,10 @@ Each post costs three pandoc invocations, so `bin/index` re-invokes **itself** a
 two modes: a worker (`render_post`) and a driver.
 
 The invariant that makes this safe: **a worker writes only files named after its own
-slug.** Ordering, category and title data go to `build/order/<slug>`,
-`build/cats/<slug>` and `build/title/<slug>` rather than being appended to one shared
-file — concurrent appends would interleave and corrupt all three. The driver
-concatenates and sorts them after `xargs` returns, so output is deterministic
-regardless of completion order.
+slug.** Ordering and title data go to `build/order/<slug>` and `build/title/<slug>`
+rather than being appended to one shared file — concurrent appends would interleave
+and corrupt both. The driver concatenates and sorts them after `xargs` returns, so
+output is deterministic regardless of completion order.
 
 If you add per-post work, keep it inside `render_post` and keep it writing only
 slug-named files. `JOBS=1` runs the same code path sequentially and must produce
@@ -240,11 +241,16 @@ Inherited from the Quarto site and verified against it during the migration:
   `/resume.html`, `/license.html`
 - posts are **directory-style**: `/blogs/<slug>/`, with images as siblings
 - `/blogs.xml`, `/sitemap.xml`, `/robots.txt`, `/CNAME` keep their paths
-- `/blogs/tags/<category>.html` is the only URL family added post-migration,
-  indexed by `/blogs/tags/` (directory-style, like a post)
 
 `_site/blogs/` (post directories) and `_site/blogs.html` (the index) coexist
 deliberately.
+
+`/blogs/tags/<category>.html`, indexed by `/blogs/tags/`, was the one URL family
+added post-migration, and the one this site has withdrawn — the tag system is gone
+entirely. Those URLs 404 now; that was the accepted cost of the removal, not an
+oversight. Nothing asserts their absence specifically: the golden manifest in
+`tests/50-urls.sh` is byte-exact over the whole of `_site`, so a tag page
+reappearing shows up there like any other unexpected file.
 
 ## Pandoc behaviours this build depends on
 
@@ -261,8 +267,10 @@ These were each found by debugging real breakage. Changing them silently breaks 
   backslash only survives inside a code span. That is why the fixtures put their
   awkward characters in backticks.
 - **`--metadata key=value` escapes markdown; `--metadata-file` parses it.** Passing
-  `[shell](/blogs/tags/shell.html)` via `--metadata` yields `\[shell\](...)`. This is
-  why `bin/index` writes category links into a per-post YAML file instead.
+  `[a](/b.html)` via `--metadata` yields `\[a\](...)`. This is why `bin/index` writes
+  per-post values into a YAML file instead. The reverse also bites: everything in
+  `build/meta/<slug>.yaml` gets a markdown parse, so a `*` in a neighbour's title
+  would come out emphasised in the prev/next bar.
 - **Document frontmatter beats `--metadata-file`.** That is how `pages/index.md` and
   `pages/resume.md` override `title-suffix` from `site.yaml`.
 - **A `$if(...)$` opening at the *end* of a template line swallows the following
@@ -295,7 +303,8 @@ fails on GNU.
 ## Content conventions
 
 Post frontmatter: `title`, `date` (unquoted ISO), `abstract` (block scalar, may
-contain markdown), `categories` (flow or block sequence).
+contain markdown). That is the whole set — there is no `categories` key any more,
+and adding one back does nothing; nothing in the build reads it.
 
 Because there are no Lua filters, prose uses plain markdown:
 

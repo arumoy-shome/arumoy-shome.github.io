@@ -9,7 +9,6 @@ title: 'Gamma Post With `"Awkward\n"` Content'
 date: 2023-01-20
 abstract: |
     Exercises the feed's URL rewriting and its CDATA guard.
-categories: [shell]
 ---
 
 A relative image, which a feed reader cannot resolve and which bin/index must

@@ -18,7 +18,6 @@ from pathlib import Path
 parser = argparse.ArgumentParser(description="Create a new blog post.")
 parser.add_argument("title", help="Title of the new post")
 parser.add_argument("-d", "--date", help="Date in YYYY-MM-DD format (default: today)")
-parser.add_argument("-c", "--categories", help="Comma-separated categories")
 parser.add_argument("-x", "--noedit", action="store_true",
                     help="Do not open the new file in $EDITOR")
 parser.add_argument("-f", "--force", action="store_true",
@@ -29,16 +28,12 @@ when = args.date or date.today().isoformat()
 slug = re.sub(r"[^a-z0-9]+", "-", args.title.strip().lower()).strip("-")
 post = Path("blogs") / slug / "index.md"
 
-cats = [c.strip() for c in (args.categories or "").split(",") if c.strip()]
-cats_line = "categories: [{}]\n".format(", ".join(f'"{c}"' for c in cats)) if cats else ""
-
 frontmatter = (
     "---\n"
     f"title: {args.title}\n"
     f"date: {when}\n"
     "abstract: |\n"
     "    \n"
-    f"{cats_line}"
     "---\n\n"
 )
 

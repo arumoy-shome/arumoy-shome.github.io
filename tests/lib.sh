@@ -169,18 +169,6 @@ site_html() { find "${1:-$REPO_ROOT/_site}" -name '*.html' -type f | LC_ALL=C so
 # checks that must not fire on a post documenting the syntax they look for.
 visible_text() { awk -f "$TESTDIR/strip-code.awk" "$1"; }
 
-# post_cats FILE -- the categories a post declares, read exactly the way
-# bin/index reads them. templates/meta.txt emits date|categories|title, so the
-# field this wants is in the middle; splitting on the first `|` alone would
-# silently fold the title into the last category. Kept here rather than
-# repeated per test file so the two stay in step.
-post_cats() {
-  local meta rest
-  meta=$(pandoc "$1" --template="$REPO_ROOT/templates/meta.txt" -t plain --wrap=none)
-  rest=${meta#*|}
-  printf '%s' "${rest%%|*}"
-}
-
 # make_in DIR ARGS... -- run make in DIR as a user would, not as a sub-make.
 #
 # When the suite is invoked through `make test`, MAKELEVEL and MAKEFLAGS are

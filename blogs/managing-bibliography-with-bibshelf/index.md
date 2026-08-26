@@ -3,7 +3,6 @@ title: Managing Bibliography with Bibshelf
 date: 2026-08-25
 abstract: |
     Shelve a paper or a book: fetch its bibtex, file its pdf, name it something you can find again.
-categories: [shell]
 ---
 
 After years of working with a cruddy shellscript,

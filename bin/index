@@ -5,24 +5,21 @@
 # Walks blogs/*/index.md once and writes, into build/:
 #   frag/<slug>.md   listing entry for a post (markdown)
 #   item/<slug>.xml  RSS item for a post (full content)
-#   meta/<slug>.yaml slug + pre-slugified category links, fed back to pandoc
+#   meta/<slug>.yaml slug + description + prev/next keys, fed back to pandoc
 #   order/<slug>     date|slug, concatenated and sorted into order.txt
-#   cats/<slug>      catslug|catname|postslug, concatenated into tagmap.txt
 #   title/<slug>     the post title, escaped for a YAML scalar; the driver
 #                    interpolates it into its neighbours' meta files
 #   blogs.md         the blog index page (intro + fragments, newest first)
 #   blogs.xml        the RSS feed
 #   sitemap.xml      the sitemap
-#   tags/<cat>.md    one page per category
-#   tags.md          the tag index (every category with its post count)
 #
 # Each post costs three pandoc invocations, so the per-post work runs in
 # parallel under xargs -P: the script re-invokes itself as `index --post
 # <path>` once per post. Workers share nothing and write only files named
-# after their own slug -- that is why the ordering and category data go to
-# order/<slug> and cats/<slug> rather than being appended to one file, which
-# would interleave under concurrency. The driver concatenates and sorts them
-# once the workers are done.
+# after their own slug -- that is why the ordering data goes to order/<slug>
+# rather than being appended to one file, which would interleave under
+# concurrency. The driver concatenates and sorts them once the workers are
+# done.
 #
 # Posts carry no `description:` field; Quarto's listing silently fell back to
 # `abstract:`, so templates/listing.md reads `abstract` directly.
@@ -43,46 +40,21 @@ rfc822() {
   fi
 }
 
-# "Machine Learning" -> "machine-learning"
-slugify() {
-  printf '%s' "$1" | tr '[:upper:]' '[:lower:]' |
-    sed -e 's/[^a-z0-9]\{1,\}/-/g' -e 's/^-//' -e 's/-$//'
-}
-
 # --- worker -------------------------------------------------------------
 # Render every per-post artefact for one post. Invoked by the driver's xargs.
 render_post() {
   local post=$1
-  local slug meta date rest cats title links desc c cslug
+  local slug meta date title desc
   slug=$(basename "$(dirname "$post")")
 
-  # One cheap pass to read date + categories + title out of the frontmatter.
-  # --wrap=none: the plain writer reflows at 72 columns, and the longest post
-  # titles are longer than that, which would split the last field across lines.
-  # Title comes last so a `|` in a title cannot corrupt the split.
+  # One cheap pass to read date + title out of the frontmatter. --wrap=none:
+  # the plain writer reflows at 72 columns, and the longest post titles are
+  # longer than that, which would split the last field across lines. Title
+  # comes last so a `|` in a title cannot corrupt the split.
   meta=$(pandoc "$post" --template=templates/meta.txt -t plain --wrap=none)
   date=${meta%%|*}
-  rest=${meta#*|}
-  cats=${rest%%|*}
-  title=${rest#*|}
+  title=${meta#*|}
   title=${title%$'\n'}
-
-  # Build the category links as markdown; pandoc escapes --metadata strings,
-  # but parses --metadata-file values as markdown, so they go through YAML.
-  links=""
-  : >"$BUILD/cats/$slug"
-  if [[ -n $cats ]]; then
-    local arr
-    IFS=',' read -ra arr <<<"$cats"
-    for c in "${arr[@]}"; do
-      c="${c#"${c%%[![:space:]]*}"}"; c="${c%"${c##*[![:space:]]}"}"
-      [[ -z $c ]] && continue
-      cslug=$(slugify "$c")
-      links+="[${c}](/blogs/tags/${cslug}.html), "
-      printf '%s|%s|%s\n' "$cslug" "$c" "$slug" >>"$BUILD/cats/$slug"
-    done
-    links=${links%, }
-  fi
 
   # A one-line, plain-text abstract for <meta name="description">. Pandoc
   # renders `description` to `description-meta` with markup stripped, which
@@ -97,8 +69,10 @@ render_post() {
     printf 'slug: "%s"\n' "$slug"
     printf 'pubdate: "%s"\n' "$(rfc822 "$date")"
     printf 'site-url: "%s"\n' "$SITEURL"
-    [[ -n $desc ]] && printf 'description: "%s"\n' "$desc"
-    [[ -n $links ]] && printf 'catlinks: "%s"\n' "${links//\"/\\\"}"
+    # An `if` rather than `[[ ... ]] &&`: this is the last command in the
+    # group, and under `set -e` a false test would take the whole redirection
+    # down with it on a post that has no abstract.
+    if [[ -n $desc ]]; then printf 'description: "%s"\n' "$desc"; fi
   } >"$BUILD/meta/$slug.yaml"
 
   # --wrap=none matters: the markdown writer would otherwise reflow long
@@ -148,10 +122,10 @@ fi
 TITLE=$(sed -n 's/^site-title: *"\(.*\)"/\1/p' site.yaml)
 DESC=$(sed -n 's/^description: *"\(.*\)"/\1/p' site.yaml)
 
-rm -rf "$BUILD"/frag "$BUILD"/item "$BUILD"/meta "$BUILD"/tags \
-       "$BUILD"/order "$BUILD"/cats "$BUILD"/title
-mkdir -p "$BUILD"/frag "$BUILD"/item "$BUILD"/meta "$BUILD"/tags \
-         "$BUILD"/order "$BUILD"/cats "$BUILD"/title
+rm -rf "$BUILD"/frag "$BUILD"/item "$BUILD"/meta \
+       "$BUILD"/order "$BUILD"/title
+mkdir -p "$BUILD"/frag "$BUILD"/item "$BUILD"/meta \
+         "$BUILD"/order "$BUILD"/title
 
 printf '%s' '$abstract$' >"$DESCTPL"
 
@@ -163,9 +137,7 @@ printf '%s\0' blogs/*/index.md |
   xargs -0 -n1 -P "$JOBS" "$0" --post
 
 ORDER=$BUILD/order.txt   # date|slug, one per post
-TAGMAP=$BUILD/tagmap.txt # catslug|catname|postslug
 cat "$BUILD"/order/* | sort -r >"$ORDER"
-cat "$BUILD"/cats/* | sort -u >"$TAGMAP"
 
 # --- prev/next navigation -----------------------------------------------
 # order.txt is newest-first, so the line above a post is its newer neighbour
@@ -199,30 +171,6 @@ while IFS='|' read -r _ slug; do
   cat "$BUILD/frag/$slug.md" >>"$BUILD/blogs.md"
 done <"$ORDER"
 
-# --- tags/<cat>.md ------------------------------------------------------
-cut -d'|' -f1,2 "$TAGMAP" | sort -u | while IFS='|' read -r cslug cname; do
-  printf -- '---\ntitle: "Posts tagged %s"\n---\n\n[All posts](/blogs.html) · [All tags](/blogs/tags/)\n' \
-    "$cname" >"$BUILD/tags/$cslug.md"
-  while IFS='|' read -r _ slug; do
-    if grep -qx "$cslug|$cname|$slug" "$TAGMAP"; then
-      printf '\n' >>"$BUILD/tags/$cslug.md"
-      cat "$BUILD/frag/$slug.md" >>"$BUILD/tags/$cslug.md"
-    fi
-  done <"$ORDER"
-done
-
-# --- tags.md ------------------------------------------------------------
-# The tag index: every category, alphabetical by display name, with the
-# number of posts filed under it. One awk pass over the tagmap counts them.
-cp pages/tags-intro.md "$BUILD/tags.md"
-printf '\n' >>"$BUILD/tags.md"
-awk -F'|' '{n[$1]++; name[$1]=$2}
-           END {for (s in n) printf "%s|%s|%d\n", s, name[s], n[s]}' "$TAGMAP" |
-  sort -f -t'|' -k2,2 |
-  while IFS='|' read -r cslug cname n; do
-    printf -- '- [%s](/blogs/tags/%s.html) (%s)\n' "$cname" "$cslug" "$n"
-  done >>"$BUILD/tags.md"
-
 # --- blogs.xml ----------------------------------------------------------
 {
   printf '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -241,21 +189,15 @@ awk -F'|' '{n[$1]++; name[$1]=$2}
 {
   printf '<?xml version="1.0" encoding="UTF-8"?>\n'
   printf '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-  for p in "" blogs.html talks.html publications.html resume.html license.html \
-           blogs/tags/; do
+  for p in "" blogs.html talks.html publications.html resume.html license.html; do
     printf '  <url><loc>%s/%s</loc></url>\n' "$SITEURL" "$p"
   done
   while IFS='|' read -r date slug; do
     printf '  <url><loc>%s/blogs/%s/</loc><lastmod>%s</lastmod></url>\n' \
       "$SITEURL" "$slug" "$date"
   done <"$ORDER"
-  cut -d'|' -f1 "$TAGMAP" | sort -u | while read -r cslug; do
-    printf '  <url><loc>%s/blogs/tags/%s.html</loc></url>\n' "$SITEURL" "$cslug"
-  done
   printf '</urlset>\n'
 } >"$BUILD/sitemap.xml"
 
-printf 'index: %s posts, %s categories (-P %s)\n' \
-  "$(wc -l <"$ORDER" | tr -d ' ')" \
-  "$(cut -d'|' -f1 "$TAGMAP" | sort -u | wc -l | tr -d ' ')" \
-  "$JOBS" >&2
+printf 'index: %s posts (-P %s)\n' \
+  "$(wc -l <"$ORDER" | tr -d ' ')" "$JOBS" >&2

@@ -2,9 +2,6 @@
 title: Visualisation Zoo
 abstract: Collection of data visualisations I have created using Python.
 date: 2024-03-17
-categories:
-  - python
-  - design
 ---
 
 This is a collection of data visualisations I have created in the past from prior research publications. The title of this post is inspired by the @heer2010tour paper.

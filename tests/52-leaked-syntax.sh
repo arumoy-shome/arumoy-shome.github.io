@@ -37,21 +37,17 @@ assert_eq "" "$(hits 'callout-(note|tip|warning|important|caution)')" "no callou
 # A literal $if(, $for( or $endif$ in the output means a template line was
 # emitted rather than evaluated.
 assert_eq "" "$(hits '\$(if|for|endif|endfor|sep)\(?')" "no pandoc template control syntax"
-for v in title body abstract date slug catlinks pubdate site-url description \
+for v in title body abstract date slug pubdate site-url description \
          postnav older-url older-title newer-url newer-title; do
   assert_eq "" "$(hits "\\\$$v\\\$")" "no unexpanded \$$v\$"
 done
 
 # --- escaped markdown ------------------------------------------------------
-# Category links go through --metadata-file precisely so they are parsed as
-# markdown. Passing them via --metadata yields \[shell\](...) in the output.
-listing_pages="$SITE/blogs.html $(find "$SITE/blogs/tags" -name '*.html' | tr '\n' ' ')"
-assert_eq "" "$(grep -rnE '\\\[|\\\]|\\\*' $listing_pages 2>/dev/null | sed "s#^$SITE/##" | head -5)" \
-  "no backslash-escaped markdown in the listing and tag pages"
-
-# Category links must be real anchors.
-assert_match "$(cat "$SITE/blogs.html")" 'href="/blogs/tags/[a-z0-9-]+\.html"' \
-  "category links are rendered as anchors"
+# blogs.html is assembled from markdown fragments, so post abstracts get a real
+# markdown parse on the second pass. A backslash-escaped bracket here is the
+# signature of a value that reached pandoc as an escaped string instead.
+assert_eq "" "$(grep -nE '\\\[|\\\]|\\\*' "$SITE/blogs.html" | head -5)" \
+  "no backslash-escaped markdown in the listing page"
 
 # --- the markdown intermediate did its job --------------------------------
 # talks.yaml contains inline markdown. The two-stage pipeline exists so it

@@ -7,7 +7,6 @@ abstract: |
     html pages. All powered by a sane file naming convension, plaintext
     documents writing in markdown and exported to html using pandoc and
     other unix cli tools.
-categories: [shell, web]
 ---
 
 > **Important — Migrated to Quarto**

@@ -3,7 +3,6 @@ title: Timestamps in the Shell (today)
 date: 2022-03-03
 abstract: |
     Creating timestamps in the terminal.
-categories: [shell, productivity]
 ---
 
 I often work with text files containing pros (such as blog posts and

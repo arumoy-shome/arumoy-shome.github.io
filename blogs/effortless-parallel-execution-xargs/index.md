@@ -8,7 +8,6 @@ abstract: |
     public datasets from [Kaggle](https://kaggle.com/) to generate a
     baseline schema file for further analysis. I chose to do this using
     the xargs unix command.
-categories: [shell]
 ---
 
 Recently, I had to run [Tensorflow Data

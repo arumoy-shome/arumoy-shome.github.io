@@ -4,7 +4,6 @@ date: 2024-11-28
 abstract: |
     `rename` is a bash script I wrote to automatically rename long files
     (the way I like it).
-categories: [shell, python]
 ---
 
 Often I need to work with files that have really long and obscure

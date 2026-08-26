@@ -5,7 +5,6 @@ abstract: |
     An abstract containing [a markdown link](https://example.org/alpha) and
     some *emphasis*, so that the listing fragment and the plain-text
     description can be told apart.
-categories: ["Machine Learning", "shell"]
 ---
 
 Body text for alpha.

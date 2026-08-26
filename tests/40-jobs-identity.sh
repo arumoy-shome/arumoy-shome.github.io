@@ -3,10 +3,10 @@
 #
 # bin/index re-invokes itself once per post under `xargs -P`, so each post's
 # three pandoc calls run concurrently. Safety rests on one unenforced rule: a
-# worker writes only files named after its own slug. Ordering and category
-# data go to build/order/<slug> and build/cats/<slug> rather than being
-# appended to a shared file, because concurrent appends would interleave and
-# silently corrupt the index, the feed and every tag page at once.
+# worker writes only files named after its own slug. Ordering data goes to
+# build/order/<slug> rather than being appended to a shared file, because
+# concurrent appends would interleave and silently corrupt the index and the
+# feed at once.
 #
 # CLAUDE.md names this the first thing to check when JOBS=1 and JOBS=N ever
 # diverge. Races are intermittent, so each comparison runs several times.
@@ -51,11 +51,11 @@ fi
 # If per-post work ever starts writing to a shared path, the diffs above go
 # intermittent rather than red. Assert the file layout directly: everything a
 # worker writes is named after its slug.
-for d in frag item meta order cats; do
+for d in frag item meta order title; do
   assert_dir "$TMP/real-j1/$d" "build/$d exists"
 done
 slugs=$(cd "$TMP/repo/blogs" && ls -d */ | sed 's#/##' | sort)
-for d in order cats; do
+for d in order title; do
   got=$(cd "$TMP/real-j1/$d" && ls | sort)
   assert_eq "$slugs" "$got" "build/$d holds exactly one slug-named file per post"
 done

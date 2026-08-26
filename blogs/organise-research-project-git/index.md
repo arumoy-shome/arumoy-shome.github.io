@@ -4,7 +4,6 @@ date: 2024-01-19
 abstract: |
     Some standards and conventions I follow when organising research
     project data using git.
-categories: [research, productivity]
 ---
 
 In this post I list some of the standards and conventions I have

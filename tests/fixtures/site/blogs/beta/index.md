@@ -9,7 +9,6 @@ abstract: |
     pandoc's plain writer — unlike a quote in prose, which smart punctuation
     turns into a curly one — and so must be escaped before they are written
     into a double-quoted YAML scalar.
-categories: [productivity]
 ---
 
 Body text for beta. This post has no `description:` field in its frontmatter,

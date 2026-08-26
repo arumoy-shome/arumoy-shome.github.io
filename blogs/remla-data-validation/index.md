@@ -10,7 +10,6 @@ abstract: |
     Data Validation](https://github.com/tensorflow/data-validation),
     instructions & code for which can be found on [this github
     repo](https://github.com/arumoy-shome/remla).
-categories: [data, research, SE4AI]
 ---
 
 > **Note**

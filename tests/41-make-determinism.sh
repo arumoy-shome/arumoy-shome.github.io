@@ -54,31 +54,21 @@ for i in 1 2; do
   assert_eq "" "$out" "no-op make is still silent (run $((i + 1)))"
 done
 
-# `make -q` cannot report 0 here, and that is a property of the design rather
-# than a bug: category pages are only discoverable after bin/index has run, so
-# `tags` is a .PHONY target and a phony prerequisite always counts as out of
-# date. The cost is real though — see below.
+# `make -q` still cannot report 0, but no longer for the old reason. Category
+# pages were discoverable only after bin/index had run, so they sat behind a
+# .PHONY `tags` target, and a phony prerequisite always counts as out of date.
+# That is gone; what remains is that `all` is itself phony and carries the `@:`
+# recipe that keeps a no-op build silent, and make always counts a phony target
+# with a recipe as out of date.
 make_in "$W" -q >/dev/null 2>&1
-assert_ne "0" "$?" "make -q reports work to do, because tags is phony"
+assert_ne "0" "$?" "make -q reports work to do, because all is phony"
 
-# What that phony target actually costs: every no-op build re-renders every
-# category page. It is silent, so it looks free, but it is one pandoc call per
-# category. Pinned here so the cost is visible and a fix would show up as a
-# failing assertion rather than going unnoticed.
+# The difference the tag removal makes: a no-op build now re-renders *nothing*.
+# It used to spend one pandoc call per category, silently, on every build.
 : >"$TMP/stamp"
 make_in "$W" >/dev/null 2>&1
-# index.html under tags/ is a real target, not part of the phony loop.
-rerendered=$(find "$W/_site/blogs/tags" -name '*.html' ! -name index.html \
-  -newer "$TMP/stamp" | wc -l | tr -d ' ')
-n_cats=$(find "$W/_site/blogs/tags" -name '*.html' ! -name index.html | wc -l | tr -d ' ')
-assert_eq "$n_cats" "$rerendered" "every category page is re-rendered on a no-op build ($n_cats of them)"
-
-# Pages that are NOT behind the phony target stay untouched, which is the
-# control showing the rest of the graph is wired correctly.
-untouched=$(find "$W/_site" -maxdepth 1 -name '*.html' -newer "$TMP/stamp" | wc -l | tr -d ' ')
-assert_eq "0" "$untouched" "top-level pages are not rebuilt by a no-op make"
-assert_no_file_newer "$W/_site/blogs/tags/index.html" "$TMP/stamp" \
-  "the tag index has a real rule and is not re-rendered"
+rerendered=$(find "$W/_site" -name '*.html' -newer "$TMP/stamp" | wc -l | tr -d ' ')
+assert_eq "0" "$rerendered" "a no-op build re-renders no page at all"
 
 # --- clean really cleans ---------------------------------------------------
 make_in "$W" clean >/dev/null 2>&1

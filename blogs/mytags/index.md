@@ -4,7 +4,6 @@ date: 2024-11-17
 abstract: |
     `mytags` is a wrapper around `ctags` which respects your gitignore
     files.
-categories: [shell]
 ---
 
 Often while working on remote servers where I don't have permissions to

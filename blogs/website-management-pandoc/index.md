@@ -3,7 +3,6 @@ title: There and Back Again A Tale of Website Management
 date: 2022-03-04
 abstract: |
     Managing websites using markdown, shell and vim.
-categories: [shell, vim, web]
 ---
 
 After years of using [orgmode](https://orgmode.org) along with the

@@ -114,5 +114,5 @@ $slug"*) ;;
     *) bad_post_link="$bad_post_link $slug" ;;
   esac
 done < <(grep -rhoE 'href="(\.\./|/blogs/)[a-z0-9-]+/?"' "$SITE" --include='*.html' \
-  | sed -E 's#href="(\.\./|/blogs/)##; s#/?"$##' | grep -vx tags | sort -u)
+  | sed -E 's#href="(\.\./|/blogs/)##; s#/?"$##' | sort -u)
 assert_eq "" "$bad_post_link" "no link points at a post directory that does not exist"

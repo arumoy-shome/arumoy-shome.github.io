@@ -104,7 +104,6 @@ note "$n_toc of 18 posts have a table of contents"
 post=$SITE/blogs/research-workflow-plaintext/index.html
 assert_contains "$(cat "$post")" 'role="doc-toc"' "a post with headings carries a TOC"
 assert_contains "$(cat "$post")" '<meta name="author" content="Arumoy Shome"' "a post carries an author"
-assert_contains "$(cat "$SITE/blogs/aims/index.html")" 'href="/blogs/tags/' "a post links its categories"
 
 assert_not_contains "$(cat "$SITE/license.html")" 'role="doc-toc"' "a plain page has no TOC"
 
@@ -113,12 +112,8 @@ assert_not_contains "$(cat "$SITE/license.html")" 'role="doc-toc"' "a plain page
 # supplies, so it must appear on every post and nowhere else. In a corpus of
 # n posts exactly one page -- the oldest -- has no older link, and exactly one
 # -- the newest -- has no newer link.
-#
-# blogs/*/index.html also matches blogs/tags/index.html, which is a generated
-# listing rather than a post; it must be skipped, not counted.
 n_posts=0; n_nav=0; no_older=""; no_newer=""; multi=""
 for p in "$SITE"/blogs/*/index.html; do
-  [[ $p == "$SITE"/blogs/tags/index.html ]] && continue
   n_posts=$((n_posts + 1))
   slug=$(basename "$(dirname "$p")")
   c=$(grep -c '<nav class="post-nav"' "$p")
@@ -137,7 +132,7 @@ assert_eq " $(head -1 "$REPO_ROOT/build/order.txt" | cut -d'|' -f2)" "$no_newer"
   "only the newest post lacks a newer link"
 
 # Listing pages share templates/page.html but must never get the bar.
-for p in blogs.html index.html license.html blogs/tags/shell.html blogs/tags/index.html; do
+for p in blogs.html index.html license.html talks.html publications.html; do
   assert_not_contains "$(cat "$SITE/$p")" 'class="post-nav"' "$p has no post navigation"
 done
 

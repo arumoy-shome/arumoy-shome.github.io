@@ -2,7 +2,6 @@
 title: Extracting the Module and Function Names from Python ASTs
 date: 2024-03-23
 abstract: How to extract the module and function name from Python Abstract Syntax Trees.
-categories: ["python"]
 ---
 
 # Preliminaries: Python `ast` module
