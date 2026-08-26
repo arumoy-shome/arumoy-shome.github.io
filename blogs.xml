@@ -7,6 +7,15 @@
   <language>en</language>
   <atom:link href="https://arumoy.me/blogs.xml" rel="self" type="application/rss+xml"/>
 <item>
+  <title>TU Delft Dissertation Template in Typst</title>
+  <link>https://arumoy.me/blogs/tu-delft-dissertation-template-in-typst/</link>
+  <guid isPermaLink="true">https://arumoy.me/blogs/tu-delft-dissertation-template-in-typst/</guid>
+  <pubDate>Wed, 26 Aug 2026 00:00:00 +0000</pubDate>
+  <description><![CDATA[<p>I have released my <a
+href="https://github.com/arumoy-shome/tudelft-dissertation">PhD
+dissertation template</a> which I wrote in Typst.</p>]]></description>
+</item>
+<item>
   <title>Managing Bibliography with Bibshelf</title>
   <link>https://arumoy.me/blogs/managing-bibliography-with-bibshelf/</link>
   <guid isPermaLink="true">https://arumoy.me/blogs/managing-bibliography-with-bibshelf/</guid>
