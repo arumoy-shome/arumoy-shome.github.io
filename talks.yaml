@@ -1,4 +1,12 @@
 talks:
+  - title: "Characterizing Feedback Statements in ML Jupyter Notebooks"
+    date: 2026-10-09
+    abstract: |
+      Paper presentation at **[International Symposium on Empirical Software Engineering and Measurement (ESEM) 2026](https://conf.researchr.org/home/eseiw-2026)**
+  - title: "It Comes in Notebooks: Changes and Challenges of Operationalizing ML Prototypes"
+    date: 2026-09-18
+    abstract: |
+      Paper presentation at **[International Conference on Software Maintenance and Evolution (ICSME) 2026](https://conf.researchr.org/home/icsme-2026)**
   - title: "Data vs. Model Fairness Testing: An Empirical Study"
     date: 2024-04-20
     abstract: |
@@ -19,7 +27,6 @@ talks:
     date: 2023-05-15
     abstract: |
       Poster presentation at **[International Conference on AI Engineering (CAIN) 2023](https://conf.researchr.org/home/cain-2023)**.
-
   - title: "Data Validation with TFDV"
     date: 2022-05-16
     abstract: |
