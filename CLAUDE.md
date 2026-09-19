@@ -8,12 +8,6 @@ The source for <https://arumoy.me>, a personal site built by a hand-rolled stati
 generator: **pandoc + GNU make + POSIX shell**. There is no framework, no npm, no
 Python dependency in the build, and no client-side JavaScript in the output.
 
-The site was migrated off Quarto. Quarto-specific syntax (`::: {.callout-*}`,
-`@fig-` cross references, `filename=` code-fence attributes, executable
-```` ```{python} ```` cells) has been deliberately removed from the content and
-**must not be reintroduced** — nothing in the build understands it, and it will
-render as literal text.
-
 ## Commands
 
 ```sh
